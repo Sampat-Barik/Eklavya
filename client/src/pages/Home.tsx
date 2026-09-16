@@ -1,228 +1,270 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Heart, Quote, ArrowUpRight, Sparkles, Users } from 'lucide-react';
-import { ImageWithFallback } from '../components/ImageWithFallback';
+import { BookOpen, Heart, Quote, Sparkles, Users, ArrowRight } from 'lucide-react';
 
 export const Home: React.FC = () => {
   return (
-    <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-12 py-4 pb-16">
-      {/* Exact Dribbble "Enamo" Style Hero Card */}
-      <div className="relative rounded-[36px] md:rounded-[44px] overflow-hidden min-h-[580px] md:min-h-[640px] flex flex-col justify-between p-6 md:p-12 shadow-2xl border border-slate-200/50">
-        {/* Background Image with Vignette & Fog Overlay */}
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 hover:scale-105"
-          style={{ backgroundImage: `url('/eklavya_hero_bg.jpg')` }}
-        />
-        {/* Deep atmospheric overlay matching nature reference design */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/75 backdrop-brightness-95" />
+    <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-16 py-6 pb-20">
+      {/* Editorial Bold Split Hero Banner */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-white border border-slate-200/90 rounded-[36px] p-8 md:p-14 shadow-sm relative overflow-hidden">
+        {/* Subtle background ambient accent */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-amber-100/60 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Top Floating Badge Bar inside Hero */}
-        <div className="relative z-10 flex items-center justify-between">
-          <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 text-white px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide">
-            <Sparkles size={14} className="text-amber-300" />
+        {/* Left Column: Bold Typography & Actions */}
+        <div className="lg:col-span-6 space-y-6 relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-50 border border-amber-200/80 text-amber-900 rounded-full text-xs font-bold uppercase tracking-wider">
+            <Sparkles size={14} className="text-amber-600" />
             <span>Socio-Animal Welfare Society • HIT Haldia</span>
           </div>
 
-          <Link
-            to="/donate"
-            className="hidden sm:flex items-center gap-1.5 bg-[#0e0e0e] hover:bg-black text-white px-5 py-2 rounded-full text-xs font-semibold tracking-wide border border-white/20 shadow-lg transition-transform hover:scale-105"
-          >
-            <span>Contact Us</span>
-            <ArrowUpRight size={14} />
-          </Link>
-        </div>
-
-        {/* Centered Main Hero Title & Call to Actions */}
-        <div className="relative z-10 my-auto text-center space-y-6 max-w-4xl mx-auto py-10">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] drop-shadow-md">
-            Nurturing Minds,<br />
-            Restoring the Future
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-extrabold text-[#111317] tracking-tight leading-[1.06]">
+            <span className="italic font-normal text-amber-800">Nurturing</span> Minds,<br />
+            Restoring Hope.
           </h1>
 
-          <p className="text-slate-100/90 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-normal leading-relaxed drop-shadow">
+          <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-xl font-normal">
             Marching forward with the thirst of providing free primary education to needy children in underprivileged areas & compassionate medical care to stray animals in Haldia.
           </p>
 
-          {/* Dual Pill Action Buttons - Exact Dribbble Layout */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center gap-4 pt-2">
             <Link
               to="/register"
-              className="bg-[#0e0e0e] hover:bg-black text-white px-8 py-3.5 rounded-full text-sm font-semibold shadow-2xl transition-all hover:scale-105 flex items-center gap-2 border border-white/10"
+              className="bg-[#111317] hover:bg-black text-white px-8 py-4 rounded-full text-sm font-bold shadow-xl transition-all hover:scale-105 flex items-center gap-2"
             >
               <span>Join The Mission</span>
+              <ArrowRight size={16} />
             </Link>
 
             <Link
               to="/donate"
-              className="bg-white/25 hover:bg-white/35 backdrop-blur-md text-white border border-white/40 px-8 py-3.5 rounded-full text-sm font-semibold transition-all hover:bg-white/40 shadow-lg flex items-center gap-2"
+              className="border-2 border-[#111317] hover:bg-[#111317] hover:text-white text-[#111317] px-8 py-4 rounded-full text-sm font-extrabold transition-all flex items-center gap-2 shadow-sm"
             >
-              <Heart size={16} className="fill-rose-400 text-rose-400" />
+              <Heart size={16} className="fill-current text-rose-500" />
               <span>Donate Now</span>
             </Link>
           </div>
+
+          {/* Quick Metrics Bar */}
+          <div className="grid grid-cols-2 gap-4 pt-6 border-t border-slate-100">
+            <div className="space-y-0.5">
+              <span className="text-2xl font-serif font-extrabold text-[#111317]">150+</span>
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wide">Children Educated Daily</p>
+            </div>
+            <div className="space-y-0.5">
+              <span className="text-2xl font-serif font-extrabold text-[#111317]">60+</span>
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wide">HIT Student Volunteers</p>
+            </div>
+          </div>
         </div>
 
-        {/* Bottom Hero Subtle Tagline */}
-        <div className="relative z-10 text-center text-xs font-medium text-white/70 tracking-wider uppercase">
-          ✦ Haldia Institute of Technology • Student-Led Non-Profit Society ✦
+        {/* Right Column: Authentic Photography Hero Frame */}
+        <div className="lg:col-span-6 relative z-10">
+          <div className="relative rounded-[28px] overflow-hidden border-4 border-slate-100 shadow-2xl group">
+            <img
+              src="/eklavya_human_hero.jpg"
+              alt="Eklavya Outdoor Evening Class in Village"
+              className="w-full h-[420px] md:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            {/* Subtle Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10" />
+
+            {/* Photo Caption Badge */}
+            <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200/80 shadow-lg flex items-center justify-between">
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-extrabold text-amber-800 uppercase tracking-wider block">
+                  ✦ Authentic Field Drive
+                </span>
+                <p className="text-xs font-bold text-slate-900">
+                  Evening School Session under Banyan Tree, Haldia
+                </p>
+              </div>
+              <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 shrink-0">
+                Active Drive
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Intro Heading Section - "Hey Everyone 👋" Dribbble Aesthetic */}
-      <div className="enamo-card p-8 md:p-12 space-y-4">
-        <div className="flex items-center gap-2">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-950 tracking-tight">
-            Hey Everyone 👋
-          </h2>
+      {/* Intro Mission Statement Card - "Hey Everyone 👋" */}
+      <div className="editorial-card p-8 md:p-14 space-y-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-6">
+          <div className="space-y-2">
+            <span className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">ABOUT OUR SOCIETY</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-extrabold text-[#111317]">
+              Hey Everyone 👋
+            </h2>
+          </div>
+          <p className="text-xs text-slate-500 font-bold max-w-sm">
+            Student-Led Non-Profit Society • Haldia Institute of Technology
+          </p>
         </div>
-        <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-4xl font-normal">
-          Eklavya is a dedicated social welfare society operating under Haldia Institute of Technology. Our student volunteers unite with a passionate mission: to bring quality primary education to children in surrounding underprivileged villages while actively protecting, feeding, and providing emergency medical treatment to stray animals across Haldia.
+
+        <p className="text-slate-700 text-base md:text-lg leading-relaxed max-w-4xl font-normal">
+          Eklavya is a social welfare society founded and driven by students of Haldia Institute of Technology. Our members unite with a dual commitment: delivering free primary education to children in surrounding rural villages and providing emergency care, vaccinations, and daily feeding to stray animals across Haldia.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-          <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200/60">
-            <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+            <div className="w-10 h-10 rounded-full bg-[#111317] text-white flex items-center justify-center font-bold">
               <BookOpen size={20} />
             </div>
-            <div>
-              <h4 className="font-bold text-sm text-slate-900">Daily Free Classes</h4>
-              <p className="text-xs text-slate-500">Evening schools for village kids</p>
-            </div>
+            <h4 className="font-extrabold text-base text-[#111317]">Free Primary Education</h4>
+            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+              Daily evening classes teaching Math, Science, and English to underprivileged village children.
+            </p>
           </div>
 
-          <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200/60">
-            <div className="w-10 h-10 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center shrink-0">
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+            <div className="w-10 h-10 rounded-full bg-[#111317] text-white flex items-center justify-center font-bold">
               <Heart size={20} />
             </div>
-            <div>
-              <h4 className="font-bold text-sm text-slate-900">Animal Healthcare</h4>
-              <p className="text-xs text-slate-500">Vaccinations & feeding drives</p>
-            </div>
+            <h4 className="font-extrabold text-base text-[#111317]">Stray Animal Welfare</h4>
+            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+              Medical first-aid, anti-rabies vaccination drives, and campus animal feeding squads.
+            </p>
           </div>
 
-          <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200/60">
-            <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+            <div className="w-10 h-10 rounded-full bg-[#111317] text-white flex items-center justify-center font-bold">
               <Users size={20} />
             </div>
-            <div>
-              <h4 className="font-bold text-sm text-slate-900">HIT Volunteers</h4>
-              <p className="text-xs text-slate-500">Student led student driven</p>
-            </div>
+            <h4 className="font-extrabold text-base text-[#111317]">Volunteer Leadership</h4>
+            <p className="text-xs text-slate-600 leading-relaxed font-normal">
+              Nurturing student leadership, social responsibility, and engineering talent for social good.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Quote Card */}
-      <div className="bg-slate-900 text-white rounded-[32px] p-8 md:p-10 flex items-start gap-4 shadow-xl">
-        <Quote className="text-amber-400 shrink-0 mt-1" size={32} />
-        <div className="space-y-2">
-          <p className="text-slate-100 text-base md:text-xl font-medium leading-relaxed italic">
+      {/* Quote Banner */}
+      <div className="bg-[#111317] text-white rounded-[32px] p-8 md:p-12 flex items-start gap-6 shadow-xl">
+        <Quote className="text-amber-400 shrink-0 mt-1" size={36} />
+        <div className="space-y-3">
+          <p className="font-serif text-lg md:text-2xl font-normal leading-relaxed italic text-slate-100">
             "A Social Welfare society of Haldia Institute of Technology, marching forward with the thirst of providing free primary education to needy children in underprivileged areas."
           </p>
-          <div className="text-xs font-semibold text-slate-400 uppercase tracking-widest pt-1">
-            — Eklavya Executive Team • HIT Haldia
+          <div className="text-xs font-bold text-slate-400 uppercase tracking-widest pt-1">
+            — Eklavya Executive Society • HIT Haldia
           </div>
         </div>
       </div>
 
-      {/* Our Key Initiatives Grid */}
-      <div className="space-y-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      {/* Key Initiatives Grid with Authentic Photos */}
+      <div className="space-y-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">What We Do</span>
-            <h2 className="text-3xl font-extrabold text-slate-950 tracking-tight">Our Key Initiatives</h2>
+            <span className="text-xs font-extrabold uppercase tracking-widest text-slate-400">WHAT WE DO</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-extrabold text-[#111317]">
+              Our Core Initiatives
+            </h2>
           </div>
-          <p className="text-xs text-slate-500 max-w-md">
-            Empowering underprivileged children through education and protecting stray animals in Haldia
+          <p className="text-xs text-slate-500 font-bold max-w-md">
+            Direct ground impact serving education and animal protection across Haldia
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Free Education Card */}
-          <div className="enamo-card p-8 space-y-6 flex flex-col justify-between">
+          {/* Initiative 1: Education */}
+          <div className="editorial-card p-8 space-y-6 flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold">
-                <BookOpen size={24} />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-amber-50 text-amber-900 border border-amber-200 rounded-full text-xs font-bold uppercase">
+                <BookOpen size={14} />
+                <span>Primary Education</span>
               </div>
-              <h3 className="text-2xl font-extrabold text-slate-950">Free Primary Education</h3>
+              <h3 className="text-2xl font-serif font-extrabold text-[#111317]">
+                Free Daily Evening Schools
+              </h3>
               <p className="text-slate-600 text-sm leading-relaxed font-normal">
-                We conduct free daily evening school classes for underprivileged children near Haldia. Student volunteers teach Mathematics, English, Science, and distribute free notebooks, books, and stationery items.
+                We conduct free daily evening school classes for underprivileged children living near Haldia. Student volunteers teach Mathematics, English, Science, and distribute notebooks, stationary, and study materials.
               </p>
             </div>
-            <ImageWithFallback
-              alt="Free Education Drive"
-              fallbackType="banner"
-              className="h-52 w-full rounded-[24px] object-cover shadow-sm"
-            />
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm h-60">
+              <img
+                src="/eklavya_human_hero.jpg"
+                alt="Free Primary Education Drive"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
           </div>
 
-          {/* Animal Welfare Card */}
-          <div className="enamo-card p-8 space-y-6 flex flex-col justify-between">
+          {/* Initiative 2: Animal Welfare */}
+          <div className="editorial-card p-8 space-y-6 flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold">
-                <Heart size={24} />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-rose-50 text-rose-900 border border-rose-200 rounded-full text-xs font-bold uppercase">
+                <Heart size={14} />
+                <span>Animal Welfare</span>
               </div>
-              <h3 className="text-2xl font-extrabold text-slate-950">Animal Care & Rescue</h3>
+              <h3 className="text-2xl font-serif font-extrabold text-[#111317]">
+                Animal Rescue & Feeding
+              </h3>
               <p className="text-slate-600 text-sm leading-relaxed font-normal">
-                Our active animal welfare team responds to distress calls around Haldia Campus, providing medical treatment, anti-rabies vaccinations, emergency first-aid, and regular feeding drives for stray animals.
+                Our active animal welfare team responds to distress calls around Haldia Campus, providing medical treatment, anti-rabies vaccinations, emergency first-aid, and daily feeding drives for stray animals.
               </p>
             </div>
-            <ImageWithFallback
-              alt="Animal Care Rescue Drive"
-              fallbackType="banner"
-              className="h-52 w-full rounded-[24px] object-cover shadow-sm"
-            />
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm h-60">
+              <img
+                src="/eklavya_animal_care.jpg"
+                alt="Animal Rescue and Feeding Drive"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Our Impact Stats Cards */}
-      <div className="space-y-6">
-        <div className="text-center space-y-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Our Reach</span>
-          <h2 className="text-3xl font-extrabold text-slate-950">Our Community Impact</h2>
-          <p className="text-xs text-slate-500">Measuring our service reach across HIT Campus and local Haldia communities</p>
+      {/* Impact Statistics */}
+      <div className="bg-[#111317] text-white rounded-[36px] p-10 md:p-16 space-y-8 shadow-2xl">
+        <div className="text-center space-y-2 max-w-xl mx-auto">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-slate-400">OUR IMPACT IN NUMBERS</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-extrabold">Measuring Our Reach</h2>
+          <p className="text-slate-300 text-xs md:text-sm font-normal">
+            Continuous service reach across HIT Campus and local Haldia communities
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="enamo-card p-6 text-center space-y-2">
-            <div className="text-4xl md:text-5xl font-extrabold text-slate-950">150+</div>
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wide">Children Educated</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4">
+          <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center space-y-1">
+            <div className="text-4xl md:text-5xl font-serif font-extrabold text-amber-300">150+</div>
+            <div className="text-xs font-bold text-slate-300 uppercase tracking-wide">Children Educated</div>
           </div>
 
-          <div className="enamo-card p-6 text-center space-y-2">
-            <div className="text-4xl md:text-5xl font-extrabold text-slate-950">60+</div>
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wide">HIT Student Volunteers</div>
+          <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center space-y-1">
+            <div className="text-4xl md:text-5xl font-serif font-extrabold text-amber-300">60+</div>
+            <div className="text-xs font-bold text-slate-300 uppercase tracking-wide">HIT Volunteers</div>
           </div>
 
-          <div className="enamo-card p-6 text-center space-y-2">
-            <div className="text-4xl md:text-5xl font-extrabold text-slate-950">25+</div>
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wide">Community Drives</div>
+          <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center space-y-1">
+            <div className="text-4xl md:text-5xl font-serif font-extrabold text-amber-300">25+</div>
+            <div className="text-xs font-bold text-slate-300 uppercase tracking-wide">Community Drives</div>
           </div>
 
-          <div className="enamo-card p-6 text-center space-y-2">
-            <div className="text-4xl md:text-5xl font-extrabold text-slate-950">50+</div>
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wide">Stray Animals Rescued</div>
+          <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-center space-y-1">
+            <div className="text-4xl md:text-5xl font-serif font-extrabold text-amber-300">50+</div>
+            <div className="text-xs font-bold text-slate-300 uppercase tracking-wide">Animals Rescued</div>
           </div>
         </div>
       </div>
 
-      {/* Call to Action Banner */}
-      <div className="enamo-card p-8 md:p-12 text-center space-y-6 bg-gradient-to-r from-slate-900 to-slate-950 text-white">
-        <h3 className="text-3xl md:text-4xl font-extrabold">Ready to make a difference?</h3>
-        <p className="text-slate-300 text-sm md:text-base max-w-xl mx-auto">
-          Join our team of HIT Haldia student volunteers or contribute to our education and animal welfare fund today.
+      {/* Action Banner */}
+      <div className="editorial-card p-10 md:p-14 text-center space-y-6">
+        <h3 className="text-3xl md:text-4xl font-serif font-extrabold text-[#111317]">
+          Ready to make a meaningful impact?
+        </h3>
+        <p className="text-slate-600 text-sm md:text-base max-w-xl mx-auto font-normal">
+          Become a student volunteer or contribute to our education and animal welfare drives today.
         </p>
         <div className="flex flex-wrap justify-center gap-4 pt-2">
           <Link
             to="/register"
-            className="bg-white hover:bg-slate-100 text-slate-950 px-8 py-3.5 rounded-full text-sm font-bold shadow-lg transition-transform hover:scale-105"
+            className="bg-[#111317] hover:bg-black text-white px-8 py-4 rounded-full text-sm font-bold shadow-xl transition-all hover:scale-105"
           >
             Become a Volunteer
           </Link>
           <Link
             to="/donate"
-            className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-8 py-3.5 rounded-full text-sm font-semibold transition-colors"
+            className="border-2 border-[#111317] text-[#111317] hover:bg-[#111317] hover:text-white px-8 py-4 rounded-full text-sm font-bold transition-all"
           >
             Donate to Eklavya
           </Link>

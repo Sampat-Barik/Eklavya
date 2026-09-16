@@ -4,15 +4,15 @@ import { Mail, MapPin, ArrowUpRight } from 'lucide-react';
 export const Footer = () => {
   return (
     <footer className="mt-16 max-w-[1400px] mx-auto px-4 md:px-8 pb-12 w-full">
-      <div className="enamo-card p-8 md:p-12 space-y-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="editorial-card p-8 md:p-14 space-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand Info */}
           <div className="space-y-4 md:col-span-1">
-            <div className="flex items-center gap-2 font-bold text-2xl text-slate-950">
-              <div className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm font-black">
-                @
+            <div className="flex items-center gap-2 font-serif font-extrabold text-2xl text-[#111317]">
+              <div className="w-8 h-8 rounded-xl bg-[#111317] text-white flex items-center justify-center text-sm font-sans font-bold">
+                E
               </div>
-              <span className="tracking-tight">eklavya</span>
+              <span className="tracking-tight">Eklavya</span>
             </div>
             <p className="text-slate-600 text-xs font-normal leading-relaxed">
               A Socio-Animal Welfare society of Haldia Institute of Technology, marching forward with the thirst of providing free primary education to needy children in underprivileged areas and rescuing stray animals.
@@ -54,27 +54,21 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Navigation */}
           <div className="space-y-3">
-            <h3 className="text-slate-950 font-bold text-sm uppercase tracking-wider">Navigation</h3>
-            <ul className="space-y-2 text-xs font-semibold text-slate-600">
+            <h3 className="text-[#111317] font-extrabold text-xs uppercase tracking-widest">Navigation</h3>
+            <ul className="space-y-2.5 text-xs font-semibold text-slate-600">
               <li>
-                <Link to="/" className="hover:text-slate-950 transition-colors flex items-center gap-1">
-                  <span>Home</span>
-                </Link>
+                <Link to="/" className="hover:text-[#111317] transition-colors">Home</Link>
               </li>
               <li>
-                <Link to="/vision" className="hover:text-slate-950 transition-colors flex items-center gap-1">
-                  <span>Vision & Mission</span>
-                </Link>
+                <Link to="/vision" className="hover:text-[#111317] transition-colors">Vision & Mission</Link>
               </li>
               <li>
-                <Link to="/events" className="hover:text-slate-950 transition-colors flex items-center gap-1">
-                  <span>Upcoming Events</span>
-                </Link>
+                <Link to="/events" className="hover:text-[#111317] transition-colors">Upcoming Events</Link>
               </li>
               <li>
-                <Link to="/donate" className="hover:text-slate-950 transition-colors flex items-center gap-1">
+                <Link to="/donate" className="hover:text-[#111317] transition-colors flex items-center gap-1">
                   <span>Donate Us</span>
                   <ArrowUpRight size={12} />
                 </Link>
@@ -84,31 +78,31 @@ export const Footer = () => {
 
           {/* Community */}
           <div className="space-y-3">
-            <h3 className="text-slate-950 font-bold text-sm uppercase tracking-wider">Community</h3>
-            <ul className="space-y-2 text-xs font-semibold text-slate-600">
+            <h3 className="text-[#111317] font-extrabold text-xs uppercase tracking-widest">Community</h3>
+            <ul className="space-y-2.5 text-xs font-semibold text-slate-600">
               <li>
-                <Link to="/faculty" className="hover:text-slate-950 transition-colors">Faculty Co-ordinator</Link>
+                <Link to="/faculty" className="hover:text-[#111317] transition-colors">Faculty Co-ordinator</Link>
               </li>
               <li>
-                <Link to="/members" className="hover:text-slate-950 transition-colors">Our Team & Members</Link>
+                <Link to="/members" className="hover:text-[#111317] transition-colors">Our Team & Members</Link>
               </li>
               <li>
-                <Link to="/alumni" className="hover:text-slate-950 transition-colors">Esteemed Alumni</Link>
+                <Link to="/alumni" className="hover:text-[#111317] transition-colors">Esteemed Alumni</Link>
               </li>
             </ul>
           </div>
 
           {/* Contact Details */}
           <div className="space-y-3">
-            <h3 className="text-slate-950 font-bold text-sm uppercase tracking-wider">Contact Us</h3>
+            <h3 className="text-[#111317] font-extrabold text-xs uppercase tracking-widest">Contact Us</h3>
             <div className="space-y-2.5 text-xs font-medium text-slate-600">
               <div className="flex items-start gap-2">
-                <MapPin size={16} className="text-slate-900 shrink-0 mt-0.5" />
+                <MapPin size={16} className="text-[#111317] shrink-0 mt-0.5" />
                 <span>Haldia Institute of Technology, HIT Campus, Haldia, West Bengal 721657</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail size={16} className="text-slate-900 shrink-0" />
-                <a href="mailto:eklavya.official.haldia@gmail.com" className="hover:text-slate-950 transition-colors">
+                <Mail size={16} className="text-[#111317] shrink-0" />
+                <a href="mailto:eklavya.official.haldia@gmail.com" className="hover:text-[#111317] transition-colors font-semibold">
                   eklavya.official.haldia@gmail.com
                 </a>
               </div>
@@ -116,10 +110,10 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-slate-200/80 pt-6 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-slate-500 gap-3">
+        <div className="border-t border-slate-100 pt-6 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-slate-500 gap-3">
           <p>© 2026 Eklavya — Socio-Animal Welfare Society of HIT Haldia.</p>
-          <div className="flex items-center gap-1">
-            <span>Crafted with care by Eklavya Society</span>
+          <div className="flex items-center gap-1 font-semibold text-slate-700">
+            <span>Crafted with care by Eklavya Tech Team</span>
           </div>
         </div>
       </div>
