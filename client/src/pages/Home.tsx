@@ -44,7 +44,7 @@ export const Home: React.FC = () => {
 
         {/* Right Feature Card */}
         <div className="lg:col-span-5">
-          <div className="relative bg-[#f8fafc] border-2 border-slate-950 rounded-2xl p-6 shadow-[4px_4px_0px_0px_#0f172a] text-center space-y-4">
+          <div className="relative bg-white border-2 border-slate-950 rounded-2xl p-6 shadow-[4px_4px_0px_0px_#0f172a] text-center space-y-4">
             <div className="bg-[#a7f3d0] border border-slate-950 px-3 py-1 rounded-full inline-block text-[11px] font-black uppercase shadow-[2px_2px_0px_0px_#0f172a]">
               FREE EVENING SCHOOL & RESCUE
             </div>

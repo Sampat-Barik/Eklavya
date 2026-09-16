@@ -65,7 +65,7 @@ export const Donate: React.FC = () => {
             </div>
 
             {/* QR Box Container */}
-            <div className="w-48 h-48 mx-auto bg-[#f8fafc] border-2 border-slate-950 rounded-2xl p-4 shadow-[3px_3px_0px_0px_#0f172a] flex flex-col items-center justify-center">
+            <div className="w-48 h-48 mx-auto bg-white border-2 border-slate-950 rounded-2xl p-4 shadow-[3px_3px_0px_0px_#0f172a] flex flex-col items-center justify-center">
               <QrCode className="w-24 h-24 text-slate-950 mb-2" />
               <span className="text-[10px] font-mono font-bold text-slate-950">{upiId}</span>
               <span className="text-[9px] font-semibold text-slate-600">{leadTreasurer}</span>

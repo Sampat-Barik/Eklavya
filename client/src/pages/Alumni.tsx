@@ -155,7 +155,7 @@ export const Alumni: React.FC = () => {
               </div>
 
               {alumnus.quote && (
-                <div className="bg-[#f1f5f9] border-2 border-slate-950 p-3 rounded-xl shadow-[2px_2px_0px_0px_#0f172a] text-xs font-medium text-slate-900 italic">
+                <div className="bg-white border-2 border-slate-950 p-3 rounded-xl shadow-[2px_2px_0px_0px_#0f172a] text-xs font-medium text-slate-900 italic">
                   "{alumnus.quote}"
                 </div>
               )}
