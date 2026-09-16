@@ -3,7 +3,7 @@ import { Heart, Mail, MapPin } from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer className="mt-20 container mx-auto px-4 max-w-6xl pb-8">
+    <footer className="mt-20 container mx-auto px-4 md:px-8 max-w-[1500px] pb-8">
       <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-8 md:p-10 shadow-[5px_5px_0px_0px_#0f172a] space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Info */}

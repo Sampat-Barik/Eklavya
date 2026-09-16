@@ -89,7 +89,7 @@ export const Members: React.FC = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 max-w-6xl space-y-8 pb-12">
+    <div className="container mx-auto px-4 md:px-8 max-w-[1500px] space-y-8 pb-12">
       {/* Top Banner */}
       <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-8 md:p-10 shadow-[5px_5px_0px_0px_#0f172a] text-center space-y-3">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#fef08a] border-2 border-slate-950 rounded-full text-xs font-black text-slate-950 shadow-[2px_2px_0px_0px_#0f172a]">

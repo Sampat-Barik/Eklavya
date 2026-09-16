@@ -6,7 +6,7 @@ import { ImageWithFallback } from '../components/ImageWithFallback';
 export const Home: React.FC = () => {
 
   return (
-    <div className="container mx-auto px-4 max-w-6xl space-y-8 pb-12">
+    <div className="container mx-auto px-4 md:px-8 max-w-[1500px] space-y-8 pb-12">
       {/* Neobrutalist Hero Section */}
       <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-8 md:p-12 shadow-[5px_5px_0px_0px_#0f172a] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Left Headline */}

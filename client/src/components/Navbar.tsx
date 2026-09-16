@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-3 z-50 container mx-auto px-4 max-w-6xl mb-6">
+    <header className="sticky top-3 z-50 container mx-auto px-4 md:px-8 max-w-[1500px] mb-6">
       <div className="relative flex items-center justify-between">
         {/* Main Floating Navbar Pill */}
         <div className="w-full bg-white border-[2.5px] border-slate-950 rounded-2xl p-2.5 md:p-3 shadow-[4px_4px_0px_0px_#0f172a] flex items-center justify-between gap-2">
