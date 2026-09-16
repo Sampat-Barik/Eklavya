@@ -48,14 +48,14 @@ export const Faculty: React.FC = () => {
           </div>
         </div>
 
-        {/* Mentor Quote Box (Pastel Yellow - Matching Screenshot 1/3) */}
+        {/* Mentor Quote Box */}
         <div className="bg-[#fef08a] border-2 border-slate-950 rounded-2xl p-6 shadow-[4px_4px_0px_0px_#0f172a] space-y-3">
           <div className="flex items-center gap-2 font-black text-sm text-slate-950">
             <Quote size={18} />
-            <span>STATUS UPDATE & MENTOR MESSAGE</span>
+            <span>MENTOR'S MESSAGE TO STUDENTS</span>
           </div>
           <p className="text-slate-900 text-xs font-bold italic leading-relaxed">
-            "Crowd estimate and socio-animal welfare blends reference datasets with live student drive execution. Education is not merely about acquiring technical knowledge; true education lies in using that knowledge to uplift those who are underserved in our society."
+            "Education is not merely about acquiring technical knowledge; true education lies in using that knowledge to uplift those who are underserved in our society. Eklavya embodies the true spirit of empathy, hard work, and youth leadership among our students at Haldia Institute of Technology."
           </p>
         </div>
       </div>

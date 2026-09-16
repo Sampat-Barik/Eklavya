@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
                   : 'hover:bg-slate-100 hover:text-slate-950'
               }`}
             >
-              Dashboard
+              Home
             </Link>
 
             <Link
@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
                   : 'hover:bg-slate-100 hover:text-slate-950'
               }`}
             >
-              Vision
+              Vision & Mission
             </Link>
 
             <Link
@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
                   : 'hover:bg-slate-100 hover:text-slate-950'
               }`}
             >
-              Members
+              Our Team
             </Link>
 
             <Link
@@ -128,11 +128,11 @@ export const Navbar: React.FC = () => {
             )}
           </nav>
 
-          {/* Right Action Pills (Live Status & Profile) */}
+          {/* Right Action Pills (Society Status & User Control) */}
           <div className="hidden md:flex items-center gap-2">
             <div className="flex items-center gap-1.5 px-3 py-1 bg-[#a7f3d0] border-2 border-slate-950 rounded-full text-[11px] font-black shadow-[2px_2px_0px_0px_#0f172a]">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
-              <span>LIVE STATUS</span>
+              <span>HIT HALDIA</span>
             </div>
 
             {isAuthenticated ? (
@@ -186,7 +186,7 @@ export const Navbar: React.FC = () => {
             onClick={() => setMobileMenuOpen(false)}
             className="block p-2 rounded-xl border border-slate-950 bg-slate-50"
           >
-            Dashboard
+            Home
           </Link>
           <Link
             to="/vision"

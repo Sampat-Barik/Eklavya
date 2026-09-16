@@ -1,100 +1,82 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Heart, Clock, Calendar as CalendarIcon, Sun, ArrowRight, Activity, Camera } from 'lucide-react';
+import { BookOpen, Heart, Clock, Sun, ArrowRight, Activity, Users } from 'lucide-react';
 import { ImageWithFallback } from '../components/ImageWithFallback';
 
 export const Home: React.FC = () => {
-  const [currentTime, setCurrentTime] = useState('');
-  const [currentSeconds, setCurrentSeconds] = useState('');
-
-  useEffect(() => {
-    const updateClock = () => {
-      const now = new Date();
-      setCurrentTime(
-        now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }).toUpperCase()
-      );
-      setCurrentSeconds(`${now.getSeconds()} SEC`);
-    };
-    updateClock();
-    const interval = setInterval(updateClock, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="container mx-auto px-4 max-w-6xl space-y-8 pb-12">
-      {/* Neobrutalist Hero Section (Matching Screenshot 4) */}
+      {/* Neobrutalist Hero Section */}
       <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-8 md:p-12 shadow-[5px_5px_0px_0px_#0f172a] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Left Headline */}
         <div className="lg:col-span-7 space-y-5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#fbcfe8] border-2 border-slate-950 rounded-full text-xs font-black text-slate-950 shadow-[2px_2px_0px_0px_#0f172a]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#fbcfe8] border-2 border-slate-950 rounded-full text-xs font-black text-slate-950 shadow-[2px_2px_0px_0px_#0f172a]">
             <Activity size={14} className="text-pink-700" />
-            <span>SYSTEM ONLINE</span>
+            <span>SOCIO-ANIMAL WELFARE SOCIETY</span>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-black text-slate-950 tracking-tight leading-tight">
-            Smart Crowd Management & <span className="text-blue-600 underline decoration-yellow-300 decoration-4">Eklavya Welfare</span> System
+            HANDS THAT CARE <span className="text-blue-600 underline decoration-yellow-300 decoration-4">Nurturing Excellence</span>, Inspiring Tomorrow
           </h1>
 
           <p className="text-slate-700 text-sm md:text-base font-medium leading-relaxed">
-            AI-powered real-time monitoring, prediction, free education initiatives, and secure database-backed ticket & member management for a safer experience.
+            Marching forward with the thirst of providing free primary education to needy children in underprivileged areas and rescuing stray animals across Haldia.
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <Link
+              to="/donate"
+              className="px-5 py-2.5 bg-[#fef08a] hover:bg-[#fde047] text-slate-950 border-2 border-slate-950 rounded-xl font-black text-xs shadow-[3px_3px_0px_0px_#0f172a] flex items-center gap-2 transition-all"
+            >
+              <Heart size={16} className="fill-rose-500 text-rose-500" />
+              <span>Donate & Support</span>
+            </Link>
+            <Link
               to="/events"
               className="px-5 py-2.5 bg-[#bfdbfe] hover:bg-[#93c5fd] text-slate-950 border-2 border-slate-950 rounded-xl font-black text-xs shadow-[3px_3px_0px_0px_#0f172a] flex items-center gap-2 transition-all"
             >
-              <span>View Live Crowd</span>
+              <span>Explore Drives & Events</span>
               <ArrowRight size={14} />
-            </Link>
-            <Link
-              to="/donate"
-              className="px-5 py-2.5 bg-[#fef08a] hover:bg-[#fde047] text-slate-950 border-2 border-slate-950 rounded-xl font-black text-xs shadow-[3px_3px_0px_0px_#0f172a] transition-all"
-            >
-              Verify Ticket / Support
             </Link>
           </div>
         </div>
 
-        {/* Right Live Feed Placeholder Card */}
+        {/* Right Feature Card */}
         <div className="lg:col-span-5">
-          <div className="relative bg-[#0f172a] border-2 border-slate-950 rounded-2xl p-6 shadow-[4px_4px_0px_0px_#0f172a] text-center space-y-3">
-            <div className="absolute top-3 left-3 bg-[#ef4444] text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border border-slate-950 flex items-center gap-1">
-              <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping" />
-              LIVE FEED
+          <div className="relative bg-[#f8fafc] border-2 border-slate-950 rounded-2xl p-6 shadow-[4px_4px_0px_0px_#0f172a] text-center space-y-4">
+            <div className="bg-[#a7f3d0] border border-slate-950 px-3 py-1 rounded-full inline-block text-[11px] font-black uppercase shadow-[2px_2px_0px_0px_#0f172a]">
+              FREE EVENING SCHOOL & RESCUE
             </div>
-            <div className="pt-6 pb-4 flex flex-col items-center justify-center text-slate-400">
-              <Camera size={40} className="mb-2 opacity-70" />
-              <span className="text-xs font-mono font-bold">CCTV_FRONT_GATE_01</span>
-            </div>
+            <ImageWithFallback
+              alt="Eklavya Education Session Placeholder"
+              fallbackType="banner"
+              className="h-44 w-full rounded-xl"
+            />
           </div>
         </div>
       </div>
 
-      {/* 3 Neobrutalist Widget Cards (Time, Date, Weather - Matching Screenshot 4) */}
+      {/* 3 Neobrutalist Widget Cards (Matching Screenshot Layout for Eklavya) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Card 1: Current Time */}
+        {/* Card 1: Daily Evening School */}
         <div className="bg-white border-[2.5px] border-slate-950 rounded-2xl p-6 shadow-[4px_4px_0px_0px_#0f172a] text-center space-y-2">
           <div className="w-12 h-12 mx-auto bg-[#e0f2fe] border-2 border-slate-950 rounded-2xl flex items-center justify-center shadow-[2px_2px_0px_0px_#0f172a]">
             <Clock size={24} className="text-blue-700" />
           </div>
-          <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 block">CURRENT TIME</span>
-          <div className="text-2xl md:text-3xl font-black text-slate-950">{currentTime || '07:52 AM'}</div>
-          <div className="text-[11px] font-mono font-bold text-slate-500">{currentSeconds}</div>
+          <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 block">EVENING CLASSES</span>
+          <div className="text-2xl md:text-3xl font-black text-slate-950">5:00 PM - 7:00 PM</div>
+          <div className="text-[11px] font-mono font-bold text-slate-500">DAILY PRIMARY EDUCATION</div>
         </div>
 
-        {/* Card 2: Calendar Date */}
+        {/* Card 2: Volunteer Network */}
         <div className="bg-[#bfdbfe] border-[2.5px] border-slate-950 rounded-2xl p-6 shadow-[4px_4px_0px_0px_#0f172a] text-center space-y-2">
           <div className="w-12 h-12 mx-auto bg-white border-2 border-slate-950 rounded-2xl flex items-center justify-center shadow-[2px_2px_0px_0px_#0f172a]">
-            <CalendarIcon size={24} className="text-slate-950" />
+            <Users size={24} className="text-slate-950" />
           </div>
-          <span className="text-[10px] font-black uppercase tracking-wider text-slate-700 block">CALENDAR DATE</span>
-          <div className="text-2xl font-black text-slate-950">
-            {new Date().toLocaleDateString(undefined, { weekday: 'long' })}
-          </div>
-          <div className="text-xs font-bold text-slate-800">
-            {new Date().toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}
-          </div>
+          <span className="text-[10px] font-black uppercase tracking-wider text-slate-700 block">HIT VOLUNTEERS</span>
+          <div className="text-2xl font-black text-slate-950">60+ Active Students</div>
+          <div className="text-xs font-bold text-slate-800">TEACHING & ANIMAL CARE</div>
         </div>
 
         {/* Card 3: Location & Weather */}
@@ -103,12 +85,11 @@ export const Home: React.FC = () => {
             <Sun size={20} className="text-amber-500" />
           </div>
           <span className="text-[10px] font-black uppercase tracking-wider text-slate-700 block">LOCATION</span>
-          <div className="text-base font-black text-slate-950 mb-2">HALDIA</div>
+          <div className="text-base font-black text-slate-950 mb-2">HALDIA, WB</div>
           <div className="text-3xl font-black text-slate-950">25°C <span className="text-sm font-bold">Sunny</span></div>
           <div className="flex gap-2 text-[10px] font-bold text-slate-800 pt-3">
-            <span className="bg-white/80 border border-slate-950 px-2 py-0.5 rounded-md">H: 32°</span>
-            <span className="bg-white/80 border border-slate-950 px-2 py-0.5 rounded-md">L: 24°</span>
-            <span className="bg-white/80 border border-slate-950 px-2 py-0.5 rounded-md">HUM: 45%</span>
+            <span className="bg-white/80 border border-slate-950 px-2 py-0.5 rounded-md">HIT CAMPUS</span>
+            <span className="bg-white/80 border border-slate-950 px-2 py-0.5 rounded-md">LOCAL SLUMS</span>
           </div>
         </div>
       </div>
