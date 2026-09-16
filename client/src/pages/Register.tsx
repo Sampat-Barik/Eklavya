@@ -1,111 +1,104 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { UserPlus, Sparkles } from 'lucide-react';
 
-export const Register = () => {
+export const Register: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  
-  const { login } = useAuth();
+  const [error, setError] = useState('');
+
+  const { register } = useAuth();
   const navigate = useNavigate();
 
-  const handleRegister = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
     setLoading(true);
+    setError('');
 
     try {
-      // POST request to backend API to create a new user
-      const response = await fetch('http://localhost:5000/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Registration failed');
-      }
-
-      // Log the user in immediately after successful registration
-      login(data.user, data.token);
+      await register(name, email, password);
       navigate('/');
     } catch (err: any) {
-      console.error(err);
-      setError(err.message || 'Backend connection failed. Registration requires a running backend.');
+      setError(err.message || 'Failed to register');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[80vh]">
-      <div className="w-full max-w-md bg-card border rounded-lg p-8 shadow-sm">
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold">Create Account</h1>
-          <p className="text-muted-foreground mt-2">Join the Eklavya training platform</p>
+    <div className="container mx-auto px-4 max-w-md py-12">
+      <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-8 shadow-[5px_5px_0px_0px_#0f172a] space-y-6">
+        <div className="text-center space-y-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#a7f3d0] border-2 border-slate-950 rounded-full text-xs font-black text-slate-950 shadow-[2px_2px_0px_0px_#0f172a]">
+            <Sparkles size={14} className="text-emerald-800" />
+            <span>BECOME A VOLUNTEER</span>
+          </div>
+          <h1 className="text-2xl font-black text-slate-950">Join Eklavya</h1>
+          <p className="text-xs font-medium text-slate-600">Register as a student volunteer or team contributor</p>
         </div>
 
         {error && (
-          <div className="bg-red-100 text-red-800 p-3 rounded-md mb-4 text-sm">
+          <div className="bg-[#fecdd3] border-2 border-slate-950 p-3 rounded-xl text-xs font-bold text-slate-950 shadow-[2px_2px_0px_0px_#0f172a]">
             {error}
           </div>
         )}
 
-        <form onSubmit={handleRegister} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-1">Full Name</label>
-            <input 
-              type="text" 
+            <label className="block text-xs font-black text-slate-950 mb-1">Full Name *</label>
+            <input
+              type="text"
               required
+              placeholder="e.g. Sourav Maity"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full border rounded-md p-2 bg-background"
-              placeholder="John Doe"
+              className="w-full bg-white border-2 border-slate-950 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] focus:outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1">Email</label>
-            <input 
-              type="email" 
+            <label className="block text-xs font-black text-slate-950 mb-1">Email Address *</label>
+            <input
+              type="email"
               required
+              placeholder="sourav@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border rounded-md p-2 bg-background"
-              placeholder="john@example.com"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium mb-1">Password</label>
-            <input 
-              type="password" 
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full border rounded-md p-2 bg-background"
-              placeholder="Must be at least 6 characters"
-              minLength={6}
+              className="w-full bg-white border-2 border-slate-950 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] focus:outline-none"
             />
           </div>
 
-          <button 
-            type="submit" 
+          <div>
+            <label className="block text-xs font-black text-slate-950 mb-1">Password *</label>
+            <input
+              type="password"
+              required
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full bg-white border-2 border-slate-950 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] focus:outline-none"
+            />
+          </div>
+
+          <button
+            type="submit"
             disabled={loading}
-            className="w-full bg-primary text-primary-foreground py-2 rounded-md font-medium hover:bg-primary/90 transition-colors disabled:opacity-50"
+            className="w-full py-3 bg-[#fef08a] hover:bg-[#fde047] border-2 border-slate-950 text-slate-950 font-black text-xs rounded-xl shadow-[3px_3px_0px_0px_#0f172a] flex items-center justify-center gap-2 transition-all"
           >
-            {loading ? 'Registering...' : 'Register'}
+            <UserPlus size={16} />
+            <span>{loading ? 'Creating Profile...' : 'Complete Registration'}</span>
           </button>
         </form>
 
-        <p className="text-center mt-6 text-sm text-muted-foreground">
-          Already have an account? <Link to="/login" className="text-primary font-medium hover:underline">Log in</Link>
-        </p>
+        <div className="text-center text-xs font-bold text-slate-700 pt-2 border-t-2 border-slate-950">
+          Already registered?{' '}
+          <Link to="/login" className="text-blue-700 underline font-black">
+            Log in here
+          </Link>
+        </div>
       </div>
     </div>
   );

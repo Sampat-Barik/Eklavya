@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { LogOut, User as UserIcon, Menu, X, ChevronDown, Heart, Shield } from 'lucide-react';
+import { LogOut, User as UserIcon, Menu, X, Heart, Shield, Sparkles } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { isAuthenticated, isAdmin, user, logout } = useAuth();
@@ -9,8 +9,6 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [aboutDropdown, setAboutDropdown] = useState(false);
-  const [communityDropdown, setCommunityDropdown] = useState(false);
 
   const handleLogout = () => {
     logout();
@@ -20,290 +18,247 @@ export const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 text-slate-100">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Brand Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 p-0.5 shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
-            <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center font-black text-cyan-400 text-xl tracking-tighter">
-              E
+    <header className="sticky top-3 z-50 container mx-auto px-4 max-w-6xl mb-6">
+      <div className="relative flex items-center justify-between">
+        {/* Main Floating Navbar Pill */}
+        <div className="w-full bg-white border-[2.5px] border-slate-950 rounded-2xl p-2.5 md:p-3 shadow-[4px_4px_0px_0px_#0f172a] flex items-center justify-between gap-2">
+          {/* Brand Logo */}
+          <Link to="/" className="flex items-center gap-2.5 pl-2 group">
+            <div className="w-9 h-9 rounded-xl bg-[#e9d5ff] border-2 border-slate-950 flex items-center justify-center font-black text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] group-hover:bg-[#d8b4fe] transition-colors">
+              <Sparkles size={18} className="text-purple-700" />
             </div>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-extrabold text-lg md:text-xl tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">
-              EKLAVYA
-            </span>
-            <span className="text-[10px] uppercase font-bold tracking-widest text-cyan-400 -mt-1">
-              Hands That Care
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 text-sm font-medium">
-          <Link
-            to="/"
-            className={`px-3 py-2 rounded-lg transition-colors ${
-              isActive('/') ? 'text-cyan-400 bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/60'
-            }`}
-          >
-            Home
+            <div className="flex flex-col">
+              <span className="font-extrabold text-base md:text-lg tracking-tight text-slate-950 leading-none">
+                EKLAVYA
+              </span>
+              <span className="text-[9px] uppercase font-black tracking-wider text-slate-600 mt-0.5">
+                Hands That Care
+              </span>
+            </div>
           </Link>
 
-          {/* About Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setAboutDropdown(true)}
-            onMouseLeave={() => setAboutDropdown(false)}
-          >
-            <button
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors ${
-                isActive('/vision') ? 'text-cyan-400 bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/60'
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center gap-1 text-xs font-bold text-slate-800">
+            <Link
+              to="/"
+              className={`px-3 py-1.5 rounded-lg transition-all ${
+                isActive('/')
+                  ? 'bg-slate-950 text-white border-2 border-slate-950 shadow-[2px_2px_0px_0px_#0f172a]'
+                  : 'hover:bg-slate-100 hover:text-slate-950'
               }`}
             >
-              <span>About Us</span>
-              <ChevronDown size={14} className={`transition-transform duration-200 ${aboutDropdown ? 'rotate-180' : ''}`} />
-            </button>
-            {aboutDropdown && (
-              <div className="absolute top-full left-0 w-48 pt-2 animate-in fade-in slide-in-from-top-2 duration-150">
-                <div className="bg-slate-900 border border-slate-800 rounded-xl shadow-xl p-1 text-sm">
-                  <Link
-                    to="/vision"
-                    onClick={() => setAboutDropdown(false)}
-                    className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-cyan-400 transition-colors"
-                  >
-                    Vision & Mission
-                  </Link>
-                </div>
+              Dashboard
+            </Link>
+
+            <Link
+              to="/vision"
+              className={`px-3 py-1.5 rounded-lg transition-all ${
+                isActive('/vision')
+                  ? 'bg-slate-950 text-white border-2 border-slate-950 shadow-[2px_2px_0px_0px_#0f172a]'
+                  : 'hover:bg-slate-100 hover:text-slate-950'
+              }`}
+            >
+              Vision
+            </Link>
+
+            <Link
+              to="/faculty"
+              className={`px-3 py-1.5 rounded-lg transition-all ${
+                isActive('/faculty')
+                  ? 'bg-slate-950 text-white border-2 border-slate-950 shadow-[2px_2px_0px_0px_#0f172a]'
+                  : 'hover:bg-slate-100 hover:text-slate-950'
+              }`}
+            >
+              Faculty
+            </Link>
+
+            <Link
+              to="/members"
+              className={`px-3 py-1.5 rounded-lg transition-all ${
+                isActive('/members')
+                  ? 'bg-slate-950 text-white border-2 border-slate-950 shadow-[2px_2px_0px_0px_#0f172a]'
+                  : 'hover:bg-slate-100 hover:text-slate-950'
+              }`}
+            >
+              Members
+            </Link>
+
+            <Link
+              to="/alumni"
+              className={`px-3 py-1.5 rounded-lg transition-all ${
+                isActive('/alumni')
+                  ? 'bg-slate-950 text-white border-2 border-slate-950 shadow-[2px_2px_0px_0px_#0f172a]'
+                  : 'hover:bg-slate-100 hover:text-slate-950'
+              }`}
+            >
+              Alumni
+            </Link>
+
+            <Link
+              to="/events"
+              className={`px-3 py-1.5 rounded-lg transition-all ${
+                isActive('/events')
+                  ? 'bg-slate-950 text-white border-2 border-slate-950 shadow-[2px_2px_0px_0px_#0f172a]'
+                  : 'hover:bg-slate-100 hover:text-slate-950'
+              }`}
+            >
+              Events
+            </Link>
+
+            <Link
+              to="/donate"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border-2 border-slate-950 font-bold transition-all shadow-[2px_2px_0px_0px_#0f172a] ${
+                isActive('/donate')
+                  ? 'bg-[#fbcfe8] text-slate-950'
+                  : 'bg-[#fce7f3] text-slate-950 hover:bg-[#fbcfe8]'
+              }`}
+            >
+              <Heart size={14} className="fill-rose-500 text-rose-500" />
+              <span>Donate Us</span>
+            </Link>
+
+            {isAdmin && (
+              <Link
+                to="/admin"
+                className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#fef08a] border-2 border-slate-950 text-slate-950 font-bold shadow-[2px_2px_0px_0px_#0f172a] hover:bg-[#fde047]"
+              >
+                <Shield size={14} />
+                <span>Admin</span>
+              </Link>
+            )}
+          </nav>
+
+          {/* Right Action Pills (Live Status & Profile) */}
+          <div className="hidden md:flex items-center gap-2">
+            <div className="flex items-center gap-1.5 px-3 py-1 bg-[#a7f3d0] border-2 border-slate-950 rounded-full text-[11px] font-black shadow-[2px_2px_0px_0px_#0f172a]">
+              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+              <span>LIVE STATUS</span>
+            </div>
+
+            {isAuthenticated ? (
+              <div className="flex items-center gap-2 pl-1">
+                <button
+                  onClick={handleLogout}
+                  title="Logout"
+                  className="p-1.5 bg-[#fecdd3] hover:bg-[#fda4af] border-2 border-slate-950 rounded-xl shadow-[2px_2px_0px_0px_#0f172a] transition-all"
+                >
+                  <LogOut size={16} className="text-slate-950" />
+                </button>
               </div>
+            ) : (
+              <Link
+                to="/login"
+                className="px-3.5 py-1.5 bg-[#bfdbfe] hover:bg-[#93c5fd] text-slate-950 border-2 border-slate-950 rounded-xl font-bold text-xs shadow-[2px_2px_0px_0px_#0f172a] transition-all"
+              >
+                Login
+              </Link>
             )}
           </div>
 
-          {/* Community Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setCommunityDropdown(true)}
-            onMouseLeave={() => setCommunityDropdown(false)}
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 bg-slate-100 border-2 border-slate-950 rounded-xl shadow-[2px_2px_0px_0px_#0f172a]"
+            aria-label="Toggle menu"
           >
-            <button
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors ${
-                ['/faculty', '/members', '/alumni'].includes(location.pathname)
-                  ? 'text-cyan-400 bg-slate-900'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-900/60'
-              }`}
-            >
-              <span>Community</span>
-              <ChevronDown size={14} className={`transition-transform duration-200 ${communityDropdown ? 'rotate-180' : ''}`} />
-            </button>
-            {communityDropdown && (
-              <div className="absolute top-full left-0 w-52 pt-2 animate-in fade-in slide-in-from-top-2 duration-150">
-                <div className="bg-slate-900 border border-slate-800 rounded-xl shadow-xl p-1 text-sm">
-                  <Link
-                    to="/faculty"
-                    onClick={() => setCommunityDropdown(false)}
-                    className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-cyan-400 transition-colors"
-                  >
-                    Faculty Co-ordinator
-                  </Link>
-                  <Link
-                    to="/members"
-                    onClick={() => setCommunityDropdown(false)}
-                    className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-cyan-400 transition-colors"
-                  >
-                    Our Team & Members
-                  </Link>
-                  <Link
-                    to="/alumni"
-                    onClick={() => setCommunityDropdown(false)}
-                    className="block px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-cyan-400 transition-colors"
-                  >
-                    Esteemed Alumni
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
 
+        {/* User Profile Floating Corner Button */}
+        {isAuthenticated && user && (
+          <div className="hidden lg:flex absolute -right-14 top-1/2 -translate-y-1/2">
+            <div
+              className="w-10 h-10 bg-white border-2 border-slate-950 rounded-xl flex items-center justify-center shadow-[3px_3px_0px_0px_#0f172a]"
+              title={user.name}
+            >
+              <UserIcon size={20} className="text-slate-950" />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="md:hidden mt-2 bg-white border-[2.5px] border-slate-950 rounded-2xl p-4 shadow-[4px_4px_0px_0px_#0f172a] space-y-2 text-sm font-bold">
+          <Link
+            to="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-2 rounded-xl border border-slate-950 bg-slate-50"
+          >
+            Dashboard
+          </Link>
+          <Link
+            to="/vision"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-2 rounded-xl border border-slate-950 bg-slate-50"
+          >
+            Vision & Mission
+          </Link>
+          <Link
+            to="/faculty"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-2 rounded-xl border border-slate-950 bg-slate-50"
+          >
+            Faculty Co-ordinator
+          </Link>
+          <Link
+            to="/members"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-2 rounded-xl border border-slate-950 bg-slate-50"
+          >
+            Our Team
+          </Link>
+          <Link
+            to="/alumni"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-2 rounded-xl border border-slate-950 bg-slate-50"
+          >
+            Alumni
+          </Link>
           <Link
             to="/events"
-            className={`px-3 py-2 rounded-lg transition-colors ${
-              isActive('/events') ? 'text-cyan-400 bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/60'
-            }`}
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-2 rounded-xl border border-slate-950 bg-slate-50"
           >
             Events
           </Link>
-
           <Link
             to="/donate"
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors font-medium ${
-              isActive('/donate')
-                ? 'text-rose-400 bg-rose-950/40 border border-rose-900/50'
-                : 'text-rose-300 hover:text-rose-200 hover:bg-rose-950/30'
-            }`}
+            onClick={() => setMobileMenuOpen(false)}
+            className="block p-2 rounded-xl border-2 border-slate-950 bg-[#fbcfe8]"
           >
-            <Heart size={15} className="fill-rose-500 text-rose-500" />
-            <span>Donate Us</span>
+            Donate Us
           </Link>
 
-          {isAdmin && (
-            <Link
-              to="/admin"
-              className="flex items-center gap-1 px-3 py-2 rounded-lg text-amber-400 hover:bg-amber-950/30 transition-colors font-semibold"
-            >
-              <Shield size={15} />
-              <span>Admin</span>
-            </Link>
-          )}
-        </nav>
-
-        {/* Right CTA / Auth Buttons */}
-        <div className="hidden md:flex items-center gap-3">
           {isAuthenticated ? (
-            <div className="flex items-center gap-3">
-              <span className="flex items-center gap-2 text-xs font-medium text-slate-300 bg-slate-900 px-3 py-1.5 rounded-full border border-slate-800">
-                <UserIcon size={14} className="text-cyan-400" />
-                {user?.name || 'Member'}
-              </span>
-              <button
-                onClick={handleLogout}
-                className="flex items-center gap-1.5 text-xs bg-slate-900 hover:bg-red-950/40 text-slate-300 hover:text-red-400 border border-slate-800 hover:border-red-900/60 px-3 py-1.5 rounded-lg transition-colors"
-              >
-                <LogOut size={14} />
-                Logout
-              </button>
-            </div>
+            <button
+              onClick={() => {
+                handleLogout();
+                setMobileMenuOpen(false);
+              }}
+              className="w-full text-center p-2 bg-[#fecdd3] border-2 border-slate-950 rounded-xl"
+            >
+              Logout ({user?.name})
+            </button>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="grid grid-cols-2 gap-2 pt-2">
               <Link
                 to="/login"
-                className="text-xs font-medium text-slate-300 hover:text-white px-3 py-2 rounded-lg hover:bg-slate-900 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-center p-2 bg-[#bfdbfe] border-2 border-slate-950 rounded-xl"
               >
                 Login
               </Link>
               <Link
                 to="/register"
-                className="text-xs font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 px-4 py-2 rounded-lg shadow-md shadow-cyan-500/20 transition-all hover:scale-[1.02]"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-center p-2 bg-[#fef08a] border-2 border-slate-950 rounded-xl"
               >
                 Join Us
               </Link>
             </div>
           )}
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-slate-300 hover:text-white hover:bg-slate-900 rounded-lg transition-colors"
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-slate-950 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3 text-sm animate-in slide-in-from-top duration-200">
-          <Link
-            to="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-slate-200"
-          >
-            Home
-          </Link>
-
-          <div className="pl-3 space-y-1 border-l-2 border-slate-800">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block px-3 py-1">About Us</span>
-            <Link
-              to="/vision"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-1.5 text-slate-300 hover:text-cyan-400"
-            >
-              Vision & Mission
-            </Link>
-          </div>
-
-          <div className="pl-3 space-y-1 border-l-2 border-slate-800">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block px-3 py-1">Community</span>
-            <Link
-              to="/faculty"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-1.5 text-slate-300 hover:text-cyan-400"
-            >
-              Faculty Co-ordinator
-            </Link>
-            <Link
-              to="/members"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-1.5 text-slate-300 hover:text-cyan-400"
-            >
-              Our Team & Members
-            </Link>
-            <Link
-              to="/alumni"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-1.5 text-slate-300 hover:text-cyan-400"
-            >
-              Esteemed Alumni
-            </Link>
-          </div>
-
-          <Link
-            to="/events"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg hover:bg-slate-900 text-slate-200"
-          >
-            Events
-          </Link>
-
-          <Link
-            to="/donate"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-rose-950/40 text-rose-300 font-medium"
-          >
-            <Heart size={16} className="fill-rose-500 text-rose-500" />
-            <span>Donate Us</span>
-          </Link>
-
-          {isAdmin && (
-            <Link
-              to="/admin"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg bg-amber-950/40 text-amber-300 font-medium"
-            >
-              Admin Dashboard
-            </Link>
-          )}
-
-          <div className="pt-2 border-t border-slate-800 flex flex-col gap-2">
-            {isAuthenticated ? (
-              <button
-                onClick={() => {
-                  handleLogout();
-                  setMobileMenuOpen(false);
-                }}
-                className="w-full text-center py-2 text-red-400 bg-red-950/40 rounded-lg"
-              >
-                Logout ({user?.name})
-              </button>
-            ) : (
-              <div className="grid grid-cols-2 gap-2 pt-1">
-                <Link
-                  to="/login"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-center py-2 bg-slate-900 text-slate-200 rounded-lg"
-                >
-                  Login
-                </Link>
-                <Link
-                  to="/register"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-center py-2 bg-gradient-to-r from-cyan-400 to-blue-500 text-slate-950 font-bold rounded-lg"
-                >
-                  Join Us
-                </Link>
-              </div>
-            )}
-          </div>
         </div>
       )}
     </header>

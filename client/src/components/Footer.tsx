@@ -3,25 +3,25 @@ import { Heart, Mail, MapPin } from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer className="bg-slate-950 text-slate-300 border-t border-slate-800">
-      <div className="container mx-auto px-4 py-12">
+    <footer className="mt-20 container mx-auto px-4 max-w-6xl pb-8">
+      <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-8 md:p-10 shadow-[5px_5px_0px_0px_#0f172a] space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Info */}
           <div className="space-y-4 md:col-span-1">
-            <div className="flex items-center gap-2 text-white font-bold text-xl">
-              <span className="bg-gradient-to-r from-blue-500 to-cyan-400 text-transparent bg-clip-text font-black text-2xl">
+            <div className="flex items-center gap-2 font-black text-2xl text-slate-950">
+              <span className="px-3 py-1 bg-[#e9d5ff] border-2 border-slate-950 rounded-xl shadow-[2px_2px_0px_0px_#0f172a]">
                 EKLAVYA
               </span>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-slate-700 text-xs font-medium leading-relaxed">
               A Socio-Animal Welfare society of Haldia Institute of Technology, marching forward with the thirst of providing free primary education to needy children in underprivileged areas and rescuing stray animals.
             </p>
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-2 pt-1">
               <a
                 href="https://www.instagram.com/eklavyaofficial_?igsh=MXg3eGN6eHR5Y2tqeA=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-500 transition-colors"
+                className="w-9 h-9 rounded-xl bg-[#fbcfe8] border-2 border-slate-950 flex items-center justify-center text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] hover:bg-[#f472b6] transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@ export const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-blue-400 hover:border-blue-500 transition-colors"
+                className="w-9 h-9 rounded-xl bg-[#bfdbfe] border-2 border-slate-950 flex items-center justify-center text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] hover:bg-[#93c5fd] transition-colors"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -43,72 +43,62 @@ export const Footer = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-colors"
+                className="w-9 h-9 rounded-xl bg-[#a7f3d0] border-2 border-slate-950 flex items-center justify-center text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] hover:bg-[#6ee7b7] transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                 </svg>
               </a>
-              <a
-                href="mailto:eklavya.official.haldia@gmail.com"
-                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-500 transition-colors"
-                aria-label="Email"
-              >
-                <Mail size={18} />
-              </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-3">
-            <h3 className="text-white font-semibold text-base border-b border-slate-800 pb-2">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
+          <div className="space-y-2">
+            <h3 className="text-slate-950 font-black text-sm uppercase tracking-wider border-b-2 border-slate-950 pb-1">Quick Links</h3>
+            <ul className="space-y-1.5 text-xs font-bold text-slate-700">
               <li>
-                <Link to="/" className="hover:text-cyan-400 transition-colors">Home</Link>
+                <Link to="/" className="hover:text-blue-600 transition-colors">Dashboard</Link>
               </li>
               <li>
-                <Link to="/vision" className="hover:text-cyan-400 transition-colors">Vision & Mission</Link>
+                <Link to="/vision" className="hover:text-blue-600 transition-colors">Vision & Mission</Link>
               </li>
               <li>
-                <Link to="/events" className="hover:text-cyan-400 transition-colors">Upcoming Events</Link>
+                <Link to="/events" className="hover:text-blue-600 transition-colors">Upcoming Events</Link>
               </li>
               <li>
-                <Link to="/donate" className="hover:text-cyan-400 transition-colors">Donate Us</Link>
+                <Link to="/donate" className="hover:text-blue-600 transition-colors">Donate Us</Link>
               </li>
             </ul>
           </div>
 
           {/* Community */}
-          <div className="space-y-3">
-            <h3 className="text-white font-semibold text-base border-b border-slate-800 pb-2">Our Community</h3>
-            <ul className="space-y-2 text-sm">
+          <div className="space-y-2">
+            <h3 className="text-slate-950 font-black text-sm uppercase tracking-wider border-b-2 border-slate-950 pb-1">Community</h3>
+            <ul className="space-y-1.5 text-xs font-bold text-slate-700">
               <li>
-                <Link to="/faculty" className="hover:text-cyan-400 transition-colors">Faculty Co-ordinator</Link>
+                <Link to="/faculty" className="hover:text-blue-600 transition-colors">Faculty Co-ordinator</Link>
               </li>
               <li>
-                <Link to="/members" className="hover:text-cyan-400 transition-colors">Our Team & Members</Link>
+                <Link to="/members" className="hover:text-blue-600 transition-colors">Our Team & Members</Link>
               </li>
               <li>
-                <Link to="/alumni" className="hover:text-cyan-400 transition-colors">Esteemed Alumni</Link>
-              </li>
-              <li>
-                <Link to="/login" className="hover:text-cyan-400 transition-colors">Member Portal</Link>
+                <Link to="/alumni" className="hover:text-blue-600 transition-colors">Esteemed Alumni</Link>
               </li>
             </ul>
           </div>
 
           {/* Contact Details */}
-          <div className="space-y-3">
-            <h3 className="text-white font-semibold text-base border-b border-slate-800 pb-2">Contact Us</h3>
-            <div className="space-y-3 text-sm text-slate-400">
-              <div className="flex items-start gap-2.5">
-                <MapPin size={18} className="text-cyan-400 shrink-0 mt-0.5" />
+          <div className="space-y-2">
+            <h3 className="text-slate-950 font-black text-sm uppercase tracking-wider border-b-2 border-slate-950 pb-1">Contact Us</h3>
+            <div className="space-y-2 text-xs font-bold text-slate-700">
+              <div className="flex items-start gap-2">
+                <MapPin size={16} className="text-slate-950 shrink-0 mt-0.5" />
                 <span>Haldia Institute of Technology, HIT Campus, Haldia, West Bengal 721657</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Mail size={18} className="text-cyan-400 shrink-0" />
-                <a href="mailto:eklavya.official.haldia@gmail.com" className="hover:text-cyan-400 transition-colors">
+              <div className="flex items-center gap-2">
+                <Mail size={16} className="text-slate-950 shrink-0" />
+                <a href="mailto:eklavya.official.haldia@gmail.com" className="hover:text-blue-600 transition-colors">
                   eklavya.official.haldia@gmail.com
                 </a>
               </div>
@@ -116,11 +106,11 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-slate-800/80 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-4">
-          <p>© 2026 Eklavya - Hands That Care. All Rights Reserved.</p>
-          <div className="flex items-center gap-1 text-slate-400">
-            <span>Made with</span>
-            <Heart size={14} className="text-red-500 fill-red-500 inline" />
+        <div className="border-t-2 border-slate-950 pt-4 flex flex-col md:flex-row justify-between items-center text-xs font-bold text-slate-700 gap-2">
+          <p>© 2026 Eklavya - Smart Pilgrim & Socio-Animal Welfare System.</p>
+          <div className="flex items-center gap-1">
+            <span>Built with</span>
+            <Heart size={14} className="text-rose-500 fill-rose-500 inline" />
             <span>by Eklavya Tech Team</span>
           </div>
         </div>

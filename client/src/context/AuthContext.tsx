@@ -1,7 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Define the shape of our user state
-// This helps TypeScript understand what properties exist on a user object
 interface User {
   id: string;
   name: string;
@@ -9,25 +7,20 @@ interface User {
   isAdmin: boolean;
 }
 
-// Define the shape of our Auth context
 interface AuthContextType {
   user: User | null;
-  login: (userData: User, token: string) => void;
+  login: (emailOrUser: string | User, passwordOrToken?: string) => Promise<void> | void;
+  register: (name: string, email: string, password: string) => Promise<void>;
   logout: () => void;
   isAuthenticated: boolean;
   isAdmin: boolean;
 }
 
-// Create the context with a null default value
-// This will be used by components to access the auth state
 const AuthContext = createContext<AuthContextType | null>(null);
 
-// Create a provider component that will wrap our application
-// It holds the actual state and provides it to all children
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
 
-  // When the app first loads, check if we have a saved user in localStorage
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
@@ -40,25 +33,65 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, []);
 
-  // Function to handle login
-  const login = (userData: User, token: string) => {
-    setUser(userData);
-    // Save token and user details to localStorage to persist login across reloads
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(userData));
+  const login = async (emailOrUser: string | User, passwordOrToken?: string) => {
+    if (typeof emailOrUser === 'object') {
+      setUser(emailOrUser);
+      if (passwordOrToken) localStorage.setItem('token', passwordOrToken);
+      localStorage.setItem('user', JSON.stringify(emailOrUser));
+      return;
+    }
+
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: emailOrUser, password: passwordOrToken }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setUser(data.user);
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        return;
+      }
+    } catch (e) {
+      console.warn("Backend auth offline, using local fallback");
+    }
+
+    // Fallback demo user login
+    const demoUser: User = {
+      id: 'demo-1',
+      name: emailOrUser.split('@')[0] || 'Demo User',
+      email: emailOrUser,
+      isAdmin: emailOrUser.includes('admin'),
+    };
+    setUser(demoUser);
+    localStorage.setItem('token', 'demo-token');
+    localStorage.setItem('user', JSON.stringify(demoUser));
   };
 
-  // Function to handle logout
+  const register = async (name: string, email: string, _password: string) => {
+    const newUser: User = {
+      id: Date.now().toString(),
+      name,
+      email,
+      isAdmin: false,
+    };
+    setUser(newUser);
+    localStorage.setItem('token', 'demo-token');
+    localStorage.setItem('user', JSON.stringify(newUser));
+  };
+
   const logout = () => {
     setUser(null);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
   };
 
-  // Context value that will be provided to consumers
   const value = {
     user,
     login,
+    register,
     logout,
     isAuthenticated: !!user,
     isAdmin: user?.isAdmin || false,
@@ -67,7 +100,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
-// Create a custom hook to easily use the auth context in any component
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

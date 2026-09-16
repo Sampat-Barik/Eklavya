@@ -1,111 +1,98 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { LogIn, Sparkles } from 'lucide-react';
 
-export const Login = () => {
+export const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  
+  const [error, setError] = useState('');
+
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
     setLoading(true);
+    setError('');
 
     try {
-      // API call to the backend for authentication
-      const response = await fetch('http://localhost:5000/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Login failed');
-      }
-
-      // Context will save the user data and token to localStorage
-      login(data.user, data.token);
-      
-      // Redirect to home page on successful login
-      navigate('/');
+      await login(email, password);
+      navigate('/admin');
     } catch (err: any) {
-      console.error(err);
-      
-      // Since backend isn't ready, let's provide a dummy login for training purposes
-      // REMOVE THIS IN PRODUCTION!
-      if (email === 'admin@eklavya.org' && password === 'admin123') {
-        login(
-          { id: '1', name: 'Admin User', email: 'admin@eklavya.org', isAdmin: true },
-          'dummy-jwt-token'
-        );
-        navigate('/');
-        return;
-      }
-      
-      setError(err.message || 'Make sure the backend is running or use dummy credentials (admin@eklavya.org / admin123)');
+      setError(err.message || 'Failed to login');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[80vh]">
-      <div className="w-full max-w-md bg-card border rounded-lg p-8 shadow-sm">
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold">Welcome Back</h1>
-          <p className="text-muted-foreground mt-2">Log in to your account</p>
+    <div className="container mx-auto px-4 max-w-md py-12">
+      <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-8 shadow-[5px_5px_0px_0px_#0f172a] space-y-6">
+        <div className="text-center space-y-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#e9d5ff] border-2 border-slate-950 rounded-full text-xs font-black text-slate-950 shadow-[2px_2px_0px_0px_#0f172a]">
+            <Sparkles size={14} className="text-purple-700" />
+            <span>PORTAL ACCESS</span>
+          </div>
+          <h1 className="text-2xl font-black text-slate-950">Member Login</h1>
+          <p className="text-xs font-medium text-slate-600">Access member tools & admin control dashboard</p>
         </div>
 
         {error && (
-          <div className="bg-red-100 text-red-800 p-3 rounded-md mb-4 text-sm">
+          <div className="bg-[#fecdd3] border-2 border-slate-950 p-3 rounded-xl text-xs font-bold text-slate-950 shadow-[2px_2px_0px_0px_#0f172a]">
             {error}
           </div>
         )}
 
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-1">Email</label>
-            <input 
-              type="email" 
+            <label className="block text-xs font-black text-slate-950 mb-1">Email Address</label>
+            <input
+              type="email"
               required
+              placeholder="e.g. admin@eklavya.org"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border rounded-md p-2 bg-background"
-              placeholder="admin@eklavya.org"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium mb-1">Password</label>
-            <input 
-              type="password" 
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full border rounded-md p-2 bg-background"
-              placeholder="admin123"
+              className="w-full bg-white border-2 border-slate-950 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] focus:outline-none"
             />
           </div>
 
-          <button 
-            type="submit" 
+          <div>
+            <label className="block text-xs font-black text-slate-950 mb-1">Password</label>
+            <input
+              type="password"
+              required
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full bg-white border-2 border-slate-950 rounded-xl px-3.5 py-2.5 text-xs font-bold text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] focus:outline-none"
+            />
+          </div>
+
+          <button
+            type="submit"
             disabled={loading}
-            className="w-full bg-primary text-primary-foreground py-2 rounded-md font-medium hover:bg-primary/90 transition-colors disabled:opacity-50"
+            className="w-full py-3 bg-[#bfdbfe] hover:bg-[#93c5fd] border-2 border-slate-950 text-slate-950 font-black text-xs rounded-xl shadow-[3px_3px_0px_0px_#0f172a] flex items-center justify-center gap-2 transition-all"
           >
-            {loading ? 'Logging in...' : 'Log In'}
+            <LogIn size={16} />
+            <span>{loading ? 'Authenticating...' : 'Login to Account'}</span>
           </button>
         </form>
 
-        <p className="text-center mt-6 text-sm text-muted-foreground">
-          Don't have an account? <Link to="/register" className="text-primary font-medium hover:underline">Register here</Link>
-        </p>
+        {/* Demo Helper */}
+        <div className="bg-[#fef08a] border-2 border-slate-950 p-3 rounded-xl shadow-[2px_2px_0px_0px_#0f172a] text-[11px] font-bold text-slate-900 text-center space-y-1">
+          <span className="block font-black text-slate-950 uppercase">Demo Admin Login</span>
+          <div>Email: <span className="font-mono">admin@eklavya.org</span></div>
+          <div>Password: <span className="font-mono">admin123</span></div>
+        </div>
+
+        <div className="text-center text-xs font-bold text-slate-700 pt-2 border-t-2 border-slate-950">
+          Not registered yet?{' '}
+          <Link to="/register" className="text-blue-700 underline font-black">
+            Join Eklavya
+          </Link>
+        </div>
       </div>
     </div>
   );

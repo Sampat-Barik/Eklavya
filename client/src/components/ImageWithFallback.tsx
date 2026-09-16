@@ -23,13 +23,13 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
     if (fallbackType === 'avatar') {
       return (
         <div
-          className={`flex items-center justify-center bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white font-bold select-none rounded-full shadow-inner ${className}`}
+          className={`flex items-center justify-center bg-[#bfdbfe] text-[#0f172a] font-extrabold border-2 border-slate-950 shadow-[2px_2px_0px_0px_#0f172a] select-none rounded-full ${className}`}
           title={alt}
         >
           {initials ? (
-            <span className="text-sm md:text-base tracking-wider">{initials.substring(0, 2).toUpperCase()}</span>
+            <span className="text-sm md:text-base tracking-wider uppercase">{initials.substring(0, 2)}</span>
           ) : (
-            <User className="w-1/2 h-1/2 opacity-90" />
+            <User className="w-1/2 h-1/2 text-slate-900" />
           )}
         </div>
       );
@@ -38,11 +38,10 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
     if (fallbackType === 'banner') {
       return (
         <div
-          className={`relative overflow-hidden bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white flex flex-col items-center justify-center p-6 border border-slate-700/50 ${className}`}
+          className={`relative overflow-hidden bg-[#e0f2fe] border-2 border-slate-950 shadow-[3px_3px_0px_0px_#0f172a] text-slate-900 flex flex-col items-center justify-center p-6 ${className}`}
         >
-          <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:16px_16px]" />
-          <Sparkles className="w-10 h-10 text-cyan-400 mb-2 animate-pulse relative z-10 opacity-80" />
-          <p className="text-xs md:text-sm font-medium text-slate-300 relative z-10 text-center">{alt}</p>
+          <Sparkles className="w-8 h-8 text-blue-600 mb-1" />
+          <p className="text-xs md:text-sm font-bold text-slate-900 text-center">{alt}</p>
         </div>
       );
     }
@@ -50,7 +49,7 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
     if (fallbackType === 'logo') {
       return (
         <div
-          className={`flex items-center justify-center bg-primary text-primary-foreground font-black rounded-lg ${className}`}
+          className={`flex items-center justify-center bg-[#e9d5ff] text-slate-950 font-black border-2 border-slate-950 rounded-xl shadow-[2px_2px_0px_0px_#0f172a] ${className}`}
         >
           <span className="text-lg">E</span>
         </div>
@@ -60,11 +59,11 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
     // Default 'card' fallback
     return (
       <div
-        className={`flex flex-col items-center justify-center bg-slate-800/60 dark:bg-slate-900/60 text-slate-400 border border-slate-700/40 rounded-lg p-4 ${className}`}
+        className={`flex flex-col items-center justify-center bg-[#fef08a] text-slate-900 border-2 border-slate-950 shadow-[2px_2px_0px_0px_#0f172a] rounded-xl p-4 ${className}`}
         title={alt}
       >
-        <ImageIcon className="w-8 h-8 opacity-60 mb-2" />
-        <span className="text-xs font-medium text-slate-400 text-center line-clamp-1">{alt}</span>
+        <ImageIcon className="w-6 h-6 text-slate-900 mb-1" />
+        <span className="text-xs font-bold text-slate-900 text-center line-clamp-1">{alt}</span>
       </div>
     );
   }
@@ -74,7 +73,7 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
       src={src}
       alt={alt}
       onError={() => setHasError(true)}
-      className={className}
+      className={`border-2 border-slate-950 shadow-[3px_3px_0px_0px_#0f172a] ${className}`}
       {...props}
     />
   );
