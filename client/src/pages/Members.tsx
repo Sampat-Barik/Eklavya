@@ -89,21 +89,21 @@ export const Members: React.FC = () => {
   return (
     <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-8 pb-16 py-4">
       {/* Top Banner */}
-      <div className="enamo-card p-8 md:p-12 text-center space-y-4 bg-slate-950 text-white relative overflow-hidden">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-semibold text-white">
-          <Sparkles size={14} className="text-amber-300" />
+      <div className="editorial-card p-8 md:p-12 text-center space-y-4 bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950 text-white relative overflow-hidden shadow-xl border border-blue-800/40">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 rounded-full text-xs font-bold text-blue-300">
+          <Sparkles size={14} />
           <span>MEET OUR TEAM</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">Our Dedicated Team</h1>
-        <p className="text-slate-300 text-sm max-w-xl mx-auto font-normal leading-relaxed">
+        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold tracking-tight">Our Dedicated Team</h1>
+        <p className="text-slate-200 text-sm max-w-xl mx-auto font-normal leading-relaxed">
           Dedicated student volunteers working together to achieve excellence in child education and animal welfare.
         </p>
       </div>
 
       {/* Section 1: Executive & Sub-Leads Grid */}
-      <div className="enamo-card p-8 space-y-6">
-        <div className="flex items-center gap-2 border-b border-slate-100 pb-3 font-extrabold text-xl text-slate-950">
-          <ShieldCheck size={22} className="text-slate-900" />
+      <div className="editorial-card p-8 space-y-6">
+        <div className="flex items-center gap-2 border-b border-slate-100 pb-3 font-serif font-extrabold text-xl text-slate-900">
+          <ShieldCheck size={22} className="text-blue-600" />
           <span>Team Leaders & Heads</span>
         </div>
 
@@ -111,7 +111,7 @@ export const Members: React.FC = () => {
           {leads.map((lead) => (
             <div
               key={lead.id}
-              className="bg-slate-50 border border-slate-200/60 rounded-[20px] p-5 text-center space-y-3 hover:shadow-md transition-all flex flex-col items-center justify-between"
+              className="bg-slate-50/60 border border-slate-200/80 rounded-[20px] p-5 text-center space-y-3 hover:shadow-md transition-all flex flex-col items-center justify-between"
             >
               <ImageWithFallback
                 src={lead.imageUrl}
@@ -121,8 +121,8 @@ export const Members: React.FC = () => {
                 className="w-16 h-16 rounded-full border-2 border-slate-200 object-cover"
               />
               <div className="w-full">
-                <h3 className="text-xs font-bold text-slate-950 truncate">{lead.name}</h3>
-                <span className="text-[10px] font-semibold text-white bg-slate-900 px-3 py-1 rounded-full inline-block mt-2">
+                <h3 className="text-xs font-extrabold text-slate-900 truncate">{lead.name}</h3>
+                <span className="text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full inline-block mt-2">
                   {lead.role}
                 </span>
               </div>
@@ -132,10 +132,10 @@ export const Members: React.FC = () => {
       </div>
 
       {/* Section 2: Team Members & Domain Filter Tabs */}
-      <div className="enamo-card p-8 space-y-6">
+      <div className="editorial-card p-8 space-y-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
-          <div className="flex items-center gap-2 font-extrabold text-xl text-slate-950">
-            <Users size={22} className="text-slate-900" />
+          <div className="flex items-center gap-2 font-serif font-extrabold text-xl text-slate-900">
+            <Users size={22} className="text-blue-600" />
             <span>Team Members</span>
           </div>
 
@@ -144,9 +144,9 @@ export const Members: React.FC = () => {
               <button
                 key={tab.label}
                 onClick={() => setActiveDomain(tab.label)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
                   activeDomain === tab.label
-                    ? 'bg-slate-900 text-white shadow-md'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
               >
@@ -161,7 +161,7 @@ export const Members: React.FC = () => {
           {filteredMembers.map((member) => (
             <div
               key={member.id}
-              className="bg-slate-50 border border-slate-200/60 rounded-[20px] p-5 space-y-3 hover:shadow-md transition-all text-center flex flex-col items-center justify-between"
+              className="bg-slate-50/60 border border-slate-200/80 rounded-[20px] p-5 space-y-3 hover:shadow-md transition-all text-center flex flex-col items-center justify-between"
             >
               <ImageWithFallback
                 alt={member.name}
@@ -170,11 +170,11 @@ export const Members: React.FC = () => {
                 className="w-14 h-14 rounded-full border border-slate-200 object-cover"
               />
               <div>
-                <h3 className="text-sm font-extrabold text-slate-950">{member.name}</h3>
+                <h3 className="text-sm font-extrabold text-slate-900">{member.name}</h3>
                 <p className="text-xs font-semibold text-slate-600">{member.role}</p>
                 <p className="text-[10px] font-medium text-slate-400">{member.department}</p>
               </div>
-              <span className="text-[10px] font-semibold bg-white text-slate-800 border border-slate-200 px-3 py-1 rounded-full inline-flex items-center gap-1">
+              <span className="text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full inline-flex items-center gap-1">
                 <Tag size={10} />
                 {member.domain}
               </span>

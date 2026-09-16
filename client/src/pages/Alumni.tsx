@@ -92,19 +92,19 @@ export const Alumni: React.FC = () => {
   return (
     <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-8 pb-16 py-4">
       {/* Top Banner */}
-      <div className="enamo-card p-8 md:p-12 text-center space-y-4 bg-slate-950 text-white relative overflow-hidden">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-semibold text-white">
-          <Sparkles size={14} className="text-amber-300" />
+      <div className="editorial-card p-8 md:p-12 text-center space-y-4 bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950 text-white relative overflow-hidden shadow-xl border border-blue-800/40">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 rounded-full text-xs font-bold text-blue-300">
+          <Sparkles size={14} />
           <span>LEGACY & LEADERSHIP</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">Our Esteemed Alumni</h1>
-        <p className="text-slate-300 text-sm max-w-xl mx-auto font-normal leading-relaxed">
+        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold tracking-tight">Our Esteemed Alumni</h1>
+        <p className="text-slate-200 text-sm max-w-xl mx-auto font-normal leading-relaxed">
           Honoring our former student leaders who pioneered Eklavya's mission and continue to excel across global organizations.
         </p>
       </div>
 
       {/* Search Bar & Filters */}
-      <div className="enamo-card p-6 flex flex-col md:flex-row items-center gap-4">
+      <div className="editorial-card p-6 flex flex-col md:flex-row items-center gap-4">
         <div className="relative flex-1 w-full">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
           <input
@@ -112,7 +112,7 @@ export const Alumni: React.FC = () => {
             placeholder="Search alumni by name, role, or company..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-full text-xs font-semibold text-slate-900 focus:outline-none focus:border-slate-900 transition-colors"
+            className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-full text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
           />
         </div>
 
@@ -136,7 +136,7 @@ export const Alumni: React.FC = () => {
           {filteredAlumni.map((alumnus) => (
             <div
               key={alumnus._id}
-              className="enamo-card p-8 space-y-4 flex flex-col justify-between"
+              className="editorial-card p-8 space-y-4 flex flex-col justify-between"
             >
               <div className="flex items-start gap-4">
                 <ImageWithFallback
@@ -148,11 +148,11 @@ export const Alumni: React.FC = () => {
                 />
                 <div className="space-y-1 flex-1">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-extrabold text-slate-950">{alumnus.name}</h2>
+                    <h2 className="text-xl font-serif font-extrabold text-slate-900">{alumnus.name}</h2>
                     {alumnus.quote && (
                       <button
                         onClick={() => toggleQuote(alumnus._id)}
-                        className="text-xs font-bold text-slate-900 hover:underline flex items-center gap-1 bg-slate-100 px-3 py-1 rounded-full"
+                        className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1 bg-blue-50 px-3 py-1 rounded-full border border-blue-200"
                       >
                         <MessageSquare size={13} />
                         <span>{visibleQuotes[alumnus._id] ? 'Hide' : 'Quote'}</span>
@@ -160,18 +160,18 @@ export const Alumni: React.FC = () => {
                     )}
                   </div>
                   <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-600">
-                    <GraduationCap size={15} className="text-slate-900" />
+                    <GraduationCap size={15} className="text-blue-600" />
                     <span>{alumnus.department} ({alumnus.batch})</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900">
-                    <Briefcase size={15} className="text-slate-900" />
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-blue-800">
+                    <Briefcase size={15} className="text-blue-600" />
                     <span>{alumnus.currentRole} at {alumnus.company}</span>
                   </div>
                 </div>
               </div>
 
               {alumnus.quote && visibleQuotes[alumnus._id] && (
-                <div className="bg-slate-50 border border-slate-200 p-4 rounded-2xl text-xs font-normal text-slate-700 italic leading-relaxed animate-in fade-in duration-200">
+                <div className="bg-blue-50/50 border border-blue-100 p-4 rounded-2xl text-xs font-normal text-slate-700 italic leading-relaxed animate-in fade-in duration-200">
                   "{alumnus.quote}"
                 </div>
               )}

@@ -45,13 +45,13 @@ export const Register: React.FC = () => {
 
   return (
     <div className="max-w-lg mx-auto px-4 py-10">
-      <div className="enamo-card p-8 md:p-10 space-y-6">
+      <div className="editorial-card p-8 md:p-10 space-y-6">
         <div className="text-center space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-4 py-1 bg-slate-100 rounded-full text-xs font-semibold text-slate-900">
+          <div className="inline-flex items-center gap-1.5 px-4 py-1 bg-blue-50 border border-blue-200 rounded-full text-xs font-bold text-blue-700">
             <Sparkles size={14} />
             <span>CREATE MEMBER ACCOUNT</span>
           </div>
-          <h1 className="text-3xl font-extrabold text-slate-950">Join Eklavya</h1>
+          <h1 className="text-3xl font-serif font-extrabold text-slate-900">Join Eklavya</h1>
           <p className="text-xs font-medium text-slate-500">Register as a student volunteer or contributor</p>
         </div>
 
@@ -64,16 +64,16 @@ export const Register: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Avatar Upload */}
           <div>
-            <label className="block text-xs font-bold text-slate-950 mb-1.5">Profile Avatar (Optional)</label>
-            <div className="relative border border-slate-200 border-dashed rounded-[20px] p-4 bg-slate-50 text-center cursor-pointer hover:bg-slate-100 transition-colors">
+            <label className="block text-xs font-bold text-slate-900 mb-1.5">Profile Avatar (Optional)</label>
+            <div className="relative border border-slate-200 border-dashed rounded-[20px] p-4 bg-slate-50 text-center cursor-pointer hover:bg-blue-50/50 transition-colors">
               <input
                 type="file"
                 accept="image/*"
                 onChange={(e) => setAvatarFile(e.target.files ? e.target.files[0] : null)}
                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
               />
-              <Upload size={20} className="mx-auto text-slate-950 mb-1" />
-              <span className="text-xs font-semibold text-slate-950 block">
+              <Upload size={20} className="mx-auto text-blue-600 mb-1" />
+              <span className="text-xs font-bold text-slate-900 block">
                 {avatarFile ? avatarFile.name : 'Upload Profile Picture'}
               </span>
             </div>
@@ -81,27 +81,27 @@ export const Register: React.FC = () => {
 
           {/* Full Name */}
           <div>
-            <label className="block text-xs font-bold text-slate-950 mb-1.5">Full Name *</label>
+            <label className="block text-xs font-bold text-slate-900 mb-1.5">Full Name *</label>
             <input
               type="text"
               required
               placeholder="e.g. Sourav Maity"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-950 focus:outline-none focus:border-slate-900 transition-colors"
+              className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Department Dropdown */}
             <div>
-              <label className="block text-xs font-bold text-slate-950 mb-1.5 flex items-center gap-1">
-                <GraduationCap size={14} /> Department *
+              <label className="block text-xs font-bold text-slate-900 mb-1.5 flex items-center gap-1">
+                <GraduationCap size={14} className="text-blue-600" /> Department *
               </label>
               <select
                 value={department}
                 onChange={(e) => setDepartment(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-950 focus:outline-none focus:border-slate-900 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
               >
                 {departments.map((dept) => (
                   <option key={dept} value={dept}>
@@ -113,49 +113,49 @@ export const Register: React.FC = () => {
 
             {/* College */}
             <div>
-              <label className="block text-xs font-bold text-slate-950 mb-1.5 flex items-center gap-1">
-                <Building size={14} /> College *
+              <label className="block text-xs font-bold text-slate-900 mb-1.5 flex items-center gap-1">
+                <Building size={14} className="text-blue-600" /> College *
               </label>
               <input
                 type="text"
                 required
                 value={college}
                 onChange={(e) => setCollege(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-950 focus:outline-none focus:border-slate-900 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
               />
             </div>
           </div>
 
           {/* Email Address */}
           <div>
-            <label className="block text-xs font-bold text-slate-950 mb-1.5">Email Address *</label>
+            <label className="block text-xs font-bold text-slate-900 mb-1.5">Email Address *</label>
             <input
               type="email"
               required
               placeholder="sourav@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-950 focus:outline-none focus:border-slate-900 transition-colors"
+              className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-xs font-bold text-slate-950 mb-1.5">Password *</label>
+            <label className="block text-xs font-bold text-slate-900 mb-1.5">Password *</label>
             <input
               type="password"
               required
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-950 focus:outline-none focus:border-slate-900 transition-colors"
+              className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3.5 bg-slate-900 hover:bg-black text-white font-semibold text-xs rounded-full shadow-md flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] pt-3 mt-2"
+            className="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-full shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] pt-3 mt-2"
           >
             <UserPlus size={16} />
             <span>{loading ? 'Creating Profile...' : 'Create Account'}</span>
@@ -164,7 +164,7 @@ export const Register: React.FC = () => {
 
         <div className="text-center text-xs font-medium text-slate-600 pt-2 border-t border-slate-100">
           Already registered?{' '}
-          <Link to="/login" className="text-slate-950 font-bold hover:underline">
+          <Link to="/login" className="text-blue-600 font-bold hover:underline">
             Log in here
           </Link>
         </div>

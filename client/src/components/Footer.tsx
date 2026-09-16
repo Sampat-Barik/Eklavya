@@ -8,8 +8,8 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand Info */}
           <div className="space-y-4 md:col-span-1">
-            <div className="flex items-center gap-2 font-serif font-extrabold text-2xl text-[#111317]">
-              <div className="w-8 h-8 rounded-xl bg-[#111317] text-white flex items-center justify-center text-sm font-sans font-bold">
+            <div className="flex items-center gap-2 font-serif font-extrabold text-2xl text-slate-900">
+              <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-sans font-bold shadow-md shadow-blue-500/20">
                 E
               </div>
               <span className="tracking-tight">Eklavya</span>
@@ -56,19 +56,19 @@ export const Footer = () => {
 
           {/* Navigation */}
           <div className="space-y-3">
-            <h3 className="text-[#111317] font-extrabold text-xs uppercase tracking-widest">Navigation</h3>
+            <h3 className="text-blue-600 font-extrabold text-xs uppercase tracking-widest">Navigation</h3>
             <ul className="space-y-2.5 text-xs font-semibold text-slate-600">
               <li>
-                <Link to="/" className="hover:text-[#111317] transition-colors">Home</Link>
+                <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
               </li>
               <li>
-                <Link to="/vision" className="hover:text-[#111317] transition-colors">Vision & Mission</Link>
+                <Link to="/vision" className="hover:text-blue-600 transition-colors">Vision & Mission</Link>
               </li>
               <li>
-                <Link to="/events" className="hover:text-[#111317] transition-colors">Upcoming Events</Link>
+                <Link to="/events" className="hover:text-blue-600 transition-colors">Upcoming Events</Link>
               </li>
               <li>
-                <Link to="/donate" className="hover:text-[#111317] transition-colors flex items-center gap-1">
+                <Link to="/donate" className="hover:text-blue-600 transition-colors flex items-center gap-1">
                   <span>Donate Us</span>
                   <ArrowUpRight size={12} />
                 </Link>
@@ -78,31 +78,31 @@ export const Footer = () => {
 
           {/* Community */}
           <div className="space-y-3">
-            <h3 className="text-[#111317] font-extrabold text-xs uppercase tracking-widest">Community</h3>
+            <h3 className="text-blue-600 font-extrabold text-xs uppercase tracking-widest">Community</h3>
             <ul className="space-y-2.5 text-xs font-semibold text-slate-600">
               <li>
-                <Link to="/faculty" className="hover:text-[#111317] transition-colors">Faculty Co-ordinator</Link>
+                <Link to="/faculty" className="hover:text-blue-600 transition-colors">Faculty Co-ordinator</Link>
               </li>
               <li>
-                <Link to="/members" className="hover:text-[#111317] transition-colors">Our Team & Members</Link>
+                <Link to="/members" className="hover:text-blue-600 transition-colors">Our Team & Members</Link>
               </li>
               <li>
-                <Link to="/alumni" className="hover:text-[#111317] transition-colors">Esteemed Alumni</Link>
+                <Link to="/alumni" className="hover:text-blue-600 transition-colors">Esteemed Alumni</Link>
               </li>
             </ul>
           </div>
 
           {/* Contact Details */}
           <div className="space-y-3">
-            <h3 className="text-[#111317] font-extrabold text-xs uppercase tracking-widest">Contact Us</h3>
+            <h3 className="text-blue-600 font-extrabold text-xs uppercase tracking-widest">Contact Us</h3>
             <div className="space-y-2.5 text-xs font-medium text-slate-600">
               <div className="flex items-start gap-2">
-                <MapPin size={16} className="text-[#111317] shrink-0 mt-0.5" />
+                <MapPin size={16} className="text-blue-600 shrink-0 mt-0.5" />
                 <span>Haldia Institute of Technology, HIT Campus, Haldia, West Bengal 721657</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail size={16} className="text-[#111317] shrink-0" />
-                <a href="mailto:eklavya.official.haldia@gmail.com" className="hover:text-[#111317] transition-colors font-semibold">
+                <Mail size={16} className="text-blue-600 shrink-0" />
+                <a href="mailto:eklavya.official.haldia@gmail.com" className="hover:text-blue-600 transition-colors font-semibold">
                   eklavya.official.haldia@gmail.com
                 </a>
               </div>

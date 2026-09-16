@@ -2,15 +2,15 @@
 
 @layer base {
   :root {
-    --background: 40 10% 97%;
-    --foreground: 220 20% 10%;
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
   }
 
   body {
-    background-color: #f7f6f2;
-    color: #111317;
+    background-color: #f8fafc;
+    color: #0f172a;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.011em;
@@ -21,22 +21,22 @@
   }
 }
 
-/* Modern Editorial Classes */
+/* Modern Editorial Blue Utilities */
 .editorial-card {
   background-color: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 1.75rem;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.03);
+  box-shadow: 0 4px 24px -2px rgba(15, 23, 42, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .editorial-card:hover {
-  border-color: rgba(15, 23, 42, 0.2);
+  border-color: rgba(37, 99, 235, 0.3);
   transform: translateY(-3px);
-  box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 16px 36px -6px rgba(37, 99, 235, 0.08);
 }
 
-.editorial-badge {
+.editorial-badge-blue {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
@@ -46,17 +46,7 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-}
-
-/* Smooth Image Hover Effect */
-.img-hover-zoom {
-  overflow: hidden;
-}
-
-.img-hover-zoom img, .img-hover-zoom div {
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.img-hover-zoom:hover img, .img-hover-zoom:hover div {
-  transform: scale(1.04);
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
 }

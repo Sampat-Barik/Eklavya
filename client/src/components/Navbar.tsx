@@ -18,31 +18,31 @@ export const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 bg-[#f7f6f2]/90 backdrop-blur-md border-b border-slate-200/80 py-3.5 px-4 md:px-8">
+    <header className="sticky top-0 z-50 bg-[#f8fafc]/90 backdrop-blur-md border-b border-slate-200/80 py-3.5 px-4 md:px-8">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
-        {/* Brand Logo - Classy Editorial Branding */}
+        {/* Brand Logo - Vibrant Blue Branding */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-xl bg-[#111317] text-white flex items-center justify-center font-bold text-sm tracking-tighter shadow-sm group-hover:scale-105 transition-transform">
+          <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-base tracking-tighter shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
             E
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-lg text-[#111317] tracking-tight leading-none group-hover:text-slate-700 transition-colors">
+            <span className="font-extrabold text-lg text-slate-900 tracking-tight leading-none group-hover:text-blue-600 transition-colors">
               Eklavya
             </span>
-            <span className="text-[10px] font-bold text-slate-500 tracking-wider uppercase mt-0.5">
+            <span className="text-[10px] font-bold text-blue-600 tracking-wider uppercase mt-0.5">
               Hands That Care • HIT Haldia
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-2 text-xs font-semibold text-slate-700">
+        <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 text-xs font-semibold text-slate-700">
           <Link
             to="/"
             className={`px-3.5 py-2 rounded-full transition-all ${
               isActive('/')
-                ? 'text-[#111317] font-extrabold bg-slate-200/60'
-                : 'hover:text-[#111317] hover:bg-slate-200/40'
+                ? 'text-blue-600 font-extrabold bg-blue-50'
+                : 'hover:text-blue-600 hover:bg-slate-100'
             }`}
           >
             Home
@@ -52,8 +52,8 @@ export const Navbar: React.FC = () => {
             to="/vision"
             className={`px-3.5 py-2 rounded-full transition-all ${
               isActive('/vision')
-                ? 'text-[#111317] font-extrabold bg-slate-200/60'
-                : 'hover:text-[#111317] hover:bg-slate-200/40'
+                ? 'text-blue-600 font-extrabold bg-blue-50'
+                : 'hover:text-blue-600 hover:bg-slate-100'
             }`}
           >
             Vision & Mission
@@ -63,8 +63,8 @@ export const Navbar: React.FC = () => {
             to="/faculty"
             className={`px-3.5 py-2 rounded-full transition-all ${
               isActive('/faculty')
-                ? 'text-[#111317] font-extrabold bg-slate-200/60'
-                : 'hover:text-[#111317] hover:bg-slate-200/40'
+                ? 'text-blue-600 font-extrabold bg-blue-50'
+                : 'hover:text-blue-600 hover:bg-slate-100'
             }`}
           >
             Faculty
@@ -74,8 +74,8 @@ export const Navbar: React.FC = () => {
             to="/members"
             className={`px-3.5 py-2 rounded-full transition-all ${
               isActive('/members')
-                ? 'text-[#111317] font-extrabold bg-slate-200/60'
-                : 'hover:text-[#111317] hover:bg-slate-200/40'
+                ? 'text-blue-600 font-extrabold bg-blue-50'
+                : 'hover:text-blue-600 hover:bg-slate-100'
             }`}
           >
             Our Team
@@ -85,8 +85,8 @@ export const Navbar: React.FC = () => {
             to="/alumni"
             className={`px-3.5 py-2 rounded-full transition-all ${
               isActive('/alumni')
-                ? 'text-[#111317] font-extrabold bg-slate-200/60'
-                : 'hover:text-[#111317] hover:bg-slate-200/40'
+                ? 'text-blue-600 font-extrabold bg-blue-50'
+                : 'hover:text-blue-600 hover:bg-slate-100'
             }`}
           >
             Alumni
@@ -96,8 +96,8 @@ export const Navbar: React.FC = () => {
             to="/events"
             className={`px-3.5 py-2 rounded-full transition-all ${
               isActive('/events')
-                ? 'text-[#111317] font-extrabold bg-slate-200/60'
-                : 'hover:text-[#111317] hover:bg-slate-200/40'
+                ? 'text-blue-600 font-extrabold bg-blue-50'
+                : 'hover:text-blue-600 hover:bg-slate-100'
             }`}
           >
             Events
@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
           {isAdmin && (
             <Link
               to="/admin"
-              className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-amber-100 text-amber-900 font-bold hover:bg-amber-200 transition-colors text-xs ml-1"
+              className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-amber-50 text-amber-900 border border-amber-200 font-bold hover:bg-amber-100 transition-colors text-xs ml-1"
             >
               <Shield size={13} />
               <span>Admin</span>
@@ -118,17 +118,17 @@ export const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center gap-3">
           <Link
             to="/donate"
-            className="flex items-center gap-1.5 px-5 py-2 rounded-full bg-[#111317] hover:bg-black text-white font-semibold text-xs transition-transform hover:scale-105 shadow-sm"
+            className="flex items-center gap-1.5 px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition-transform hover:scale-105 shadow-md shadow-blue-500/20"
           >
-            <Heart size={13} className="fill-rose-400 text-rose-400" />
+            <Heart size={13} className="fill-white text-white" />
             <span>Donate Us</span>
-            <ArrowUpRight size={14} className="opacity-80" />
+            <ArrowUpRight size={14} className="opacity-90" />
           </Link>
 
           {isAuthenticated ? (
-            <div className="flex items-center gap-2 border-l border-slate-300 pl-3">
-              <span className="flex items-center gap-1.5 text-xs font-semibold text-slate-800 bg-slate-200/70 px-3 py-1.5 rounded-full">
-                <UserIcon size={13} className="text-[#111317]" />
+            <div className="flex items-center gap-2 border-l border-slate-200 pl-3">
+              <span className="flex items-center gap-1.5 text-xs font-semibold text-slate-800 bg-slate-100 px-3 py-1.5 rounded-full">
+                <UserIcon size={13} className="text-blue-600" />
                 {user?.name}
               </span>
               <button
@@ -140,16 +140,16 @@ export const Navbar: React.FC = () => {
               </button>
             </div>
           ) : (
-            <div className="flex items-center gap-2 border-l border-slate-300 pl-3">
+            <div className="flex items-center gap-2 border-l border-slate-200 pl-3">
               <Link
                 to="/login"
-                className="text-xs font-semibold text-slate-700 hover:text-[#111317] px-3 py-1.5 rounded-full hover:bg-slate-200/50 transition-colors"
+                className="text-xs font-semibold text-slate-700 hover:text-blue-600 px-3 py-1.5 rounded-full hover:bg-slate-100 transition-colors"
               >
                 Sign In
               </Link>
               <Link
                 to="/register"
-                className="text-xs font-bold text-[#111317] border border-[#111317] hover:bg-[#111317] hover:text-white px-4 py-1.5 rounded-full transition-all"
+                className="text-xs font-bold text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white px-4 py-1.5 rounded-full transition-all"
               >
                 Join Us
               </Link>
@@ -160,7 +160,7 @@ export const Navbar: React.FC = () => {
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-slate-800 hover:bg-slate-200/60 rounded-full"
+          className="md:hidden p-2 text-slate-800 hover:bg-slate-100 rounded-full"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -188,7 +188,7 @@ export const Navbar: React.FC = () => {
           <Link to="/events" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-2 rounded-xl hover:bg-slate-50">
             Events
           </Link>
-          <Link to="/donate" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl bg-[#111317] text-white font-semibold">
+          <Link to="/donate" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl bg-blue-600 text-white font-semibold">
             <span>Donate Us</span>
             <ArrowUpRight size={16} />
           </Link>
@@ -203,7 +203,7 @@ export const Navbar: React.FC = () => {
                 <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 bg-slate-100 rounded-xl">
                   Sign In
                 </Link>
-                <Link to="/register" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 bg-[#111317] text-white rounded-xl font-semibold">
+                <Link to="/register" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 bg-blue-600 text-white rounded-xl font-semibold">
                   Join Us
                 </Link>
               </div>
