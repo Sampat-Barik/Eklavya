@@ -8,7 +8,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
-    --border: 222 47% 11%;
+    --border: 214.3 31.8% 91.4%;
     --radius: 0.75rem;
   }
 
@@ -19,85 +19,39 @@
   }
 }
 
-/* Custom Neobrutalism Utilities */
-.neo-card {
+/* Modern NGO Professional UI Utilities */
+.ngo-card {
   background-color: #ffffff;
-  border: 2.5px solid #0f172a;
-  border-radius: 1rem;
-  box-shadow: 4px 4px 0px 0px #0f172a;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.neo-card-hover:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px 0px #0f172a;
+.ngo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(37, 99, 235, 0.08);
+  border-color: rgba(148, 163, 184, 0.6);
 }
 
-.neo-btn {
-  background-color: #ffffff;
-  border: 2px solid #0f172a;
+.ngo-btn {
+  background-color: #2563eb;
+  color: #ffffff;
   border-radius: 0.75rem;
-  box-shadow: 3px 3px 0px 0px #0f172a;
-  font-weight: 700;
-  transition: all 0.1s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
+  transition: all 0.2s ease;
 }
 
-.neo-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0px 0px #0f172a;
+.ngo-btn:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
 }
 
-.neo-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px 0px #0f172a;
-}
-
-.neo-btn-yellow {
-  background-color: #fef08a;
-  color: #0f172a;
-}
-.neo-btn-yellow:hover {
-  background-color: #fde047;
-}
-
-.neo-btn-blue {
-  background-color: #bfdbfe;
-  color: #0f172a;
-}
-.neo-btn-blue:hover {
-  background-color: #93c5fd;
-}
-
-.neo-btn-pink {
-  background-color: #fbcfe8;
-  color: #0f172a;
-}
-.neo-btn-pink:hover {
-  background-color: #f472b6;
-}
-
-.neo-btn-purple {
-  background-color: #e9d5ff;
-  color: #0f172a;
-}
-
-.neo-pill {
-  border: 2px solid #0f172a;
+.ngo-badge {
   border-radius: 9999px;
-  box-shadow: 2px 2px 0px 0px #0f172a;
-  font-weight: 700;
-}
-
-.neo-input {
-  background-color: #ffffff;
-  border: 2px solid #0f172a;
-  border-radius: 0.75rem;
-  box-shadow: 2px 2px 0px 0px #0f172a;
-  outline: none;
-  transition: border-color 0.15s ease;
-}
-
-.neo-input:focus {
-  border-color: #2563eb;
-  box-shadow: 3px 3px 0px 0px #2563eb;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, GraduationCap, Briefcase, Sparkles } from 'lucide-react';
+import { Search, GraduationCap, Briefcase, Sparkles, MessageSquare } from 'lucide-react';
 import { ImageWithFallback } from '../components/ImageWithFallback';
 
 interface AlumniItem {
@@ -19,6 +19,7 @@ export const Alumni: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedBatch, setSelectedBatch] = useState('All');
+  const [visibleQuotes, setVisibleQuotes] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     const fetchAlumni = async () => {
@@ -74,6 +75,10 @@ export const Alumni: React.FC = () => {
     fetchAlumni();
   }, []);
 
+  const toggleQuote = (id: string) => {
+    setVisibleQuotes((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
   const filteredAlumni = alumniList.filter((alumnus) => {
     const matchesSearch =
       alumnus.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -85,36 +90,36 @@ export const Alumni: React.FC = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 md:px-8 max-w-[1500px] space-y-8 pb-12">
+    <div className="container mx-auto px-4 md:px-8 max-w-[1500px] space-y-8 pb-16">
       {/* Top Banner */}
-      <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-8 md:p-10 shadow-[5px_5px_0px_0px_#0f172a] text-center space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#a7f3d0] border-2 border-slate-950 rounded-full text-xs font-black text-slate-950 shadow-[2px_2px_0px_0px_#0f172a]">
+      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-8 md:p-10 shadow-xl text-center space-y-3 border border-slate-800">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-xs font-semibold text-blue-300">
           <Sparkles size={14} />
           <span>LEGACY & LEADERSHIP</span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-black text-slate-950">Our Esteemed Alumni</h1>
-        <p className="text-slate-700 text-xs font-medium max-w-lg mx-auto">
+        <h1 className="text-3xl md:text-4xl font-black">Our Esteemed Alumni</h1>
+        <p className="text-slate-300 text-xs max-w-lg mx-auto">
           Honoring our former student leaders who pioneered Eklavya's mission and continue to excel across global organizations.
         </p>
       </div>
 
-      {/* Search Bar & Filters (Matching Screenshot Neobrutalist Controls) */}
-      <div className="bg-white border-[2.5px] border-slate-950 rounded-2xl p-4 md:p-6 shadow-[4px_4px_0px_0px_#0f172a] flex flex-col md:flex-row items-center gap-4">
+      {/* Search Bar & Filters */}
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-4 md:p-6 shadow-sm flex flex-col md:flex-row items-center gap-4">
         <div className="relative flex-1 w-full">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-950 w-4 h-4" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
           <input
             type="text"
             placeholder="Search alumni by name, role, or company..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-white border-2 border-slate-950 rounded-xl text-xs font-bold text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] focus:outline-none focus:border-blue-600"
+            className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:outline-none focus:border-blue-600 transition-colors"
           />
         </div>
 
         <select
           value={selectedBatch}
           onChange={(e) => setSelectedBatch(e.target.value)}
-          className="bg-[#fef08a] border-2 border-slate-950 text-slate-950 text-xs font-bold rounded-xl px-4 py-2.5 shadow-[2px_2px_0px_0px_#0f172a] focus:outline-none w-full md:w-auto"
+          className="bg-slate-50 border border-slate-200 text-slate-800 text-xs font-semibold rounded-xl px-4 py-2.5 focus:outline-none w-full md:w-auto"
         >
           <option value="All">Batch: All Batches</option>
           <option value="2020-2024">Batch 2020-2024</option>
@@ -125,13 +130,13 @@ export const Alumni: React.FC = () => {
 
       {/* Alumni Grid */}
       {loading ? (
-        <div className="text-center py-16 text-slate-600 font-bold">Loading alumni directory...</div>
+        <div className="text-center py-16 text-slate-500 font-semibold">Loading alumni directory...</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredAlumni.map((alumnus) => (
             <div
               key={alumnus._id}
-              className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-6 shadow-[4px_4px_0px_0px_#0f172a] space-y-4"
+              className="bg-white border border-slate-200/80 rounded-3xl p-6 shadow-sm hover:shadow-md transition-shadow space-y-4"
             >
               <div className="flex items-start gap-4">
                 <ImageWithFallback
@@ -142,20 +147,31 @@ export const Alumni: React.FC = () => {
                   className="w-14 h-14 rounded-full shrink-0"
                 />
                 <div className="space-y-1 flex-1">
-                  <h2 className="text-lg font-black text-slate-950">{alumnus.name}</h2>
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-lg font-bold text-slate-900">{alumnus.name}</h2>
+                    {alumnus.quote && (
+                      <button
+                        onClick={() => toggleQuote(alumnus._id)}
+                        className="text-[11px] font-semibold text-blue-600 hover:underline flex items-center gap-1"
+                      >
+                        <MessageSquare size={13} />
+                        <span>{visibleQuotes[alumnus._id] ? 'Hide Quote' : 'Show Quote'}</span>
+                      </button>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-600">
                     <GraduationCap size={14} className="text-blue-600" />
                     <span>{alumnus.department} ({alumnus.batch})</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-purple-900">
-                    <Briefcase size={14} className="text-purple-700" />
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-indigo-700">
+                    <Briefcase size={14} className="text-indigo-600" />
                     <span>{alumnus.currentRole} at {alumnus.company}</span>
                   </div>
                 </div>
               </div>
 
-              {alumnus.quote && (
-                <div className="bg-white border-2 border-slate-950 p-3 rounded-xl shadow-[2px_2px_0px_0px_#0f172a] text-xs font-medium text-slate-900 italic">
+              {alumnus.quote && visibleQuotes[alumnus._id] && (
+                <div className="bg-slate-50 border border-slate-200 p-3.5 rounded-xl text-xs font-normal text-slate-700 italic leading-relaxed animate-in fade-in duration-200">
                   "{alumnus.quote}"
                 </div>
               )}

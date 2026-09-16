@@ -4,16 +4,16 @@ import { Heart, Mail, MapPin } from 'lucide-react';
 export const Footer = () => {
   return (
     <footer className="mt-20 container mx-auto px-4 md:px-8 max-w-[1500px] pb-8">
-      <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-8 md:p-10 shadow-[5px_5px_0px_0px_#0f172a] space-y-8">
+      <div className="bg-white border border-slate-200/80 rounded-3xl p-8 md:p-10 shadow-lg shadow-slate-900/5 space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Info */}
           <div className="space-y-4 md:col-span-1">
-            <div className="flex items-center gap-2 font-black text-2xl text-slate-950">
-              <span className="px-3 py-1 bg-[#e9d5ff] border-2 border-slate-950 rounded-xl shadow-[2px_2px_0px_0px_#0f172a]">
+            <div className="flex items-center gap-2 font-black text-2xl">
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 EKLAVYA
               </span>
             </div>
-            <p className="text-slate-700 text-xs font-medium leading-relaxed">
+            <p className="text-slate-600 text-xs font-medium leading-relaxed">
               A Socio-Animal Welfare society of Haldia Institute of Technology, marching forward with the thirst of providing free primary education to needy children in underprivileged areas and rescuing stray animals.
             </p>
             <div className="flex items-center gap-2 pt-1">
@@ -21,7 +21,7 @@ export const Footer = () => {
                 href="https://www.instagram.com/eklavyaofficial_?igsh=MXg3eGN6eHR5Y2tqeA=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-[#fbcfe8] border-2 border-slate-950 flex items-center justify-center text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] hover:bg-[#f472b6] transition-colors"
+                className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700 hover:text-pink-600 hover:bg-pink-50 transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@ export const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-[#bfdbfe] border-2 border-slate-950 flex items-center justify-center text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] hover:bg-[#93c5fd] transition-colors"
+                className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@ export const Footer = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-[#a7f3d0] border-2 border-slate-950 flex items-center justify-center text-slate-950 shadow-[2px_2px_0px_0px_#0f172a] hover:bg-[#6ee7b7] transition-colors"
+                className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700 hover:text-cyan-600 hover:bg-cyan-50 transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -55,10 +55,10 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-2">
-            <h3 className="text-slate-950 font-black text-sm uppercase tracking-wider border-b-2 border-slate-950 pb-1">Quick Links</h3>
-            <ul className="space-y-1.5 text-xs font-bold text-slate-700">
+            <h3 className="text-slate-950 font-bold text-sm uppercase tracking-wider border-b border-slate-200 pb-1">Quick Links</h3>
+            <ul className="space-y-1.5 text-xs font-semibold text-slate-600">
               <li>
-                <Link to="/" className="hover:text-blue-600 transition-colors">Dashboard</Link>
+                <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
               </li>
               <li>
                 <Link to="/vision" className="hover:text-blue-600 transition-colors">Vision & Mission</Link>
@@ -74,8 +74,8 @@ export const Footer = () => {
 
           {/* Community */}
           <div className="space-y-2">
-            <h3 className="text-slate-950 font-black text-sm uppercase tracking-wider border-b-2 border-slate-950 pb-1">Community</h3>
-            <ul className="space-y-1.5 text-xs font-bold text-slate-700">
+            <h3 className="text-slate-950 font-bold text-sm uppercase tracking-wider border-b border-slate-200 pb-1">Community</h3>
+            <ul className="space-y-1.5 text-xs font-semibold text-slate-600">
               <li>
                 <Link to="/faculty" className="hover:text-blue-600 transition-colors">Faculty Co-ordinator</Link>
               </li>
@@ -90,14 +90,14 @@ export const Footer = () => {
 
           {/* Contact Details */}
           <div className="space-y-2">
-            <h3 className="text-slate-950 font-black text-sm uppercase tracking-wider border-b-2 border-slate-950 pb-1">Contact Us</h3>
-            <div className="space-y-2 text-xs font-bold text-slate-700">
+            <h3 className="text-slate-950 font-bold text-sm uppercase tracking-wider border-b border-slate-200 pb-1">Contact Us</h3>
+            <div className="space-y-2 text-xs font-semibold text-slate-600">
               <div className="flex items-start gap-2">
-                <MapPin size={16} className="text-slate-950 shrink-0 mt-0.5" />
+                <MapPin size={16} className="text-blue-600 shrink-0 mt-0.5" />
                 <span>Haldia Institute of Technology, HIT Campus, Haldia, West Bengal 721657</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail size={16} className="text-slate-950 shrink-0" />
+                <Mail size={16} className="text-blue-600 shrink-0" />
                 <a href="mailto:eklavya.official.haldia@gmail.com" className="hover:text-blue-600 transition-colors">
                   eklavya.official.haldia@gmail.com
                 </a>
@@ -106,10 +106,10 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t-2 border-slate-950 pt-4 flex flex-col md:flex-row justify-between items-center text-xs font-bold text-slate-700 gap-2">
-          <p>© 2026 Eklavya - Smart Pilgrim & Socio-Animal Welfare System.</p>
+        <div className="border-t border-slate-200 pt-4 flex flex-col md:flex-row justify-between items-center text-xs font-semibold text-slate-500 gap-2">
+          <p>© 2026 Eklavya - Socio-Animal Welfare Society of HIT Haldia.</p>
           <div className="flex items-center gap-1">
-            <span>Built with</span>
+            <span>Made with</span>
             <Heart size={14} className="text-rose-500 fill-rose-500 inline" />
             <span>by Eklavya Tech Team</span>
           </div>

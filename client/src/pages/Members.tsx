@@ -21,7 +21,6 @@ interface TeamMember {
 export const Members: React.FC = () => {
   const [activeDomain, setActiveDomain] = useState('All Domains');
 
-  // Exact 15 Leads from live site audit
   const leads: LeadMember[] = [
     { id: '1', name: 'Asmit Maity', role: 'Chairperson', linkedin: 'https://linkedin.com' },
     { id: '2', name: 'Kousani Banerjee', role: 'Vice-Chairperson', linkedin: 'https://linkedin.com' },
@@ -40,7 +39,6 @@ export const Members: React.FC = () => {
     { id: '15', name: 'Divya Kumari', role: 'Content Head', linkedin: 'https://linkedin.com' }
   ];
 
-  // Exact team members domain dataset
   const teamMembers: TeamMember[] = [
     { id: 't1', name: 'Anish Kumar', role: 'Instructor', domain: 'Teacher', department: 'CSE' },
     { id: 't2', name: 'Priya Sengupta', role: 'Instructor', domain: 'Teacher', department: 'IT' },
@@ -89,23 +87,23 @@ export const Members: React.FC = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 md:px-8 max-w-[1500px] space-y-8 pb-12">
+    <div className="container mx-auto px-4 md:px-8 max-w-[1500px] space-y-8 pb-16">
       {/* Top Banner */}
-      <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-8 md:p-10 shadow-[5px_5px_0px_0px_#0f172a] text-center space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#fef08a] border-2 border-slate-950 rounded-full text-xs font-black text-slate-950 shadow-[2px_2px_0px_0px_#0f172a]">
+      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-3xl p-8 md:p-10 shadow-xl text-center space-y-3 border border-slate-800">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-xs font-semibold text-blue-300">
           <Sparkles size={14} />
           <span>MEET OUR TEAM</span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-black text-slate-950">Meet Our Team</h1>
-        <p className="text-slate-700 text-xs font-bold max-w-lg mx-auto">
+        <h1 className="text-3xl md:text-4xl font-black">Meet Our Team</h1>
+        <p className="text-slate-300 text-xs max-w-lg mx-auto">
           Dedicated student volunteers working together to achieve excellence in child education and animal welfare.
         </p>
       </div>
 
-      {/* Section 1: Executive & Sub-Leads Grid (15 exact leads) */}
-      <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-6 md:p-8 shadow-[5px_5px_0px_0px_#0f172a] space-y-6">
-        <div className="flex items-center gap-2 border-b-2 border-slate-950 pb-3 font-black text-lg text-slate-950">
-          <ShieldCheck size={20} className="text-blue-700" />
+      {/* Section 1: Executive & Sub-Leads Grid */}
+      <div className="bg-white border border-slate-200/80 rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
+        <div className="flex items-center gap-2 border-b border-slate-200 pb-3 font-bold text-lg text-slate-900">
+          <ShieldCheck size={20} className="text-blue-600" />
           <span>Team Leaders & Heads</span>
         </div>
 
@@ -113,7 +111,7 @@ export const Members: React.FC = () => {
           {leads.map((lead) => (
             <div
               key={lead.id}
-              className="bg-[#e0f2fe] border-2 border-slate-950 rounded-2xl p-4 text-center space-y-3 shadow-[3px_3px_0px_0px_#0f172a] flex flex-col items-center justify-between"
+              className="bg-slate-50 hover:bg-white border border-slate-200 rounded-2xl p-4 text-center space-y-3 shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-between"
             >
               <ImageWithFallback
                 src={lead.imageUrl}
@@ -123,8 +121,8 @@ export const Members: React.FC = () => {
                 className="w-16 h-16 rounded-full"
               />
               <div className="w-full">
-                <h3 className="text-xs font-black text-slate-950 truncate">{lead.name}</h3>
-                <span className="text-[10px] font-black text-blue-800 bg-white border border-slate-950 px-2 py-0.5 rounded-full inline-block mt-1">
+                <h3 className="text-xs font-bold text-slate-900 truncate">{lead.name}</h3>
+                <span className="text-[10px] font-semibold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full inline-block mt-1">
                   {lead.role}
                 </span>
               </div>
@@ -134,23 +132,22 @@ export const Members: React.FC = () => {
       </div>
 
       {/* Section 2: Team Members & Domain Filter Tabs */}
-      <div className="bg-white border-[2.5px] border-slate-950 rounded-3xl p-6 md:p-8 shadow-[5px_5px_0px_0px_#0f172a] space-y-6">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b-2 border-slate-950 pb-4">
-          <div className="flex items-center gap-2 font-black text-lg text-slate-950">
-            <Users size={20} className="text-purple-700" />
+      <div className="bg-white border border-slate-200/80 rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+          <div className="flex items-center gap-2 font-bold text-lg text-slate-900">
+            <Users size={20} className="text-indigo-600" />
             <span>Team Members</span>
           </div>
 
-          {/* Domain Filter Pills matching exact netlify site */}
           <div className="flex flex-wrap gap-2">
             {domainTabs.map((tab) => (
               <button
                 key={tab.label}
                 onClick={() => setActiveDomain(tab.label)}
-                className={`px-3 py-1 rounded-xl text-xs font-black transition-all border-2 border-slate-950 ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                   activeDomain === tab.label
-                    ? 'bg-[#0f172a] text-white shadow-[2px_2px_0px_0px_#0f172a]'
-                    : 'bg-white text-slate-950 hover:bg-slate-100 shadow-[2px_2px_0px_0px_#0f172a]'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
               >
                 {tab.label} ({tab.count})
@@ -164,7 +161,7 @@ export const Members: React.FC = () => {
           {filteredMembers.map((member) => (
             <div
               key={member.id}
-              className="bg-white border-2 border-slate-950 rounded-2xl p-4 space-y-3 shadow-[3px_3px_0px_0px_#0f172a] text-center flex flex-col items-center justify-between"
+              className="bg-white border border-slate-200 rounded-2xl p-4 space-y-3 shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center justify-between"
             >
               <ImageWithFallback
                 alt={member.name}
@@ -173,11 +170,11 @@ export const Members: React.FC = () => {
                 className="w-14 h-14 rounded-full"
               />
               <div>
-                <h3 className="text-sm font-black text-slate-950">{member.name}</h3>
-                <p className="text-[11px] font-bold text-slate-700">{member.role}</p>
+                <h3 className="text-sm font-bold text-slate-900">{member.name}</h3>
+                <p className="text-[11px] font-semibold text-slate-600">{member.role}</p>
                 <p className="text-[10px] font-medium text-slate-500">{member.department}</p>
               </div>
-              <span className="text-[9px] font-black uppercase tracking-wider bg-[#fef08a] border border-slate-950 px-2 py-0.5 rounded-full inline-flex items-center gap-1">
+              <span className="text-[10px] font-semibold bg-slate-100 text-slate-700 border border-slate-200 px-2.5 py-0.5 rounded-full inline-flex items-center gap-1">
                 <Tag size={10} />
                 {member.domain}
               </span>
