@@ -70,15 +70,15 @@ export const Events: React.FC = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 md:px-8 max-w-[1500px] space-y-8 pb-16">
+    <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-8 pb-16 py-4">
       {/* Top Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-8 md:p-10 shadow-xl text-center space-y-3 border border-slate-800">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-xs font-semibold text-blue-300">
-          <Sparkles size={14} />
+      <div className="enamo-card p-8 md:p-12 text-center space-y-4 bg-slate-950 text-white relative overflow-hidden">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-semibold text-white">
+          <Sparkles size={14} className="text-amber-300" />
           <span>COMMUNITY DRIVES</span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-black">Events & Campaigns</h1>
-        <p className="text-slate-300 text-xs max-w-lg mx-auto">
+        <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">Events & Campaigns</h1>
+        <p className="text-slate-300 text-sm max-w-xl mx-auto font-normal leading-relaxed">
           Stay updated with our ongoing educational drives, animal rescue camps, and student community initiatives.
         </p>
       </div>
@@ -87,30 +87,30 @@ export const Events: React.FC = () => {
       <div className="flex justify-center gap-2">
         <button
           onClick={() => setActiveTab('all')}
-          className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+          className={`px-5 py-2.5 rounded-full text-xs font-semibold transition-all ${
             activeTab === 'all'
-              ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-500/20'
-              : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              ? 'bg-slate-900 text-white shadow-md'
+              : 'bg-slate-200/80 text-slate-700 hover:bg-slate-300'
           }`}
         >
           All Events
         </button>
         <button
           onClick={() => setActiveTab('upcoming')}
-          className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+          className={`px-5 py-2.5 rounded-full text-xs font-semibold transition-all ${
             activeTab === 'upcoming'
-              ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-500/20'
-              : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              ? 'bg-slate-900 text-white shadow-md'
+              : 'bg-slate-200/80 text-slate-700 hover:bg-slate-300'
           }`}
         >
           Upcoming Drives
         </button>
         <button
           onClick={() => setActiveTab('past')}
-          className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+          className={`px-5 py-2.5 rounded-full text-xs font-semibold transition-all ${
             activeTab === 'past'
-              ? 'bg-blue-600 text-white font-bold shadow-md shadow-blue-500/20'
-              : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              ? 'bg-slate-900 text-white shadow-md'
+              : 'bg-slate-200/80 text-slate-700 hover:bg-slate-300'
           }`}
         >
           Past Accomplishments
@@ -125,48 +125,48 @@ export const Events: React.FC = () => {
           {filteredEvents.map((event) => (
             <div
               key={event._id}
-              className="bg-white border border-slate-200/80 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow space-y-4 p-6 flex flex-col justify-between"
+              className="enamo-card p-8 space-y-6 flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <ImageWithFallback
                   src={event.imageUrl}
                   alt={event.title}
                   fallbackType="banner"
-                  className="h-48 w-full rounded-2xl"
+                  className="h-52 w-full rounded-[24px] object-cover shadow-sm"
                 />
 
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-0.5 rounded-full">
+                  <span className="text-[10px] font-bold uppercase tracking-wider bg-slate-900 text-white px-3 py-1 rounded-full">
                     {event.category || 'Drive'}
                   </span>
                   <span
-                    className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
-                      event.isUpcoming ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-100 text-slate-600 border-slate-200'
+                    className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${
+                      event.isUpcoming ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-slate-100 text-slate-600 border-slate-200'
                     }`}
                   >
                     {event.isUpcoming ? 'Upcoming' : 'Completed'}
                   </span>
                 </div>
 
-                <h2 className="text-xl font-bold text-slate-900 leading-snug">{event.title}</h2>
+                <h2 className="text-2xl font-extrabold text-slate-950 leading-snug">{event.title}</h2>
 
-                <div className="space-y-1 text-xs font-semibold text-slate-600">
-                  <div className="flex items-center gap-1.5">
-                    <Calendar size={14} className="text-blue-600" />
+                <div className="space-y-1.5 text-xs font-semibold text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <Calendar size={14} className="text-slate-900" />
                     <span>{new Date(event.date).toLocaleDateString(undefined, { dateStyle: 'full' })}</span>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <MapPin size={14} className="text-rose-600" />
+                  <div className="flex items-center gap-2">
+                    <MapPin size={14} className="text-slate-900" />
                     <span>{event.location}</span>
                   </div>
                 </div>
 
-                <p className="text-slate-600 text-xs font-normal leading-relaxed">
+                <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
                   {event.description}
                 </p>
               </div>
 
-              <button className="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5">
+              <button className="w-full py-3.5 bg-slate-900 hover:bg-black text-white font-semibold text-xs rounded-full shadow-md flex items-center justify-center gap-2 transition-transform hover:scale-[1.02]">
                 <span>{event.isUpcoming ? 'Register / Participate' : 'View Drive Gallery'}</span>
                 <ArrowRight size={14} />
               </button>

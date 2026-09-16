@@ -17,7 +17,7 @@ import { Register } from './pages/Register';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white font-sans antialiased text-slate-900 flex flex-col justify-between">
+    <div className="min-h-screen bg-[#f4f4f4] font-sans antialiased text-slate-900 flex flex-col justify-between selection:bg-slate-900 selection:text-white">
       {/* Sticky Top Navbar */}
       <Navbar />
 
