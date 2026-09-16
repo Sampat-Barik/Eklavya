@@ -1,47 +1,61 @@
 import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
 // Import Pages
 import { Home } from './pages/Home';
-import { About } from './pages/About';
-import { Events } from './pages/Events';
+import { Vision } from './pages/Vision';
+import { Faculty } from './pages/Faculty';
 import { Members } from './pages/Members';
+import { Alumni } from './pages/Alumni';
+import { Events } from './pages/Events';
+import { Donate } from './pages/Donate';
 import { AdminDashboard } from './pages/AdminDashboard';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 
 function App() {
   return (
-    <div className="min-h-screen bg-background font-sans antialiased text-foreground">
-      {/* Navbar stays at the top of every page */}
+    <div className="min-h-screen bg-slate-950 font-sans antialiased text-slate-100 flex flex-col justify-between">
+      {/* Sticky Top Navbar */}
       <Navbar />
 
-      {/* Main content area */}
-      <main>
+      {/* Main Content Area */}
+      <main className="flex-grow">
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/events" element={<Events />} />
+          <Route path="/vision" element={<Vision />} />
+          <Route path="/about" element={<Vision />} />
+          <Route path="/faculty" element={<Faculty />} />
           <Route path="/members" element={<Members />} />
+          <Route path="/alumni" element={<Alumni />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/donate" element={<Donate />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* Protected Routes - require login */}
-          <Route element={<ProtectedRoute />}>
-            {/* We could add standard user protected routes here, like a profile page */}
-          </Route>
-
-          {/* Admin Protected Routes - require login AND isAdmin = true */}
+          {/* Admin Protected Routes */}
           <Route element={<ProtectedRoute requireAdmin={true} />}>
             <Route path="/admin" element={<AdminDashboard />} />
           </Route>
 
-          {/* Catch-all for 404 pages */}
-          <Route path="*" element={<div className="text-center py-20 text-2xl font-bold">404 - Page Not Found</div>} />
+          {/* Catch-all 404 Page */}
+          <Route
+            path="*"
+            element={
+              <div className="text-center py-32 space-y-4">
+                <h1 className="text-5xl font-extrabold text-white">404</h1>
+                <p className="text-slate-400 text-lg">Page Not Found</p>
+              </div>
+            }
+          />
         </Routes>
       </main>
+
+      {/* Global Footer */}
+      <Footer />
     </div>
   );
 }

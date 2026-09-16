@@ -7,6 +7,8 @@ import { connectDB } from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
 import memberRoutes from './routes/memberRoutes.js';
+import alumniRoutes from './routes/alumniRoutes.js';
+import donationRoutes from './routes/donationRoutes.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -35,6 +37,10 @@ app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
 // Any request to /api/members/... will be handled by memberRoutes
 app.use('/api/members', memberRoutes);
+// Any request to /api/alumni/... will be handled by alumniRoutes
+app.use('/api/alumni', alumniRoutes);
+// Any request to /api/donations/... will be handled by donationRoutes
+app.use('/api/donations', donationRoutes);
 
 // Error Handling Middleware (fallback for undefined routes)
 app.use((req, res, next) => {
