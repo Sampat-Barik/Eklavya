@@ -1,11 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Plus, Sliders, CheckCircle2, Heart, Users, Calendar } from 'lucide-react';
 
+interface EventData {
+  title?: string;
+  date?: string;
+  location?: string;
+}
+
+interface MemberData {
+  name?: string;
+  role?: string;
+  department?: string;
+  domain?: string;
+}
+
+interface DonationData {
+  fullName?: string;
+  email?: string;
+  utrNumber?: string;
+  amount?: string | number;
+}
+
 export const AdminDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'events' | 'members' | 'donations'>('events');
-  const [events, setEvents] = useState<any[]>([]);
-  const [members, setMembers] = useState<any[]>([]);
-  const [donations, setDonations] = useState<any[]>([]);
+  const [events, setEvents] = useState<EventData[]>([]);
+  const [members, setMembers] = useState<MemberData[]>([]);
+  const [donations, setDonations] = useState<DonationData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

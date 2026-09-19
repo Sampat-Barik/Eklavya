@@ -25,7 +25,7 @@ export const Events: React.FC = () => {
         if (!response.ok) throw new Error('Failed to fetch events');
         const data = await response.json();
         setEvents(data);
-      } catch (err) {
+      } catch {
         setEvents([
           {
             _id: '1',

@@ -48,7 +48,7 @@ export const Donate: React.FC = () => {
       });
       if (!res.ok) throw new Error('Submission failed');
       setSubmittedSuccess(true);
-    } catch (err) {
+    } catch {
       setSubmittedSuccess(true);
     } finally {
       setSubmitting(false);

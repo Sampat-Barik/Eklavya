@@ -23,7 +23,54 @@ const userSchema = new mongoose.Schema({
   },
   isAdmin: {
     type: Boolean,
-    default: false, // By default, new users are NOT admins
+    default: false,
+  },
+  role: {
+    type: String,
+    enum: [
+      'registered_user',
+      'events_manager',
+      'content_manager',
+      'team_manager',
+      'education_manager',
+      'communications_manager',
+      'finance_manager',
+      'admin',
+      'super_admin'
+    ],
+    default: 'registered_user',
+  },
+  permissions: {
+    type: [String],
+    default: [], // Specific modules allowed e.g. ['events', 'donations']
+  },
+  department: {
+    type: String,
+    default: '',
+  },
+  batch: {
+    type: String,
+    default: '',
+  },
+  phone: {
+    type: String,
+    default: '',
+  },
+  avatar: {
+    type: String,
+    default: '',
+  },
+  isSuspended: {
+    type: Boolean,
+    default: false,
+  },
+  adminRequest: {
+    requested: { type: Boolean, default: false },
+    requestedAt: { type: Date },
+    status: { type: String, enum: ['pending', 'approved', 'rejected'], default: 'pending' },
+    reason: { type: String, default: '' },
+    reviewedBy: { type: String },
+    reviewedAt: { type: Date }
   }
 }, {
   timestamps: true // Automatically adds createdAt and updatedAt fields

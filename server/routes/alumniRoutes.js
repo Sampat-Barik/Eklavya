@@ -1,5 +1,7 @@
 import express from 'express';
 import { Alumni } from '../models/Alumni.js';
+import { protect } from '../middleware/auth.js';
+import { requireActiveAdmin, requirePermission } from '../middleware/rbac.js';
 
 const router = express.Router();
 
@@ -58,8 +60,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-// POST create alumni (Admin)
-router.post('/', async (req, res) => {
+// POST create alumni (Admin only)
+router.post('/', protect, requireActiveAdmin, requirePermission('alumni', 'create'), async (req, res) => {
   try {
     const newAlumni = new Alumni(req.body);
     const saved = await newAlumni.save();

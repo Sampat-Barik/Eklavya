@@ -37,7 +37,14 @@ export const registerUser = async (req, res) => {
           id: user._id,
           name: user.name,
           email: user.email,
-          isAdmin: user.isAdmin,
+          role: user.role || 'registered_user',
+          isAdmin: user.isAdmin || false,
+          department: user.department || '',
+          batch: user.batch || '',
+          phone: user.phone || '',
+          avatar: user.avatar || '',
+          isSuspended: user.isSuspended || false,
+          permissions: user.permissions || []
         },
         token: generateToken(user._id),
       });
@@ -68,7 +75,14 @@ export const loginUser = async (req, res) => {
           id: user._id,
           name: user.name,
           email: user.email,
-          isAdmin: user.isAdmin,
+          role: user.role || 'registered_user',
+          isAdmin: user.isAdmin || false,
+          department: user.department || '',
+          batch: user.batch || '',
+          phone: user.phone || '',
+          avatar: user.avatar || '',
+          isSuspended: user.isSuspended || false,
+          permissions: user.permissions || []
         },
         token: generateToken(user._id),
       });

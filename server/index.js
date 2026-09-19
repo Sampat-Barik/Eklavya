@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { connectDB } from './config/db.js';
+import { bootstrapSuperAdmins } from './config/bootstrap.js';
 
 // Import our route files
 import authRoutes from './routes/authRoutes.js';
@@ -9,12 +10,16 @@ import eventRoutes from './routes/eventRoutes.js';
 import memberRoutes from './routes/memberRoutes.js';
 import alumniRoutes from './routes/alumniRoutes.js';
 import donationRoutes from './routes/donationRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
+import portalRoutes from './routes/portalRoutes.js';
 
 // Load environment variables from .env file
 dotenv.config();
 
-// Connect to MongoDB
-connectDB();
+// Connect to MongoDB and bootstrap super admins
+connectDB().then(() => {
+  bootstrapSuperAdmins().catch((err) => console.warn('Bootstrap note:', err.message));
+});
 
 // Initialize the Express application
 const app = express();
@@ -41,6 +46,10 @@ app.use('/api/members', memberRoutes);
 app.use('/api/alumni', alumniRoutes);
 // Any request to /api/donations/... will be handled by donationRoutes
 app.use('/api/donations', donationRoutes);
+// Any request to /api/admin/... will be handled by adminRoutes (RBAC protected)
+app.use('/api/admin', adminRoutes);
+// Any request to /api/portal/... will be handled by portalRoutes (Authenticated Member Portal)
+app.use('/api/portal', portalRoutes);
 
 // Error Handling Middleware (fallback for undefined routes)
 app.use((req, res, next) => {

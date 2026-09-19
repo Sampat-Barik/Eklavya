@@ -23,9 +23,13 @@ export const Register: React.FC = () => {
 
     try {
       await register(name, email, password);
-      navigate('/');
-    } catch (err: any) {
-      setError(err.message || 'Failed to register');
+      navigate('/portal');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Failed to register');
+      }
     } finally {
       setLoading(false);
     }

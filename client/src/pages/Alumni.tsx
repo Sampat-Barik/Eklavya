@@ -28,7 +28,7 @@ export const Alumni: React.FC = () => {
         if (!response.ok) throw new Error('Failed to fetch alumni');
         const data = await response.json();
         setAlumniList(data);
-      } catch (err) {
+      } catch {
         setAlumniList([
           {
             _id: '1',

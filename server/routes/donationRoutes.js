@@ -1,10 +1,12 @@
 import express from 'express';
 import { Donation } from '../models/Donation.js';
+import { protect } from '../middleware/auth.js';
+import { requireActiveAdmin, requirePermission } from '../middleware/rbac.js';
 
 const router = express.Router();
 
-// GET all donations (Admin)
-router.get('/', async (req, res) => {
+// GET all donations (Admin only)
+router.get('/', protect, requireActiveAdmin, requirePermission('donations', 'view'), async (req, res) => {
   try {
     const donations = await Donation.find().sort({ createdAt: -1 });
     res.json(donations);

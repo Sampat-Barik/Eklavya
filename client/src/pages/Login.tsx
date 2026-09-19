@@ -19,9 +19,25 @@ export const Login: React.FC = () => {
 
     try {
       await login(email, password);
-      navigate('/admin');
-    } catch (err: any) {
-      setError(err.message || 'Failed to login');
+      const savedUserStr = localStorage.getItem('user');
+      if (savedUserStr) {
+        const savedUser = JSON.parse(savedUserStr);
+        if (savedUser.isSuspended) {
+          navigate('/access-denied');
+        } else if (savedUser.role === 'registered_user') {
+          navigate('/portal');
+        } else {
+          navigate('/admin');
+        }
+      } else {
+        navigate('/portal');
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Failed to login');
+      }
     } finally {
       setLoading(false);
     }
