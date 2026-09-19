@@ -2,18 +2,23 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    --background: 40 33% 98%; /* warm sand/ivory #faf8f5 */
     --foreground: 222 47% 11%;
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
+    --color-primary: #1e40af;
+    --color-secondary: #f59e0b;
+    --color-accent: #10b981;
+    --color-rose: #f43f5e;
   }
 
   body {
-    background-color: #f8fafc;
+    background-color: #faf8f5;
     color: #0f172a;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.011em;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, .font-serif-display {
@@ -21,19 +26,33 @@
   }
 }
 
-/* Modern Editorial Blue Utilities */
+/* Modern Editorial Blue & Warm Sand Utilities */
 .editorial-card {
   background-color: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 1.75rem;
   box-shadow: 0 4px 24px -2px rgba(15, 23, 42, 0.04);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .editorial-card:hover {
-  border-color: rgba(37, 99, 235, 0.3);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px -6px rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.28);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -8px rgba(37, 99, 235, 0.08);
+}
+
+.editorial-card-warm {
+  background: linear-gradient(135deg, #ffffff 0%, #fffbf5 100%);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  border-radius: 1.75rem;
+  box-shadow: 0 4px 24px -2px rgba(180, 83, 9, 0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-card-warm:hover {
+  border-color: rgba(245, 158, 11, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -8px rgba(245, 158, 11, 0.1);
 }
 
 .editorial-badge-blue {
@@ -49,4 +68,123 @@
   background-color: #eff6ff;
   color: #1d4ed8;
   border: 1px solid #bfdbfe;
+}
+
+.editorial-badge-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.editorial-badge-rose {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+}
+
+.editorial-badge-green {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+/* Glassmorphic overlay cards */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Organic brush and contour text highlight */
+.editorial-highlight {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.editorial-highlight::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 2px;
+  height: 32%;
+  background: rgba(245, 158, 11, 0.28);
+  border-radius: 6px;
+  z-index: -1;
+  transform: rotate(-0.5deg);
+}
+
+/* Subtle float animation for badges/accents */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

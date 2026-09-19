@@ -51,8 +51,8 @@ export const Register: React.FC = () => {
             <Sparkles size={14} />
             <span>CREATE MEMBER ACCOUNT</span>
           </div>
-          <h1 className="text-3xl font-serif font-extrabold text-slate-900">Join Eklavya</h1>
-          <p className="text-xs font-medium text-slate-500">Register as a student volunteer or contributor</p>
+          <h1 className="text-3xl font-serif font-extrabold text-slate-900">Register with Eklavya</h1>
+          <p className="text-xs font-medium text-slate-500">Create an account to contribute to the team</p>
         </div>
 
         {error && (

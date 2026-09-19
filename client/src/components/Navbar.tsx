@@ -148,10 +148,10 @@ export const Navbar: React.FC = () => {
                 Sign In
               </Link>
               <Link
-                to="/register"
+                to="/donate"
                 className="text-xs font-bold text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white px-4 py-1.5 rounded-full transition-all"
               >
-                Join Us
+                Contribute
               </Link>
             </div>
           )}
@@ -203,8 +203,8 @@ export const Navbar: React.FC = () => {
                 <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 bg-slate-100 rounded-xl">
                   Sign In
                 </Link>
-                <Link to="/register" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 bg-blue-600 text-white rounded-xl font-semibold">
-                  Join Us
+                <Link to="/donate" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 bg-blue-600 text-white rounded-xl font-semibold">
+                  Contribute
                 </Link>
               </div>
             )}
