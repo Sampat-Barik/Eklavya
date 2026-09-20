@@ -47,12 +47,15 @@ export const Login: React.FC = () => {
     <div className="max-w-md mx-auto px-4 py-12">
       <div className="editorial-card p-8 md:p-10 space-y-6">
         <div className="text-center space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-4 py-1 bg-blue-50 border border-blue-200 rounded-full text-xs font-bold text-blue-700">
-            <Sparkles size={14} />
-            <span>MEMBER PORTAL</span>
+          <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center p-1 shadow-xs bg-white border border-slate-200">
+            <img src="/eklavya_logo.png" alt="Eklavya" className="w-full h-full object-contain" />
           </div>
-          <h1 className="text-3xl font-serif font-extrabold text-slate-900">Sign In</h1>
-          <p className="text-xs font-medium text-slate-500">Access your member profile and admin tools</p>
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-blue-50 border border-blue-200 rounded-full text-xs font-bold text-blue-700">
+            <Sparkles size={14} />
+            <span>MEMBER & ADMIN PORTAL</span>
+          </div>
+          <h1 className="text-3xl font-serif font-extrabold text-slate-900">Sign In to Eklavya</h1>
+          <p className="text-xs font-medium text-slate-500">Access volunteer attendance, certificates & society tools</p>
         </div>
 
         {error && (

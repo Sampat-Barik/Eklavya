@@ -1,20 +1,28 @@
 import React from 'react';
 import { BookOpen, Heart, Users, Target, ShieldCheck, Sparkles } from 'lucide-react';
-import { ImageWithFallback } from '../components/ImageWithFallback';
 
 export const Vision: React.FC = () => {
   return (
     <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-8 pb-16 py-4">
-      {/* Top Banner Card */}
-      <div className="editorial-card p-8 md:p-12 text-center space-y-4 bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950 text-white relative overflow-hidden shadow-xl border border-blue-800/40">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 rounded-full text-xs font-bold text-blue-300">
-          <Sparkles size={14} />
-          <span>OUR PURPOSE & CORE VALUES</span>
+      {/* Top Banner Card with Official Eklavya Seal */}
+      <div className="editorial-card p-8 md:p-12 text-center space-y-4 bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white relative overflow-hidden shadow-xl border border-blue-900/50">
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-48 h-48 opacity-10 pointer-events-none hidden md:block">
+          <img src="/eklavya_logo.png" alt="" className="w-full h-full object-contain" />
         </div>
-        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold tracking-tight">Vision & Mission</h1>
-        <p className="text-slate-200 text-sm md:text-base font-normal max-w-2xl mx-auto leading-relaxed">
-          Eklavya — HIT's Socio-Animal Welfare Society is dedicated to transforming lives through free primary education, compassionate animal care, and student empowerment.
-        </p>
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-48 h-48 opacity-10 pointer-events-none hidden md:block">
+          <img src="/eklavya_logo.png" alt="" className="w-full h-full object-contain" />
+        </div>
+
+        <div className="relative z-10 space-y-3">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 rounded-full text-xs font-bold text-blue-300">
+            <Sparkles size={14} />
+            <span>OUR PURPOSE & CORE VALUES</span>
+          </div>
+          <h1 className="text-3xl sm:text-5xl font-serif font-extrabold tracking-tight">Vision & Mission</h1>
+          <p className="text-slate-200 text-sm md:text-base font-normal max-w-2xl mx-auto leading-relaxed">
+            Eklavya — HIT's Socio-Animal Welfare Society is dedicated to transforming lives through free primary education, compassionate animal care, and student empowerment.
+          </p>
+        </div>
       </div>
 
       {/* Main Pillars */}
@@ -79,12 +87,17 @@ export const Vision: React.FC = () => {
           </ul>
         </div>
 
-        <div className="md:col-span-5">
-          <ImageWithFallback
-            alt="Eklavya Objectives Placeholder"
-            fallbackType="banner"
-            className="h-60 w-full rounded-[24px] object-cover shadow-sm"
+        <div className="md:col-span-5 relative rounded-[24px] overflow-hidden border border-slate-200 shadow-md group h-72">
+          <img
+            src="/eklavya_human_hero.jpg"
+            alt="Eklavya evening school class"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+          <div className="absolute bottom-3 left-4 right-4 text-white">
+            <span className="text-xs font-bold block">Rural Evening School Classroom</span>
+            <span className="text-[11px] text-slate-300">Daily classes for 150+ underprivileged village children in Haldia</span>
+          </div>
         </div>
       </div>
     </div>

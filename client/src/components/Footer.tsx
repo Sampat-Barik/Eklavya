@@ -8,9 +8,9 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand Info */}
           <div className="space-y-4 md:col-span-1">
-            <div className="flex items-center gap-2 font-serif font-extrabold text-2xl text-slate-900">
-              <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-sans font-bold shadow-md shadow-blue-500/20">
-                E
+            <div className="flex items-center gap-2.5 font-serif font-extrabold text-2xl text-slate-900">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center p-0.5 shadow-xs shrink-0">
+                <img src="/eklavya_logo.png" alt="Eklavya Seal" className="w-full h-full object-contain" />
               </div>
               <span className="tracking-tight">Eklavya</span>
             </div>

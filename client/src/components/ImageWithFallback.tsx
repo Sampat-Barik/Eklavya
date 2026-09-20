@@ -48,10 +48,8 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
 
     if (fallbackType === 'logo') {
       return (
-        <div
-          className={`flex items-center justify-center bg-blue-600 text-white font-black rounded-xl ${className}`}
-        >
-          <span className="text-lg">E</span>
+        <div className={`flex items-center justify-center rounded-full overflow-hidden p-0.5 ${className}`}>
+          <img src="/eklavya_logo.png" alt={alt} className="w-full h-full object-contain" />
         </div>
       );
     }
