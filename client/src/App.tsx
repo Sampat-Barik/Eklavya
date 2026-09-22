@@ -15,6 +15,7 @@ import { Vision } from './pages/Vision';
 import { Faculty } from './pages/Faculty';
 import { Members } from './pages/Members';
 import { Alumni } from './pages/Alumni';
+import { OurWork } from './pages/OurWork';
 import { Events } from './pages/Events';
 import { Donate } from './pages/Donate';
 import { Login } from './pages/Login';
@@ -52,6 +53,9 @@ function App() {
         <Route path="/faculty" element={<Faculty />} />
         <Route path="/members" element={<Members />} />
         <Route path="/alumni" element={<Alumni />} />
+        <Route path="/our-work" element={<OurWork />} />
+        <Route path="/work" element={<OurWork />} />
+        <Route path="/programs" element={<OurWork />} />
         <Route path="/events" element={<Events />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/help-us" element={<Donate />} />

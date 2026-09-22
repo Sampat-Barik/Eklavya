@@ -8,13 +8,10 @@ import {
   Menu, 
   X, 
   Sparkles, 
-  BookOpen, 
   Heart, 
-  Calendar, 
   Shield, 
   GraduationCap, 
   Users, 
-  MapPin, 
   Compass, 
   type LucideIcon 
 } from 'lucide-react';
@@ -90,21 +87,6 @@ export const Navbar: React.FC = () => {
     navigate('/login');
   };
 
-  const scrollToAnchor = (anchorId: string) => {
-    setOpenDropdown(null);
-    setMobileMenuOpen(false);
-    if (!isHomePage) {
-      navigate(`/#${anchorId}`);
-      setTimeout(() => {
-        const el = document.getElementById(anchorId);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 150);
-    } else {
-      const el = document.getElementById(anchorId);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   // Nav menus structure
   const aboutItems: SubmenuItem[] = [
     {
@@ -133,32 +115,7 @@ export const Navbar: React.FC = () => {
     },
   ];
 
-  const workItems: SubmenuItem[] = [
-    {
-      name: 'Field Operations',
-      description: 'Interactive ground operations map in Haldia',
-      href: '#live-operations',
-      icon: MapPin,
-    },
-    {
-      name: 'Education Initiatives',
-      description: 'Free daily evening schools for village kids',
-      href: '#programs',
-      icon: BookOpen,
-    },
-    {
-      name: 'Animal Welfare',
-      description: 'Emergency rescue, feeding & vaccination squad',
-      href: '#programs',
-      icon: Heart,
-    },
-    {
-      name: 'Campus & Community Events',
-      description: 'Upcoming outreach drives & social workshops',
-      href: '/events',
-      icon: Calendar,
-    },
-  ];
+
 
   const portalItems: SubmenuItem[] = [
     {
@@ -297,79 +254,29 @@ export const Navbar: React.FC = () => {
             )}
           </div>
 
-          {/* 3. Our Work Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => toggleDropdown('work')}
-              aria-expanded={openDropdown === 'work'}
-              aria-haspopup="true"
-              className={`flex items-center gap-1 px-3 py-1.5 rounded-full transition-all focus:outline-none ${
-                location.pathname === '/events' || openDropdown === 'work'
-                  ? 'text-blue-600 font-extrabold bg-blue-50'
-                  : 'hover:text-blue-600 hover:bg-slate-100/80'
-              }`}
-            >
-              <span>Our Work</span>
-              <ChevronDown
-                size={13}
-                className={`transition-transform duration-200 ${
-                  openDropdown === 'work' ? 'rotate-180 text-blue-600' : 'text-slate-400'
-                }`}
-              />
-            </button>
+          {/* 3. Our Work Tab */}
+          <Link
+            to="/our-work"
+            className={`px-3.5 py-1.5 rounded-full transition-all ${
+              ['/our-work', '/work', '/programs'].includes(location.pathname)
+                ? 'text-blue-600 font-extrabold bg-blue-50'
+                : 'hover:text-blue-600 hover:bg-slate-100/80'
+            }`}
+          >
+            Our Work
+          </Link>
 
-            {openDropdown === 'work' && (
-              <div className="absolute left-0 mt-2 w-72 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-xl p-2 z-50 animate-fadeIn">
-                <div className="px-3 py-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100 mb-1">
-                  Field Actions & Drives
-                </div>
-                {workItems.map((item) => {
-                  const Icon = item.icon;
-                  if (item.href.startsWith('#')) {
-                    return (
-                      <button
-                        key={item.name}
-                        onClick={() => scrollToAnchor(item.href.replace('#', ''))}
-                        className="w-full text-left flex items-start gap-2.5 p-2.5 rounded-xl hover:bg-blue-50/70 transition-colors group focus:outline-none"
-                      >
-                        <div className="p-1.5 rounded-lg bg-slate-100 text-slate-700 group-hover:bg-blue-600 group-hover:text-white transition-colors mt-0.5">
-                          <Icon size={14} />
-                        </div>
-                        <div>
-                          <span className="text-xs font-bold text-slate-800 group-hover:text-blue-600 block">
-                            {item.name}
-                          </span>
-                          <span className="text-[11px] text-slate-500 font-normal leading-tight block mt-0.5">
-                            {item.description}
-                          </span>
-                        </div>
-                      </button>
-                    );
-                  }
-                  return (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      onClick={() => setOpenDropdown(null)}
-                      className="flex items-start gap-2.5 p-2.5 rounded-xl hover:bg-blue-50/70 transition-colors group"
-                    >
-                      <div className="p-1.5 rounded-lg bg-slate-100 text-slate-700 group-hover:bg-blue-600 group-hover:text-white transition-colors mt-0.5">
-                        <Icon size={14} />
-                      </div>
-                      <div>
-                        <span className="text-xs font-bold text-slate-800 group-hover:text-blue-600 block">
-                          {item.name}
-                        </span>
-                        <span className="text-[11px] text-slate-500 font-normal leading-tight block mt-0.5">
-                          {item.description}
-                        </span>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-          </div>
+          {/* 4. Events Tab */}
+          <Link
+            to="/events"
+            className={`px-3.5 py-1.5 rounded-full transition-all ${
+              location.pathname === '/events'
+                ? 'text-blue-600 font-extrabold bg-blue-50'
+                : 'hover:text-blue-600 hover:bg-slate-100/80'
+            }`}
+          >
+            Events
+          </Link>
 
           {/* 4. Portal Dropdown */}
           <div className="relative">
@@ -529,48 +436,29 @@ export const Navbar: React.FC = () => {
             )}
           </div>
 
-          {/* 3. Our Work Accordion */}
-          <div className="border border-slate-100 rounded-xl overflow-hidden">
-            <button
-              onClick={() => toggleMobileAccordion('work')}
-              className="w-full flex items-center justify-between px-3.5 py-2.5 bg-slate-50 text-slate-800 text-left"
-            >
-              <span>Our Work</span>
-              <ChevronDown
-                size={15}
-                className={`transition-transform duration-200 ${
-                  mobileAccordion === 'work' ? 'rotate-180 text-blue-600' : 'text-slate-400'
-                }`}
-              />
-            </button>
-            {mobileAccordion === 'work' && (
-              <div className="p-2 space-y-1 bg-white">
-                {workItems.map((item) => {
-                  if (item.href.startsWith('#')) {
-                    return (
-                      <button
-                        key={item.name}
-                        onClick={() => scrollToAnchor(item.href.replace('#', ''))}
-                        className="w-full text-left block px-3 py-1.5 text-xs text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg"
-                      >
-                        {item.name}
-                      </button>
-                    );
-                  }
-                  return (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block px-3 py-1.5 text-xs text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg"
-                    >
-                      {item.name}
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-          </div>
+          {/* 3. Our Work */}
+          <Link
+            to="/our-work"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`block px-3.5 py-2 rounded-xl transition-colors ${
+              ['/our-work', '/work', '/programs'].includes(location.pathname)
+                ? 'bg-blue-50 text-blue-600 font-bold'
+                : 'hover:bg-slate-50 text-slate-800'
+            }`}
+          >
+            Our Work
+          </Link>
+
+          {/* 4. Events */}
+          <Link
+            to="/events"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`block px-3.5 py-2 rounded-xl transition-colors ${
+              location.pathname === '/events' ? 'bg-blue-50 text-blue-600 font-bold' : 'hover:bg-slate-50 text-slate-800'
+            }`}
+          >
+            Events
+          </Link>
 
           {/* 4. Portal Accordion */}
           <div className="border border-slate-100 rounded-xl overflow-hidden">

@@ -7,7 +7,6 @@ import { LiveOperationsTicker } from '../components/home/LiveOperationsTicker';
 import { LiveOperationsMap } from '../components/home/LiveOperationsMap';
 import { MethodologySection } from '../components/home/MethodologySection';
 import { AboutImpactSection } from '../components/home/AboutImpactSection';
-import { ProgramsSection } from '../components/home/ProgramsSection';
 import { EventsSection } from '../components/home/EventsSection';
 import { StoriesSection } from '../components/home/StoriesSection';
 import { ContactSection } from '../components/home/ContactSection';
@@ -78,10 +77,6 @@ export const Home: React.FC = () => {
         <AboutImpactSection />
       </div>
 
-      {/* 6. Asymmetric Causes & Active Initiatives (7:5 Split) */}
-      <div id="programs" className="gsap-reveal-section scroll-mt-24">
-        <ProgramsSection />
-      </div>
 
       {/* 7. Upcoming Events & Ground Drives (7:5 Split) */}
       <div className="gsap-reveal-section">
