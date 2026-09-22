@@ -68,8 +68,8 @@ export const Footer = () => {
                 <Link to="/events" className="hover:text-blue-600 transition-colors">Upcoming Events</Link>
               </li>
               <li>
-                <Link to="/donate" className="hover:text-blue-600 transition-colors flex items-center gap-1">
-                  <span>Donate Us</span>
+                <Link to="/help-us" className="hover:text-blue-600 transition-colors flex items-center gap-1">
+                  <span>Help Us</span>
                   <ArrowUpRight size={12} />
                 </Link>
               </li>

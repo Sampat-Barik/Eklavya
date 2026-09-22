@@ -61,11 +61,11 @@ export const Donate: React.FC = () => {
       <div className="editorial-card p-8 md:p-12 text-center space-y-4 bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950 text-white relative overflow-hidden shadow-xl border border-blue-800/40">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 rounded-full text-xs font-bold text-blue-300">
           <Sparkles size={14} />
-          <span>SUPPORT FREE EDUCATION & ANIMAL CARE</span>
+          <span>HELP US MAKE A DIFFERENCE • HANDS THAT CARE</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold tracking-tight">Donate to Eklavya</h1>
+        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold tracking-tight">Help Us — Support Eklavya</h1>
         <p className="text-slate-200 text-sm max-w-xl mx-auto font-normal leading-relaxed">
-          Your generous contribution directly funds books, food, stationery for needy children, and medical care for stray animals.
+          Your direct contribution powers free evening classes for 150+ rural children and emergency medical rescue & sterilization for 120+ street animals across Haldia.
         </p>
       </div>
 

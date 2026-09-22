@@ -74,11 +74,11 @@ export const Hero: React.FC = () => {
               </button>
 
               <Link
-                to="/donate"
+                to="/help-us"
                 className="border border-slate-300 hover:border-slate-900 bg-white hover:bg-slate-900 text-slate-800 hover:text-white px-6 py-4 rounded-2xl text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 shadow-xs group hover:-translate-y-0.5"
               >
                 <Heart size={15} className="text-rose-500 group-hover:scale-125 transition-transform fill-current" />
-                <span>Contribute Aid</span>
+                <span>Help Us</span>
               </Link>
 
               <button

@@ -425,10 +425,32 @@ export const Navbar: React.FC = () => {
               </div>
             )}
           </div>
+
+          {/* 5. Dedicated Help Us Tab */}
+          <Link
+            to="/help-us"
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full transition-all ${
+              ['/help-us', '/donate'].includes(location.pathname)
+                ? 'text-rose-600 font-extrabold bg-rose-50'
+                : 'text-slate-700 hover:text-rose-600 hover:bg-rose-50/60'
+            }`}
+          >
+            <Heart size={13} className="text-rose-500 fill-current" />
+            <span>Help Us</span>
+          </Link>
         </nav>
 
-        {/* Right: Visually Quieter Auth & Portal Controls */}
+        {/* Right: Help Us Button & Auth / Portal Controls */}
         <div className="hidden md:flex items-center gap-2.5">
+          {/* Top Right "Help Us" Action Button */}
+          <Link
+            to="/help-us"
+            className="flex items-center gap-1.5 text-xs font-extrabold px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all group"
+          >
+            <Heart size={14} className="text-rose-300 fill-rose-300 group-hover:scale-125 transition-transform" />
+            <span>Help Us</span>
+          </Link>
+
           {isAuthenticated ? (
             <div className="flex items-center gap-2">
               <Link
@@ -591,6 +613,16 @@ export const Navbar: React.FC = () => {
               </div>
             )}
           </div>
+
+          {/* 5. Mobile Help Us Action Button */}
+          <Link
+            to="/help-us"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-extrabold text-xs shadow-md shadow-blue-500/20"
+          >
+            <Heart size={15} className="text-rose-300 fill-rose-300" />
+            <span>Help Us — Donate & Support</span>
+          </Link>
 
           {/* Bottom Auth Link */}
           <div className="pt-2 border-t border-slate-100">

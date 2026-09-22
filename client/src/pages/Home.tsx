@@ -10,7 +10,6 @@ import { AboutImpactSection } from '../components/home/AboutImpactSection';
 import { ProgramsSection } from '../components/home/ProgramsSection';
 import { EventsSection } from '../components/home/EventsSection';
 import { StoriesSection } from '../components/home/StoriesSection';
-import { CTASection } from '../components/home/CTASection';
 import { ContactSection } from '../components/home/ContactSection';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -94,12 +93,7 @@ export const Home: React.FC = () => {
         <StoriesSection />
       </div>
 
-      {/* 9. Contribution & Aid Action (Monetary & Physical Aid) */}
-      <div id="donate-action" className="gsap-reveal-section scroll-mt-24">
-        <CTASection />
-      </div>
-
-      {/* 10. Campus Hub & Direct Contact */}
+      {/* 9. Campus Hub & Direct Contact */}
       <div id="contact" className="gsap-reveal-section scroll-mt-24">
         <ContactSection />
       </div>
