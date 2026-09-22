@@ -33,11 +33,11 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="space-y-10 py-8">
+    <section id="contact" className="space-y-10 py-6 sm:py-10">
       {/* Asymmetric Header - Right Aligned */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-slate-200/80 pb-6">
-        <div className="text-xs text-slate-500 max-w-sm order-2 sm:order-1">
-          <span className="font-bold text-slate-900 block mb-1">Direct Campus Presence</span>
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-slate-900/[0.08] pb-6">
+        <div className="text-xs text-slate-500 max-w-sm order-2 sm:order-1 font-normal leading-relaxed">
+          <span className="font-semibold text-slate-900 block mb-1">Direct Campus Presence</span>
           Active student responders on-site at Haldia Institute of Technology. Emergency helpline active 24/7 for street animal rescues.
         </div>
 
@@ -52,77 +52,77 @@ export const ContactSection: React.FC = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        {/* Left Column: Campus Information & Direct Channels */}
-        <div className="lg:col-span-5 editorial-card p-6 sm:p-8 flex flex-col justify-between space-y-6">
-          <div className="space-y-4">
-            <h3 className="font-serif text-2xl font-bold text-slate-900">
-              Haldia Institute of Technology Campus Center
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+        {/* Left Column: Campus Information & Direct Channels (5 cols) */}
+        <div className="lg:col-span-5 rounded-2xl bg-white border border-slate-900/[0.08] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-2xs">
+          <div className="space-y-3">
+            <h3 className="font-serif text-2xl font-normal text-slate-900 leading-snug">
+              HIT Campus Center
             </h3>
             <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-              Our central operations operate directly from the HIT campus in Haldia. Volunteers assemble daily at 4:30 PM before heading to evening village schools and feeding points.
+              Our core student coordination operates directly from the HIT campus in Haldia. Volunteers assemble daily at 4:30 PM before departing for evening school clusters and feeding rounds.
             </p>
           </div>
 
-          <div className="space-y-4">
-            <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70">
-              <MapPin size={20} className="text-blue-600 shrink-0 mt-0.5" />
+          <div className="space-y-3">
+            <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200/60">
+              <MapPin size={16} className="text-slate-700 shrink-0 mt-0.5" />
               <div className="space-y-0.5">
-                <h4 className="text-xs font-bold text-slate-900">Campus Location</h4>
+                <h4 className="text-xs font-semibold text-slate-900">Campus Location</h4>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   Haldia Institute of Technology, HIT Main Gate, Haldia, West Bengal 721657
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70">
-              <Mail size={20} className="text-blue-600 shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200/60">
+              <Mail size={16} className="text-slate-700 shrink-0 mt-0.5" />
               <div className="space-y-0.5">
-                <h4 className="text-xs font-bold text-slate-900">Official Society Email</h4>
+                <h4 className="text-xs font-semibold text-slate-900">Official Society Email</h4>
                 <a
                   href="mailto:eklavya.official.haldia@gmail.com"
-                  className="text-xs font-semibold text-blue-600 hover:underline"
+                  className="text-xs font-medium text-slate-800 hover:text-slate-950 underline underline-offset-2"
                 >
                   eklavya.official.haldia@gmail.com
                 </a>
               </div>
             </div>
 
-            <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70">
-              <Phone size={20} className="text-blue-600 shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200/60">
+              <Phone size={16} className="text-slate-700 shrink-0 mt-0.5" />
               <div className="space-y-0.5">
-                <h4 className="text-xs font-bold text-slate-900">Emergency Animal Helpline</h4>
+                <h4 className="text-xs font-semibold text-slate-900">Emergency Animal Helpline</h4>
                 <p className="text-xs text-slate-600 font-normal">
-                  Student emergency animal rescue responder squad on-call for Haldia campus area.
+                  Student emergency animal rescue squad on-call 24/7 across Haldia campus.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Social Community Tag */}
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-amber-50 border border-blue-100 flex items-center gap-3">
-            <HeartHandshake size={24} className="text-blue-600 shrink-0" />
+          {/* Aid Drop-off Info */}
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/70 flex items-start gap-3">
+            <HeartHandshake size={20} className="text-slate-700 shrink-0 mt-0.5" />
             <div className="text-xs text-slate-700">
-              <span className="font-bold block text-slate-900">Physical & Monetary Aid Drop-off</span>
-              Supplies like clothes, books, and rations can be handed over directly to our student coordinators at HIT Gate 1.
+              <span className="font-semibold block text-slate-900 mb-0.5">Physical Aid Drop-off</span>
+              Supplies like clothes, books, stationery, and pet rations can be handed over directly to student coordinators at HIT Gate 1.
             </div>
           </div>
         </div>
 
-        {/* Right Column: Direct Message Form */}
-        <div className="lg:col-span-7 editorial-card p-6 sm:p-8 md:p-10">
+        {/* Right Column: Direct Message Form (7 cols) */}
+        <div className="lg:col-span-7 rounded-2xl bg-white border border-slate-900/[0.08] p-6 sm:p-8 md:p-10 shadow-2xs">
           {submitted ? (
             <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-12">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shadow-lg">
-                <CheckCircle2 size={32} />
+              <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-200">
+                <CheckCircle2 size={24} />
               </div>
-              <h3 className="font-serif text-2xl font-bold text-slate-900">Message Received!</h3>
+              <h3 className="font-serif text-2xl font-normal text-slate-900">Message Received</h3>
               <p className="text-xs sm:text-sm text-slate-600 max-w-md font-normal leading-relaxed">
-                Thank you for reaching out to Eklavya. One of our student executive members will review your inquiry and respond within 24 hours.
+                Thank you for reaching out to Eklavya. One of our student executive members will review your dispatch and reply promptly.
               </p>
               <button
                 onClick={() => setSubmitted(false)}
-                className="mt-2 text-xs font-bold text-blue-600 hover:underline"
+                className="mt-2 text-xs font-semibold text-slate-800 hover:text-slate-950 underline underline-offset-4"
               >
                 Send another message
               </button>
@@ -130,94 +130,90 @@ export const ContactSection: React.FC = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-1">
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900">
+                <h3 className="font-serif text-2xl font-normal text-slate-900">
                   Send Us A Message
                 </h3>
                 <p className="text-xs text-slate-500 font-normal">
-                  Fill in your details below and our team will get back to you promptly.
+                  Fill in your details below and our student team will get back to you promptly.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700">Your Full Name *</label>
+                  <label className="text-xs font-medium text-slate-700">Your Full Name *</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. Rahul Sen"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 transition-colors"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700">Email Address *</label>
+                  <label className="text-xs font-medium text-slate-700">Email Address *</label>
                   <input
                     type="email"
                     required
                     placeholder="name@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700">Phone Number (Optional)</label>
+                  <label className="text-xs font-medium text-slate-700">Contact Number</label>
                   <input
                     type="tel"
                     placeholder="+91 98765 43210"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 transition-colors"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700">Area of Interest</label>
+                  <label className="text-xs font-medium text-slate-700">Topic of Interest</label>
                   <select
                     value={formData.interest}
                     onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 transition-colors"
                   >
                     <option value="General Inquiry">General Inquiry</option>
-                    <option value="Contribute Physical Aid (Clothes / Food / Books)">Contribute Physical Aid (Clothes / Food / Books)</option>
-                    <option value="Contribute Monetary Aid">Contribute Monetary Aid</option>
-                    <option value="Animal Distress / Rescue">Animal Distress / Rescue</option>
-                    <option value="Alumni Partnership">Alumni Partnership</option>
+                    <option value="Volunteer as Student">Volunteer as Student (HIT)</option>
+                    <option value="Animal Distress Report">Report Animal Distress</option>
+                    <option value="Physical Aid Contribution">Physical Aid (Clothes/Books)</option>
+                    <option value="Alumni Collaboration">Alumni Collaboration</option>
                   </select>
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-700">Your Message *</label>
+                <label className="text-xs font-medium text-slate-700">Your Message *</label>
                 <textarea
                   required
                   rows={4}
-                  placeholder="How can we assist you or how would you like to get involved?"
+                  placeholder="How can we assist you or how would you like to contribute?"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 transition-colors resize-none"
                 />
               </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition-all flex items-center justify-center gap-2 hover:scale-101"
-              >
-                {isSubmitting ? (
-                  <span>Sending message...</span>
-                ) : (
-                  <>
-                    <Send size={14} />
-                    <span>Send Message to Eklavya Team</span>
-                  </>
-                )}
-              </button>
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto px-7 py-3 rounded-lg bg-slate-950 hover:bg-slate-800 disabled:opacity-50 text-white text-xs font-semibold tracking-wide transition-all flex items-center justify-center gap-2 shadow-2xs cursor-pointer"
+                >
+                  <Send size={13} />
+                  <span>{isSubmitting ? 'Transmitting Message...' : 'Send Message'}</span>
+                </button>
+              </div>
             </form>
           )}
         </div>

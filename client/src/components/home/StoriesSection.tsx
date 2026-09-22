@@ -18,11 +18,11 @@ export const StoriesSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="stories" className="space-y-10 py-8">
+    <section id="stories" className="space-y-10 py-6 sm:py-10">
       {/* Header - Right Aligned Asymmetric */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-slate-200/80 pb-6">
-        <div className="text-xs text-slate-500 max-w-sm order-2 sm:order-1">
-          <span className="font-bold text-slate-900 block mb-1">Authentic Field Dispatches</span>
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-slate-900/[0.08] pb-6">
+        <div className="text-xs text-slate-500 max-w-sm order-2 sm:order-1 font-normal leading-relaxed">
+          <span className="font-semibold text-slate-900 block mb-1">Authentic Field Dispatches</span>
           Direct dispatches written by HIT student coordinators, village teachers & veterinary first-responders.
         </div>
 
@@ -37,7 +37,7 @@ export const StoriesSection: React.FC = () => {
         />
       </div>
 
-      {/* Asymmetric Stories Grid */}
+      {/* Asymmetric 5:7 Stories Grid */}
       {stories.length >= 2 ? (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {/* Featured Story Spotlight (Left Column 5 cols) */}
@@ -45,7 +45,7 @@ export const StoriesSection: React.FC = () => {
             <PostCard
               story={stories[0]}
               onReadMore={(st) => setSelectedStory(st)}
-              className="h-full border-2 border-rose-400/20 shadow-md"
+              className="h-full border border-slate-900/[0.12] shadow-xs"
             />
           </div>
 
@@ -80,4 +80,3 @@ export const StoriesSection: React.FC = () => {
     </section>
   );
 };
-

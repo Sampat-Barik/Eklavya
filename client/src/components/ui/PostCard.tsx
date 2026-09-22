@@ -11,14 +11,14 @@ interface PostCardProps {
 export const PostCard: React.FC<PostCardProps> = ({ story, onReadMore, className = '' }) => {
   return (
     <div
-      className={`editorial-card flex flex-col justify-between overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 group bg-white ${className}`}
+      className={`flex flex-col justify-between overflow-hidden rounded-xl border border-slate-900/[0.08] bg-white shadow-2xs hover:border-slate-300 transition-all duration-200 group ${className}`}
     >
       {/* Post Thumbnail */}
-      <div className="relative h-48 overflow-hidden bg-slate-100 cursor-pointer" onClick={() => onReadMore(story)}>
+      <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-100 cursor-pointer" onClick={() => onReadMore(story)}>
         <img
           src={story.imageUrl}
           alt={story.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
 
@@ -28,16 +28,16 @@ export const PostCard: React.FC<PostCardProps> = ({ story, onReadMore, className
           </span>
         </div>
 
-        <div className="absolute bottom-3 right-3 flex items-center gap-1 text-[11px] font-semibold text-white bg-black/40 backdrop-blur-md px-2.5 py-0.5 rounded-full">
-          <Clock size={11} />
+        <div className="absolute bottom-2.5 right-3 flex items-center gap-1 text-[10px] font-mono text-white bg-slate-900/80 backdrop-blur-md px-2 py-0.5 rounded">
+          <Clock size={10} />
           <span>{story.readTime}</span>
         </div>
       </div>
 
       {/* Post Body */}
-      <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-        <div className="space-y-2 cursor-pointer" onClick={() => onReadMore(story)}>
-          <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+      <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+        <div className="space-y-1.5 cursor-pointer" onClick={() => onReadMore(story)}>
+          <h3 className="font-serif text-lg sm:text-xl font-normal text-slate-900 group-hover:text-blue-900 transition-colors leading-snug">
             {story.title}
           </h3>
           <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-3 font-normal">
@@ -48,14 +48,14 @@ export const PostCard: React.FC<PostCardProps> = ({ story, onReadMore, className
         {/* Author info & Read More trigger */}
         <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">
-              <User size={13} />
+            <div className="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">
+              <User size={12} />
             </div>
             <div className="leading-tight">
-              <span className="text-xs font-bold text-slate-800 block truncate max-w-[120px]">
+              <span className="text-xs font-semibold text-slate-800 block truncate max-w-[120px]">
                 {story.author.name}
               </span>
-              <span className="text-[10px] text-slate-400">
+              <span className="text-[10px] font-mono text-slate-400">
                 {story.publishedAt}
               </span>
             </div>
@@ -63,10 +63,10 @@ export const PostCard: React.FC<PostCardProps> = ({ story, onReadMore, className
 
           <button
             onClick={() => onReadMore(story)}
-            className="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1 group/link transition-colors"
+            className="text-xs font-semibold text-slate-800 hover:text-slate-950 flex items-center gap-1 group/link transition-colors cursor-pointer"
           >
-            <span>Read Story</span>
-            <ArrowRight size={13} className="group-hover/link:translate-x-1 transition-transform" />
+            <span>Read Dispatch</span>
+            <ArrowRight size={12} className="group-hover/link:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>

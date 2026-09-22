@@ -31,16 +31,16 @@ export const Home: React.FC = () => {
           section,
           {
             opacity: 0,
-            y: 28,
+            y: 20,
           },
           {
             opacity: 1,
             y: 0,
-            duration: 0.85,
-            ease: 'power3.out',
+            duration: 0.75,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: section,
-              start: 'top 92%',
+              start: 'top 90%',
               toggleActions: 'play none none none',
             },
           }
@@ -52,43 +52,43 @@ export const Home: React.FC = () => {
   }, []);
 
   return (
-    <div ref={mainRef} className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 space-y-12 sm:space-y-16 py-2 pb-16">
-      {/* 1. Asymmetrical Hero with 3D Scene */}
+    <div ref={mainRef} className="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 space-y-20 sm:space-y-28 lg:space-y-32 py-4 pb-24">
+      {/* 1. Open Asymmetrical Hero with 3D Scene */}
       <div className="gsap-reveal-section">
         <Hero />
       </div>
 
-      {/* 2. Compact Live Operations Ticker */}
+      {/* 2. Hairline-Bounded Live Operations Ticker */}
       <div className="gsap-reveal-section">
         <LiveOperationsTicker />
       </div>
 
-      {/* 3. Interactive Ground Operations & Field Action Console */}
+      {/* 3. Interactive Ground Operations Command Console */}
       <div id="live-operations" className="gsap-reveal-section scroll-mt-24">
         <LiveOperationsMap />
       </div>
 
-      {/* 4. Editorial Methodology ("How We Deliver Change") - Right-aligned rhythm */}
+      {/* 4. Staggered Editorial Methodology ("How We Deliver Change") */}
       <div id="how-we-work" className="gsap-reveal-section scroll-mt-24">
         <MethodologySection />
       </div>
 
-      {/* 5. Purpose & Core Impact with Authenticity Story & Metrics - Left-aligned rhythm */}
+      {/* 5. Bento-Style Purpose & Core Impact with Authenticity Story & Metrics */}
       <div className="gsap-reveal-section">
         <AboutImpactSection />
       </div>
 
-      {/* 6. Active Causes & Initiatives - Right-aligned rhythm */}
+      {/* 6. Asymmetric Causes & Active Initiatives (7:5 Split) */}
       <div id="programs" className="gsap-reveal-section scroll-mt-24">
         <ProgramsSection />
       </div>
 
-      {/* 7. Upcoming Events & Ground Drives - Left-aligned rhythm */}
+      {/* 7. Upcoming Events & Ground Drives (7:5 Split) */}
       <div className="gsap-reveal-section">
         <EventsSection />
       </div>
 
-      {/* 8. Field Stories & Grassroot Gallery - Right-aligned rhythm */}
+      {/* 8. Field Stories & Grassroot Dispatches (5:7 Split) */}
       <div className="gsap-reveal-section">
         <StoriesSection />
       </div>

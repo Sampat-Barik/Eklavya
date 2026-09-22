@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { MapPin, BookOpen, Heart, Activity, CheckCircle2, Sparkles } from 'lucide-react';
+import { SectionTitle } from '../ui/SectionTitle';
+import { MapPin, BookOpen, Heart, CheckCircle2 } from 'lucide-react';
 
 interface GroundZone {
   id: string;
@@ -80,59 +81,55 @@ export const LiveOperationsMap: React.FC = () => {
   const currentZone = zones.find((z) => z.id === selectedZoneId) || zones[0];
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-8">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-2">
-            <Activity size={14} className="text-blue-600 animate-pulse" />
-            <span>Real-Time Field Presence</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-serif font-black text-slate-900 tracking-tight">
-            Live Ground Operations in Haldia
-          </h2>
-          <p className="text-slate-600 text-sm max-w-2xl mt-1">
-            Student teams deploy daily across Haldia's rural hamlets and streets. Select an active zone below to inspect today's field deployment and direct impact.
-          </p>
-        </div>
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-900/[0.08] pb-6">
+        <SectionTitle
+          badge="GROUND PRESENCE"
+          badgeVariant="blue"
+          title="Live Ground Operations in Haldia"
+          highlightWord="Ground Operations"
+          subtitle="Student teams deploy daily across Haldia's rural settlements and streets. Inspect real-time field deployments and direct impact below."
+        />
 
         {/* Global Operational Status Pill */}
-        <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-white border border-slate-200/90 shadow-sm shrink-0">
-          <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
-          <span className="text-xs font-bold text-slate-800">4 Active Squads Deployed Today</span>
+        <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-900/[0.08] text-xs font-mono tracking-wide text-slate-800 shadow-xs shrink-0 self-start md:self-auto">
+          <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+          <span>4 Active Squads Deployed Today</span>
         </div>
       </div>
 
-      {/* Main Console Box */}
-      <div className="rounded-3xl bg-white border border-slate-200/90 shadow-sm p-5 sm:p-7 md:p-8 relative overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch relative z-10">
-          {/* Left Column: Interactive Map & Zone Buttons */}
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-4">
-            {/* Interactive Schematic Map Frame */}
-            <div className="relative w-full h-[280px] sm:h-[320px] rounded-2xl bg-slate-900/90 border border-slate-800 overflow-hidden group">
-              {/* Abstract Topological Grid Pattern */}
+      {/* Main Command Console (Asymmetric 8:4 Grid) */}
+      <div className="rounded-2xl bg-white border border-slate-900/[0.08] p-6 sm:p-8 shadow-sm">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          {/* Left Column: Interactive Radar Grid & Zone Selector (8 cols) */}
+          <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-between space-y-5">
+            {/* Topological Radar Frame */}
+            <div className="relative w-full h-[300px] sm:h-[350px] rounded-xl bg-slate-950 border border-slate-900 overflow-hidden group">
+              {/* Abstract Coordinate Grid */}
               <div 
-                className="absolute inset-0 opacity-20"
+                className="absolute inset-0 opacity-15"
                 style={{
-                  backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.2) 1px, transparent 0)',
-                  backgroundSize: '24px 24px'
+                  backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)',
+                  backgroundSize: '28px 28px'
                 }}
               />
 
-              {/* Connecting Vector Circuits / Ground Routes */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none stroke-blue-500/30 stroke-[1.5] fill-none">
-                <path d="M 120 100 Q 240 140 380 90 T 520 220" strokeDasharray="4 4" />
-                <path d="M 220 120 Q 320 190 420 170" strokeDasharray="3 3" />
+              {/* Connecting Ground Circuits / Vectors */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none stroke-slate-700/60 stroke-[1.2] fill-none">
+                <path d="M 120 100 Q 240 140 380 90 T 520 220" strokeDasharray="3 4" />
+                <path d="M 220 120 Q 320 190 420 170" strokeDasharray="2 3" />
                 <path d="M 380 90 L 420 170" strokeDasharray="2 4" />
               </svg>
 
-              {/* Haldia Landmark Watermark */}
-              <div className="absolute top-4 left-4 z-10 flex items-center gap-2 text-xs font-mono font-bold text-slate-400 bg-slate-950/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-800">
-                <MapPin size={13} className="text-blue-400" />
-                <span>HALDIA FIELD RADAR • 22.06° N, 88.07° E</span>
+              {/* Coordinates Stamp */}
+              <div className="absolute top-4 left-4 z-10 flex items-center gap-2 text-[10px] font-mono font-medium text-slate-400 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-800">
+                <MapPin size={12} className="text-slate-400" />
+                <span>HALDIA RADAR • 22.06° N, 88.07° E</span>
               </div>
 
-              {/* Interactive Zone Hotspots on Map */}
+              {/* Interactive Zone Pins */}
               {zones.map((zone) => {
                 const isSelected = zone.id === selectedZoneId;
                 return (
@@ -140,33 +137,33 @@ export const LiveOperationsMap: React.FC = () => {
                     key={zone.id}
                     onClick={() => setSelectedZoneId(zone.id)}
                     style={{ left: `${zone.coordinates.x}%`, top: `${zone.coordinates.y}%` }}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 focus:outline-none group/pin z-20"
+                    className="absolute -translate-x-1/2 -translate-y-1/2 focus:outline-none group/pin z-20 cursor-pointer"
                     aria-label={`Select ${zone.name}`}
                   >
                     <div className="relative flex items-center justify-center">
                       {isSelected && (
-                        <span className="absolute -inset-2 rounded-full bg-blue-500/30 animate-ping pointer-events-none" />
+                        <span className="absolute -inset-2 rounded-full bg-blue-500/25 animate-ping pointer-events-none" />
                       )}
                       <div
-                        className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg ${
+                        className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 shadow-md ${
                           isSelected
-                            ? 'bg-blue-600 text-white scale-125 ring-4 ring-blue-500/40'
-                            : 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:scale-110 border border-slate-700'
+                            ? 'bg-blue-600 text-white scale-115 ring-2 ring-blue-400/40'
+                            : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
                         }`}
                       >
                         {zone.type === 'education' ? (
-                          <BookOpen size={16} />
+                          <BookOpen size={14} strokeWidth={1.75} />
                         ) : (
-                          <Heart size={16} />
+                          <Heart size={14} strokeWidth={1.75} />
                         )}
                       </div>
                     </div>
-                    {/* Tooltip Tag */}
+                    {/* Tooltip */}
                     <div
-                      className={`mt-1.5 px-2 py-0.5 rounded text-[10px] font-bold whitespace-nowrap transition-all shadow-md ${
+                      className={`mt-1.5 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider transition-all shadow-sm ${
                         isSelected
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-slate-950/90 text-slate-300 border border-slate-800 group-hover/pin:border-slate-600'
+                          ? 'bg-blue-600 text-white font-bold'
+                          : 'bg-slate-900/90 text-slate-300 border border-slate-800'
                       }`}
                     >
                       {zone.name.split(' ')[0]}
@@ -176,26 +173,26 @@ export const LiveOperationsMap: React.FC = () => {
               })}
             </div>
 
-            {/* Zone Selector Buttons Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            {/* Zone Selector Buttons Row */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               {zones.map((zone) => {
                 const isSelected = zone.id === selectedZoneId;
                 return (
                   <button
                     key={zone.id}
                     onClick={() => setSelectedZoneId(zone.id)}
-                    className={`p-3 rounded-xl text-left transition-all border ${
+                    className={`p-3 rounded-xl text-left transition-all border cursor-pointer ${
                       isSelected
-                        ? 'bg-blue-50 border-blue-500 text-blue-900 shadow-xs ring-1 ring-blue-500/20'
-                        : 'bg-slate-50 border-slate-200/80 hover:bg-slate-100 text-slate-800'
+                        ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                        : 'bg-slate-50/70 border-slate-200/70 hover:bg-slate-100 text-slate-800'
                     }`}
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold">
+                      <span className={`text-[10px] font-mono uppercase tracking-wider ${isSelected ? 'text-slate-400' : 'text-slate-500'}`}>
                         {zone.id.toUpperCase()}
                       </span>
                       <span
-                        className={`w-2 h-2 rounded-full ${
+                        className={`w-1.5 h-1.5 rounded-full ${
                           zone.statusColor === 'emerald'
                             ? 'bg-emerald-500'
                             : zone.statusColor === 'amber'
@@ -204,10 +201,10 @@ export const LiveOperationsMap: React.FC = () => {
                         }`}
                       />
                     </div>
-                    <div className="font-bold text-xs text-slate-900 truncate leading-snug">
+                    <div className="font-semibold text-xs truncate">
                       {zone.name}
                     </div>
-                    <div className="text-[10px] text-slate-500 mt-0.5 truncate">
+                    <div className={`text-[10px] truncate mt-0.5 ${isSelected ? 'text-slate-300' : 'text-slate-500'}`}>
                       {zone.beneficiaries}
                     </div>
                   </button>
@@ -216,78 +213,64 @@ export const LiveOperationsMap: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Detailed Telemetry Panel */}
-          <div className="lg:col-span-5 rounded-2xl bg-slate-50/70 border border-slate-200/80 p-5 sm:p-6 flex flex-col justify-between space-y-5">
+          {/* Right Column: Tactical Telemetry Inspector (4 cols) */}
+          <div className="lg:col-span-5 xl:col-span-4 rounded-xl bg-slate-50/70 border border-slate-200/80 p-5 sm:p-6 flex flex-col justify-between space-y-5">
             <div className="space-y-4">
               {/* Header with Type & Status */}
-              <div className="flex items-center justify-between gap-2 border-b border-slate-200/80 pb-3.5">
-                <div className="flex items-center gap-2">
-                  <div
-                    className={`p-2 rounded-xl ${
-                      currentZone.type === 'education'
-                        ? 'bg-blue-100 text-blue-700 border border-blue-200'
-                        : 'bg-rose-100 text-rose-700 border border-rose-200'
-                    }`}
-                  >
-                    {currentZone.type === 'education' ? <BookOpen size={16} /> : <Heart size={16} />}
+              <div className="flex items-center justify-between gap-2 border-b border-slate-200/70 pb-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-white border border-slate-200/80 flex items-center justify-center text-slate-800">
+                    {currentZone.type === 'education' ? <BookOpen size={14} strokeWidth={1.75} /> : <Heart size={14} strokeWidth={1.75} />}
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">
                       Sector Focus
                     </span>
-                    <span className="text-xs font-bold text-slate-900 capitalize">
-                      {currentZone.type === 'education' ? 'Free Rural Education' : 'Animal Welfare & Rescue'}
+                    <span className="text-xs font-semibold text-slate-900 capitalize">
+                      {currentZone.type === 'education' ? 'Rural Education' : 'Animal Rescue'}
                     </span>
                   </div>
                 </div>
 
-                <div
-                  className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border ${
-                    currentZone.statusColor === 'emerald'
-                      ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
-                      : currentZone.statusColor === 'amber'
-                      ? 'bg-amber-50 border-amber-200 text-amber-700'
-                      : 'bg-blue-50 border-blue-200 text-blue-700'
-                  }`}
-                >
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border border-slate-200 bg-white text-slate-800">
                   {currentZone.status}
-                </div>
+                </span>
               </div>
 
               {/* Zone Title & Location */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-serif font-black text-slate-900">
+                <h3 className="text-xl font-serif font-normal text-slate-900 leading-snug">
                   {currentZone.name}
                 </h3>
                 <p className="text-xs text-slate-500 flex items-center gap-1.5 mt-1">
-                  <MapPin size={13} className="text-blue-600 shrink-0" />
+                  <MapPin size={12} className="text-slate-400 shrink-0" />
                   <span>{currentZone.location}</span>
                 </p>
               </div>
 
               {/* Impact Breakdown Stats */}
               <div className="grid grid-cols-2 gap-3 pt-1">
-                <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-xs">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
+                <div className="p-3 rounded-lg bg-white border border-slate-200/70 shadow-2xs">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">
                     Impact Scope
                   </span>
-                  <span className="text-lg font-serif font-black text-slate-900 block mt-0.5">
+                  <span className="text-base font-serif font-normal text-slate-900 block mt-0.5">
                     {currentZone.beneficiaries}
                   </span>
                 </div>
-                <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-xs">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
-                    Student Volunteers
+                <div className="p-3 rounded-lg bg-white border border-slate-200/70 shadow-2xs">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">
+                    Student Squad
                   </span>
-                  <span className="text-lg font-serif font-black text-blue-600 block mt-0.5">
+                  <span className="text-base font-serif font-normal text-slate-900 block mt-0.5">
                     {currentZone.volunteers} Active On-Duty
                   </span>
                 </div>
               </div>
 
-              {/* Operational Description */}
+              {/* Field Briefing */}
               <div className="space-y-1">
-                <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">
                   Field Briefing
                 </span>
                 <p className="text-xs text-slate-600 leading-relaxed font-normal">
@@ -296,25 +279,22 @@ export const LiveOperationsMap: React.FC = () => {
               </div>
 
               {/* Real-time Field Update */}
-              <div className="p-3 rounded-xl bg-blue-50/80 border border-blue-200/80 flex items-start gap-2.5">
-                <Sparkles size={15} className="text-amber-600 shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-[10px] font-bold text-blue-700 uppercase tracking-wider block">
-                    Latest Ground Log
-                  </span>
-                  <p className="text-xs text-slate-700 leading-normal">
-                    {currentZone.recentUpdate}
-                  </p>
-                </div>
+              <div className="p-3 rounded-lg bg-white border border-slate-200/80">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">
+                  Latest Field Dispatch
+                </span>
+                <p className="text-xs text-slate-700 leading-normal mt-0.5">
+                  {currentZone.recentUpdate}
+                </p>
               </div>
             </div>
 
             {/* Coordinator Footer */}
-            <div className="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500">
-              <span>Field Leads: <strong className="text-slate-800">{currentZone.leadCoordinator}</strong></span>
-              <span className="text-[11px] font-mono text-emerald-600 flex items-center gap-1 font-bold">
-                <CheckCircle2 size={13} />
-                <span>Verified by HIT Eklavya</span>
+            <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs text-slate-500">
+              <span className="text-[11px]">Lead: <strong className="text-slate-800 font-medium">{currentZone.leadCoordinator}</strong></span>
+              <span className="text-[10px] font-mono text-emerald-700 flex items-center gap-1 font-semibold">
+                <CheckCircle2 size={12} />
+                <span>Verified</span>
               </span>
             </div>
           </div>

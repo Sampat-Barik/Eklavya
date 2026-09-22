@@ -28,38 +28,38 @@ export const EventCard: React.FC<EventCardProps> = ({ event, className = '' }) =
 
   return (
     <div
-      className={`editorial-card p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border border-slate-200/90 hover:border-blue-300 transition-all ${className}`}
+      className={`rounded-xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 border border-slate-900/[0.08] bg-white hover:border-slate-300 transition-colors shadow-2xs ${className}`}
     >
-      {/* Date Badge + Details */}
-      <div className="flex items-start sm:items-center gap-5 flex-1">
-        {/* Modern Rounded Calendar Stamp */}
-        <div className="w-16 h-18 rounded-2xl bg-gradient-to-b from-blue-600 to-indigo-700 text-white flex flex-col items-center justify-center shrink-0 shadow-md shadow-blue-600/20">
-          <span className="text-[10px] font-black tracking-widest uppercase opacity-85">
+      {/* Date Stamp + Details */}
+      <div className="flex items-start sm:items-center gap-4 flex-1">
+        {/* Crisp Monospace / Serif Date Stamp */}
+        <div className="w-14 h-16 rounded-lg bg-slate-900 text-white flex flex-col items-center justify-center shrink-0">
+          <span className="text-[9px] font-mono font-medium tracking-wider uppercase text-slate-400">
             {monthStr}
           </span>
-          <span className="text-2xl font-serif font-black leading-none mt-0.5">
+          <span className="text-xl font-serif font-normal leading-none mt-0.5">
             {dayStr}
           </span>
         </div>
 
-        {/* Info */}
-        <div className="space-y-1.5 flex-1">
+        {/* Event Details */}
+        <div className="space-y-1 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <span className="editorial-badge-blue text-[10px]">
               {event.category}
             </span>
             {event.isUpcoming ? (
-              <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/70">
-                Upcoming Drive
+              <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/60">
+                Upcoming
               </span>
             ) : (
-              <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
-                Completed Milestone
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
+                Past
               </span>
             )}
           </div>
 
-          <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+          <h3 className="font-serif text-lg font-normal text-slate-900 leading-snug">
             {event.title}
           </h3>
 
@@ -67,51 +67,51 @@ export const EventCard: React.FC<EventCardProps> = ({ event, className = '' }) =
             {event.description}
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-1 font-medium">
-            <div className="flex items-center gap-1">
-              <MapPin size={13} className="text-blue-600 shrink-0" />
+          <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-1 font-normal">
+            <div className="flex items-center gap-1.5">
+              <MapPin size={12} className="text-slate-400 shrink-0" />
               <span>{event.location}</span>
             </div>
             {event.time && (
-              <div className="flex items-center gap-1">
-                <Clock size={13} className="text-amber-600 shrink-0" />
-                <span>{event.time}</span>
+              <div className="flex items-center gap-1.5">
+                <Clock size={12} className="text-slate-400 shrink-0" />
+                <span className="font-mono text-[11px]">{event.time}</span>
               </div>
             )}
-            <div className="flex items-center gap-1">
-              <Users size={13} className="text-slate-400 shrink-0" />
-              <span>{attendeeCount} Supporters Pledged</span>
+            <div className="flex items-center gap-1.5 font-mono text-[11px]">
+              <Users size={12} className="text-slate-400 shrink-0" />
+              <span>{attendeeCount} Pledged</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Action Button */}
+      {/* RSVP Action */}
       <div className="shrink-0 w-full sm:w-auto">
         {event.isUpcoming ? (
           <button
             onClick={handleRsvp}
-            className={`w-full sm:w-auto px-5 py-2.5 rounded-full text-xs font-bold transition-all flex items-center justify-center gap-2 shadow-sm ${
+            className={`w-full sm:w-auto px-4 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer ${
               hasRsvpd
-                ? 'bg-emerald-600 text-white shadow-emerald-500/20'
-                : 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-500/20 hover:scale-105'
+                ? 'bg-emerald-700 text-white shadow-2xs'
+                : 'bg-slate-900 hover:bg-slate-800 text-white shadow-2xs'
             }`}
           >
             {hasRsvpd ? (
               <>
-                <CheckCircle2 size={15} />
-                <span>Pledge Confirmed</span>
+                <CheckCircle2 size={14} />
+                <span>Pledged</span>
               </>
             ) : (
               <>
-                <Calendar size={14} />
-                <span>Contribute to Drive</span>
+                <Calendar size={13} />
+                <span>Join Drive</span>
               </>
             )}
           </button>
         ) : (
-          <span className="text-xs font-bold text-slate-400 italic">
-            Drive Concluded
+          <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block text-center sm:text-right">
+            Concluded
           </span>
         )}
       </div>

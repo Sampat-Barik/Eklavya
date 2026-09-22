@@ -25,9 +25,9 @@ export const EventsSection: React.FC = () => {
   });
 
   return (
-    <section id="events" className="space-y-10 py-8">
+    <section id="events" className="space-y-10 py-6 sm:py-10">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200/80 pb-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-900/[0.08] pb-6">
         <SectionTitle
           badge="CAMPUS & COMMUNITY CALENDAR"
           badgeVariant="green"
@@ -36,22 +36,22 @@ export const EventsSection: React.FC = () => {
           subtitle="Stay updated with our ongoing educational drives, health checkups, food distributions, and vaccination camps across Haldia."
         />
 
-        <div className="flex items-center gap-1.5 p-1.5 bg-slate-200/60 rounded-full shrink-0">
+        <div className="flex items-center gap-1 p-1 bg-slate-100 rounded-lg shrink-0 self-start md:self-auto text-xs">
           <button
             onClick={() => setFilter('upcoming')}
-            className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+            className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
               filter === 'upcoming'
-                ? 'bg-blue-600 text-white shadow-xs'
-                : 'text-slate-600 hover:text-blue-600'
+                ? 'bg-white text-slate-900 font-semibold shadow-2xs'
+                : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Upcoming
           </button>
           <button
             onClick={() => setFilter('all')}
-            className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+            className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
               filter === 'all'
-                ? 'bg-white text-slate-900 shadow-xs'
+                ? 'bg-white text-slate-900 font-semibold shadow-2xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -59,9 +59,9 @@ export const EventsSection: React.FC = () => {
           </button>
           <button
             onClick={() => setFilter('past')}
-            className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+            className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
               filter === 'past'
-                ? 'bg-white text-slate-900 shadow-xs'
+                ? 'bg-white text-slate-900 font-semibold shadow-2xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -70,16 +70,16 @@ export const EventsSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Asymmetric Events & Calendar Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      {/* Asymmetric 7:5 Events & Calendar Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Column: Events Timeline Stream (7 cols) */}
         <div className="lg:col-span-7 space-y-4">
           {filteredEvents.length > 0 ? (
             filteredEvents.map((ev) => <EventCard key={ev._id} event={ev} />)
           ) : (
-            <div className="editorial-card p-10 text-center space-y-3">
-              <Calendar size={32} className="text-slate-400 mx-auto" />
-              <p className="text-sm font-semibold text-slate-600">No events found in this category.</p>
+            <div className="rounded-xl border border-slate-200 bg-white p-10 text-center space-y-3">
+              <Calendar size={28} className="text-slate-400 mx-auto" />
+              <p className="text-xs font-medium text-slate-500">No events found in this category.</p>
             </div>
           )}
 
@@ -87,46 +87,43 @@ export const EventsSection: React.FC = () => {
           <div className="pt-2">
             <Link
               to="/events"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 text-xs font-bold transition-colors border border-slate-200/80"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-slate-900 transition-colors"
             >
-              <span>View All Historical Drives & Archives</span>
-              <ArrowRight size={14} />
+              <span>View full historical drives and campus archives</span>
+              <ArrowRight size={13} />
             </Link>
           </div>
         </div>
 
         {/* Right Column: Next Major Drive Spotlight Card (5 cols) */}
-        <div className="lg:col-span-5 sticky top-24">
-          <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white p-7 sm:p-8 border border-blue-900/60 shadow-xl relative overflow-hidden space-y-6">
-            {/* Subtle glow circle */}
-            <div className="absolute -top-12 -right-12 w-48 h-48 bg-blue-500/20 rounded-full blur-2xl pointer-events-none" />
-
+        <div className="lg:col-span-5 lg:sticky lg:top-28">
+          <div className="rounded-2xl bg-slate-950 text-white p-7 sm:p-8 border border-slate-900 shadow-sm relative overflow-hidden space-y-6">
             <div className="flex items-center justify-between">
-              <span className="px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5">
+              <span className="px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-white/10 text-slate-300 border border-white/10 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Next Field Mobilization</span>
               </span>
-              <span className="text-[11px] font-mono text-slate-400 font-semibold">
-                HIT Haldia Campus
+              <span className="text-[11px] font-mono text-slate-400">
+                HIT Haldia
               </span>
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-serif text-2xl font-bold text-white leading-snug">
+              <h3 className="font-serif text-2xl font-normal text-white leading-snug">
                 Weekly Mega Teaching & Vaccination Drive
               </h3>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal">
+              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-normal">
                 Join 40+ student volunteers at HIT Gate 1 as we depart for village tutoring centers and street animal first-aid routes across Haldia.
               </p>
             </div>
 
-            <div className="space-y-3 pt-2 border-t border-white/10 text-xs text-slate-300">
-              <div className="flex items-center gap-2.5">
-                <Calendar size={15} className="text-blue-400 shrink-0" />
-                <span className="font-semibold text-white">Every Sunday • 4:00 PM IST</span>
+            <div className="space-y-2.5 pt-3 border-t border-slate-800 text-xs text-slate-300">
+              <div className="flex items-center gap-2.5 font-mono">
+                <Calendar size={13} className="text-slate-400 shrink-0" />
+                <span className="text-slate-200">Every Sunday • 4:00 PM IST</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <MapPin size={15} className="text-amber-400 shrink-0" />
+                <MapPin size={13} className="text-slate-400 shrink-0" />
                 <span>Assembly: Student Activity Center, HIT Haldia</span>
               </div>
             </div>
@@ -134,10 +131,10 @@ export const EventsSection: React.FC = () => {
             <div className="pt-2">
               <Link
                 to="/register"
-                className="w-full py-3.5 px-5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 hover:scale-102"
+                className="w-full py-3 px-4 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-semibold text-xs transition-all flex items-center justify-center gap-2 shadow-2xs"
               >
                 <span>Join Volunteer Roster</span>
-                <ArrowRight size={14} />
+                <ArrowRight size={13} />
               </Link>
             </div>
           </div>
@@ -146,4 +143,3 @@ export const EventsSection: React.FC = () => {
     </section>
   );
 };
-
