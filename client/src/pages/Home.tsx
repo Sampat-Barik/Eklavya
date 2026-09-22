@@ -10,6 +10,8 @@ import { AboutImpactSection } from '../components/home/AboutImpactSection';
 import { ProgramsSection } from '../components/home/ProgramsSection';
 import { EventsSection } from '../components/home/EventsSection';
 import { StoriesSection } from '../components/home/StoriesSection';
+import { CTASection } from '../components/home/CTASection';
+import { ContactSection } from '../components/home/ContactSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +53,7 @@ export const Home: React.FC = () => {
   }, []);
 
   return (
-    <div ref={mainRef} className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 space-y-12 sm:space-y-16 py-2 pb-12">
+    <div ref={mainRef} className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 space-y-12 sm:space-y-16 py-2 pb-16">
       {/* 1. Asymmetrical Hero with 3D Scene */}
       <div className="gsap-reveal-section">
         <Hero />
@@ -67,29 +69,39 @@ export const Home: React.FC = () => {
         <LiveOperationsMap />
       </div>
 
-      {/* 4. Editorial Methodology ("How We Deliver Change") */}
+      {/* 4. Editorial Methodology ("How We Deliver Change") - Right-aligned rhythm */}
       <div id="how-we-work" className="gsap-reveal-section scroll-mt-24">
         <MethodologySection />
       </div>
 
-      {/* 5. Purpose & Core Impact with Authenticity Story & Metrics */}
+      {/* 5. Purpose & Core Impact with Authenticity Story & Metrics - Left-aligned rhythm */}
       <div className="gsap-reveal-section">
         <AboutImpactSection />
       </div>
 
-      {/* 6. Active Causes & Initiatives */}
+      {/* 6. Active Causes & Initiatives - Right-aligned rhythm */}
       <div id="programs" className="gsap-reveal-section scroll-mt-24">
         <ProgramsSection />
       </div>
 
-      {/* 7. Upcoming Events & Ground Drives */}
+      {/* 7. Upcoming Events & Ground Drives - Left-aligned rhythm */}
       <div className="gsap-reveal-section">
         <EventsSection />
       </div>
 
-      {/* 8. Field Stories & Grassroot Gallery */}
+      {/* 8. Field Stories & Grassroot Gallery - Right-aligned rhythm */}
       <div className="gsap-reveal-section">
         <StoriesSection />
+      </div>
+
+      {/* 9. Contribution & Aid Action (Monetary & Physical Aid) */}
+      <div id="donate-action" className="gsap-reveal-section scroll-mt-24">
+        <CTASection />
+      </div>
+
+      {/* 10. Campus Hub & Direct Contact */}
+      <div id="contact" className="gsap-reveal-section scroll-mt-24">
+        <ContactSection />
       </div>
     </div>
   );

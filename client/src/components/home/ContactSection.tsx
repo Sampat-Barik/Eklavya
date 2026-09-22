@@ -34,14 +34,21 @@ export const ContactSection: React.FC = () => {
 
   return (
     <section id="contact" className="space-y-10 py-8">
-      {/* Header */}
-      <div className="border-b border-slate-200/80 pb-6">
+      {/* Asymmetric Header - Right Aligned */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-slate-200/80 pb-6">
+        <div className="text-xs text-slate-500 max-w-sm order-2 sm:order-1">
+          <span className="font-bold text-slate-900 block mb-1">Direct Campus Presence</span>
+          Active student responders on-site at Haldia Institute of Technology. Emergency helpline active 24/7 for street animal rescues.
+        </div>
+
         <SectionTitle
           badge="GET IN TOUCH"
           badgeVariant="blue"
           title="Connect with Our Campus Society"
           highlightWord="Campus Society"
           subtitle="Have a question about our educational drives, want to report an animal distress case in Haldia, or collaborate as an alumni partner? We are here."
+          align="right"
+          className="order-1 sm:order-2"
         />
       </div>
 

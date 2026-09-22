@@ -83,17 +83,23 @@ export const AboutImpactSection: React.FC = () => {
           </div>
 
           {/* Photo Frame */}
-          <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm h-52 group">
+          <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm h-56 group">
             <img
               src="/eklavya_human_hero.jpg"
               alt="Eklavya evening school class"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-            <div className="absolute bottom-3 left-3 right-3 text-white text-[11px] font-semibold flex items-center justify-between">
-              <span>Daily Evening School Drive</span>
-              <span className="bg-blue-600/90 backdrop-blur-xs px-2 py-0.5 rounded-full text-[10px]">
-                Active Daily
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+            
+            {/* Floating location tag */}
+            <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-slate-800 shadow-xs border border-white/60">
+              📍 Haldia Rural Settlement
+            </div>
+
+            <div className="absolute bottom-3 left-4 right-4 text-white text-[11px] font-semibold flex items-center justify-between">
+              <span className="font-bold">Daily Evening School Drive</span>
+              <span className="bg-blue-600 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider shadow-xs">
+                Active 4:30 PM
               </span>
             </div>
           </div>

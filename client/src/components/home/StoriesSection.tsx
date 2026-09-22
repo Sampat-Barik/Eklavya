@@ -19,31 +19,58 @@ export const StoriesSection: React.FC = () => {
 
   return (
     <section id="stories" className="space-y-10 py-8">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200/80 pb-6">
+      {/* Header - Right Aligned Asymmetric */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-slate-200/80 pb-6">
+        <div className="text-xs text-slate-500 max-w-sm order-2 sm:order-1">
+          <span className="font-bold text-slate-900 block mb-1">Authentic Field Dispatches</span>
+          Direct dispatches written by HIT student coordinators, village teachers & veterinary first-responders.
+        </div>
+
         <SectionTitle
           badge="VOICES FROM THE FIELD"
           badgeVariant="rose"
           title="Stories of Transformed Lives"
           highlightWord="Transformed Lives"
           subtitle="Real accounts of village children excelling in school, stray animals rehabilitated from critical injuries, and the students behind the missions."
+          align="right"
+          className="order-1 sm:order-2"
         />
+      </div>
 
-        <div className="text-xs font-bold text-slate-500 max-w-xs text-right hidden md:block">
-          Direct dispatches written by HIT student coordinators & volunteers
+      {/* Asymmetric Stories Grid */}
+      {stories.length >= 2 ? (
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+          {/* Featured Story Spotlight (Left Column 5 cols) */}
+          <div className="lg:col-span-5 flex flex-col">
+            <PostCard
+              story={stories[0]}
+              onReadMore={(st) => setSelectedStory(st)}
+              className="h-full border-2 border-rose-400/20 shadow-md"
+            />
+          </div>
+
+          {/* Secondary Field Dispatches (Right Column 7 cols) */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+            {stories.slice(1).map((story) => (
+              <PostCard
+                key={story._id}
+                story={story}
+                onReadMore={(st) => setSelectedStory(st)}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Stories Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-        {stories.map((story) => (
-          <PostCard
-            key={story._id}
-            story={story}
-            onReadMore={(st) => setSelectedStory(st)}
-          />
-        ))}
-      </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+          {stories.map((story) => (
+            <PostCard
+              key={story._id}
+              story={story}
+              onReadMore={(st) => setSelectedStory(st)}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Full Story Reader Modal */}
       <StoryModal
@@ -53,3 +80,4 @@ export const StoriesSection: React.FC = () => {
     </section>
   );
 };
+

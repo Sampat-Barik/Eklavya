@@ -6,7 +6,7 @@ interface SectionTitleProps {
   title: string;
   highlightWord?: string;
   subtitle?: string;
-  align?: 'left' | 'center';
+  align?: 'left' | 'center' | 'right';
   className?: string;
 }
 
@@ -26,16 +26,23 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
     green: 'editorial-badge-green'
   }[badgeVariant];
 
-  const alignmentClass = align === 'center' ? 'text-center items-center mx-auto' : 'text-left items-start';
+  const alignmentClass = {
+    center: 'text-center items-center mx-auto',
+    right: 'text-left sm:text-right items-start sm:items-end sm:ml-auto',
+    left: 'text-left items-start'
+  }[align];
 
   return (
     <div className={`flex flex-col space-y-3.5 max-w-3xl ${alignmentClass} ${className}`}>
-      <span className={badgeClasses}>
-        <span className="w-1.5 h-1.5 rounded-full bg-current" />
-        {badge}
-      </span>
+      <div className={`flex items-center gap-3 ${align === 'right' ? 'sm:flex-row-reverse' : ''}`}>
+        <span className={`${badgeClasses} shadow-xs transition-transform hover:scale-105`}>
+          <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+          {badge}
+        </span>
+        <span className="h-px w-8 sm:w-12 bg-slate-300 hidden sm:inline-block" />
+      </div>
 
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+      <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-serif font-black text-slate-900 tracking-tight leading-[1.14]">
         {highlightWord && title.includes(highlightWord) ? (
           <>
             {title.split(highlightWord)[0]}
@@ -57,3 +64,4 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
     </div>
   );
 };
+
