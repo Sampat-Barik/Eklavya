@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, GraduationCap, Briefcase, Sparkles, MessageSquare } from 'lucide-react';
+import { Search, GraduationCap, Briefcase, MessageSquare } from 'lucide-react';
 import { ImageWithFallback } from '../components/ImageWithFallback';
 
 interface AlumniItem {
@@ -46,7 +46,7 @@ export const Alumni: React.FC = () => {
             department: 'Information Technology',
             currentRole: 'Frontend Developer',
             company: 'Amazon',
-            quote: 'Working on Eklavya tech initiatives gave me practical full-stack experience.'
+            quote: 'Working on Eklavya tech initiatives gave me practical full-stack engineering experience.'
           },
           {
             _id: '3',
@@ -55,7 +55,7 @@ export const Alumni: React.FC = () => {
             department: 'Electronics & Comm. Engg.',
             currentRole: 'Systems Engineer',
             company: 'TCS Innovation Labs',
-            quote: 'The animal rescue drives taught me kindness that I carry everywhere.'
+            quote: 'The animal rescue drives taught me resilience and kindness that I carry everywhere.'
           },
           {
             _id: '4',
@@ -64,7 +64,7 @@ export const Alumni: React.FC = () => {
             department: 'Chemical Engineering',
             currentRole: 'Operations Analyst',
             company: 'Reliance Industries',
-            quote: 'Being part of Eklavya was the highlight of my college life at HIT.'
+            quote: 'Being part of Eklavya was the defining highlight of my undergraduate journey at HIT.'
           }
         ]);
       } finally {
@@ -90,53 +90,77 @@ export const Alumni: React.FC = () => {
   });
 
   return (
-    <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-8 pb-16 py-4">
-      {/* Top Banner */}
-      <div className="editorial-card p-8 md:p-12 text-center space-y-4 bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950 text-white relative overflow-hidden shadow-xl border border-blue-800/40">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 rounded-full text-xs font-bold text-blue-300">
-          <Sparkles size={14} />
-          <span>LEGACY & LEADERSHIP</span>
+    <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16 sm:space-y-24">
+      {/* 1. Open Architectural Page Header */}
+      <div className="border-b border-slate-900/[0.08] pb-12 sm:pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <div className="lg:col-span-8 space-y-4">
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-slate-700 font-bold">
+              <GraduationCap size={14} className="text-blue-600" />
+              <span>Graduate Network & Legacy • HIT Haldia</span>
+            </div>
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
+              Pioneering Leaders, <br className="hidden sm:inline" />
+              Global Footprint.
+            </h1>
+            <p className="text-slate-600 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+              Honoring former student coordinators who built Eklavya's foundation and now carry the culture of empathy and engineering excellence into global technology and industrial leaders.
+            </p>
+          </div>
+
+          <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
+            <div className="bg-slate-50 border border-slate-900/[0.08] rounded-xl p-4 w-full sm:w-auto lg:w-full space-y-2">
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>FOUNDING BATCH</span>
+                <span className="font-bold text-slate-900">CLASS OF 2020</span>
+              </div>
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>MENTORSHIP</span>
+                <span className="font-bold text-emerald-700">ACTIVE CHANNELS</span>
+              </div>
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>PLACEMENTS</span>
+                <span className="font-bold text-slate-900">GLOBAL TOP FIRMS</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold tracking-tight">Our Esteemed Alumni</h1>
-        <p className="text-slate-200 text-sm max-w-xl mx-auto font-normal leading-relaxed">
-          Honoring our former student leaders who pioneered Eklavya's mission and continue to excel across global organizations.
-        </p>
       </div>
 
-      {/* Search Bar & Filters */}
-      <div className="editorial-card p-6 flex flex-col md:flex-row items-center gap-4">
+      {/* 2. Integrated Hairline Filter & Search Bar */}
+      <div className="bg-white border border-slate-900/[0.08] rounded-xl p-3 sm:p-4 flex flex-col sm:flex-row items-center gap-3 shadow-2xs">
         <div className="relative flex-1 w-full">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
           <input
             type="text"
-            placeholder="Search alumni by name, role, or company..."
+            placeholder="Search alumni by name, employer, or domain..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-full text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
+            className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-900/[0.08] rounded-lg text-xs font-medium text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
           />
         </div>
 
         <select
           value={selectedBatch}
           onChange={(e) => setSelectedBatch(e.target.value)}
-          className="bg-slate-50 border border-slate-200 text-slate-900 text-xs font-semibold rounded-full px-5 py-3 focus:outline-none w-full md:w-auto"
+          className="bg-slate-50 border border-slate-900/[0.08] text-slate-700 font-mono text-xs rounded-lg px-3 py-2 focus:outline-none w-full sm:w-auto"
         >
-          <option value="All">Batch: All Batches</option>
+          <option value="All">All Batches</option>
           <option value="2020-2024">Batch 2020-2024</option>
           <option value="2021-2025">Batch 2021-2025</option>
           <option value="2022-2026">Batch 2022-2026</option>
         </select>
       </div>
 
-      {/* Alumni Grid */}
+      {/* 3. Alumni Asymmetric Cards */}
       {loading ? (
-        <div className="text-center py-16 text-slate-500 font-semibold">Loading alumni directory...</div>
+        <div className="text-center py-16 text-slate-500 font-mono text-xs">QUERYING ALUMNI DIRECTORY...</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredAlumni.map((alumnus) => (
             <div
               key={alumnus._id}
-              className="editorial-card p-8 space-y-4 flex flex-col justify-between"
+              className="bg-white border border-slate-900/[0.08] rounded-2xl p-6 sm:p-8 space-y-5 shadow-2xs flex flex-col justify-between"
             >
               <div className="flex items-start gap-4">
                 <ImageWithFallback
@@ -144,35 +168,45 @@ export const Alumni: React.FC = () => {
                   alt={alumnus.name}
                   fallbackType="avatar"
                   initials={alumnus.name}
-                  className="w-16 h-16 rounded-full border border-slate-200 shrink-0 object-cover"
+                  className="w-14 h-14 rounded-xl border border-slate-900/10 shrink-0 object-cover"
                 />
-                <div className="space-y-1 flex-1">
-                  <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-serif font-extrabold text-slate-900">{alumnus.name}</h2>
-                    {alumnus.quote && (
-                      <button
-                        onClick={() => toggleQuote(alumnus._id)}
-                        className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1 bg-blue-50 px-3 py-1 rounded-full border border-blue-200"
-                      >
-                        <MessageSquare size={13} />
-                        <span>{visibleQuotes[alumnus._id] ? 'Hide' : 'Quote'}</span>
-                      </button>
-                    )}
+                <div className="space-y-1 flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="font-serif text-lg sm:text-xl font-extrabold text-slate-900 truncate">
+                      {alumnus.name}
+                    </h3>
+                    <span className="font-mono text-[10px] uppercase tracking-wider bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-bold shrink-0">
+                      {alumnus.batch}
+                    </span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-600">
-                    <GraduationCap size={15} className="text-blue-600" />
-                    <span>{alumnus.department} ({alumnus.batch})</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-blue-800">
-                    <Briefcase size={15} className="text-blue-600" />
-                    <span>{alumnus.currentRole} at {alumnus.company}</span>
+                  <p className="text-xs text-slate-500 truncate">
+                    {alumnus.department}
+                  </p>
+                  <div className="pt-1">
+                    <span className="inline-flex items-center gap-1 text-xs font-bold text-slate-900">
+                      <Briefcase size={13} className="text-blue-600" />
+                      <span>{alumnus.currentRole} • {alumnus.company}</span>
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {alumnus.quote && visibleQuotes[alumnus._id] && (
-                <div className="bg-blue-50/50 border border-blue-100 p-4 rounded-2xl text-xs font-normal text-slate-700 italic leading-relaxed animate-in fade-in duration-200">
-                  "{alumnus.quote}"
+              {alumnus.quote && (
+                <div className="pt-3 border-t border-slate-900/[0.06] space-y-2">
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => toggleQuote(alumnus._id)}
+                      className="font-mono text-[11px] text-blue-700 hover:text-blue-800 font-bold inline-flex items-center gap-1"
+                    >
+                      <MessageSquare size={12} />
+                      <span>{visibleQuotes[alumnus._id] ? 'COLLAPSE TESTIMONIAL' : 'READ REFLECTION'}</span>
+                    </button>
+                  </div>
+                  {visibleQuotes[alumnus._id] && (
+                    <blockquote className="bg-slate-50 border border-slate-900/[0.08] p-4 rounded-xl font-serif text-xs text-slate-700 italic leading-relaxed">
+                      "{alumnus.quote}"
+                    </blockquote>
+                  )}
                 </div>
               )}
             </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { QrCode, CheckCircle2, ShieldCheck, Copy, Sparkles, Send, RefreshCw, Upload } from 'lucide-react';
+import { QrCode, CheckCircle2, Copy, Send, RefreshCw, Upload, Heart } from 'lucide-react';
 
 export const Donate: React.FC = () => {
   const [copiedUPI, setCopiedUPI] = useState(false);
@@ -15,9 +15,9 @@ export const Donate: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [submittedSuccess, setSubmittedSuccess] = useState(false);
 
-  // Exact UPI details from live site audit
+  // Official UPI accounts
   const primaryUPI = 'abhinavmaiti01@okaxis';
-  const primaryTitle = 'Abhinav Maiti (Treasurer)';
+  const primaryTitle = 'Abhinav Maiti (Treasurer, Eklavya)';
 
   const backupUPI = '9153182300-2@naviaxis';
   const backupTitle = 'Asmit Maity (Chairperson / Vice CP)';
@@ -56,171 +56,187 @@ export const Donate: React.FC = () => {
   };
 
   return (
-    <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-8 pb-16 py-4">
-      {/* Top Banner */}
-      <div className="editorial-card p-8 md:p-12 text-center space-y-4 bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950 text-white relative overflow-hidden shadow-xl border border-blue-800/40">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 rounded-full text-xs font-bold text-blue-300">
-          <Sparkles size={14} />
-          <span>HELP US MAKE A DIFFERENCE • HANDS THAT CARE</span>
-        </div>
-        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold tracking-tight">Help Us — Support Eklavya</h1>
-        <p className="text-slate-200 text-sm max-w-xl mx-auto font-normal leading-relaxed">
-          Your direct contribution powers free evening classes for 150+ rural children and emergency medical rescue & sterilization for 120+ street animals across Haldia.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Left Column - UPI Details & Switchable QR */}
-        <div className="lg:col-span-5 space-y-6">
-          <div className="editorial-card p-8 text-center space-y-6">
-            <div className="flex items-center justify-center gap-2 text-slate-900 font-extrabold text-base font-serif">
-              <QrCode size={20} className="text-blue-600" />
-              <span>Scan to Pay via UPI</span>
+    <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16 sm:space-y-24">
+      {/* 1. Open Architectural Page Header */}
+      <div className="border-b border-slate-900/[0.08] pb-12 sm:pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <div className="lg:col-span-8 space-y-4">
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-slate-700 font-bold">
+              <Heart size={14} className="text-pink-600" />
+              <span>Direct Aid & Financial Transparency • Eklavya</span>
             </div>
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
+              Empower A Child. <br className="hidden sm:inline" />
+              Rescue A Stray Animal.
+            </h1>
+            <p className="text-slate-600 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+              Every rupee donated directly funds exercise books, pencils, evening school nourishment, rabies vaccines, and emergency surgical care for street dogs in Haldia. Eklavya operates with 0% administrative overhead.
+            </p>
+          </div>
 
-            {/* QR Box Container */}
-            <div className="w-52 h-52 mx-auto bg-blue-50/50 border border-blue-100 rounded-[28px] p-4 shadow-sm flex flex-col items-center justify-center space-y-2">
-              <QrCode className="w-24 h-24 text-blue-600" />
-              <span className="text-xs font-mono font-bold text-slate-900">{currentUPI}</span>
-              <span className="text-[10px] font-medium text-slate-500">{currentTitle}</span>
-            </div>
-
-            {/* Switch QR Button */}
-            <button
-              onClick={() => setUseBackupQR(!useBackupQR)}
-              className="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 rounded-full text-xs font-bold flex items-center justify-center gap-2 transition-all"
-            >
-              <RefreshCw size={14} />
-              <span>{useBackupQR ? 'Switch to Treasurer QR' : 'Switch to Backup QR (Chairperson)'}</span>
-            </button>
-
-            {/* UPI ID copy pill */}
-            <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 flex items-center justify-between">
-              <div className="text-left">
-                <span className="text-[10px] text-blue-600 uppercase font-extrabold block">Official UPI ID</span>
-                <span className="text-xs font-mono font-bold text-slate-900">{currentUPI}</span>
+          <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
+            <div className="bg-slate-50 border border-slate-900/[0.08] rounded-xl p-4 w-full sm:w-auto lg:w-full space-y-2">
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>AUDIT FREQUENCY</span>
+                <span className="font-bold text-slate-900">MONTHLY REPORT</span>
               </div>
-              <button
-                onClick={handleCopyUPI}
-                className="flex items-center gap-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-full transition-transform hover:scale-105 shadow-md shadow-blue-500/20"
-              >
-                {copiedUPI ? <CheckCircle2 size={14} className="text-emerald-300" /> : <Copy size={14} />}
-                <span>{copiedUPI ? 'Copied!' : 'Copy'}</span>
-              </button>
-            </div>
-
-            <div className="text-xs font-semibold text-slate-600 space-y-1.5 pt-2">
-              <div className="flex items-center justify-center gap-1.5">
-                <ShieldCheck size={16} className="text-blue-600" />
-                <span>100% Non-Profit Direct Service</span>
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>OVERHEAD CUT</span>
+                <span className="font-bold text-emerald-700">0% (100% VOLUNTEER)</span>
               </div>
-              <p className="text-[11px] text-slate-400">Supports GPay, PhonePe, Paytm, BHIM & UPI</p>
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>REGISTRATION</span>
+                <span className="font-bold text-slate-900">HIT HALDIA SOCIETY</span>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Right Column - Transaction Proof Form (Exact 6 Fields matching netlify site) */}
-        <div className="lg:col-span-7">
-          <div className="editorial-card p-8 md:p-10 space-y-6">
-            <div className="border-b border-slate-100 pb-4">
-              <h2 className="text-2xl font-serif font-extrabold text-slate-900">Submit Donation Proof</h2>
-              <p className="text-xs text-slate-500 font-normal mt-1">
-                Please fill out this form after completing payment so our finance team can record your donation.
+      {/* 2. Asymmetric 7:5 Layout: Form & Fund Allocation on Left, QR Console on Right */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+        {/* Left Column (7 cols): Impact Scale & Transaction Proof Form */}
+        <div className="lg:col-span-7 space-y-10">
+          {/* Micro Allocation Tiles */}
+          <div className="space-y-3">
+            <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+              Where Your Donation Goes
+            </span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="p-4 rounded-xl border border-slate-900/[0.08] bg-white space-y-1">
+                <span className="font-mono text-lg font-bold text-slate-900">₹250</span>
+                <span className="block text-xs font-bold text-slate-800">1 Student Term Kit</span>
+                <p className="text-[11px] text-slate-600">Notebooks, pencils, eraser, and daily snacks for 1 month.</p>
+              </div>
+              <div className="p-4 rounded-xl border border-slate-900/[0.08] bg-white space-y-1">
+                <span className="font-mono text-lg font-bold text-slate-900">₹650</span>
+                <span className="block text-xs font-bold text-slate-800">Vaccine & De-worming</span>
+                <p className="text-[11px] text-slate-600">Anti-rabies vial and 14-day anti-parasite medication.</p>
+              </div>
+              <div className="p-4 rounded-xl border border-slate-900/[0.08] bg-white space-y-1">
+                <span className="font-mono text-lg font-bold text-slate-900">₹1,800</span>
+                <span className="block text-xs font-bold text-slate-800">Emergency Surgery</span>
+                <p className="text-[11px] text-slate-600">Trauma treatment, antibiotic dressing, and shelter foster.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Transaction Proof Submission Form */}
+          <div className="bg-white border border-slate-900/[0.08] rounded-2xl p-6 sm:p-10 space-y-6 shadow-2xs">
+            <div className="border-b border-slate-900/[0.08] pb-4">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-blue-700 font-bold block">
+                Verification Pipeline
+              </span>
+              <h2 className="font-serif text-2xl font-extrabold text-slate-900 mt-1">
+                Submit Donation Proof
+              </h2>
+              <p className="text-xs text-slate-600 mt-1 font-normal">
+                Please submit the 12-digit UTR and payment screenshot so our finance lead can acknowledge your receipt.
               </p>
             </div>
 
             {submittedSuccess ? (
-              <div className="bg-emerald-50 border border-emerald-200 rounded-[24px] p-8 text-center space-y-4">
-                <CheckCircle2 size={40} className="mx-auto text-emerald-600" />
-                <h3 className="text-2xl font-serif font-extrabold text-slate-900">Thank You for Your Donation!</h3>
-                <p className="text-xs text-slate-600 font-medium max-w-md mx-auto">
-                  Your transaction proof has been recorded successfully. Our team will verify and issue your acknowledgment.
-                </p>
+              <div className="bg-emerald-50/60 border border-emerald-200 rounded-xl p-8 text-center space-y-4">
+                <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center mx-auto text-emerald-700">
+                  <CheckCircle2 size={24} strokeWidth={2} />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-extrabold text-slate-900">Transaction Recorded</h3>
+                  <p className="text-xs text-slate-600 max-w-sm mx-auto mt-1 leading-relaxed">
+                    Your payment details have been logged in the Eklavya treasury ledger. Our volunteers will verify and dispatch an acknowledgment.
+                  </p>
+                </div>
                 <button
                   onClick={() => {
                     setSubmittedSuccess(false);
                     setFormData({ fullName: '', email: '', phone: '', amount: '', utrNumber: '', proofFile: null });
                   }}
-                  className="text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full shadow-md shadow-blue-500/20 inline-block transition-transform hover:scale-105"
+                  className="font-mono text-xs font-bold text-slate-900 bg-white border border-slate-900/10 hover:bg-slate-50 px-5 py-2.5 rounded-lg transition-colors inline-block"
                 >
-                  Submit Another Donation
+                  Submit Another Record
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmitProof} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Field 1: Full Name */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-900 mb-1.5">Full Name *</label>
+                    <label className="block font-mono text-[11px] uppercase tracking-wider text-slate-700 font-bold mb-1.5">
+                      Full Name *
+                    </label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Anish Kumar"
+                      placeholder="e.g. Sagnik Mondal"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
+                      className="w-full bg-slate-50/60 border border-slate-900/10 rounded-lg px-3.5 py-2.5 text-xs font-medium text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
                     />
                   </div>
 
-                  {/* Field 2: Email Address */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-900 mb-1.5">Email Address *</label>
+                    <label className="block font-mono text-[11px] uppercase tracking-wider text-slate-700 font-bold mb-1.5">
+                      Email Address *
+                    </label>
                     <input
                       type="email"
                       required
-                      placeholder="e.g. anish@gmail.com"
+                      placeholder="e.g. sagnik@hithaldia.in"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
+                      className="w-full bg-slate-50/60 border border-slate-900/10 rounded-lg px-3.5 py-2.5 text-xs font-medium text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Field 3: Phone / WhatsApp No. */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-900 mb-1.5">Phone / WhatsApp No. *</label>
+                    <label className="block font-mono text-[11px] uppercase tracking-wider text-slate-700 font-bold mb-1.5">
+                      Phone / WhatsApp *
+                    </label>
                     <input
                       type="tel"
                       required
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
+                      className="w-full bg-slate-50/60 border border-slate-900/10 rounded-lg px-3.5 py-2.5 text-xs font-medium text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
                     />
                   </div>
 
-                  {/* Field 4: Donation Amount */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-900 mb-1.5">Donation Amount (₹) *</label>
+                    <label className="block font-mono text-[11px] uppercase tracking-wider text-slate-700 font-bold mb-1.5">
+                      Amount (₹) *
+                    </label>
                     <input
                       type="number"
                       required
                       placeholder="500"
                       value={formData.amount}
                       onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
+                      className="w-full bg-slate-50/60 border border-slate-900/10 rounded-lg px-3.5 py-2.5 text-xs font-medium text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
                     />
                   </div>
                 </div>
 
-                {/* Field 5: 12-Digit UTR */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-900 mb-1.5">12-Digit UTR / UPI Reference Number *</label>
+                  <label className="block font-mono text-[11px] uppercase tracking-wider text-slate-700 font-bold mb-1.5">
+                    12-Digit UTR / Transaction Reference *
+                  </label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. 412356789012"
                     value={formData.utrNumber}
                     onChange={(e) => setFormData({ ...formData, utrNumber: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-3 text-xs font-mono font-semibold text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
+                    className="w-full bg-slate-50/60 border border-slate-900/10 rounded-lg px-3.5 py-2.5 text-xs font-mono font-medium text-slate-900 focus:outline-none focus:border-blue-600 transition-colors"
                   />
                 </div>
 
-                {/* Field 6: Payment Screenshot / Proof */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-900 mb-1.5">Payment Screenshot / Proof *</label>
-                  <div className="relative border border-slate-200 border-dashed rounded-[20px] p-5 bg-slate-50 text-center cursor-pointer hover:bg-blue-50/50 transition-colors">
+                  <label className="block font-mono text-[11px] uppercase tracking-wider text-slate-700 font-bold mb-1.5">
+                    Payment Screenshot / Proof *
+                  </label>
+                  <div className="relative border border-slate-900/15 border-dashed rounded-xl p-5 bg-slate-50/40 text-center hover:bg-slate-50 transition-colors cursor-pointer">
                     <input
                       type="file"
                       accept="image/*"
@@ -228,9 +244,9 @@ export const Donate: React.FC = () => {
                       onChange={(e) => setFormData({ ...formData, proofFile: e.target.files ? e.target.files[0] : null })}
                       className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                     />
-                    <Upload size={22} className="mx-auto text-blue-600 mb-1" />
-                    <span className="text-xs font-bold text-slate-900 block">
-                      {formData.proofFile ? formData.proofFile.name : 'Click or drop payment screenshot here'}
+                    <Upload size={20} className="mx-auto text-slate-600 mb-1" strokeWidth={1.75} />
+                    <span className="text-xs font-medium text-slate-700 block">
+                      {formData.proofFile ? formData.proofFile.name : 'Upload receipt screenshot (PNG, JPG, PDF)'}
                     </span>
                   </div>
                 </div>
@@ -238,13 +254,70 @@ export const Donate: React.FC = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-full shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-transform hover:scale-[1.02] pt-3 mt-4"
+                  className="w-full py-3.5 bg-slate-900 hover:bg-blue-600 text-white font-mono text-xs uppercase tracking-wider font-bold rounded-xl shadow-2xs flex items-center justify-center gap-2 transition-colors pt-3"
                 >
-                  <Send size={16} />
-                  <span>{submitting ? 'Submitting...' : 'Submit Donation Proof'}</span>
+                  <Send size={14} />
+                  <span>{submitting ? 'DISPATCHING...' : 'CONFIRM & SUBMIT AUDIT PROOF'}</span>
                 </button>
               </form>
             )}
+          </div>
+        </div>
+
+        {/* Right Column (5 cols): Tactical QR Console */}
+        <div className="lg:col-span-5 space-y-6">
+          <div className="bg-white border border-slate-900/[0.08] rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xs">
+            <div className="flex items-center justify-between border-b border-slate-900/[0.08] pb-4">
+              <div className="flex items-center gap-2">
+                <QrCode size={18} className="text-blue-600" />
+                <span className="font-serif font-extrabold text-base text-slate-900">Instant UPI Payment</span>
+              </div>
+              <span className="font-mono text-[10px] uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded font-bold">
+                VERIFIED
+              </span>
+            </div>
+
+            {/* Architectural QR Frame */}
+            <div className="bg-slate-50 border border-slate-900/[0.08] rounded-xl p-6 text-center space-y-3">
+              <div className="w-44 h-44 mx-auto bg-white border border-slate-900/[0.08] rounded-lg p-3 shadow-2xs flex flex-col items-center justify-center">
+                <QrCode className="w-28 h-28 text-slate-900" strokeWidth={1.5} />
+                <span className="font-mono text-[10px] text-slate-500 mt-1 uppercase">Scan with any UPI App</span>
+              </div>
+
+              <div className="space-y-0.5 pt-1">
+                <span className="font-mono text-xs font-bold text-slate-900 block break-all">{currentUPI}</span>
+                <span className="text-[11px] text-slate-500 font-medium block">{currentTitle}</span>
+              </div>
+            </div>
+
+            {/* Switch Account Button */}
+            <button
+              onClick={() => setUseBackupQR(!useBackupQR)}
+              className="w-full py-2.5 bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-900/10 rounded-xl text-xs font-mono uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition-colors"
+            >
+              <RefreshCw size={13} />
+              <span>{useBackupQR ? 'Switch to Treasurer Account' : 'Switch to Chairperson Account'}</span>
+            </button>
+
+            {/* One-Click Copy UPI Pill */}
+            <div className="bg-slate-50/80 p-3.5 rounded-xl border border-slate-900/[0.08] flex items-center justify-between gap-3">
+              <div className="truncate">
+                <span className="font-mono text-[10px] uppercase text-slate-500 font-bold block">Account VPA</span>
+                <span className="font-mono text-xs font-bold text-slate-900 truncate block">{currentUPI}</span>
+              </div>
+              <button
+                onClick={handleCopyUPI}
+                className="shrink-0 flex items-center gap-1 text-xs bg-slate-900 hover:bg-blue-600 text-white font-mono px-3 py-1.5 rounded-lg transition-colors font-bold"
+              >
+                {copiedUPI ? <CheckCircle2 size={13} className="text-emerald-300" /> : <Copy size={13} />}
+                <span>{copiedUPI ? 'COPIED' : 'COPY'}</span>
+              </button>
+            </div>
+
+            <div className="pt-2 text-center text-xs text-slate-500 space-y-1">
+              <p className="font-medium">Supported on Google Pay, PhonePe, Paytm, BHIM & NetBanking.</p>
+              <p className="font-mono text-[10px] text-slate-600">HIT STUDENTS SOCIO-WELFARE ACCOUNT</p>
+            </div>
           </div>
         </div>
       </div>

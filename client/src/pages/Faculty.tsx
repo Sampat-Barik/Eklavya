@@ -1,153 +1,196 @@
 import React from 'react';
-import { Mail, ExternalLink, Users, ShieldCheck, Sparkles, BookOpen } from 'lucide-react';
+import { Mail, ExternalLink, GraduationCap, BookOpen, ShieldCheck } from 'lucide-react';
 import { ImageWithFallback } from '../components/ImageWithFallback';
 
 export const Faculty: React.FC = () => {
   return (
-    <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-8 pb-16 py-4">
-      {/* Top Header Banner */}
-      <div className="editorial-card p-8 md:p-12 text-center space-y-4 bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white relative overflow-hidden shadow-xl border border-blue-900/50">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 rounded-full text-xs font-bold text-blue-300">
-          <Sparkles size={14} />
-          <span>INSTITUTIONAL LEADERSHIP & GUIDANCE</span>
+    <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16 sm:space-y-24">
+      {/* 1. Open Architectural Page Header */}
+      <div className="border-b border-slate-900/[0.08] pb-12 sm:pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <div className="lg:col-span-8 space-y-4">
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-slate-700 font-bold">
+              <GraduationCap size={14} className="text-blue-600" />
+              <span>Academic Patronage & Guidance • HIT Haldia</span>
+            </div>
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
+              Faculty Mentorship & <br className="hidden sm:inline" />
+              Institutional Leadership.
+            </h1>
+            <p className="text-slate-600 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+              Eklavya operates under the mentorship of the Department of Computer Science & Engineering (AIML) at Haldia Institute of Technology, bridging technical education with direct community service.
+            </p>
+          </div>
+
+          <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
+            <div className="bg-slate-50 border border-slate-900/[0.08] rounded-xl p-4 w-full sm:w-auto lg:w-full space-y-2">
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>PARENT DEPARTMENT</span>
+                <span className="font-bold text-slate-900">CSE (AIML)</span>
+              </div>
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>INSTITUTION</span>
+                <span className="font-bold text-slate-900">HIT HALDIA</span>
+              </div>
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>STATUS</span>
+                <span className="font-bold text-emerald-700">OFFICIALLY RECOGNIZED</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold tracking-tight">Faculty Coordinator</h1>
-        <p className="text-slate-300 text-sm max-w-xl mx-auto font-normal leading-relaxed">
-          Guiding our social initiatives, mentoring student volunteers, and ensuring our programs align with academic excellence.
-        </p>
       </div>
 
-      {/* Section 1: Department Leadership - Prof.(Dr.) Bidesh Chakraborty */}
-      <div className="editorial-card p-8 md:p-10 space-y-6">
-        <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span className="px-4 py-1.5 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-extrabold">
-            Head of Department
-          </span>
-        </div>
+      {/* 2. Department Leadership: Prof. (Dr.) Bidesh Chakraborty */}
+      <div className="bg-white border border-slate-900/[0.08] rounded-2xl p-6 sm:p-10 shadow-2xs">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Portrait & Actions (4 cols) */}
+          <div className="lg:col-span-4 flex flex-col items-center text-center space-y-4">
+            <div className="relative">
+              <ImageWithFallback
+                alt="Prof.(Dr.) Bidesh Chakraborty"
+                fallbackType="avatar"
+                initials="BC"
+                className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl border border-slate-900/10 object-cover shadow-xs"
+              />
+              <span className="absolute -bottom-2.5 font-mono text-[10px] uppercase tracking-wider bg-slate-900 text-white px-3 py-0.5 rounded-full font-bold">
+                DEPARTMENT HEAD
+              </span>
+            </div>
 
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-          <ImageWithFallback
-            alt="Prof.(Dr.) Bidesh Chakraborty"
-            fallbackType="avatar"
-            initials="BC"
-            className="w-32 h-32 rounded-full border-2 border-slate-200 shadow-md shrink-0 object-cover"
-          />
-
-          <div className="space-y-3 flex-1">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-serif font-extrabold text-slate-900">Prof. (Dr.) Bidesh Chakraborty</h2>
-              <p className="text-xs md:text-sm font-bold text-blue-600">Professor & Head of Department</p>
-              <p className="text-xs font-medium text-slate-500">
-                Department of Computer Science Engineering (AIML), Haldia Institute of Technology
+            <div className="pt-2">
+              <h2 className="font-serif text-xl sm:text-2xl font-extrabold text-slate-900">
+                Prof. (Dr.) Bidesh Chakraborty
+              </h2>
+              <span className="font-mono text-xs text-blue-600 font-bold block mt-0.5">
+                Professor & Head of Department
+              </span>
+              <p className="text-xs text-slate-500 mt-1 max-w-xs">
+                Dept. of Computer Science & Engineering (AIML), Haldia Institute of Technology
               </p>
             </div>
 
-            <p className="text-slate-600 text-xs md:text-sm leading-relaxed bg-blue-50/40 border border-blue-100 p-5 rounded-2xl font-normal">
-              As the Head of Department, Prof. Chakraborty provides strategic leadership for the CSE AIML department, oversees academic programs, and supports our NGO's initiatives through institutional guidance and academic excellence.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 pt-1 text-xs font-semibold">
+            <div className="flex items-center gap-2 pt-1 w-full justify-center">
               <a
                 href="mailto:bidesh.chakraborty@hithaldia.ac.in"
-                className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-transform hover:scale-105 flex items-center gap-2 shadow-md shadow-blue-500/20"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-900 hover:bg-blue-600 text-white rounded-lg text-xs font-mono font-bold transition-colors"
               >
-                <Mail size={14} />
-                <span>Contact</span>
+                <Mail size={13} />
+                <span>EMAIL</span>
               </a>
               <a
                 href="https://scholar.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-white border border-slate-300 text-slate-800 rounded-full hover:bg-slate-50 flex items-center gap-2 transition-all shadow-sm"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-900/10 rounded-lg text-xs font-mono font-bold transition-colors"
               >
-                <span>View Profile</span>
-                <ExternalLink size={14} />
+                <span>SCHOLAR</span>
+                <ExternalLink size={13} />
               </a>
+            </div>
+          </div>
+
+          {/* Leadership Narrative (8 cols) */}
+          <div className="lg:col-span-8 space-y-5 border-t lg:border-t-0 lg:border-l border-slate-900/[0.08] pt-6 lg:pt-0 lg:pl-10">
+            <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+              Institutional Patron's Message
+            </span>
+            <blockquote className="font-serif text-xl sm:text-2xl font-medium text-slate-900 leading-snug">
+              "Technical competence without humanitarian empathy produces incomplete engineers. Eklavya represents the conscience of our student community."
+            </blockquote>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+              As the Head of the CSE (AIML) Department, Prof. Chakraborty provides institutional oversight, ensuring student volunteers balance rigorous academic milestones with transformative grassroots social service. His patronship enables Eklavya to access campus laboratories, seminar halls, and logistics for our educational and animal welfare drives.
+            </p>
+
+            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 font-medium">
+              <div className="p-3 bg-slate-50 border border-slate-900/[0.08] rounded-xl flex items-center gap-2">
+                <BookOpen size={16} className="text-blue-600 shrink-0" />
+                <span>Academic & Curriculum Alignment</span>
+              </div>
+              <div className="p-3 bg-slate-50 border border-slate-900/[0.08] rounded-xl flex items-center gap-2">
+                <ShieldCheck size={16} className="text-blue-600 shrink-0" />
+                <span>Institutional Authorization & Safety</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Section 2: Faculty Coordinator - Dr. Upasana Adhikary */}
-      <div className="editorial-card p-8 md:p-10 space-y-6">
-        <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span className="px-4 py-1.5 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-extrabold">
-            Faculty Coordinator
-          </span>
-        </div>
+      {/* 3. Faculty Coordinator: Dr. Upasana Adhikary */}
+      <div className="bg-white border border-slate-900/[0.08] rounded-2xl p-6 sm:p-10 shadow-2xs">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Portrait & Actions (4 cols) */}
+          <div className="lg:col-span-4 flex flex-col items-center text-center space-y-4">
+            <div className="relative">
+              <ImageWithFallback
+                alt="Dr. Upasana Adhikary"
+                fallbackType="avatar"
+                initials="UA"
+                className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl border border-slate-900/10 object-cover shadow-xs"
+              />
+              <span className="absolute -bottom-2.5 font-mono text-[10px] uppercase tracking-wider bg-blue-600 text-white px-3 py-0.5 rounded-full font-bold">
+                FACULTY COORDINATOR
+              </span>
+            </div>
 
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-          <ImageWithFallback
-            alt="Dr. Upasana Adhikary"
-            fallbackType="avatar"
-            initials="UA"
-            className="w-32 h-32 rounded-full border-2 border-slate-200 shadow-md shrink-0 object-cover"
-          />
-
-          <div className="space-y-3 flex-1">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-serif font-extrabold text-slate-900">Dr. Upasana Adhikary</h2>
-              <p className="text-xs md:text-sm font-bold text-blue-600">Assistant Professor</p>
-              <p className="text-xs font-medium text-slate-500">
-                Department of Computer Science Engineering (AIML), Haldia Institute of Technology
+            <div className="pt-2">
+              <h2 className="font-serif text-xl sm:text-2xl font-extrabold text-slate-900">
+                Dr. Upasana Adhikary
+              </h2>
+              <span className="font-mono text-xs text-blue-600 font-bold block mt-0.5">
+                Assistant Professor & Society Mentor
+              </span>
+              <p className="text-xs text-slate-500 mt-1 max-w-xs">
+                Dept. of Computer Science & Engineering (AIML), Haldia Institute of Technology
               </p>
             </div>
 
-            <p className="text-slate-600 text-xs md:text-sm leading-relaxed bg-blue-50/40 border border-blue-100 p-5 rounded-2xl font-normal">
-              As the Faculty Coordinator of our NGO society, Prof. Adhikary guides our social initiatives, mentors student volunteers, and ensures our programs align with academic excellence and community service values.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 pt-1 text-xs font-semibold">
+            <div className="flex items-center gap-2 pt-1 w-full justify-center">
               <a
                 href="mailto:upasana.adhikari@hithaldia.ac.in"
-                className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-transform hover:scale-105 flex items-center gap-2 shadow-md shadow-blue-500/20"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-900 hover:bg-blue-600 text-white rounded-lg text-xs font-mono font-bold transition-colors"
               >
-                <Mail size={14} />
-                <span>Contact</span>
+                <Mail size={13} />
+                <span>EMAIL</span>
               </a>
               <a
                 href="https://scholar.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-white border border-slate-300 text-slate-800 rounded-full hover:bg-slate-50 flex items-center gap-2 transition-all shadow-sm"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-900/10 rounded-lg text-xs font-mono font-bold transition-colors"
               >
-                <span>View Profile</span>
-                <ExternalLink size={14} />
+                <span>SCHOLAR</span>
+                <ExternalLink size={13} />
               </a>
             </div>
           </div>
-        </div>
 
-        {/* Feature Highlights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-slate-100">
-          <div className="bg-blue-50/60 border border-blue-100 p-5 rounded-2xl space-y-1">
-            <div className="flex items-center gap-2 font-bold text-xs text-blue-900">
-              <BookOpen size={16} />
-              <span>Academic Excellence</span>
-            </div>
-            <p className="text-xs text-slate-600">
-              Leading research in AI/ML and guiding students towards innovative solutions.
+          {/* Mentorship Narrative (8 cols) */}
+          <div className="lg:col-span-8 space-y-5 border-t lg:border-t-0 lg:border-l border-slate-900/[0.08] pt-6 lg:pt-0 lg:pl-10">
+            <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+              Coordinator's Guiding Philosophy
+            </span>
+            <blockquote className="font-serif text-xl sm:text-2xl font-medium text-slate-900 leading-snug">
+              "Witnessing engineering students step outside air-conditioned classrooms to teach village children and treat injured animals is true character formation."
+            </blockquote>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+              Dr. Upasana Adhikary directly coordinates society operations, vetting the daily evening school curriculum, monitoring student attendance metrics, and guiding the student executive committee in event execution, budget governance, and annual community drives across Haldia.
             </p>
-          </div>
 
-          <div className="bg-blue-50/60 border border-blue-100 p-5 rounded-2xl space-y-1">
-            <div className="flex items-center gap-2 font-bold text-xs text-blue-900">
-              <Users size={16} />
-              <span>Community Engagement</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div className="p-3.5 bg-slate-50 border border-slate-900/[0.08] rounded-xl space-y-1">
+                <span className="font-mono text-base font-bold text-slate-900 block">Weekly</span>
+                <span className="text-xs text-slate-600 font-medium">Operations Review</span>
+              </div>
+              <div className="p-3.5 bg-slate-50 border border-slate-900/[0.08] rounded-xl space-y-1">
+                <span className="font-mono text-base font-bold text-slate-900 block">Pedagogy</span>
+                <span className="text-xs text-slate-600 font-medium">Curriculum Guidance</span>
+              </div>
+              <div className="p-3.5 bg-slate-50 border border-slate-900/[0.08] rounded-xl space-y-1">
+                <span className="font-mono text-base font-bold text-slate-900 block">Ethics</span>
+                <span className="text-xs text-slate-600 font-medium">Volunteer Standards</span>
+              </div>
             </div>
-            <p className="text-xs text-slate-600">
-              Fostering social responsibility and community service among student volunteers.
-            </p>
-          </div>
-
-          <div className="bg-blue-50/60 border border-blue-100 p-5 rounded-2xl space-y-1">
-            <div className="flex items-center gap-2 font-bold text-xs text-blue-900">
-              <ShieldCheck size={16} />
-              <span>NGO Leadership</span>
-            </div>
-            <p className="text-xs text-slate-600">
-              Coordinating social welfare programs and volunteer activities across Haldia.
-            </p>
           </div>
         </div>
       </div>

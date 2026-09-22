@@ -1,102 +1,202 @@
 import React from 'react';
-import { BookOpen, Heart, Users, Target, ShieldCheck, Sparkles } from 'lucide-react';
+import { BookOpen, Heart, Users, Target, CheckCircle2, Compass } from 'lucide-react';
 
 export const Vision: React.FC = () => {
   return (
-    <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-8 pb-16 py-4">
-      {/* Top Banner Card with Official Eklavya Seal */}
-      <div className="editorial-card p-8 md:p-12 text-center space-y-4 bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white relative overflow-hidden shadow-xl border border-blue-900/50">
-        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-48 h-48 opacity-10 pointer-events-none hidden md:block">
-          <img src="/eklavya_logo.png" alt="" className="w-full h-full object-contain" />
-        </div>
-        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-48 h-48 opacity-10 pointer-events-none hidden md:block">
-          <img src="/eklavya_logo.png" alt="" className="w-full h-full object-contain" />
-        </div>
-
-        <div className="relative z-10 space-y-3">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 rounded-full text-xs font-bold text-blue-300">
-            <Sparkles size={14} />
-            <span>OUR PURPOSE & CORE VALUES</span>
+    <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-20 sm:space-y-28">
+      {/* 1. Architectural Open Page Header */}
+      <div className="border-b border-slate-900/[0.08] pb-12 sm:pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <div className="lg:col-span-8 space-y-4">
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-slate-700 font-bold">
+              <Compass size={14} className="text-blue-600" />
+              <span>Institutional Charter • Eklavya Society</span>
+            </div>
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
+              Vision, Mission & <br className="hidden sm:inline" />
+              Guiding Principles.
+            </h1>
+            <p className="text-slate-600 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+              Founded at Haldia Institute of Technology, Eklavya operates on the moral conviction that no child should lack education due to poverty, and no stray animal should suffer without medical care and shelter.
+            </p>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-serif font-extrabold tracking-tight">Vision & Mission</h1>
-          <p className="text-slate-200 text-sm md:text-base font-normal max-w-2xl mx-auto leading-relaxed">
-            Eklavya — HIT's Socio-Animal Welfare Society is dedicated to transforming lives through free primary education, compassionate animal care, and student empowerment.
-          </p>
+
+          <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
+            <div className="bg-slate-50 border border-slate-900/[0.08] rounded-xl p-4 w-full sm:w-auto lg:w-full space-y-2">
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>HEADQUARTERS</span>
+                <span className="font-bold text-slate-900">HIT CAMPUS</span>
+              </div>
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>ESTABLISHED</span>
+                <span className="font-bold text-slate-900">HALDIA, WB</span>
+              </div>
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>ORGANIZATION</span>
+                <span className="font-bold text-blue-700">100% VOLUNTEER RUN</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Main Pillars */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="editorial-card p-8 space-y-4">
-          <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold shadow-md shadow-blue-500/20">
-            <BookOpen size={22} />
-          </div>
-          <h2 className="text-xl font-serif font-extrabold text-slate-900">Free Primary Education</h2>
-          <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
-            We conduct daily evening school sessions for children from underprivileged families living around Haldia, providing books, stationery, and holistic learning opportunities.
-          </p>
-        </div>
-
-        <div className="editorial-card p-8 space-y-4">
-          <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold shadow-md shadow-blue-500/20">
-            <Heart size={22} />
-          </div>
-          <h2 className="text-xl font-serif font-extrabold text-slate-900">Animal Welfare & Rescue</h2>
-          <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
-            Our animal care wing rescues injured stray animals, provides vaccination & feeding drives, and advocates for animal rights across Haldia Campus.
-          </p>
-        </div>
-
-        <div className="editorial-card p-8 space-y-4">
-          <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold shadow-md shadow-blue-500/20">
-            <Users size={22} />
-          </div>
-          <h2 className="text-xl font-serif font-extrabold text-slate-900">Student Empowerment</h2>
-          <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
-            We nurture leadership, empathy, and tech skills among college volunteers, offering real-world event management and society experience.
-          </p>
-        </div>
-      </div>
-
-      {/* Objectives Section */}
-      <div className="editorial-card p-8 md:p-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-        <div className="md:col-span-7 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-bold">
-            <Target size={14} />
-            <span>LONG TERM OBJECTIVES</span>
-          </div>
-          <h2 className="text-2xl md:text-3xl font-serif font-extrabold text-slate-900">
-            Marching Forward With Empathy and Education
+      {/* 2. Asymmetric Bento Grid: Core Pillars */}
+      <div className="space-y-8">
+        <div className="space-y-2">
+          <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+            Three Operational Pillars
+          </span>
+          <h2 className="font-serif text-2xl sm:text-4xl font-extrabold text-slate-900">
+            How We Translate Conviction into Tangible Action
           </h2>
-          <p className="text-slate-600 text-xs md:text-sm leading-relaxed font-normal">
-            Founded by students of Haldia Institute of Technology, Eklavya bridges the gap between privileges and opportunities. Every child deserves to read, every animal deserves shelter, and every youth deserves a chance to serve.
-          </p>
-          <ul className="space-y-2.5 text-xs md:text-sm font-semibold text-slate-800 pt-2">
-            <li className="flex items-center gap-2.5">
-              <ShieldCheck size={18} className="text-blue-600 shrink-0" />
-              <span>Establish permanent learning centers in Haldia by 2027</span>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <ShieldCheck size={18} className="text-blue-600 shrink-0" />
-              <span>Expand medical & anti-rabies vaccination coverage for stray animals</span>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <ShieldCheck size={18} className="text-blue-600 shrink-0" />
-              <span>Build mentorship channels linking our alumni network with active volunteers</span>
-            </li>
-          </ul>
         </div>
 
-        <div className="md:col-span-5 relative rounded-[24px] overflow-hidden border border-slate-200 shadow-md group h-72">
-          <img
-            src="/eklavya_human_hero.jpg"
-            alt="Eklavya evening school class"
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-          <div className="absolute bottom-3 left-4 right-4 text-white">
-            <span className="text-xs font-bold block">Rural Evening School Classroom</span>
-            <span className="text-[11px] text-slate-300">Daily classes for 150+ underprivileged village children in Haldia</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Flagship Pillar (7 cols) */}
+          <div className="lg:col-span-7 bg-white border border-slate-900/[0.08] rounded-2xl p-8 sm:p-10 space-y-6 relative overflow-hidden shadow-2xs">
+            <div className="flex items-center justify-between">
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-slate-700">01</span>
+              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+                <BookOpen size={20} strokeWidth={1.75} />
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <span className="inline-block font-mono text-[11px] uppercase tracking-wider text-blue-700 font-bold">
+                Daily Evening School Wing
+              </span>
+              <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900">
+                Free Primary Education & Academic Mentorship
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed font-normal">
+                Every evening from 5:00 PM to 7:30 PM, volunteer undergraduate engineers conduct structured tutoring sessions for children from underprivileged families living around Haldia. Beyond basic literacy and arithmetic, we provide free textbooks, notebooks, geometry sets, and nutritious refreshments.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-900/[0.08]">
+              <div>
+                <span className="font-mono text-xl sm:text-2xl font-bold text-slate-900 block">150+</span>
+                <span className="text-xs text-slate-600 font-medium">Students Enrolled</span>
+              </div>
+              <div>
+                <span className="font-mono text-xl sm:text-2xl font-bold text-slate-900 block">6 Days</span>
+                <span className="text-xs text-slate-600 font-medium">Per Week Schedule</span>
+              </div>
+              <div>
+                <span className="font-mono text-xl sm:text-2xl font-bold text-slate-900 block">100%</span>
+                <span className="text-xs text-slate-600 font-medium">Free Study Materials</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Secondary Pillars Stack (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            {/* Pillar 02 */}
+            <div className="bg-white border border-slate-900/[0.08] rounded-2xl p-7 space-y-4 shadow-2xs flex-1">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xl font-bold text-slate-700">02</span>
+                <div className="w-9 h-9 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600">
+                  <Heart size={18} strokeWidth={1.75} />
+                </div>
+              </div>
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-700 font-bold block mb-1">
+                  Ground Rescue Wing
+                </span>
+                <h3 className="font-serif text-xl font-extrabold text-slate-900 mb-2">
+                  Animal Welfare & Medical Rescue
+                </h3>
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                  Dedicated emergency response squad covering HIT campus and Haldia municipality: treating injured dogs, funding veterinary surgeries, organizing regular anti-rabies vaccinations, and running daily feeding drives.
+                </p>
+              </div>
+            </div>
+
+            {/* Pillar 03 */}
+            <div className="bg-white border border-slate-900/[0.08] rounded-2xl p-7 space-y-4 shadow-2xs flex-1">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xl font-bold text-slate-700">03</span>
+                <div className="w-9 h-9 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                  <Users size={18} strokeWidth={1.75} />
+                </div>
+              </div>
+              <div>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-indigo-700 font-bold block mb-1">
+                  Youth Development
+                </span>
+                <h3 className="font-serif text-xl font-extrabold text-slate-900 mb-2">
+                  Student Leadership & Civic Responsibility
+                </h3>
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                  Cultivating civic conscience among young engineers. Volunteers gain hands-on grassroots project management, team mobilization, and ethical grounding that shapes their careers long after graduation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Objectives & Tactical Milestones: 7:5 Split */}
+      <div className="border-t border-slate-900/[0.08] pt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-blue-700 font-bold">
+                <Target size={14} />
+                <span>Strategic Roadmap 2026–2028</span>
+              </div>
+              <h2 className="font-serif text-2xl sm:text-4xl font-extrabold text-slate-900">
+                Marching Forward With Empathy and Engineering Rigor
+              </h2>
+            </div>
+
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+              Every initiative launched by Eklavya is documented, audited, and sustained through student continuity. We do not run temporary photo-ops; we build lasting grassroots infrastructure.
+            </p>
+
+            <div className="space-y-3 pt-2">
+              <div className="flex items-start gap-3 p-4 bg-slate-50 border border-slate-900/[0.08] rounded-xl">
+                <CheckCircle2 size={18} className="text-blue-600 shrink-0 mt-0.5" strokeWidth={1.75} />
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900">Permanent Community Learning Lab</h4>
+                  <p className="text-xs text-slate-600 mt-0.5">Establish a dedicated classroom equipped with computer terminals and a physical library near Haldia.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 p-4 bg-slate-50 border border-slate-900/[0.08] rounded-xl">
+                <CheckCircle2 size={18} className="text-blue-600 shrink-0 mt-0.5" strokeWidth={1.75} />
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900">Campus Sterilization & Vaccination Protocol</h4>
+                  <p className="text-xs text-slate-600 mt-0.5">Partner with Haldia municipal vets to achieve 100% anti-rabies immunity across the campus perimeter.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 p-4 bg-slate-50 border border-slate-900/[0.08] rounded-xl">
+                <CheckCircle2 size={18} className="text-blue-600 shrink-0 mt-0.5" strokeWidth={1.75} />
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900">Alumni-Sponsored Student Scholarships</h4>
+                  <p className="text-xs text-slate-600 mt-0.5">Bridge promising rural students from our evening school into accredited secondary and vocational schooling.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="bg-slate-900 text-white rounded-2xl p-8 sm:p-10 space-y-6 relative overflow-hidden border border-slate-800 shadow-sm">
+              <div className="space-y-2">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-blue-300 font-bold block">
+                  The Founder's Pledge
+                </span>
+                <blockquote className="font-serif text-xl sm:text-2xl font-normal leading-snug italic text-slate-100">
+                  "True education does not merely train an engineer to build machines; it inspires them to heal the society they inhabit."
+                </blockquote>
+              </div>
+
+              <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-mono">
+                <span>Eklavya Constitution</span>
+                <span className="text-blue-400 font-bold">ARTICLE II, SEC. 1</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

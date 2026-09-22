@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Users, Sparkles, ShieldCheck, Tag } from 'lucide-react';
+import { Users, ExternalLink } from 'lucide-react';
 import { ImageWithFallback } from '../components/ImageWithFallback';
 
 interface LeadMember {
@@ -8,6 +8,7 @@ interface LeadMember {
   role: string;
   linkedin?: string;
   imageUrl?: string;
+  department?: string;
 }
 
 interface TeamMember {
@@ -21,29 +22,32 @@ interface TeamMember {
 export const Members: React.FC = () => {
   const [activeDomain, setActiveDomain] = useState('All Domains');
 
-  const leads: LeadMember[] = [
-    { id: '1', name: 'Asmit Maity', role: 'Chairperson', linkedin: 'https://linkedin.com' },
-    { id: '2', name: 'Kousani Banerjee', role: 'Vice-Chairperson', linkedin: 'https://linkedin.com' },
-    { id: '3', name: 'Sougata Pal', role: 'Secretary', linkedin: 'https://linkedin.com' },
-    { id: '4', name: 'Rishabh Raj', role: 'Joint Secretary', linkedin: 'https://linkedin.com' },
-    { id: '5', name: 'Abhinav Maiti', role: 'Treasurer', linkedin: 'https://linkedin.com' },
-    { id: '6', name: 'Suman Kalyan Jana', role: 'Teacher Lead', linkedin: 'https://linkedin.com' },
-    { id: '7', name: 'Debalina Jana', role: 'Teacher Head', linkedin: 'https://linkedin.com' },
-    { id: '8', name: 'Gunjan Kumar', role: 'Volunteer Head', linkedin: 'https://linkedin.com' },
-    { id: '9', name: 'Rishikesh Banerjee', role: 'Volunteer Head', linkedin: 'https://linkedin.com' },
-    { id: '10', name: 'Priyanshu Singha Roy', role: 'Web Development Lead', linkedin: 'https://linkedin.com' },
-    { id: '11', name: 'Sagnik Mondal', role: 'Web Development Lead', linkedin: 'https://linkedin.com' },
-    { id: '12', name: 'Ujani Saha Choudhury', role: 'PR & Social Media Head', linkedin: 'https://linkedin.com' },
-    { id: '13', name: 'Soumyajit Paul', role: 'Graphic Designer Lead', linkedin: 'https://linkedin.com' },
-    { id: '14', name: 'Raushan kumar', role: 'Photography Head', linkedin: 'https://linkedin.com' },
-    { id: '15', name: 'Divya Kumari', role: 'Content Head', linkedin: 'https://linkedin.com' }
+  const executiveLeaders: LeadMember[] = [
+    { id: '1', name: 'Asmit Maity', role: 'Chairperson', department: 'Executive Directorate', linkedin: 'https://linkedin.com' },
+    { id: '2', name: 'Kousani Banerjee', role: 'Vice-Chairperson', department: 'Executive Directorate', linkedin: 'https://linkedin.com' },
+  ];
+
+  const domainHeads: LeadMember[] = [
+    { id: '3', name: 'Sougata Pal', role: 'Secretary', department: 'Secretariat' },
+    { id: '4', name: 'Rishabh Raj', role: 'Joint Secretary', department: 'Secretariat' },
+    { id: '5', name: 'Abhinav Maiti', role: 'Treasurer', department: 'Finance & Treasury' },
+    { id: '6', name: 'Suman Kalyan Jana', role: 'Teacher Lead', department: 'Education Wing' },
+    { id: '7', name: 'Debalina Jana', role: 'Teacher Head', department: 'Education Wing' },
+    { id: '8', name: 'Gunjan Kumar', role: 'Volunteer Head', department: 'Ground Operations' },
+    { id: '9', name: 'Rishikesh Banerjee', role: 'Volunteer Head', department: 'Ground Operations' },
+    { id: '10', name: 'Priyanshu Singha Roy', role: 'Web Development Lead', department: 'Tech & Platform' },
+    { id: '11', name: 'Sagnik Mondal', role: 'Web Development Lead', department: 'Tech & Platform' },
+    { id: '12', name: 'Ujani Saha Choudhury', role: 'PR & Social Media Head', department: 'Public Relations' },
+    { id: '13', name: 'Soumyajit Paul', role: 'Graphic Designer Lead', department: 'Creative & Media' },
+    { id: '14', name: 'Raushan kumar', role: 'Photography Head', department: 'Media Documentation' },
+    { id: '15', name: 'Divya Kumari', role: 'Content Head', department: 'Editorial & Content' }
   ];
 
   const teamMembers: TeamMember[] = [
-    { id: 't1', name: 'Anish Kumar', role: 'Instructor', domain: 'Teacher', department: 'CSE' },
-    { id: 't2', name: 'Priya Sengupta', role: 'Instructor', domain: 'Teacher', department: 'IT' },
-    { id: 't3', name: 'Rohan Sharma', role: 'Evening Class Instructor', domain: 'Teacher', department: 'ECE' },
-    { id: 't4', name: 'Sneha Roy', role: 'Subject Instructor', domain: 'Teacher', department: 'CHE' },
+    { id: 't1', name: 'Anish Kumar', role: 'Evening Class Instructor', domain: 'Teacher', department: 'CSE' },
+    { id: 't2', name: 'Priya Sengupta', role: 'Science & Math Instructor', domain: 'Teacher', department: 'IT' },
+    { id: 't3', name: 'Rohan Sharma', role: 'Primary Language Tutor', domain: 'Teacher', department: 'ECE' },
+    { id: 't4', name: 'Sneha Roy', role: 'Elementary Instructor', domain: 'Teacher', department: 'CHE' },
     { id: 't5', name: 'Amit Banerjee', role: 'Activity Teacher', domain: 'Teacher', department: 'EE' },
     { id: 't6', name: 'Sujata Paul', role: 'Primary Instructor', domain: 'Teacher', department: 'ME' },
 
@@ -87,70 +91,159 @@ export const Members: React.FC = () => {
   });
 
   return (
-    <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-8 pb-16 py-4">
-      {/* Top Banner */}
-      <div className="editorial-card p-8 md:p-12 text-center space-y-4 bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950 text-white relative overflow-hidden shadow-xl border border-blue-800/40">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 rounded-full text-xs font-bold text-blue-300">
-          <Sparkles size={14} />
-          <span>MEET OUR TEAM</span>
+    <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16 sm:space-y-24">
+      {/* 1. Open Architectural Page Header */}
+      <div className="border-b border-slate-900/[0.08] pb-12 sm:pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <div className="lg:col-span-8 space-y-4">
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-slate-700 font-bold">
+              <Users size={14} className="text-blue-600" />
+              <span>Active Volunteer Cadre • HIT Haldia</span>
+            </div>
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
+              The Student Force <br className="hidden sm:inline" />
+              Driving Grassroots Impact.
+            </h1>
+            <p className="text-slate-600 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+              Every initiative at Eklavya is planned, staffed, and executed by undergraduate engineering students who dedicate their evenings to public service, community teaching, and animal rescue.
+            </p>
+          </div>
+
+          <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
+            <div className="bg-slate-50 border border-slate-900/[0.08] rounded-xl p-4 w-full sm:w-auto lg:w-full space-y-2">
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>EXECUTIVE LEADS</span>
+                <span className="font-bold text-slate-900">15 OFFICERS</span>
+              </div>
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>FIELD VOLUNTEERS</span>
+                <span className="font-bold text-slate-900">35+ CADRE</span>
+              </div>
+              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+                <span>SELECTION</span>
+                <span className="font-bold text-blue-700">ANNUAL AUDITION</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold tracking-tight">Our Dedicated Team</h1>
-        <p className="text-slate-200 text-sm max-w-xl mx-auto font-normal leading-relaxed">
-          Dedicated student volunteers working together to achieve excellence in child education and animal welfare.
-        </p>
       </div>
 
-      {/* Section 1: Executive & Sub-Leads Grid */}
-      <div className="editorial-card p-8 space-y-6">
-        <div className="flex items-center gap-2 border-b border-slate-100 pb-3 font-serif font-extrabold text-xl text-slate-900">
-          <ShieldCheck size={22} className="text-blue-600" />
-          <span>Team Leaders & Heads</span>
+      {/* 2. Tier 1: Executive Directorate Spotlight (2 cols) */}
+      <div className="space-y-6">
+        <div className="space-y-1">
+          <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+            Executive Leadership
+          </span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900">
+            Chairperson & Vice-Chairperson
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {leads.map((lead) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {executiveLeaders.map((exec) => (
             <div
-              key={lead.id}
-              className="bg-slate-50/60 border border-slate-200/80 rounded-[20px] p-5 text-center space-y-3 hover:shadow-md transition-all flex flex-col items-center justify-between"
+              key={exec.id}
+              className="bg-white border border-slate-900/[0.08] rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-2xs"
             >
               <ImageWithFallback
-                src={lead.imageUrl}
-                alt={lead.name}
+                src={exec.imageUrl}
+                alt={exec.name}
                 fallbackType="avatar"
-                initials={lead.name}
-                className="w-16 h-16 rounded-full border-2 border-slate-200 object-cover"
+                initials={exec.name}
+                className="w-24 h-24 rounded-xl border border-slate-900/10 object-cover shrink-0"
               />
-              <div className="w-full">
-                <h3 className="text-xs font-extrabold text-slate-900 truncate">{lead.name}</h3>
-                <span className="text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full inline-block mt-2">
-                  {lead.role}
+              <div className="space-y-2 text-center sm:text-left flex-1">
+                <span className="font-mono text-[10px] uppercase tracking-wider bg-slate-900 text-white px-2.5 py-0.5 rounded font-bold inline-block">
+                  {exec.role}
                 </span>
+                <h3 className="font-serif text-xl sm:text-2xl font-extrabold text-slate-900">
+                  {exec.name}
+                </h3>
+                <p className="text-xs text-slate-600 font-medium">
+                  {exec.department} • Haldia Institute of Technology
+                </p>
+                <div className="pt-2">
+                  <a
+                    href={exec.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-slate-700 hover:text-blue-600 transition-colors"
+                  >
+                    <span>LINKEDIN PROFILE</span>
+                    <ExternalLink size={12} />
+                  </a>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Section 2: Team Members & Domain Filter Tabs */}
-      <div className="editorial-card p-8 space-y-6">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
-          <div className="flex items-center gap-2 font-serif font-extrabold text-xl text-slate-900">
-            <Users size={22} className="text-blue-600" />
-            <span>Team Members</span>
+      {/* 3. Tier 2: Domain Heads & Executive Officers */}
+      <div className="space-y-6">
+        <div className="space-y-1">
+          <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+            Departmental Heads
+          </span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900">
+            Domain Leaders & Officers
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {domainHeads.map((lead) => (
+            <div
+              key={lead.id}
+              className="bg-white border border-slate-900/[0.08] rounded-xl p-5 space-y-3 shadow-2xs flex flex-col justify-between"
+            >
+              <div className="flex items-center gap-3">
+                <ImageWithFallback
+                  src={lead.imageUrl}
+                  alt={lead.name}
+                  fallbackType="avatar"
+                  initials={lead.name}
+                  className="w-12 h-12 rounded-lg border border-slate-900/10 object-cover shrink-0"
+                />
+                <div className="truncate">
+                  <h4 className="font-serif text-base font-bold text-slate-900 truncate">{lead.name}</h4>
+                  <span className="font-mono text-[10px] text-blue-700 font-bold uppercase block truncate">
+                    {lead.role}
+                  </span>
+                </div>
+              </div>
+              <div className="border-t border-slate-900/[0.06] pt-2.5 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+                <span>{lead.department}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 4. Tier 3: Active Squad & Domain Filter Tabs */}
+      <div className="space-y-6 border-t border-slate-900/[0.08] pt-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="space-y-1">
+            <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+              Field Operations Squad
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Active Volunteers by Specialization
+            </h2>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          {/* Domain Filter Pills */}
+          <div className="flex flex-wrap gap-1.5">
             {domainTabs.map((tab) => (
               <button
                 key={tab.label}
                 onClick={() => setActiveDomain(tab.label)}
-                className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+                className={`font-mono text-xs px-3 py-1.5 rounded-lg transition-colors font-semibold ${
                   activeDomain === tab.label
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                    ? 'bg-slate-900 text-white'
+                    : 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-900/[0.08]'
                 }`}
               >
-                {tab.label} ({tab.count})
+                {tab.label} <span className="opacity-60 text-[10px]">({tab.count})</span>
               </button>
             ))}
           </div>
@@ -161,23 +254,27 @@ export const Members: React.FC = () => {
           {filteredMembers.map((member) => (
             <div
               key={member.id}
-              className="bg-slate-50/60 border border-slate-200/80 rounded-[20px] p-5 space-y-3 hover:shadow-md transition-all text-center flex flex-col items-center justify-between"
+              className="bg-white border border-slate-900/[0.08] rounded-xl p-4 space-y-3 shadow-2xs"
             >
-              <ImageWithFallback
-                alt={member.name}
-                fallbackType="avatar"
-                initials={member.name}
-                className="w-14 h-14 rounded-full border border-slate-200 object-cover"
-              />
-              <div>
-                <h3 className="text-sm font-extrabold text-slate-900">{member.name}</h3>
-                <p className="text-xs font-semibold text-slate-600">{member.role}</p>
-                <p className="text-[10px] font-medium text-slate-400">{member.department}</p>
+              <div className="flex items-center gap-3">
+                <ImageWithFallback
+                  alt={member.name}
+                  fallbackType="avatar"
+                  initials={member.name}
+                  className="w-10 h-10 rounded-lg border border-slate-900/10 object-cover shrink-0"
+                />
+                <div className="truncate">
+                  <h4 className="font-serif text-sm font-bold text-slate-900 truncate">{member.name}</h4>
+                  <span className="text-xs text-slate-500 font-normal block truncate">{member.role}</span>
+                </div>
               </div>
-              <span className="text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full inline-flex items-center gap-1">
-                <Tag size={10} />
-                {member.domain}
-              </span>
+
+              <div className="border-t border-slate-900/[0.06] pt-2 flex items-center justify-between text-[10px] font-mono">
+                <span className="text-slate-500">DEPT: {member.department}</span>
+                <span className="px-2 py-0.5 rounded bg-slate-50 text-slate-700 border border-slate-900/[0.08] font-bold">
+                  {member.domain}
+                </span>
+              </div>
             </div>
           ))}
         </div>
