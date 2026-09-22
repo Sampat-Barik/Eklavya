@@ -56,11 +56,11 @@ export const ImpactStats: React.FC<ImpactStatsProps> = ({ metrics, className = '
   const getIcon = (category: string) => {
     switch (category) {
       case 'education':
-        return <BookOpen size={14} className="text-slate-700" strokeWidth={1.75} />;
+        return <BookOpen size={14} className="text-[#C25E38]" strokeWidth={1.75} />;
       case 'animal':
-        return <Heart size={14} className="text-slate-700" strokeWidth={1.75} />;
+        return <Heart size={14} className="text-[#C25E38]" strokeWidth={1.75} />;
       default:
-        return <Users size={14} className="text-slate-700" strokeWidth={1.75} />;
+        return <Users size={14} className="text-[#C25E38]" strokeWidth={1.75} />;
     }
   };
 
@@ -69,10 +69,10 @@ export const ImpactStats: React.FC<ImpactStatsProps> = ({ metrics, className = '
       {metrics.map((metric, i) => (
         <div
           key={metric.id}
-          className="rounded-xl bg-white border border-slate-900/[0.08] p-5 sm:p-6 flex flex-col justify-between hover:border-slate-400/40 transition-colors shadow-2xs group"
+          className="rounded-xl bg-white/85 backdrop-blur-md border border-[#E5E0D8] p-5 sm:p-6 flex flex-col justify-between hover:border-[#C25E38]/40 transition-colors shadow-2xs group"
         >
           <div className="flex items-center justify-between gap-2 mb-3">
-            <div className="w-7 h-7 rounded-lg bg-slate-100/80 flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-[#FAF8F5] border border-[#E5E0D8] flex items-center justify-center">
               {getIcon(metric.category)}
             </div>
             {metric.trend && (
@@ -84,7 +84,7 @@ export const ImpactStats: React.FC<ImpactStatsProps> = ({ metrics, className = '
           </div>
 
           <div>
-            <div className="text-3xl sm:text-4xl font-serif font-normal text-slate-900 tracking-tight flex items-baseline">
+            <div className="text-3xl sm:text-4xl font-serif font-normal text-[#1C2826] tracking-tight flex items-baseline">
               <span
                 ref={(el) => {
                   countersRef.current[i] = el;
@@ -93,10 +93,10 @@ export const ImpactStats: React.FC<ImpactStatsProps> = ({ metrics, className = '
                 {metric.prefix}0{metric.suffix}
               </span>
             </div>
-            <h4 className="font-semibold text-xs sm:text-sm text-slate-900 mt-1.5 leading-snug">
+            <h4 className="font-semibold text-xs sm:text-sm text-[#1C2826] mt-1.5 leading-snug">
               {metric.label}
             </h4>
-            <p className="text-xs text-slate-500 mt-1 font-normal leading-relaxed">
+            <p className="text-xs text-[#1C2826]/60 mt-1 font-normal leading-relaxed">
               {metric.sublabel}
             </p>
           </div>

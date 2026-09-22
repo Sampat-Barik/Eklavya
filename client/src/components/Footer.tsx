@@ -4,24 +4,24 @@ import { Mail, MapPin, ArrowUpRight } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="w-full border-t border-slate-900/[0.08] bg-white/70 backdrop-blur-md mt-24 text-slate-900">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <footer className="w-full border-t border-[#E5E0D8] bg-[#FAF8F5] mt-24 text-[#1C2826]">
+      <div className="max-w-[1720px] 2xl:max-w-[1800px] w-full mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
           {/* Brand Column (5 cols) */}
           <div className="md:col-span-5 space-y-5">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl border border-slate-900/10 p-1 bg-white shadow-2xs shrink-0">
+              <div className="w-9 h-9 rounded-xl border border-[#E5E0D8] p-1 bg-white shadow-2xs shrink-0">
                 <img src="/eklavya_logo.png" alt="Eklavya Crest" className="w-full h-full object-contain" />
               </div>
               <div className="leading-none">
-                <span className="font-serif font-extrabold text-xl tracking-tight text-slate-900">Eklavya</span>
-                <span className="block font-mono text-[10px] uppercase tracking-wider text-slate-600 mt-1">
+                <span className="font-serif font-extrabold text-xl tracking-tight text-[#1C2826]">Eklavya</span>
+                <span className="block font-mono text-[10px] uppercase tracking-wider text-[#C25E38] font-bold mt-1">
                   Socio-Animal Welfare Society • HIT Haldia
                 </span>
               </div>
             </div>
 
-            <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed max-w-md">
+            <p className="text-[#1C2826]/75 text-xs sm:text-sm font-normal leading-relaxed max-w-md">
               A student-driven humanitarian and animal rescue society at Haldia Institute of Technology. Marching forward to provide free evening primary education to village children and 24/7 medical rescue for stray animals.
             </p>
 
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
                 href="https://www.instagram.com/eklavyaofficial_?igsh=MXg3eGN6eHR5Y2tqeA=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg border border-slate-900/10 bg-white flex items-center justify-center text-slate-600 hover:text-pink-600 hover:border-pink-300 transition-colors shadow-2xs"
+                className="w-8 h-8 rounded-lg border border-[#E5E0D8] bg-white flex items-center justify-center text-[#1C2826]/70 hover:text-[#C25E38] hover:border-[#C25E38]/30 transition-colors shadow-2xs"
                 aria-label="Instagram"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg border border-slate-900/10 bg-white flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-300 transition-colors shadow-2xs"
+                className="w-8 h-8 rounded-lg border border-[#E5E0D8] bg-white flex items-center justify-center text-[#1C2826]/70 hover:text-[#C25E38] hover:border-[#C25E38]/30 transition-colors shadow-2xs"
                 aria-label="Facebook"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg border border-slate-900/10 bg-white flex items-center justify-center text-slate-600 hover:text-sky-600 hover:border-sky-300 transition-colors shadow-2xs"
+                className="w-8 h-8 rounded-lg border border-[#E5E0D8] bg-white flex items-center justify-center text-[#1C2826]/70 hover:text-[#C25E38] hover:border-[#C25E38]/30 transition-colors shadow-2xs"
                 aria-label="LinkedIn"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -64,24 +64,24 @@ export const Footer: React.FC = () => {
 
           {/* Navigation Column (2 cols) */}
           <div className="md:col-span-2 space-y-3">
-            <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#C25E38] font-bold block">
               Navigation
             </span>
-            <ul className="space-y-2 text-xs sm:text-sm font-medium text-slate-600">
+            <ul className="space-y-2 text-xs sm:text-sm font-medium text-[#1C2826]/80">
               <li>
-                <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
+                <Link to="/" className="hover:text-[#C25E38] transition-colors">Home</Link>
               </li>
               <li>
-                <Link to="/vision" className="hover:text-blue-600 transition-colors">Vision & Mission</Link>
+                <Link to="/vision" className="hover:text-[#C25E38] transition-colors">Vision & Mission</Link>
               </li>
               <li>
-                <Link to="/our-work" className="hover:text-blue-600 transition-colors">Our Work</Link>
+                <Link to="/our-work" className="hover:text-[#C25E38] transition-colors">Our Work</Link>
               </li>
               <li>
-                <Link to="/events" className="hover:text-blue-600 transition-colors">Upcoming Drives</Link>
+                <Link to="/events" className="hover:text-[#C25E38] transition-colors">Upcoming Drives</Link>
               </li>
               <li>
-                <Link to="/help-us" className="inline-flex items-center gap-1 text-blue-600 font-semibold hover:text-blue-700">
+                <Link to="/help-us" className="inline-flex items-center gap-1 text-[#C25E38] font-bold hover:underline">
                   <span>Help Us</span>
                   <ArrowUpRight size={13} />
                 </Link>
@@ -91,40 +91,40 @@ export const Footer: React.FC = () => {
 
           {/* Community Column (2 cols) */}
           <div className="md:col-span-2 space-y-3">
-            <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#C25E38] font-bold block">
               Community
             </span>
-            <ul className="space-y-2 text-xs sm:text-sm font-medium text-slate-600">
+            <ul className="space-y-2 text-xs sm:text-sm font-medium text-[#1C2826]/80">
               <li>
-                <Link to="/faculty" className="hover:text-blue-600 transition-colors">Faculty Mentor</Link>
+                <Link to="/faculty" className="hover:text-[#C25E38] transition-colors">Faculty Mentor</Link>
               </li>
               <li>
-                <Link to="/members" className="hover:text-blue-600 transition-colors">Active Squad</Link>
+                <Link to="/members" className="hover:text-[#C25E38] transition-colors">Active Squad</Link>
               </li>
               <li>
-                <Link to="/alumni" className="hover:text-blue-600 transition-colors">Esteemed Alumni</Link>
+                <Link to="/alumni" className="hover:text-[#C25E38] transition-colors">Esteemed Alumni</Link>
               </li>
               <li>
-                <Link to="/login" className="hover:text-blue-600 transition-colors">Portal Login</Link>
+                <Link to="/login" className="hover:text-[#C25E38] transition-colors">Portal Login</Link>
               </li>
             </ul>
           </div>
 
           {/* Coordinates Column (3 cols) */}
           <div className="md:col-span-3 space-y-3">
-            <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#C25E38] font-bold block">
               Campus Headquarters
             </span>
-            <div className="space-y-2.5 text-xs text-slate-600">
+            <div className="space-y-2.5 text-xs text-[#1C2826]/80">
               <div className="flex items-start gap-2">
-                <MapPin size={15} className="text-slate-600 shrink-0 mt-0.5" />
+                <MapPin size={15} className="text-[#C25E38] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   Student Activity Center, Haldia Institute of Technology, Purba Medinipur, WB 721657
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail size={15} className="text-slate-600 shrink-0" />
-                <a href="mailto:eklavya.official.haldia@gmail.com" className="hover:text-blue-600 transition-colors font-mono">
+                <Mail size={15} className="text-[#C25E38] shrink-0" />
+                <a href="mailto:eklavya.official.haldia@gmail.com" className="hover:text-[#C25E38] transition-colors font-mono">
                   eklavya.official.haldia@gmail.com
                 </a>
               </div>
@@ -133,9 +133,9 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Hairline Divided Bottom Bar */}
-        <div className="border-t border-slate-900/[0.08] mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-600 gap-3">
+        <div className="border-t border-[#E5E0D8] mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-[#1C2826]/70 gap-3">
           <p>© 2026 Eklavya Society. Affiliated with Haldia Institute of Technology.</p>
-          <p className="font-mono text-[11px] text-slate-600">
+          <p className="font-mono text-[11px] text-[#C25E38] font-bold tracking-wider uppercase">
             ENGINEERED WITH EMPATHY • HANDS THAT CARE
           </p>
         </div>

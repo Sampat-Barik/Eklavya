@@ -152,10 +152,10 @@ export const Navbar: React.FC = () => {
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isHomePage && !isScrolled
           ? 'bg-transparent border-b border-transparent py-4'
-          : 'bg-white/85 backdrop-blur-md border-b border-slate-200/80 shadow-xs py-3'
+          : 'bg-[#FAF8F5]/85 backdrop-blur-md border-b border-[#E5E0D8] shadow-2xs py-3'
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between">
+      <div className="max-w-[1720px] 2xl:max-w-[1800px] w-full mx-auto px-6 sm:px-10 lg:px-16 flex items-center justify-between">
         {/* Left: Brand Identity & Compact Status */}
         <div className="flex items-center gap-3.5 sm:gap-4">
           <Link to="/" className="flex items-center gap-2.5 group focus:outline-none">
@@ -167,10 +167,10 @@ export const Navbar: React.FC = () => {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif font-black text-lg text-slate-900 tracking-tight leading-none group-hover:text-blue-600 transition-colors">
+              <span className="font-serif font-black text-lg text-[#1C2826] tracking-tight leading-none group-hover:text-[#C25E38] transition-colors">
                 Eklavya
               </span>
-              <span className="text-[10px] font-bold text-blue-600 tracking-wider uppercase mt-0.5">
+              <span className="text-[10px] font-bold text-[#C25E38] tracking-wider uppercase mt-0.5">
                 Hands That Care • HIT Haldia
               </span>
             </div>
@@ -187,14 +187,14 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Center: Desktop Navigation with Accessible Dropdowns */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 text-xs font-semibold text-slate-700">
+        <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 text-xs font-semibold text-[#1C2826]/80">
           {/* 1. Standalone Home Link */}
           <Link
             to="/"
             className={`px-3.5 py-1.5 rounded-full transition-all ${
               location.pathname === '/'
-                ? 'text-blue-600 font-extrabold bg-blue-50'
-                : 'hover:text-blue-600 hover:bg-slate-100/80'
+                ? 'text-[#C25E38] font-bold bg-[#C25E38]/10 border border-[#C25E38]/20'
+                : 'hover:text-[#C25E38] hover:bg-slate-200/50'
             }`}
           >
             Home
@@ -209,22 +209,22 @@ export const Navbar: React.FC = () => {
               className={`flex items-center gap-1 px-3 py-1.5 rounded-full transition-all focus:outline-none ${
                 ['/vision', '/faculty', '/members', '/alumni'].includes(location.pathname) ||
                 openDropdown === 'about'
-                  ? 'text-blue-600 font-extrabold bg-blue-50'
-                  : 'hover:text-blue-600 hover:bg-slate-100/80'
+                  ? 'text-[#C25E38] font-bold bg-[#C25E38]/10 border border-[#C25E38]/20'
+                  : 'hover:text-[#C25E38] hover:bg-slate-200/50'
               }`}
             >
               <span>About</span>
               <ChevronDown
                 size={13}
                 className={`transition-transform duration-200 ${
-                  openDropdown === 'about' ? 'rotate-180 text-blue-600' : 'text-slate-400'
+                  openDropdown === 'about' ? 'rotate-180 text-[#C25E38]' : 'text-slate-400'
                 }`}
               />
             </button>
 
             {openDropdown === 'about' && (
-              <div className="absolute left-0 mt-2 w-72 rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-xl p-2 z-50 animate-fadeIn">
-                <div className="px-3 py-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100 mb-1">
+              <div className="absolute left-0 mt-2 w-72 rounded-2xl bg-[#FAF8F5]/95 backdrop-blur-xl border border-[#E5E0D8] shadow-xl p-2 z-50 animate-fadeIn">
+                <div className="px-3 py-1.5 text-[10px] font-bold text-[#C25E38] uppercase tracking-wider border-b border-[#E5E0D8] mb-1">
                   About Eklavya Society
                 </div>
                 {aboutItems.map((item) => {
@@ -259,8 +259,8 @@ export const Navbar: React.FC = () => {
             to="/our-work"
             className={`px-3.5 py-1.5 rounded-full transition-all ${
               ['/our-work', '/work', '/programs'].includes(location.pathname)
-                ? 'text-blue-600 font-extrabold bg-blue-50'
-                : 'hover:text-blue-600 hover:bg-slate-100/80'
+                ? 'text-[#C25E38] font-bold bg-[#C25E38]/10 border border-[#C25E38]/20'
+                : 'hover:text-[#C25E38] hover:bg-slate-200/50'
             }`}
           >
             Our Work
@@ -271,8 +271,8 @@ export const Navbar: React.FC = () => {
             to="/events"
             className={`px-3.5 py-1.5 rounded-full transition-all ${
               location.pathname === '/events'
-                ? 'text-blue-600 font-extrabold bg-blue-50'
-                : 'hover:text-blue-600 hover:bg-slate-100/80'
+                ? 'text-[#C25E38] font-bold bg-[#C25E38]/10 border border-[#C25E38]/20'
+                : 'hover:text-[#C25E38] hover:bg-slate-200/50'
             }`}
           >
             Events
@@ -340,9 +340,9 @@ export const Navbar: React.FC = () => {
           {/* Top Right "Help Us" Action Button */}
           <Link
             to="/help-us"
-            className="flex items-center gap-1.5 text-xs font-extrabold px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all group"
+            className="flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full bg-[#C25E38] hover:bg-[#a84f2e] text-white shadow-sm shadow-[#C25E38]/20 hover:-translate-y-0.5 active:translate-y-0 transition-all group"
           >
-            <Heart size={14} className="text-rose-300 fill-rose-300 group-hover:scale-125 transition-transform" />
+            <Heart size={14} className="text-white fill-current group-hover:scale-110 transition-transform" />
             <span>Help Us</span>
           </Link>
 

@@ -51,7 +51,7 @@ export const Home: React.FC = () => {
   }, []);
 
   return (
-    <div ref={mainRef} className="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 space-y-20 sm:space-y-28 lg:space-y-32 py-4 pb-24">
+    <div ref={mainRef} className="max-w-[1720px] 2xl:max-w-[1800px] w-full mx-auto px-6 sm:px-10 lg:px-16 space-y-24 sm:space-y-32 py-6 pb-28">
       {/* 1. Open Asymmetrical Hero with 3D Scene */}
       <div className="gsap-reveal-section">
         <Hero />

@@ -7,7 +7,7 @@ import { PageTransition } from '../components/ui/PageTransition';
 
 export const PublicLayout: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#faf8f5] font-sans antialiased text-slate-900 flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-[#FAF8F5] font-sans antialiased text-[#1C2826] flex flex-col justify-between selection:bg-[#C25E38] selection:text-white">
       {/* Top Navbar */}
       <Navbar />
 

@@ -4,35 +4,35 @@ import { ImageWithFallback } from '../components/ImageWithFallback';
 
 export const Faculty: React.FC = () => {
   return (
-    <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16 sm:space-y-24">
+    <div className="max-w-[1720px] 2xl:max-w-[1800px] w-full mx-auto px-6 sm:px-10 lg:px-16 py-10 sm:py-16 space-y-16 sm:space-y-24">
       {/* 1. Open Architectural Page Header */}
-      <div className="border-b border-slate-900/[0.08] pb-12 sm:pb-16">
+      <div className="border-b border-[#E5E0D8] pb-12 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
           <div className="lg:col-span-8 space-y-4">
-            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-slate-700 font-bold">
-              <GraduationCap size={14} className="text-blue-600" />
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#C25E38] font-bold">
+              <GraduationCap size={14} className="text-[#C25E38]" />
               <span>Academic Patronage & Guidance • HIT Haldia</span>
             </div>
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#1C2826] leading-[1.08]">
               Faculty Mentorship & <br className="hidden sm:inline" />
               Institutional Leadership.
             </h1>
-            <p className="text-slate-600 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+            <p className="text-[#1C2826]/70 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
               Eklavya operates under the mentorship of the Department of Computer Science & Engineering (AIML) at Haldia Institute of Technology, bridging technical education with direct community service.
             </p>
           </div>
 
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
-            <div className="bg-slate-50 border border-slate-900/[0.08] rounded-xl p-4 w-full sm:w-auto lg:w-full space-y-2">
-              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+            <div className="bg-white/85 backdrop-blur-md border border-[#E5E0D8] rounded-xl p-5 w-full sm:w-auto lg:w-full space-y-2.5 shadow-2xs">
+              <div className="flex items-center justify-between text-xs font-mono text-[#1C2826]/60">
                 <span>PARENT DEPARTMENT</span>
-                <span className="font-bold text-slate-900">CSE (AIML)</span>
+                <span className="font-bold text-[#1C2826]">CSE (AIML)</span>
               </div>
-              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+              <div className="flex items-center justify-between text-xs font-mono text-[#1C2826]/60">
                 <span>INSTITUTION</span>
-                <span className="font-bold text-slate-900">HIT HALDIA</span>
+                <span className="font-bold text-[#1C2826]">HIT HALDIA</span>
               </div>
-              <div className="flex items-center justify-between text-xs font-mono text-slate-600">
+              <div className="flex items-center justify-between text-xs font-mono text-[#1C2826]/60">
                 <span>STATUS</span>
                 <span className="font-bold text-emerald-700">OFFICIALLY RECOGNIZED</span>
               </div>
@@ -42,7 +42,7 @@ export const Faculty: React.FC = () => {
       </div>
 
       {/* 2. Department Leadership: Prof. (Dr.) Bidesh Chakraborty */}
-      <div className="bg-white border border-slate-900/[0.08] rounded-2xl p-6 sm:p-10 shadow-2xs">
+      <div className="bg-white/85 backdrop-blur-md border border-[#E5E0D8] rounded-2xl p-6 sm:p-10 shadow-xs">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Portrait & Actions (4 cols) */}
           <div className="lg:col-span-4 flex flex-col items-center text-center space-y-4">
@@ -51,21 +51,21 @@ export const Faculty: React.FC = () => {
                 alt="Prof.(Dr.) Bidesh Chakraborty"
                 fallbackType="avatar"
                 initials="BC"
-                className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl border border-slate-900/10 object-cover shadow-xs"
+                className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl border border-[#E5E0D8] object-cover shadow-2xs"
               />
-              <span className="absolute -bottom-2.5 font-mono text-[10px] uppercase tracking-wider bg-slate-900 text-white px-3 py-0.5 rounded-full font-bold">
+              <span className="absolute -bottom-2.5 font-mono text-[10px] uppercase tracking-wider bg-[#1C2826] text-[#FAF8F5] px-3 py-0.5 rounded-full font-bold">
                 DEPARTMENT HEAD
               </span>
             </div>
 
             <div className="pt-2">
-              <h2 className="font-serif text-xl sm:text-2xl font-extrabold text-slate-900">
+              <h2 className="font-serif text-xl sm:text-2xl font-normal text-[#1C2826]">
                 Prof. (Dr.) Bidesh Chakraborty
               </h2>
-              <span className="font-mono text-xs text-blue-600 font-bold block mt-0.5">
+              <span className="font-mono text-xs text-[#C25E38] font-bold block mt-0.5">
                 Professor & Head of Department
               </span>
-              <p className="text-xs text-slate-500 mt-1 max-w-xs">
+              <p className="text-xs text-[#1C2826]/60 mt-1 max-w-xs font-normal">
                 Dept. of Computer Science & Engineering (AIML), Haldia Institute of Technology
               </p>
             </div>
@@ -73,7 +73,7 @@ export const Faculty: React.FC = () => {
             <div className="flex items-center gap-2 pt-1 w-full justify-center">
               <a
                 href="mailto:bidesh.chakraborty@hithaldia.ac.in"
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-900 hover:bg-blue-600 text-white rounded-lg text-xs font-mono font-bold transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#1C2826] hover:bg-[#C25E38] text-white rounded-lg text-xs font-mono font-semibold transition-colors"
               >
                 <Mail size={13} />
                 <span>EMAIL</span>
@@ -82,7 +82,7 @@ export const Faculty: React.FC = () => {
                 href="https://scholar.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-900/10 rounded-lg text-xs font-mono font-bold transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#FAF8F5] hover:bg-white text-[#1C2826] border border-[#E5E0D8] rounded-lg text-xs font-mono font-semibold transition-colors"
               >
                 <span>SCHOLAR</span>
                 <ExternalLink size={13} />
@@ -91,24 +91,24 @@ export const Faculty: React.FC = () => {
           </div>
 
           {/* Leadership Narrative (8 cols) */}
-          <div className="lg:col-span-8 space-y-5 border-t lg:border-t-0 lg:border-l border-slate-900/[0.08] pt-6 lg:pt-0 lg:pl-10">
-            <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+          <div className="lg:col-span-8 space-y-5 border-t lg:border-t-0 lg:border-l border-[#E5E0D8] pt-6 lg:pt-0 lg:pl-10">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#C25E38] font-bold block">
               Institutional Patron's Message
             </span>
-            <blockquote className="font-serif text-xl sm:text-2xl font-medium text-slate-900 leading-snug">
+            <blockquote className="font-serif text-xl sm:text-2xl font-normal text-[#1C2826] leading-snug">
               "Technical competence without humanitarian empathy produces incomplete engineers. Eklavya represents the conscience of our student community."
             </blockquote>
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+            <p className="text-[#1C2826]/75 text-xs sm:text-sm leading-relaxed font-normal">
               As the Head of the CSE (AIML) Department, Prof. Chakraborty provides institutional oversight, ensuring student volunteers balance rigorous academic milestones with transformative grassroots social service. His patronship enables Eklavya to access campus laboratories, seminar halls, and logistics for our educational and animal welfare drives.
             </p>
 
-            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 font-medium">
-              <div className="p-3 bg-slate-50 border border-slate-900/[0.08] rounded-xl flex items-center gap-2">
-                <BookOpen size={16} className="text-blue-600 shrink-0" />
+            <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#1C2826]/80 font-medium">
+              <div className="p-3 bg-[#FAF8F5] border border-[#E5E0D8] rounded-xl flex items-center gap-2">
+                <BookOpen size={16} className="text-[#C25E38] shrink-0" />
                 <span>Academic & Curriculum Alignment</span>
               </div>
-              <div className="p-3 bg-slate-50 border border-slate-900/[0.08] rounded-xl flex items-center gap-2">
-                <ShieldCheck size={16} className="text-blue-600 shrink-0" />
+              <div className="p-3 bg-[#FAF8F5] border border-[#E5E0D8] rounded-xl flex items-center gap-2">
+                <ShieldCheck size={16} className="text-[#C25E38] shrink-0" />
                 <span>Institutional Authorization & Safety</span>
               </div>
             </div>
@@ -117,7 +117,7 @@ export const Faculty: React.FC = () => {
       </div>
 
       {/* 3. Faculty Coordinator: Dr. Upasana Adhikary */}
-      <div className="bg-white border border-slate-900/[0.08] rounded-2xl p-6 sm:p-10 shadow-2xs">
+      <div className="bg-white/85 backdrop-blur-md border border-[#E5E0D8] rounded-2xl p-6 sm:p-10 shadow-xs">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Portrait & Actions (4 cols) */}
           <div className="lg:col-span-4 flex flex-col items-center text-center space-y-4">
@@ -126,21 +126,21 @@ export const Faculty: React.FC = () => {
                 alt="Dr. Upasana Adhikary"
                 fallbackType="avatar"
                 initials="UA"
-                className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl border border-slate-900/10 object-cover shadow-xs"
+                className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl border border-[#E5E0D8] object-cover shadow-2xs"
               />
-              <span className="absolute -bottom-2.5 font-mono text-[10px] uppercase tracking-wider bg-blue-600 text-white px-3 py-0.5 rounded-full font-bold">
+              <span className="absolute -bottom-2.5 font-mono text-[10px] uppercase tracking-wider bg-[#C25E38] text-white px-3 py-0.5 rounded-full font-bold">
                 FACULTY COORDINATOR
               </span>
             </div>
 
             <div className="pt-2">
-              <h2 className="font-serif text-xl sm:text-2xl font-extrabold text-slate-900">
+              <h2 className="font-serif text-xl sm:text-2xl font-normal text-[#1C2826]">
                 Dr. Upasana Adhikary
               </h2>
-              <span className="font-mono text-xs text-blue-600 font-bold block mt-0.5">
+              <span className="font-mono text-xs text-[#C25E38] font-bold block mt-0.5">
                 Assistant Professor & Society Mentor
               </span>
-              <p className="text-xs text-slate-500 mt-1 max-w-xs">
+              <p className="text-xs text-[#1C2826]/60 mt-1 max-w-xs font-normal">
                 Dept. of Computer Science & Engineering (AIML), Haldia Institute of Technology
               </p>
             </div>
@@ -148,7 +148,7 @@ export const Faculty: React.FC = () => {
             <div className="flex items-center gap-2 pt-1 w-full justify-center">
               <a
                 href="mailto:upasana.adhikari@hithaldia.ac.in"
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-900 hover:bg-blue-600 text-white rounded-lg text-xs font-mono font-bold transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#1C2826] hover:bg-[#C25E38] text-white rounded-lg text-xs font-mono font-semibold transition-colors"
               >
                 <Mail size={13} />
                 <span>EMAIL</span>
@@ -157,7 +157,7 @@ export const Faculty: React.FC = () => {
                 href="https://scholar.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-900/10 rounded-lg text-xs font-mono font-bold transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#FAF8F5] hover:bg-white text-[#1C2826] border border-[#E5E0D8] rounded-lg text-xs font-mono font-semibold transition-colors"
               >
                 <span>SCHOLAR</span>
                 <ExternalLink size={13} />
@@ -166,29 +166,29 @@ export const Faculty: React.FC = () => {
           </div>
 
           {/* Mentorship Narrative (8 cols) */}
-          <div className="lg:col-span-8 space-y-5 border-t lg:border-t-0 lg:border-l border-slate-900/[0.08] pt-6 lg:pt-0 lg:pl-10">
-            <span className="font-mono text-xs uppercase tracking-wider text-slate-700 font-bold block">
+          <div className="lg:col-span-8 space-y-5 border-t lg:border-t-0 lg:border-l border-[#E5E0D8] pt-6 lg:pt-0 lg:pl-10">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#C25E38] font-bold block">
               Coordinator's Guiding Philosophy
             </span>
-            <blockquote className="font-serif text-xl sm:text-2xl font-medium text-slate-900 leading-snug">
+            <blockquote className="font-serif text-xl sm:text-2xl font-normal text-[#1C2826] leading-snug">
               "Witnessing engineering students step outside air-conditioned classrooms to teach village children and treat injured animals is true character formation."
             </blockquote>
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+            <p className="text-[#1C2826]/75 text-xs sm:text-sm leading-relaxed font-normal">
               Dr. Upasana Adhikary directly coordinates society operations, vetting the daily evening school curriculum, monitoring student attendance metrics, and guiding the student executive committee in event execution, budget governance, and annual community drives across Haldia.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 bg-slate-50 border border-slate-900/[0.08] rounded-xl space-y-1">
-                <span className="font-mono text-base font-bold text-slate-900 block">Weekly</span>
-                <span className="text-xs text-slate-600 font-medium">Operations Review</span>
+              <div className="p-3.5 bg-[#FAF8F5] border border-[#E5E0D8] rounded-xl space-y-1">
+                <span className="font-serif text-base font-normal text-[#1C2826] block">Weekly</span>
+                <span className="text-xs text-[#1C2826]/60 font-medium">Operations Review</span>
               </div>
-              <div className="p-3.5 bg-slate-50 border border-slate-900/[0.08] rounded-xl space-y-1">
-                <span className="font-mono text-base font-bold text-slate-900 block">Pedagogy</span>
-                <span className="text-xs text-slate-600 font-medium">Curriculum Guidance</span>
+              <div className="p-3.5 bg-[#FAF8F5] border border-[#E5E0D8] rounded-xl space-y-1">
+                <span className="font-serif text-base font-normal text-[#1C2826] block">Pedagogy</span>
+                <span className="text-xs text-[#1C2826]/60 font-medium">Curriculum Guidance</span>
               </div>
-              <div className="p-3.5 bg-slate-50 border border-slate-900/[0.08] rounded-xl space-y-1">
-                <span className="font-mono text-base font-bold text-slate-900 block">Ethics</span>
-                <span className="text-xs text-slate-600 font-medium">Volunteer Standards</span>
+              <div className="p-3.5 bg-[#FAF8F5] border border-[#E5E0D8] rounded-xl space-y-1">
+                <span className="font-serif text-base font-normal text-[#1C2826] block">Ethics</span>
+                <span className="text-xs text-[#1C2826]/60 font-medium">Volunteer Standards</span>
               </div>
             </div>
           </div>

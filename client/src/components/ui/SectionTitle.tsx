@@ -2,7 +2,7 @@ import React from 'react';
 
 interface SectionTitleProps {
   badge: string;
-  badgeVariant?: 'blue' | 'amber' | 'rose' | 'green';
+  badgeVariant?: 'blue' | 'amber' | 'rose' | 'green' | 'terracotta';
   title: string;
   highlightWord?: string;
   subtitle?: string;
@@ -12,7 +12,7 @@ interface SectionTitleProps {
 
 export const SectionTitle: React.FC<SectionTitleProps> = ({
   badge,
-  badgeVariant = 'blue',
+  badgeVariant = 'terracotta',
   title,
   highlightWord,
   subtitle,
@@ -23,7 +23,8 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
     blue: 'editorial-badge-blue',
     amber: 'editorial-badge-amber',
     rose: 'editorial-badge-rose',
-    green: 'editorial-badge-green'
+    green: 'editorial-badge-green',
+    terracotta: 'editorial-badge-terracotta'
   }[badgeVariant];
 
   const alignmentClass = {
@@ -39,14 +40,14 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
           <span className="w-1.5 h-1.5 rounded-full bg-current opacity-75" />
           {badge}
         </span>
-        <span className="h-px w-10 bg-slate-200 hidden sm:inline-block" />
+        <span className="h-px w-10 bg-[#E5E0D8] hidden sm:inline-block" />
       </div>
 
-      <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-normal text-slate-900 tracking-[-0.02em] leading-[1.12]">
+      <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-extrabold text-[#1C2826] tracking-[-0.02em] leading-[1.12]">
         {highlightWord && title.includes(highlightWord) ? (
           <>
             {title.split(highlightWord)[0]}
-            <span className="italic text-slate-900 font-normal">
+            <span className="italic text-[#C25E38] font-normal">
               {highlightWord}
             </span>
             {title.split(highlightWord)[1]}
@@ -57,7 +58,7 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
       </h2>
 
       {subtitle && (
-        <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-xl">
+        <p className="text-[#1C2826]/75 text-sm sm:text-base leading-relaxed font-normal max-w-xl">
           {subtitle}
         </p>
       )}
