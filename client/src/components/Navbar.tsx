@@ -426,18 +426,6 @@ export const Navbar: React.FC = () => {
             )}
           </div>
 
-          {/* 5. Dedicated Help Us Tab */}
-          <Link
-            to="/help-us"
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full transition-all ${
-              ['/help-us', '/donate'].includes(location.pathname)
-                ? 'text-rose-600 font-extrabold bg-rose-50'
-                : 'text-slate-700 hover:text-rose-600 hover:bg-rose-50/60'
-            }`}
-          >
-            <Heart size={13} className="text-rose-500 fill-current" />
-            <span>Help Us</span>
-          </Link>
         </nav>
 
         {/* Right: Help Us Button & Auth / Portal Controls */}
