@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { SectionTitle } from '../ui/SectionTitle';
-import { MapPin, BookOpen, Heart, Navigation, ExternalLink, Maximize2, ShieldCheck, Sparkles } from 'lucide-react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import { MapPin, BookOpen, Heart, Navigation, ExternalLink, ShieldCheck, Sparkles, Compass } from 'lucide-react';
 
 interface OperationCentre {
   id: string;
@@ -10,8 +8,9 @@ interface OperationCentre {
   shortName: string;
   tagline: string;
   location: string;
-  coordinates: { lat: number; lng: number };
   gpsLabel: string;
+  embedUrl: string;
+  googleMapsUrl: string;
   type: 'campus' | 'school' | 'remedial';
   status: 'Active Now' | 'In Progress' | 'Scheduled 4:30 PM';
   statusColor: 'emerald' | 'teal' | 'amber';
@@ -20,7 +19,6 @@ interface OperationCentre {
   leadCoordinator: string;
   details: string;
   recentUpdate: string;
-  googleMapsUrl: string;
 }
 
 const CENTRES: OperationCentre[] = [
@@ -30,220 +28,59 @@ const CENTRES: OperationCentre[] = [
     shortName: 'HIT Campus Hub',
     tagline: 'Central Operations, Animal Rescue Bay & Volunteer Headquarters',
     location: 'Haldia Institute of Technology, ICARE Complex, HIT Campus, Haldia, WB 721657',
-    coordinates: { lat: 22.0506, lng: 88.0722 },
-    gpsLabel: '22.0506° N, 88.0722° E',
+    gpsLabel: '22.0476° N, 88.0669° E',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14792.210733339141!2d88.06689234422605!3d22.047580122392322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02f0bd0fcacc69%3A0x409c7ac845fe6280!2sHaldia%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1790425529768!5m2!1sen!2sin',
+    googleMapsUrl: 'https://www.google.com/maps/place/Haldia+Institute+of+Technology/@22.0475801,88.0668923,15z',
     type: 'campus',
     status: 'Active Now',
     statusColor: 'emerald',
     beneficiaries: '120+ Street Animals & Campus Tutees',
     volunteers: 28,
     leadCoordinator: 'Prof. S. Das & Central Student Council',
-    details: 'Central administrative node coordinating society logistics, animal medical first-aid unit, anti-rabies vaccination stocks, and volunteer evening deployment batches.',
-    recentUpdate: 'Emergency animal triage active. Evening teaching materials dispatched to community centres.',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=22.0506,88.0722'
-  },
-  {
-    id: 'ranichak-centre',
-    name: 'Ranichak Centre',
-    shortName: 'Ranichak Evening School',
-    tagline: 'Primary Evening Coaching, Nutritional Snack Station & Relief Hub',
-    location: 'Ranichak Crossing, Near Haldia Port Link, Haldia, WB 721602',
-    coordinates: { lat: 22.0645, lng: 88.0860 },
-    gpsLabel: '22.0645° N, 88.0860° E',
-    type: 'school',
-    status: 'Active Now',
-    statusColor: 'emerald',
-    beneficiaries: '65 Village Children',
-    volunteers: 14,
-    leadCoordinator: 'Rahul & Priya (HIT CSE & EE)',
-    details: 'Daily free primary tutoring in Mathematics, English & Science fundamentals for village children. Daily distribution of fresh boiled eggs, milk, and stationery supplies.',
-    recentUpdate: 'Daily evening attendance logged. Mid-semester notebooks and geometry kits distributed.',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=22.0645,88.0860'
+    details: 'Central administrative command coordinating society operations, emergency animal care and first-aid bay, vaccination logistics, and daily volunteer deployments.',
+    recentUpdate: '24/7 animal emergency triage on duty. Evening study supplies dispatched to community branches.'
   },
   {
     id: 'khudiram-centre',
     name: 'Khudiram Centre',
-    shortName: 'Khudiram Nagar Batch',
-    tagline: 'Remedial Literacy, Child Mentorship & Community Outreach',
-    location: 'Kshudiram Nagar Colony, Near Haldia River Periphery, Haldia, WB 721657',
-    coordinates: { lat: 22.0492, lng: 88.0616 },
-    gpsLabel: '22.0492° N, 88.0616° E',
+    shortName: 'Khudiram Centre',
+    tagline: 'Remedial Literacy, Child Mentorship & Academic Support',
+    location: 'Khudiram Smriti, Near HIT Campus Periphery, Haldia, WB 721657',
+    gpsLabel: '22.0559° N, 88.0695° E',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d344.86638540893136!2d88.06946071954832!3d22.055931943921156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1790425632360!5m2!1sen!2sin',
+    googleMapsUrl: 'https://maps.google.com/?q=22.0559319,88.0694607',
     type: 'remedial',
+    status: 'Active Now',
+    statusColor: 'emerald',
+    beneficiaries: '50+ Village Children',
+    volunteers: 12,
+    leadCoordinator: 'Debjit & Ananya (HIT CHE & IT)',
+    details: 'Dedicated remedial batches offering free foundational education in Mathematics, English & Science. Regular distribution of books, drawing kits, and educational aids.',
+    recentUpdate: 'Daily evening attendance logged. Mid-semester notebook and pencil kits distributed.'
+  },
+  {
+    id: 'gandhinagar-centre',
+    name: 'Gandhi Nagar Centre',
+    shortName: 'Gandhi Nagar Centre',
+    tagline: 'Evening Primary School, Nutrition Support & Outreach Unit',
+    location: '333F+QWX, Gandhi Nagar, Haldia, West Bengal 721657',
+    gpsLabel: '22.0544° N, 88.0749° E',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d344.870204111672!2d88.07492465719626!3d22.054366010390073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02f0bea88b9591%3A0x8f61096d5b578d07!2s333F%2BQWX%2C%20Gandhi%20Nagar%2C%20Haldia%2C%20West%20Bengal%20721657!5e1!3m2!1sen!2sin!4v1790425672471!5m2!1sen!2sin',
+    googleMapsUrl: 'https://www.google.com/maps/place/333F%2BQWX,+Gandhi+Nagar,+Haldia,+West+Bengal+721657/@22.054366,88.0749247,19z',
+    type: 'school',
     status: 'Scheduled 4:30 PM',
     statusColor: 'teal',
-    beneficiaries: '45 Children & Families',
-    volunteers: 10,
-    leadCoordinator: 'Debjit & Ananya (HIT CHE & IT)',
-    details: 'Foundational literacy mentorship for first-generation learners, interactive storytelling, drawing workshops, and community sanitation & hygiene guidance.',
-    recentUpdate: 'Student mentorship cohort ready. Classroom worksheets prepared at Student Activity Center.',
-    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=22.0492,88.0616'
+    beneficiaries: '65 Children & Families',
+    volunteers: 15,
+    leadCoordinator: 'Rahul & Priya (HIT CSE & EE)',
+    details: 'Primary coaching classes, moral storytelling, daily boiled eggs and nutritious snacks for children, alongside street animal feeding routines in the Gandhi Nagar corridor.',
+    recentUpdate: 'Evening session batch prep completed. Volunteers on-site at community hall.'
   }
 ];
 
 export const LiveOperationsMap: React.FC = () => {
   const [selectedCentreId, setSelectedCentreId] = useState<string>('hit-campus');
-  const mapContainerRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<L.Map | null>(null);
-  const markersRef = useRef<{ [key: string]: L.Marker }>({});
-
   const currentCentre = CENTRES.find((c) => c.id === selectedCentreId) || CENTRES[0];
-
-  // Initialize Map
-  useEffect(() => {
-    if (!mapContainerRef.current || mapInstanceRef.current) return;
-
-    // Create Leaflet Map centered around Haldia
-    const map = L.map(mapContainerRef.current, {
-      center: [22.0545, 88.0730],
-      zoom: 13,
-      scrollWheelZoom: false,
-      zoomControl: true,
-      attributionControl: false
-    });
-
-    mapInstanceRef.current = map;
-
-    // Fast, crisp, high-contrast CartoDB Voyager map tiles matching modern organic aesthetic
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19,
-      subdomains: 'abcd'
-    }).addTo(map);
-
-    // Add Attribution subtly
-    L.control.attribution({ position: 'bottomright', prefix: false })
-      .addAttribution('&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> &copy; <a href="https://carto.com/" target="_blank" rel="noreferrer">CARTO</a>')
-      .addTo(map);
-
-    // Helper for custom animated Leaflet marker icon
-    const createMarkerIcon = (shortName: string, isSelected: boolean) => {
-      const markerHtml = `
-        <div class="relative flex flex-col items-center group cursor-pointer">
-          <div class="relative flex items-center justify-center">
-            ${isSelected ? '<span class="absolute -inset-2 rounded-full bg-teal-500/40 animate-ping"></span>' : ''}
-            <div class="w-9 h-9 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-300 ${
-              isSelected
-                ? 'bg-gradient-to-tr from-teal-800 to-emerald-600 text-white scale-115 ring-3 ring-emerald-300 shadow-teal-900/30'
-                : 'bg-white text-teal-800 border-2 border-emerald-300 hover:scale-105'
-            }">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-          </div>
-          <div class="mt-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold font-sans tracking-wide whitespace-nowrap shadow-md transition-all ${
-            isSelected
-              ? 'bg-teal-950 text-emerald-200 border border-emerald-400/50'
-              : 'bg-white/95 text-slate-800 border border-slate-200'
-          }">
-            ${shortName}
-          </div>
-        </div>
-      `;
-
-      return L.divIcon({
-        className: 'custom-leaflet-marker',
-        html: markerHtml,
-        iconSize: [40, 52],
-        iconAnchor: [20, 48],
-        popupAnchor: [0, -48]
-      });
-    };
-
-    // Create markers for the 3 centres
-    CENTRES.forEach((centre) => {
-      const isSelected = centre.id === 'hit-campus';
-      const marker = L.marker([centre.coordinates.lat, centre.coordinates.lng], {
-        icon: createMarkerIcon(centre.shortName, isSelected)
-      }).addTo(map);
-
-      marker.bindPopup(`
-        <div style="font-family: inherit; min-width: 180px; padding: 2px;">
-          <strong style="color: #042f2e; font-size: 13px; display: block; margin-bottom: 2px;">${centre.name}</strong>
-          <span style="display: inline-block; font-size: 10px; color: #065f46; font-weight: 700; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 1px 6px; border-radius: 9999px; margin-bottom: 6px;">${centre.status}</span>
-          <p style="font-size: 11px; color: #475569; margin: 0; line-height: 1.3;">${centre.location}</p>
-        </div>
-      `);
-
-      marker.on('click', () => {
-        setSelectedCentreId(centre.id);
-      });
-
-      markersRef.current[centre.id] = marker;
-    });
-
-    return () => {
-      map.remove();
-      mapInstanceRef.current = null;
-      markersRef.current = {};
-    };
-  }, []);
-
-  // Update map view & marker styles when selected centre changes
-  useEffect(() => {
-    if (!mapInstanceRef.current) return;
-    const map = mapInstanceRef.current;
-
-    // Smooth fly to selected centre
-    map.flyTo([currentCentre.coordinates.lat, currentCentre.coordinates.lng], 14, {
-      duration: 1.2
-    });
-
-    // Update marker styling and open popup
-    CENTRES.forEach((centre) => {
-      const marker = markersRef.current[centre.id];
-      if (!marker) return;
-
-      const isSelected = centre.id === selectedCentreId;
-      const markerHtml = `
-        <div class="relative flex flex-col items-center group cursor-pointer">
-          <div class="relative flex items-center justify-center">
-            ${isSelected ? '<span class="absolute -inset-2 rounded-full bg-teal-500/40 animate-ping"></span>' : ''}
-            <div class="w-9 h-9 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-300 ${
-              isSelected
-                ? 'bg-gradient-to-tr from-teal-800 to-emerald-600 text-white scale-115 ring-3 ring-emerald-300 shadow-teal-900/30'
-                : 'bg-white text-teal-800 border-2 border-emerald-300 hover:scale-105'
-            }">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-          </div>
-          <div class="mt-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold font-sans tracking-wide whitespace-nowrap shadow-md transition-all ${
-            isSelected
-              ? 'bg-teal-950 text-emerald-200 border border-emerald-400/50'
-              : 'bg-white/95 text-slate-800 border border-slate-200'
-          }">
-            ${centre.shortName}
-          </div>
-        </div>
-      `;
-
-      marker.setIcon(
-        L.divIcon({
-          className: 'custom-leaflet-marker',
-          html: markerHtml,
-          iconSize: [40, 52],
-          iconAnchor: [20, 48],
-          popupAnchor: [0, -48]
-        })
-      );
-
-      if (isSelected) {
-        marker.openPopup();
-      }
-    });
-  }, [selectedCentreId, currentCentre]);
-
-  // Fit bounds to show all 3 centres
-  const handleFitAllCentres = () => {
-    if (!mapInstanceRef.current) return;
-    const group = L.featureGroup(Object.values(markersRef.current));
-    mapInstanceRef.current.fitBounds(group.getBounds().pad(0.25), {
-      duration: 1.0
-    });
-  };
 
   return (
     <section className="space-y-8">
@@ -254,7 +91,7 @@ export const LiveOperationsMap: React.FC = () => {
           badgeVariant="green"
           title="Our 3 Active Centres in Haldia"
           highlightWord="Active Centres"
-          subtitle="Explore the live GPS locations and operational details of our 3 official centres: HIT Campus Hub, Ranichak Centre, and Khudiram Centre."
+          subtitle="Explore the verified Google Maps locations and operational activities across our 3 official branches: HIT College Campus, Khudiram Centre, and Gandhi Nagar Centre."
         />
 
         {/* Global Operational Status Pill */}
@@ -268,29 +105,44 @@ export const LiveOperationsMap: React.FC = () => {
       <div className="rounded-3xl bg-white/90 backdrop-blur-md border border-emerald-100/90 p-5 sm:p-7 shadow-xl shadow-teal-950/5">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
           
-          {/* Left Column: Live Interactive Map & Centre Quick Toggles (7 cols) */}
+          {/* Left Column: Official Google Maps Embed Frame & Interactive Centre Switcher (7 cols) */}
           <div className="lg:col-span-7 flex flex-col justify-between space-y-4">
-            {/* Live Leaflet Map Frame */}
-            <div className="relative w-full h-[340px] sm:h-[400px] rounded-2xl overflow-hidden border border-emerald-200/80 shadow-inner group">
-              <div ref={mapContainerRef} className="w-full h-full z-0" />
+            
+            {/* Embedded Google Map Frame */}
+            <div className="relative w-full h-[360px] sm:h-[420px] rounded-2xl overflow-hidden border border-emerald-200/90 shadow-md bg-slate-100 group">
+              <iframe
+                key={currentCentre.id}
+                src={currentCentre.embedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title={`${currentCentre.name} Google Map Location`}
+                className="w-full h-full"
+              />
 
-              {/* Coordinates Stamp & Controls Overlay */}
-              <div className="absolute top-3 left-3 z-[1000] flex items-center gap-2">
-                <div className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-teal-950 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-emerald-200 shadow-sm">
+              {/* GPS Stamp Floating Pill */}
+              <div className="absolute top-3 left-3 z-10 pointer-events-none flex items-center gap-2">
+                <div className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-teal-950 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-emerald-200 shadow-md">
                   <MapPin size={13} className="text-emerald-600" />
                   <span>{currentCentre.gpsLabel}</span>
                 </div>
               </div>
 
-              {/* Reset to Show All Centres Button */}
-              <button
-                onClick={handleFitAllCentres}
-                className="absolute top-3 right-3 z-[1000] flex items-center gap-1.5 text-[11px] font-bold text-teal-900 bg-white/95 hover:bg-emerald-50 backdrop-blur-md px-3 py-1.5 rounded-xl border border-emerald-200 shadow-sm transition-all hover:scale-102 active:scale-98 cursor-pointer"
-                title="View All 3 Centres"
+              {/* Direct Full-Screen Google Maps Trigger */}
+              <a
+                href={currentCentre.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-3 right-3 z-10 flex items-center gap-1.5 text-[11px] font-bold text-teal-950 bg-white/95 hover:bg-emerald-50 backdrop-blur-md px-3 py-1.5 rounded-xl border border-emerald-200 shadow-md transition-all hover:scale-102 active:scale-98 cursor-pointer"
+                title="Open in Google Maps"
               >
-                <Maximize2 size={13} className="text-teal-700" />
-                <span className="hidden sm:inline">Fit All Centres</span>
-              </button>
+                <Compass size={13} className="text-teal-700" />
+                <span className="hidden sm:inline">View on Google Maps</span>
+                <ExternalLink size={11} className="text-slate-400" />
+              </a>
             </div>
 
             {/* 3 Centre Quick-Selector Cards */}
@@ -303,14 +155,14 @@ export const LiveOperationsMap: React.FC = () => {
                     onClick={() => setSelectedCentreId(centre.id)}
                     className={`p-3.5 rounded-2xl text-left transition-all border cursor-pointer flex flex-col justify-between ${
                       isSelected
-                        ? 'bg-gradient-to-br from-teal-50 to-emerald-50/60 border-teal-600 shadow-sm ring-1 ring-teal-500/20'
+                        ? 'bg-gradient-to-br from-teal-50 to-emerald-50/70 border-teal-600 shadow-sm ring-2 ring-teal-500/20'
                         : 'bg-white hover:bg-slate-50 border-slate-200/80 text-slate-700'
                     }`}
                   >
                     <div>
                       <div className="flex items-center justify-between mb-1.5">
                         <span className={`text-[10px] font-mono uppercase tracking-wider font-extrabold ${isSelected ? 'text-teal-800' : 'text-slate-400'}`}>
-                          {centre.id.toUpperCase().replace('-', ' ')}
+                          {centre.shortName}
                         </span>
                         <span className={`w-2 h-2 rounded-full ${isSelected ? 'bg-emerald-500 ring-2 ring-emerald-200' : 'bg-slate-300'}`} />
                       </div>
@@ -318,11 +170,11 @@ export const LiveOperationsMap: React.FC = () => {
                         {centre.name}
                       </h4>
                     </div>
-                    <div className="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                    <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
                       <span className={`${isSelected ? 'text-teal-700 font-bold' : 'text-slate-500'}`}>
                         {centre.beneficiaries.split('&')[0]}
                       </span>
-                      <span className="text-emerald-700 font-bold">Inspect &rarr;</span>
+                      <span className="text-emerald-700 font-bold">Select &rarr;</span>
                     </div>
                   </button>
                 );
@@ -330,7 +182,7 @@ export const LiveOperationsMap: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Centre Telemetry & Details Inspector (5 cols) */}
+          {/* Right Column: Tactical Telemetry Inspector (5 cols) */}
           <div className="lg:col-span-5 rounded-2xl bg-gradient-to-b from-slate-50/80 to-emerald-50/20 border border-emerald-100 p-5 sm:p-6 flex flex-col justify-between space-y-5 shadow-xs">
             <div className="space-y-4">
               {/* Header with Type & Status */}
