@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { AccessDenied } from '../../pages/AccessDenied';
 import type { UserRole, AdminModule } from '../../types/auth';
 
 interface RoleGuardProps {
@@ -22,12 +21,12 @@ export const RoleGuard: React.FC<RoleGuardProps> = ({
   }
 
   if (user.isSuspended) {
-    return <AccessDenied />;
+    return <Navigate to="/access-denied" replace />;
   }
 
   // Normal registered users have zero administrative rights
   if (user.role === 'registered_user') {
-    return <AccessDenied />;
+    return <Navigate to="/access-denied" replace />;
   }
 
   // Super Admin always has unrestricted access
@@ -37,12 +36,12 @@ export const RoleGuard: React.FC<RoleGuardProps> = ({
 
   // Check allowed roles
   if (allowedRoles && allowedRoles.length > 0 && !hasRole(allowedRoles)) {
-    return <AccessDenied />;
+    return <Navigate to="/access-denied" replace />;
   }
 
   // Check required module permission
   if (requiredModule && !hasModulePermission(requiredModule)) {
-    return <AccessDenied />;
+    return <Navigate to="/access-denied" replace />;
   }
 
   return children ? <>{children}</> : <Outlet />;

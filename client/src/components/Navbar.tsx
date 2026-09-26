@@ -86,11 +86,13 @@ export const Navbar: React.FC = () => {
     };
   }, []);
 
-  // Close menus on route change
-  useEffect(() => {
+  // Close menus on route change using official React pattern
+  const [prevPath, setPrevPath] = useState(location.pathname);
+  if (prevPath !== location.pathname) {
+    setPrevPath(location.pathname);
     setOpenDropdown(null);
     setMobileMenuOpen(false);
-  }, [location.pathname]);
+  }
 
   const handleLogout = () => {
     logout();

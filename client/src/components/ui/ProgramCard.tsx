@@ -12,17 +12,12 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({ program, className = '
   const percentRaised = Math.min(100, Math.round((program.raisedAmount / program.goalAmount) * 100));
 
   const renderCategoryBadge = (category: string) => {
-    let dotColor = 'bg-[#0EA5E9]';
-
-    if (category === 'Education') {
-      dotColor = 'bg-[#2563EB]';
-    } else if (category === 'Animal Welfare') {
-      dotColor = 'bg-[#059669]';
-    } else if (category === 'Emergency Relief') {
-      dotColor = 'bg-[#D97706]';
-    } else {
-      dotColor = 'bg-[#10B981]';
-    }
+    const dotColors: Record<string, string> = {
+      'Education': 'bg-[#2563EB]',
+      'Animal Welfare': 'bg-[#059669]',
+      'Emergency Relief': 'bg-[#D97706]',
+    };
+    const dotColor = dotColors[category] || 'bg-[#10B981]';
 
     return (
       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider font-bold bg-white/90 backdrop-blur-md border border-slate-200 shadow-xs text-slate-900">
