@@ -33,11 +33,11 @@ export const EventCard: React.FC<EventCardProps> = ({ event, className = '' }) =
       {/* Date Stamp + Details */}
       <div className="flex items-start sm:items-center gap-4 flex-1">
         {/* Date Stamp */}
-        <div className="w-14 h-16 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 flex flex-col items-center justify-center shrink-0 shadow-xs">
-          <span className="text-[9px] font-mono font-bold tracking-wider uppercase text-blue-700">
+        <div className="w-14 h-16 rounded-xl bg-emerald-50/60 border border-emerald-100 text-slate-900 flex flex-col items-center justify-center shrink-0 shadow-2xs">
+          <span className="text-[9px] font-mono font-bold tracking-wider uppercase text-teal-800">
             {monthStr}
           </span>
-          <span className="text-xl font-serif font-extrabold leading-none mt-0.5 text-slate-900">
+          <span className="text-xl font-serif font-extrabold leading-none mt-0.5 text-teal-950">
             {dayStr}
           </span>
         </div>
@@ -45,11 +45,11 @@ export const EventCard: React.FC<EventCardProps> = ({ event, className = '' }) =
         {/* Event Details */}
         <div className="space-y-1 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="editorial-badge-blue text-[10px]">
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-teal-800 border border-emerald-200/80">
               {event.category}
             </span>
             {event.isUpcoming ? (
-              <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-bold">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-800 bg-emerald-100/70 px-2 py-0.5 rounded border border-emerald-200 font-bold">
                 Upcoming
               </span>
             ) : (
@@ -69,16 +69,16 @@ export const EventCard: React.FC<EventCardProps> = ({ event, className = '' }) =
 
           <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600 pt-1 font-normal">
             <div className="flex items-center gap-1.5">
-              <MapPin size={12} className="text-blue-600 shrink-0" />
+              <MapPin size={12} className="text-teal-700 shrink-0" />
               <span>{event.location}</span>
             </div>
             {event.time && (
               <div className="flex items-center gap-1.5">
-                <Clock size={12} className="text-blue-600 shrink-0" />
+                <Clock size={12} className="text-teal-700 shrink-0" />
                 <span className="font-mono text-[11px]">{event.time}</span>
               </div>
             )}
-            <div className="flex items-center gap-1.5 font-mono text-[11px] text-emerald-700 font-bold">
+            <div className="flex items-center gap-1.5 font-mono text-[11px] text-emerald-800 font-bold">
               <Users size={12} className="shrink-0 text-emerald-600" />
               <span>{attendeeCount} Pledged</span>
             </div>
@@ -91,10 +91,10 @@ export const EventCard: React.FC<EventCardProps> = ({ event, className = '' }) =
         {event.isUpcoming ? (
           <button
             onClick={handleRsvp}
-            className={`w-full sm:w-auto px-4 py-2.5 rounded-lg text-xs font-bold tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm ${
+            className={`w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm ${
               hasRsvpd
-                ? 'bg-emerald-600 text-white font-bold'
-                : 'bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white'
+                ? 'bg-emerald-700 text-white font-bold'
+                : 'bg-gradient-to-r from-teal-800 to-emerald-600 hover:from-teal-700 hover:to-emerald-500 text-white'
             }`}
           >
             {hasRsvpd ? (

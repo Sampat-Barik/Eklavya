@@ -41,7 +41,7 @@ export const EventsSection: React.FC = () => {
             onClick={() => setFilter('upcoming')}
             className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
               filter === 'upcoming'
-                ? 'bg-blue-600 text-white font-bold shadow-sm'
+                ? 'bg-teal-800 text-white font-bold shadow-sm'
                 : 'text-slate-700 hover:text-slate-900'
             }`}
           >
@@ -51,7 +51,7 @@ export const EventsSection: React.FC = () => {
             onClick={() => setFilter('all')}
             className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
               filter === 'all'
-                ? 'bg-blue-600 text-white font-bold shadow-sm'
+                ? 'bg-teal-800 text-white font-bold shadow-sm'
                 : 'text-slate-700 hover:text-slate-900'
             }`}
           >
@@ -61,7 +61,7 @@ export const EventsSection: React.FC = () => {
             onClick={() => setFilter('past')}
             className={`px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
               filter === 'past'
-                ? 'bg-emerald-600 text-white font-bold shadow-sm'
+                ? 'bg-emerald-700 text-white font-bold shadow-sm'
                 : 'text-slate-700 hover:text-slate-900'
             }`}
           >
@@ -87,7 +87,7 @@ export const EventsSection: React.FC = () => {
           <div className="pt-2">
             <Link
               to="/events"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-blue-700 hover:text-blue-900 transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-teal-800 hover:text-teal-950 transition-colors"
             >
               <span>View full historical drives and campus archives</span>
               <ArrowRight size={13} />
@@ -97,19 +97,19 @@ export const EventsSection: React.FC = () => {
 
         {/* Right Column: Next Major Drive Spotlight Card (5 cols) */}
         <div className="lg:col-span-5 lg:sticky lg:top-28">
-          <div className="rounded-2xl bg-white/90 backdrop-blur-md text-slate-900 p-7 sm:p-8 border border-slate-200 shadow-xl shadow-slate-200/50 relative overflow-hidden space-y-6">
+          <div className="rounded-2xl bg-white/90 backdrop-blur-md text-slate-900 p-7 sm:p-8 border border-emerald-100 shadow-xl shadow-teal-950/5 relative overflow-hidden space-y-6">
             <div className="flex items-center justify-between">
               <span className="px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1.5 font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Next Field Mobilization</span>
               </span>
-              <span className="text-[11px] font-mono text-blue-700 font-bold">
+              <span className="text-[11px] font-mono text-teal-800 font-bold">
                 HIT Haldia
               </span>
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-serif text-2xl font-bold text-slate-900 leading-snug">
+              <h3 className="font-serif text-2xl font-bold text-teal-950 leading-snug">
                 Weekly Mega Teaching & Vaccination Drive
               </h3>
               <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
@@ -123,7 +123,7 @@ export const EventsSection: React.FC = () => {
                 <span className="text-slate-900 font-semibold">Every Sunday • 4:00 PM IST</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <MapPin size={13} className="text-blue-600 shrink-0" />
+                <MapPin size={13} className="text-teal-700 shrink-0" />
                 <span>Assembly: Student Activity Center, HIT Haldia</span>
               </div>
             </div>
@@ -131,7 +131,7 @@ export const EventsSection: React.FC = () => {
             <div className="pt-2">
               <Link
                 to="/register"
-                className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20"
+                className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-teal-800 to-emerald-600 hover:from-teal-700 hover:to-emerald-500 text-white font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-teal-900/15"
               >
                 <span>Join Volunteer Roster</span>
                 <ArrowRight size={13} />
