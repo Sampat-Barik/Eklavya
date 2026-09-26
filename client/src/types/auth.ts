@@ -79,8 +79,10 @@ export interface AttendanceRecord {
   userEmail: string;
   date: string;
   driveType: string;
+  eventName?: string;
+  category?: string;
   location: string;
-  hoursLogged: number;
+  hoursLogged?: number;
   mentor?: string;
   status: 'Present' | 'Excused';
 }

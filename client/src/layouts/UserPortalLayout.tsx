@@ -6,7 +6,7 @@ import {
   User,
   LayoutDashboard,
   Calendar,
-  Clock,
+  CalendarCheck,
   Award,
   Megaphone,
   Heart,
@@ -54,7 +54,7 @@ export const UserPortalLayout: React.FC = () => {
     { name: 'Overview', path: '/portal', icon: LayoutDashboard, exact: true },
     { name: 'My Profile', path: '/portal/profile', icon: User },
     { name: 'Events & Registrations', path: '/portal/events', icon: Calendar },
-    { name: 'My Attendance', path: '/portal/attendance', icon: Clock },
+    { name: 'Events Attended', path: '/portal/attendance', icon: CalendarCheck },
     { name: 'My Certificates', path: '/portal/certificates', icon: Award },
     { name: 'Announcements', path: '/portal/announcements', icon: Megaphone },
     { name: 'Donation History', path: '/portal/donations', icon: Heart }
