@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, ArrowRight, BookOpen, Activity, MapPin, TrendingUp, Sparkles } from 'lucide-react';
-import { Scene3D } from '../3d/Scene3D';
+import { Heart, ArrowRight, Activity, TrendingUp, Sparkles } from 'lucide-react';
+import { HeroImageSlideshow } from './HeroImageSlideshow';
 
 export const Hero: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -109,53 +109,11 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Architectural Visual Console (5 cols) */}
+        {/* Right Column: Dynamic Field Photo Slideshow (5 cols) */}
         <div className="lg:col-span-5 relative w-full flex items-center justify-center">
-          <div className="w-full h-[480px] sm:h-[540px] rounded-[28px] overflow-hidden bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-xl shadow-slate-200/50 relative group hover:border-emerald-500/40 transition-colors">
-            
-            {/* 3D Scene Viewport */}
-            <Scene3D />
-
-            {/* Subtle Viewport Hairline Grid */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-
-            {/* Telemetry Badge 1: Top-Right */}
-            <div className="absolute top-5 right-5 z-20 pointer-events-none animate-float-slow hidden sm:block">
-              <div className="bg-white/95 backdrop-blur-xl px-3.5 py-2 rounded-xl shadow-md flex items-center gap-2.5 border border-cyan-200">
-                <div className="w-7 h-7 rounded-lg bg-cyan-50 text-cyan-600 border border-cyan-200 flex items-center justify-center">
-                  <BookOpen size={14} strokeWidth={1.75} />
-                </div>
-                <div>
-                  <span className="text-[9px] font-mono uppercase text-slate-500 tracking-wider block leading-tight">
-                    Village Classes
-                  </span>
-                  <span className="text-cyan-700 text-xs font-semibold">150+ Rural Scholars</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Telemetry Badge 2: Bottom-Left */}
-            <div className="absolute bottom-5 left-5 z-20 pointer-events-none animate-float-reverse hidden sm:block">
-              <div className="bg-white/95 backdrop-blur-xl px-3.5 py-2 rounded-xl shadow-md flex items-center gap-2.5 border border-emerald-200">
-                <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center">
-                  <Heart size={14} className="fill-current" strokeWidth={1.75} />
-                </div>
-                <div>
-                  <span className="text-[9px] font-mono uppercase text-slate-500 tracking-wider block leading-tight">
-                    Veterinary Squad
-                  </span>
-                  <span className="text-emerald-700 text-xs font-semibold">120+ Rescued & Treated</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Radar Coordinates Tag: Bottom Right */}
-            <div className="absolute bottom-5 right-5 z-20 pointer-events-none">
-              <div className="bg-white/95 border border-slate-200 px-3 py-1 rounded-lg flex items-center gap-1.5 text-[10px] font-mono text-slate-700 shadow-sm backdrop-blur-md">
-                <MapPin size={11} className="text-emerald-600" />
-                <span>22.06° N, 88.07° E</span>
-              </div>
-            </div>
+          <div className="w-full h-[480px] sm:h-[540px] rounded-[28px] overflow-hidden shadow-2xl relative group">
+            {/* Live Field Image Slideshow (Demo mode with backend API readiness) */}
+            <HeroImageSlideshow />
           </div>
         </div>
       </div>
