@@ -51,8 +51,10 @@ export const Register: React.FC = () => {
     <div className="max-w-lg mx-auto px-4 py-10">
       <div className="editorial-card p-8 md:p-10 space-y-6">
         <div className="text-center space-y-3">
-          <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center p-1 shadow-xs bg-white border border-slate-200">
-            <img src="/eklavya_logo.png" alt="Eklavya" className="w-full h-full object-contain" />
+          <div className="relative w-16 h-16 mx-auto rounded-full p-[2px] bg-gradient-to-r from-teal-800 to-emerald-500 shadow-md flex items-center justify-center">
+            <div className="w-full h-full rounded-full bg-white flex items-center justify-center p-1">
+              <img src="/eklavya_logo.png" alt="Eklavya Official Crest" className="w-full h-full object-contain" />
+            </div>
           </div>
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-blue-50 border border-blue-200 rounded-full text-xs font-bold text-blue-700">
             <Sparkles size={14} />

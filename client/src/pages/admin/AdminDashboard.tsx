@@ -138,24 +138,35 @@ export const AdminDashboard: React.FC = () => {
     <div className="space-y-8">
       {/* Top Welcome Header */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 border-b border-emerald-100/90 pb-6">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="px-2.5 py-0.5 rounded-full bg-emerald-100/80 text-teal-900 text-[10px] font-mono font-extrabold uppercase tracking-wider border border-emerald-200">
-              Admin Governance Center
-            </span>
-            <span className="text-slate-400">•</span>
-            <span className="text-xs font-semibold text-emerald-800 flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>All 3 Centres Online</span>
-            </span>
+        <div className="flex items-start sm:items-center gap-4">
+          <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-3xl p-1 bg-gradient-to-tr from-teal-800 via-emerald-600 to-teal-500 shadow-lg shadow-teal-900/15 flex items-center justify-center shrink-0">
+            <div className="w-full h-full rounded-2xl bg-white flex items-center justify-center p-1">
+              <img
+                src="/eklavya_logo.png"
+                alt="Eklavya Admin Crest"
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
+          <div>
+            <div className="flex items-center gap-2 mb-1 flex-wrap">
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-100/80 text-teal-900 text-[10px] font-mono font-extrabold uppercase tracking-wider border border-emerald-200">
+                Admin Governance Center
+              </span>
+              <span className="text-slate-400">•</span>
+              <span className="text-xs font-semibold text-emerald-800 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>All 3 Centres Online</span>
+              </span>
+            </div>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-black text-teal-950 tracking-tight">
-            Welcome back, {user?.name || 'Administrator'} 👋
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
-            Here's what's happening across Eklavya ground operations, society rosters, and verified records today.
-          </p>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-black text-teal-950 tracking-tight">
+              Welcome back, {user?.name || 'Administrator'} 👋
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+              Here's what's happening across Eklavya ground operations, society rosters, and verified records today.
+            </p>
+          </div>
         </div>
 
         {/* Live Date & Operations Pill */}

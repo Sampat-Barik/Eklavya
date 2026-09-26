@@ -13,8 +13,16 @@ import {
   X,
   User as UserIcon,
   Shield,
+  Zap,
+  Crown,
+  Layers,
+  Globe,
+  Calendar,
+  Award,
+  Megaphone
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { OFFICIAL_DOMAINS } from '../types/auth';
 
 interface SubmenuItem {
   name: string;
@@ -25,7 +33,7 @@ interface SubmenuItem {
 }
 
 export const Navbar: React.FC = () => {
-  const { isAuthenticated, isAdmin, user, logout } = useAuth();
+  const { isAuthenticated, roleLevel, userDomain, user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -127,23 +135,134 @@ export const Navbar: React.FC = () => {
     },
   ];
 
+  const domainLabel = OFFICIAL_DOMAINS.find((d) => d.key === userDomain)?.name || 'Department';
+
   const portalItems: SubmenuItem[] = [
-    {
-      name: 'User Portal',
-      description: 'Attendance, certificates, events & notifications',
-      href: '/portal',
-      icon: UserIcon,
-    },
-    ...(isAdmin
+    ...(roleLevel === 1
       ? [
           {
+            name: 'Access & Role Management',
+            description: 'Assign, change or revoke user roles & audit logs',
+            href: '/admin/access-management',
+            icon: Crown,
+          },
+          {
             name: 'Admin Console',
-            description: 'System approvals, verification & logs',
+            description: 'Events, content & society operations',
             href: '/admin',
             icon: Shield,
           },
+          {
+            name: 'All 8 Domain Hubs',
+            description: 'Oversight across all club department tasks',
+            href: '/portal/domain-hub',
+            icon: Layers,
+          },
+          {
+            name: 'Member Portal Overview',
+            description: 'Attendance, certificates & notifications',
+            href: '/portal',
+            icon: UserIcon,
+          }
         ]
-      : []),
+      : roleLevel === 2
+      ? [
+          {
+            name: 'Admin Console',
+            description: 'Events, member directory & operations',
+            href: '/admin',
+            icon: Shield,
+          },
+          {
+            name: 'Domain Operations',
+            description: 'Track deliverables across all 8 domains',
+            href: '/portal/domain-hub',
+            icon: Layers,
+          },
+          {
+            name: 'Member Portal',
+            description: 'Profile, certificates, events & attendance',
+            href: '/portal',
+            icon: UserIcon,
+          }
+        ]
+      : roleLevel === 3
+      ? [
+          {
+            name: `${domainLabel} Hub`,
+            description: 'Create & delegate tasks to domain members',
+            href: '/portal/domain-hub',
+            icon: Zap,
+          },
+          {
+            name: 'Member Desk',
+            description: 'Personalized profile & society events',
+            href: '/portal',
+            icon: UserIcon,
+          }
+        ]
+      : roleLevel === 4
+      ? [
+          {
+            name: 'My Domain Tasks & Updates',
+            description: `Internal deliverables for ${domainLabel}`,
+            href: '/portal/domain-hub',
+            icon: Zap,
+          },
+          {
+            name: 'My Member Profile',
+            description: 'Personal profile, certificates & attendance',
+            href: '/portal/profile',
+            icon: UserIcon,
+          }
+        ]
+      : roleLevel === 5
+      ? [
+          {
+            name: 'Portal Overview',
+            description: 'Personal dashboard, statistics & quick links',
+            href: '/portal',
+            icon: UserIcon,
+          },
+          {
+            name: 'My Profile',
+            description: 'Personal details & account information',
+            href: '/portal/profile',
+            icon: UserIcon,
+          },
+          {
+            name: 'Events Attended',
+            description: 'Track attended sessions & registered events',
+            href: '/portal/attendance',
+            icon: Calendar,
+          },
+          {
+            name: 'My Certificates',
+            description: 'Download verified certificates & commendations',
+            href: '/portal/certificates',
+            icon: Award,
+          },
+          {
+            name: 'Donation History',
+            description: 'Contributions, verified receipts & aid ledger',
+            href: '/portal/donations',
+            icon: Heart,
+          },
+          {
+            name: 'Announcements',
+            description: 'Official society circulars & community notices',
+            href: '/portal/announcements',
+            icon: Megaphone,
+          }
+        ]
+      : [
+          {
+            name: 'Member Sign In',
+            description: 'Access authenticated member services & tasks',
+            href: '/login',
+            icon: UserIcon,
+          }
+        ])
   ];
 
   const toggleDropdown = (name: string) => {
@@ -338,7 +457,7 @@ export const Navbar: React.FC = () => {
               >
                 <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-emerald-100 shadow-xl shadow-teal-950/10 p-2.5">
                   <div className="px-3 py-1.5 text-[10px] font-bold text-teal-800 uppercase tracking-wider border-b border-emerald-50 mb-1 flex items-center justify-between">
-                    <span>Member & Admin Services</span>
+                    <span>{roleLevel === 5 ? 'User Portal Services' : 'Member & Admin Services'}</span>
                     <Shield size={11} className="text-teal-700" />
                   </div>
                   {portalItems.map((item) => {
@@ -383,19 +502,68 @@ export const Navbar: React.FC = () => {
 
           {isAuthenticated ? (
             <div className="flex items-center gap-2">
+              {/* Dynamic Role Badge */}
+              <div className="hidden lg:flex items-center">
+                {roleLevel === 1 && (
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-amber-500/15 text-amber-700 border border-amber-300 flex items-center gap-1 shadow-2xs">
+                    <Crown size={11} className="text-amber-600" />
+                    <span>Super Admin</span>
+                  </span>
+                )}
+                {roleLevel === 2 && (
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-teal-500/15 text-teal-700 border border-teal-300 flex items-center gap-1 shadow-2xs">
+                    <Shield size={11} className="text-teal-600" />
+                    <span>Admin</span>
+                  </span>
+                )}
+                {roleLevel === 3 && (
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-indigo-500/15 text-indigo-700 border border-indigo-300 flex items-center gap-1 shadow-2xs">
+                    <Zap size={11} className="text-indigo-600" />
+                    <span>Lead: {OFFICIAL_DOMAINS.find(d => d.key === userDomain)?.name || 'Domain'}</span>
+                  </span>
+                )}
+                {roleLevel === 4 && (
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-emerald-500/15 text-emerald-700 border border-emerald-300 flex items-center gap-1 shadow-2xs">
+                    <UserIcon size={11} className="text-emerald-600" />
+                    <span>Member: {OFFICIAL_DOMAINS.find(d => d.key === userDomain)?.name || 'Club'}</span>
+                  </span>
+                )}
+                {roleLevel === 5 && (
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase bg-slate-100 text-slate-700 border border-slate-300 flex items-center gap-1 shadow-2xs">
+                    <Globe size={11} className="text-slate-600" />
+                    <span>Normal User</span>
+                  </span>
+                )}
+              </div>
+
               <Link
-                to="/portal"
+                to={roleLevel === 3 || roleLevel === 4 ? '/portal/domain-hub' : roleLevel === 1 || roleLevel === 2 ? '/admin' : '/portal'}
                 className={`flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-full transition-colors ${
-                  location.pathname.startsWith('/portal')
+                  location.pathname.startsWith('/portal') || location.pathname.startsWith('/admin')
                     ? 'bg-teal-800 text-white shadow-xs'
                     : 'text-slate-700 bg-emerald-50/80 hover:bg-emerald-100/80 border border-emerald-200/70'
                 }`}
               >
-                <UserIcon
-                  size={13}
-                  className={location.pathname.startsWith('/portal') ? 'text-white' : 'text-teal-700'}
-                />
-                <span>My Portal</span>
+                {roleLevel === 3 ? (
+                  <Zap size={13} className={location.pathname.startsWith('/portal') ? 'text-white' : 'text-teal-700'} />
+                ) : roleLevel === 1 ? (
+                  <Crown size={13} className={location.pathname.startsWith('/admin') ? 'text-white' : 'text-amber-500'} />
+                ) : roleLevel === 2 ? (
+                  <Shield size={13} className={location.pathname.startsWith('/admin') ? 'text-white' : 'text-teal-700'} />
+                ) : (
+                  <UserIcon size={13} className={location.pathname.startsWith('/portal') ? 'text-white' : 'text-teal-700'} />
+                )}
+                <span>
+                  {roleLevel === 3
+                    ? 'Domain Hub'
+                    : roleLevel === 4
+                    ? 'My Desk'
+                    : roleLevel === 1
+                    ? 'Super Console'
+                    : roleLevel === 2
+                    ? 'Admin Console'
+                    : 'My Portal'}
+                </span>
               </Link>
               <button
                 onClick={handleLogout}
@@ -501,7 +669,7 @@ export const Navbar: React.FC = () => {
               onClick={() => toggleMobileAccordion('portal')}
               className="w-full flex items-center justify-between px-3.5 py-2.5 bg-emerald-50/50 text-slate-800 text-left"
             >
-              <span>Portal</span>
+              <span>{roleLevel === 5 ? 'Get Involved' : 'Portal'}</span>
               <ChevronDown
                 size={15}
                 className={`transition-transform duration-200 ${

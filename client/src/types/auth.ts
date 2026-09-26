@@ -1,14 +1,123 @@
+export type RoleLevel = 1 | 2 | 3 | 4 | 5;
+
+export type ClubDomain =
+  | 'video_editing'
+  | 'graphics_design'
+  | 'teaching'
+  | 'volunteering'
+  | 'content_writing'
+  | 'web_development'
+  | 'pr'
+  | 'management';
+
 export type UserRole =
-  | 'registered_user'
+  | 'super_admin'         // Level 1: Complete system control & sole role assigner
+  | 'admin'               // Level 2: General club management, events, onboarding (no Admin/Super Admin assignment)
+  | 'domain_lead'         // Level 3: Department management & task delegation across 8 domains
+  | 'club_member'         // Level 4: Active Club Member (Inducted member with internal domain access, personal profile, tasks & schedule)
+  | 'public_user'         // Level 5: Normal User (Public visitor/supporter with zero club membership privileges. Cannot be an active member)
+  | 'registered_user'     // Legacy alias for basic authenticated member
   | 'viewer'
   | 'events_manager'
   | 'content_manager'
   | 'team_manager'
   | 'education_manager'
   | 'communications_manager'
-  | 'finance_manager'
-  | 'admin'
-  | 'super_admin';
+  | 'finance_manager';
+
+export interface DomainMeta {
+  key: ClubDomain;
+  name: string;
+  shortDesc: string;
+  leadRoleTitle: string;
+  tagColor: string;
+}
+
+export const OFFICIAL_DOMAINS: DomainMeta[] = [
+  {
+    key: 'video_editing',
+    name: 'Video Editing',
+    shortDesc: 'Reels, event recaps, docu-shorts, promotional edits & animations',
+    leadRoleTitle: 'Video Editing Lead',
+    tagColor: 'bg-purple-100 text-purple-800 border-purple-200'
+  },
+  {
+    key: 'graphics_design',
+    name: 'Graphics Design',
+    shortDesc: 'Posters, social media creatives, brochures, banners & event kits',
+    leadRoleTitle: 'Design Lead',
+    tagColor: 'bg-pink-100 text-pink-800 border-pink-200'
+  },
+  {
+    key: 'teaching',
+    name: 'Teaching',
+    shortDesc: 'Village evening classes, remedial tutoring, STEM & literacy sessions',
+    leadRoleTitle: 'Teaching & Curriculum Lead',
+    tagColor: 'bg-amber-100 text-amber-800 border-amber-200'
+  },
+  {
+    key: 'volunteering',
+    name: 'Volunteering',
+    shortDesc: 'Ground relief operations, animal feeding drives & community camps',
+    leadRoleTitle: 'Field Volunteer Coordinator',
+    tagColor: 'bg-emerald-100 text-emerald-800 border-emerald-200'
+  },
+  {
+    key: 'content_writing',
+    name: 'Content Writing',
+    shortDesc: 'Annual reports, newsletters, blog articles, scripts & press releases',
+    leadRoleTitle: 'Editorial & Content Lead',
+    tagColor: 'bg-blue-100 text-blue-800 border-blue-200'
+  },
+  {
+    key: 'web_development',
+    name: 'Web Development',
+    shortDesc: 'Club portals, live operations mapping, certificates ledger & web apps',
+    leadRoleTitle: 'Tech & Web Lead',
+    tagColor: 'bg-cyan-100 text-cyan-800 border-cyan-200'
+  },
+  {
+    key: 'pr',
+    name: 'Public Relations (PR)',
+    shortDesc: 'Sponsor outreach, college liaison, media coverage & stakeholder partnerships',
+    leadRoleTitle: 'PR & Outreach Lead',
+    tagColor: 'bg-indigo-100 text-indigo-800 border-indigo-200'
+  },
+  {
+    key: 'management',
+    name: 'Management',
+    shortDesc: 'Logistics coordination, meeting schedules, resource planning & finance tracking',
+    leadRoleTitle: 'Operations & Management Lead',
+    tagColor: 'bg-teal-100 text-teal-800 border-teal-200'
+  }
+];
+
+export interface ClubTask {
+  id: string;
+  title: string;
+  description: string;
+  domain: ClubDomain;
+  assignedToId: string;
+  assignedToName: string;
+  createdById: string;
+  createdByName: string;
+  priority: 'low' | 'medium' | 'high' | 'urgent';
+  status: 'pending' | 'in_progress' | 'submitted' | 'completed';
+  dueDate: string;
+  createdAt: string;
+  submissionNote?: string;
+  submissionLink?: string;
+}
+
+export interface InternalDomainUpdate {
+  id: string;
+  domain: ClubDomain;
+  title: string;
+  content: string;
+  date: string;
+  authorName: string;
+  type: 'schedule' | 'announcement' | 'resource';
+}
 
 export type AdminModule =
   | 'dashboard'
@@ -112,7 +221,11 @@ export interface AppUser {
   name: string;
   email: string;
   role: UserRole;
+  roleLevel?: RoleLevel;
+  domain?: ClubDomain;
   isAdmin: boolean;
+  /** True for Level 1–4 active club members. Strictly false for Level 5 normal users / public visitors. */
+  isActiveMember?: boolean;
   department?: string;
   batch?: string;
   phone?: string;

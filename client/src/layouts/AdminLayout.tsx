@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import {
   LayoutDashboard,
@@ -104,15 +104,25 @@ export const AdminLayout: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-[#F9FAFB] via-[#ECFDF5]/30 to-[#F0FDF4]/50 flex antialiased text-slate-800 selection:bg-teal-700 selection:text-white">
       {/* Mobile Top Header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-emerald-100 px-4 py-3 flex items-center justify-between shadow-xs">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-teal-800 to-emerald-600 text-white flex items-center justify-center font-bold text-sm shadow-sm">
-            E
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <div className="relative w-8 h-8 rounded-full p-[2px] bg-gradient-to-r from-teal-700 to-emerald-500 shadow-sm flex items-center justify-center">
+            <div className="w-full h-full rounded-full bg-white flex items-center justify-center p-0.5">
+              <img
+                src="/eklavya_logo.png"
+                alt="Eklavya Admin Emblem"
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
           <div>
-            <span className="font-serif font-black text-sm text-teal-950 block leading-tight">Eklavya Console</span>
-            <span className="text-[9px] font-mono text-emerald-700 font-bold uppercase tracking-wider">HIT Haldia Admin</span>
+            <span className="font-serif font-black text-sm text-teal-950 block leading-tight group-hover:text-teal-700 transition-colors">
+              Eklavya Console
+            </span>
+            <span className="text-[9px] font-mono text-emerald-700 font-bold uppercase tracking-wider">
+              HIT Haldia Admin
+            </span>
           </div>
-        </div>
+        </Link>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="p-2 rounded-xl border border-emerald-100 bg-emerald-50/50 text-teal-900 active:scale-95 transition-transform"
@@ -137,19 +147,27 @@ export const AdminLayout: React.FC = () => {
         }`}
       >
         <div className="flex flex-col flex-1 overflow-hidden">
-          {/* Logo Brand Header */}
+          {/* Logo Brand Header with Official Eklavya Emblem */}
           <div className="p-5 border-b border-emerald-100/80 flex items-center justify-between bg-gradient-to-r from-emerald-50/50 via-teal-50/30 to-transparent">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-teal-800 to-emerald-600 flex items-center justify-center text-white font-serif font-black text-sm shadow-md shadow-teal-900/20">
-                E
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="relative w-10 h-10 rounded-full p-[2px] bg-gradient-to-r from-teal-800 to-emerald-500 shadow-md shadow-teal-900/15 group-hover:scale-105 transition-transform flex items-center justify-center">
+                <div className="w-full h-full rounded-full bg-white flex items-center justify-center p-0.5">
+                  <img
+                    src="/eklavya_logo.png"
+                    alt="Eklavya Official Crest"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </div>
               <div className="leading-tight">
-                <span className="font-serif font-black text-sm text-teal-950 tracking-tight block">EKLAVYA</span>
+                <span className="font-serif font-black text-sm text-teal-950 tracking-tight block group-hover:text-teal-700 transition-colors">
+                  EKLAVYA
+                </span>
                 <span className="text-[9px] font-mono font-bold text-emerald-700 uppercase tracking-widest block">
                   HANDS THAT CARE
                 </span>
               </div>
-            </div>
+            </Link>
             <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 text-teal-900 border border-emerald-200">
               Admin
             </span>

@@ -19,9 +19,18 @@ export const UserApprovals: React.FC = () => {
   return (
     <div className="space-y-8">
       <div className="border-b border-slate-200 pb-5">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
-            <ShieldCheck size={20} />
+        <div className="flex items-center gap-3.5">
+          <div className="relative w-12 h-12 rounded-2xl p-[2px] bg-gradient-to-tr from-amber-500 via-teal-600 to-emerald-500 shadow-md shadow-amber-500/10 flex items-center justify-center shrink-0">
+            <div className="w-full h-full rounded-xl bg-white flex items-center justify-center p-0.5">
+              <img
+                src="/eklavya_logo.png"
+                alt="Eklavya Admin Approvals"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute -bottom-1 -right-1 p-1 bg-teal-700 text-white rounded-full shadow-xs">
+              <ShieldCheck size={11} />
+            </div>
           </div>
           <div>
             <h1 className="text-2xl font-serif font-black text-slate-900">User Approvals & Admin Requests</h1>

@@ -28,17 +28,41 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     enum: [
-      'registered_user',
+      'super_admin',      // Level 1
+      'admin',            // Level 2
+      'domain_lead',      // Level 3
+      'club_member',      // Level 4
+      'public_user',      // Level 5
+      'registered_user',  // Legacy alias
       'events_manager',
       'content_manager',
       'team_manager',
       'education_manager',
       'communications_manager',
-      'finance_manager',
-      'admin',
-      'super_admin'
+      'finance_manager'
     ],
-    default: 'registered_user',
+    default: 'club_member',
+  },
+  roleLevel: {
+    type: Number,
+    min: 1,
+    max: 5,
+    default: 4,
+  },
+  domain: {
+    type: String,
+    enum: [
+      '',
+      'video_editing',
+      'graphics_design',
+      'teaching',
+      'volunteering',
+      'content_writing',
+      'web_development',
+      'pr',
+      'management'
+    ],
+    default: '',
   },
   permissions: {
     type: [String],
@@ -64,6 +88,10 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  isActiveMember: {
+    type: Boolean,
+    default: false, // Level 5 normal users are strictly non-members
+  },
   adminRequest: {
     requested: { type: Boolean, default: false },
     requestedAt: { type: Date },
@@ -76,9 +104,16 @@ const userSchema = new mongoose.Schema({
   timestamps: true // Automatically adds createdAt and updatedAt fields
 });
 
-// A "pre-save" hook runs before a user is saved to the database.
-// We use this to hash the password so it isn't stored in plain text.
+// Pre-save hook for RBAC role level & active member status, plus password hashing
 userSchema.pre('save', async function (next) {
+  // Level 5 are normal users: strictly non-members with no domain assignment
+  if (this.roleLevel === 5 || this.role === 'public_user') {
+    this.isActiveMember = false;
+    this.domain = '';
+  } else if (this.roleLevel >= 1 && this.roleLevel <= 4) {
+    this.isActiveMember = true;
+  }
+
   // If the password hasn't been modified (e.g., when updating just the name), skip hashing
   if (!this.isModified('password')) {
     return next();

@@ -17,6 +17,8 @@ export const PortalGuard: React.FC<PortalGuardProps> = ({ children }) => {
     return <Navigate to="/access-denied" replace />;
   }
 
+  // All authenticated users (Level 1 to 5) can access their personal portal:
+  // Profile, attended events, donations, certificates, and announcements.
   return children ? <>{children}</> : <Outlet />;
 };
 

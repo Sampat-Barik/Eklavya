@@ -7,10 +7,11 @@ import type { AttendanceRecord } from '../../types/auth';
 export const PortalAttendance: React.FC = () => {
   const { user } = useAuth();
   const [attendance, setAttendance] = useState<AttendanceRecord[]>([]);
+  const isNormalUser = user?.roleLevel === 5 || user?.role === 'public_user' || !user?.isActiveMember;
   const [summary, setSummary] = useState({
     totalEventsAttended: 3,
     verifiedRate: '100%',
-    standing: 'Active Member'
+    standing: isNormalUser ? 'Participant (Normal User)' : 'Active Member'
   });
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export const PortalAttendance: React.FC = () => {
               setSummary({
                 totalEventsAttended: data.summary.totalEventsAttended ?? data.summary.totalDrives ?? 3,
                 verifiedRate: data.summary.verifiedRate ?? '100%',
-                standing: 'Active Member'
+                standing: isNormalUser ? 'Participant (Normal User)' : 'Active Member'
               });
             }
             return;

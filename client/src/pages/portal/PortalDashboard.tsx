@@ -176,7 +176,7 @@ export const PortalDashboard: React.FC = () => {
                   </span>
                   <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/25 border border-emerald-400/40 text-emerald-300 text-[10px] font-extrabold uppercase tracking-wider">
                     <Sparkles size={11} className="text-emerald-300" />
-                    <span>Active Member</span>
+                    <span>{user.roleLevel === 5 || user.role === 'public_user' || !user.isActiveMember ? 'Normal User' : 'Active Member'}</span>
                   </span>
                 </div>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-black tracking-tight text-white">
@@ -190,6 +190,15 @@ export const PortalDashboard: React.FC = () => {
 
             {/* Actions: Frosted Glass Edit & Vibrant Energy CTA */}
             <div className="flex items-center gap-3 shrink-0">
+              <div className="hidden lg:flex items-center gap-2.5 px-3.5 py-1.5 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm mr-1">
+                <div className="w-8 h-8 rounded-full bg-white p-0.5 shadow-sm flex items-center justify-center">
+                  <img src="/eklavya_logo.png" alt="Eklavya Crest" className="w-full h-full object-contain" />
+                </div>
+                <div className="text-left leading-tight">
+                  <span className="text-[10px] font-serif font-black text-white block">Eklavya</span>
+                  <span className="text-[8px] font-mono text-emerald-300 font-bold uppercase tracking-wider block">Hands That Care</span>
+                </div>
+              </div>
               <Link
                 to="/portal/profile"
                 className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/30 text-white text-xs font-bold backdrop-blur-sm transition-all"

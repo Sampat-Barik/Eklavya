@@ -185,9 +185,18 @@ export const AccessManagement: React.FC = () => {
     <div className="space-y-8">
       {/* Top Banner */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
-        <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-sm">
-            <Key size={22} />
+        <div className="flex items-center gap-3.5">
+          <div className="relative w-12 h-12 rounded-2xl p-[2px] bg-gradient-to-tr from-amber-500 via-teal-600 to-emerald-500 shadow-md shadow-amber-500/10 flex items-center justify-center shrink-0">
+            <div className="w-full h-full rounded-xl bg-white flex items-center justify-center p-0.5">
+              <img
+                src="/eklavya_logo.png"
+                alt="Eklavya Super Admin Seal"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute -bottom-1 -right-1 p-1 bg-amber-500 text-white rounded-full shadow-xs">
+              <Key size={11} />
+            </div>
           </div>
           <div>
             <h1 className="text-2xl font-serif font-black text-slate-900 tracking-tight">

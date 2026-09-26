@@ -20,16 +20,27 @@ export const DonationsAdmin: React.FC = () => {
     <div className="space-y-6">
       {/* Header with Subtabs */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-5">
-        <div>
-          <div className="flex items-center gap-2">
-            <Wallet className="text-teal-800" size={22} />
+        <div className="flex items-center gap-3.5">
+          <div className="relative w-12 h-12 rounded-2xl p-[2px] bg-gradient-to-tr from-teal-800 to-emerald-500 shadow-md shadow-teal-900/10 flex items-center justify-center shrink-0">
+            <div className="w-full h-full rounded-xl bg-white flex items-center justify-center p-0.5">
+              <img
+                src="/eklavya_logo.png"
+                alt="Eklavya Donations Ledger"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute -bottom-1 -right-1 p-1 bg-teal-800 text-white rounded-full shadow-xs">
+              <Wallet size={11} />
+            </div>
+          </div>
+          <div>
             <h1 className="text-2xl font-serif font-black text-teal-950">
               Donation & Financial Ledger Management
             </h1>
+            <p className="text-xs text-slate-500 mt-1">
+              Track voluntary donations, verify UTR reference numbers, and manage yearly QR handover configurations.
+            </p>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            Track voluntary donations, verify UTR reference numbers, and manage yearly QR handover configurations.
-          </p>
         </div>
 
         {/* Subtabs matching Screenshot 2 */}

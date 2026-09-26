@@ -3,6 +3,9 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 import type {
   AppUser,
   UserRole,
+  RoleLevel,
+  ClubDomain,
+  ClubTask,
   AdminModule,
   AdminAction,
   AllowedAdminUser,
@@ -20,6 +23,22 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isAdmin: boolean;
   isSuperAdmin: boolean;
+  // 5-Tier RBAC Helpers
+  roleLevel: RoleLevel;
+  userDomain?: ClubDomain;
+  isDomainLead: boolean;
+  isClubMember: boolean;
+  isPublicUser: boolean;
+  isActiveMember: boolean;
+  canManageDomain: (domain: ClubDomain) => boolean;
+  canAssignRole: (targetRole: UserRole) => boolean;
+  switchDemoRole: (tier: RoleLevel, domain?: ClubDomain) => void;
+  // Domain Tasks System
+  tasks: ClubTask[];
+  createTask: (taskData: Omit<ClubTask, 'id' | 'createdAt'>) => { success: boolean; message: string; task?: ClubTask };
+  updateTaskStatus: (taskId: string, status: ClubTask['status'], note?: string, link?: string) => void;
+  deleteTask: (taskId: string) => { success: boolean; message: string };
+  // Permissions & Guards
   hasRole: (roles: UserRole[]) => boolean;
   hasModulePermission: (module: AdminModule) => boolean;
   can: (module: AdminModule, action: AdminAction) => boolean;
@@ -57,12 +76,13 @@ const defaultAdminModules: AdminModule[] = [
   'access_management'
 ];
 
-const initialDemoUsers: AppUser[] = [
-  {
-    id: 'user-admin-1',
-    name: 'Sampat Barik',
+export const DEMO_PRESET_USERS: Record<RoleLevel, AppUser> = {
+  1: {
+    id: 'user-level-1',
+    name: 'Sampat Barik (Super Admin)',
     email: 'sampatbarik01@gmail.com',
     role: 'super_admin',
+    roleLevel: 1,
     isAdmin: true,
     department: 'Computer Science & Engineering',
     batch: '2026',
@@ -71,11 +91,235 @@ const initialDemoUsers: AppUser[] = [
     permissions: defaultAdminModules,
     certificates: []
   },
+  2: {
+    id: 'user-level-2',
+    name: 'Ananya Sharma (Admin)',
+    email: 'ananya.admin@eklavya.org',
+    role: 'admin',
+    roleLevel: 2,
+    isAdmin: true,
+    department: 'Information Technology',
+    batch: '2026',
+    phone: '+91 91234 56789',
+    joinedDate: '9/15/2026',
+    permissions: [
+      'dashboard',
+      'events',
+      'online_events',
+      'members',
+      'alumni',
+      'teachers',
+      'volunteers',
+      'attendance',
+      'gd_schedule',
+      've_schedule',
+      'cw_schedule',
+      'photo_schedule',
+      'send_email',
+      'certificates'
+    ],
+    certificates: []
+  },
+  3: {
+    id: 'user-level-3',
+    name: 'Rahul Sen (Web Dev Lead)',
+    email: 'rahul.webdev@eklavya.org',
+    role: 'domain_lead',
+    roleLevel: 3,
+    domain: 'web_development',
+    isAdmin: false,
+    department: 'Computer Science & Engineering',
+    batch: '2026',
+    phone: '+91 98765 11223',
+    joinedDate: '9/10/2026',
+    permissions: ['dashboard'],
+    certificates: []
+  },
+  4: {
+    id: 'user-level-4',
+    name: 'Sneha Patel (Club Member)',
+    email: 'sneha.patel@eklavya.org',
+    role: 'club_member',
+    roleLevel: 4,
+    domain: 'web_development',
+    isAdmin: false,
+    isActiveMember: true,
+    department: 'Electronics & Communication',
+    batch: '2027',
+    phone: '+91 98321 99887',
+    joinedDate: '9/18/2026',
+    permissions: [],
+    certificates: [
+      {
+        id: 'cert-demo-1',
+        title: 'Outstanding Web Contributor 2026',
+        issuedAt: 'September 2026',
+        category: 'Technical Wing',
+        verificationCode: 'EKL-2026-WEB-042'
+      }
+    ]
+  },
+  5: {
+    id: 'user-level-5',
+    name: 'Rohan Verma (Normal User)',
+    email: 'rohan.user@gmail.com',
+    role: 'public_user',
+    roleLevel: 5,
+    isAdmin: false,
+    isActiveMember: false,
+    department: 'Community Supporter / Event Participant',
+    batch: 'Public Account',
+    phone: '+91 98111 22334',
+    joinedDate: '9/26/2026',
+    permissions: [],
+    certificates: [
+      {
+        id: 'cert-pub-1',
+        title: 'Community Tree Plantation Drive Participation',
+        issuedAt: 'September 2026',
+        category: 'Public Outreach',
+        verificationCode: 'EKL-2026-PUB-109'
+      },
+      {
+        id: 'cert-pub-2',
+        title: 'Official Supporter: Child Nutrition Aid Certificate',
+        issuedAt: 'August 2026',
+        category: 'Donation Aid',
+        verificationCode: 'EKL-2026-DON-881'
+      }
+    ]
+  }
+};
+
+export const INITIAL_DEMO_TASKS: ClubTask[] = [
+  {
+    id: 'task-1',
+    title: 'Integrate 5-tier RBAC UI in User Portal',
+    description: 'Build conditional component guards and role switcher for demo testing.',
+    domain: 'web_development',
+    assignedToId: 'user-level-4',
+    assignedToName: 'Sneha Patel',
+    createdById: 'user-level-3',
+    createdByName: 'Rahul Sen (Lead)',
+    priority: 'urgent',
+    status: 'in_progress',
+    dueDate: '2026-09-30',
+    createdAt: '2026-09-20'
+  },
+  {
+    id: 'task-2',
+    title: 'Optimize Static SVG Leaf Backgrounds for Mobile',
+    description: 'Ensure SVG opacity and CSS filters do not cause paint lag on low-end Android browsers.',
+    domain: 'web_development',
+    assignedToId: 'user-level-4',
+    assignedToName: 'Sneha Patel',
+    createdById: 'user-level-3',
+    createdByName: 'Rahul Sen (Lead)',
+    priority: 'medium',
+    status: 'completed',
+    dueDate: '2026-09-24',
+    createdAt: '2026-09-15',
+    submissionNote: 'Converted SVGs to passive backdrop wrapper with zero repaint triggers.'
+  },
+  {
+    id: 'task-3',
+    title: 'Design Annual NGO Impact Infographics',
+    description: 'Create high-resolution vector posters highlighting 1,200+ students taught across 4 centres.',
+    domain: 'graphics_design',
+    assignedToId: 'user-member-gd',
+    assignedToName: 'Tanmay Das',
+    createdById: 'lead-gd',
+    createdByName: 'Arjun Das (Design Lead)',
+    priority: 'high',
+    status: 'in_progress',
+    dueDate: '2026-10-05',
+    createdAt: '2026-09-22'
+  },
+  {
+    id: 'task-4',
+    title: 'Produce 90s Teaser Reel for Autumn Food Drive',
+    description: 'Sync drone footage with volunteer testimonials and social media audio.',
+    domain: 'video_editing',
+    assignedToId: 'user-member-ve',
+    assignedToName: 'Rohit Paul',
+    createdById: 'lead-ve',
+    createdByName: 'Mona Ghosh (Video Lead)',
+    priority: 'urgent',
+    status: 'submitted',
+    dueDate: '2026-09-28',
+    createdAt: '2026-09-21',
+    submissionNote: 'Render completed in 4K 60fps. Ready for final review.'
+  },
+  {
+    id: 'task-5',
+    title: 'Prepare Class 8 Geometry Diagnostic Quiz',
+    description: 'Draft 20 concept questions for rural evening coaching centres.',
+    domain: 'teaching',
+    assignedToId: 'user-member-teach',
+    assignedToName: 'Sunita Ray',
+    createdById: 'lead-teach',
+    createdByName: 'Dr. Debabrata (Teaching Lead)',
+    priority: 'medium',
+    status: 'completed',
+    dueDate: '2026-09-25',
+    createdAt: '2026-09-18'
+  },
+  {
+    id: 'task-6',
+    title: 'Route Survey for Durgachak Winter Blanket Drive',
+    description: 'Inspect 6 slum clusters and verify beneficiary count for 300 blankets.',
+    domain: 'volunteering',
+    assignedToId: 'user-member-vol',
+    assignedToName: 'Manish Kumar',
+    createdById: 'lead-vol',
+    createdByName: 'Vikram Roy (Volunteering Lead)',
+    priority: 'high',
+    status: 'pending',
+    dueDate: '2026-10-10',
+    createdAt: '2026-09-24'
+  },
+  {
+    id: 'task-7',
+    title: 'Author Quarterly Newsletter Article on Animal Welfare',
+    description: 'Write an inspiring 600-word feature on street dog vaccination and neutering camps.',
+    domain: 'content_writing',
+    assignedToId: 'user-member-cw',
+    assignedToName: 'Ishani Roy',
+    createdById: 'lead-cw',
+    createdByName: 'Sagnik Bose (Content Lead)',
+    priority: 'medium',
+    status: 'in_progress',
+    dueDate: '2026-10-02',
+    createdAt: '2026-09-23'
+  },
+  {
+    id: 'task-8',
+    title: 'Sponsorship Pitch Deck for Tech Conclave 2026',
+    description: 'Reach out to 5 corporate CSR sponsors for industrial sponsorship.',
+    domain: 'pr',
+    assignedToId: 'user-member-pr',
+    assignedToName: 'Megha Sen',
+    createdById: 'lead-pr',
+    createdByName: 'Aditya Pal (PR Lead)',
+    priority: 'urgent',
+    status: 'pending',
+    dueDate: '2026-10-01',
+    createdAt: '2026-09-25'
+  }
+];
+
+const initialDemoUsers: AppUser[] = [
+  DEMO_PRESET_USERS[1],
+  DEMO_PRESET_USERS[2],
+  DEMO_PRESET_USERS[3],
+  DEMO_PRESET_USERS[4],
   {
     id: 'user-member-1',
     name: 'Aarav Mukherjee',
     email: 'aarav.hit26@gmail.com',
-    role: 'registered_user',
+    role: 'club_member',
+    roleLevel: 4,
+    domain: 'teaching',
     isAdmin: false,
     department: 'Mechanical Engineering',
     batch: '2027',
@@ -90,40 +334,7 @@ const initialDemoUsers: AppUser[] = [
         category: 'Relief Event',
         verificationCode: 'EKL-2026-REL-098'
       }
-    ],
-    adminRequest: {
-      requested: true,
-      requestedAt: '2026-09-18T10:00:00Z',
-      status: 'pending',
-      reason: 'I am coordinating the upcoming education event and need access to add and manage event details.',
-      requestedRole: 'events_manager'
-    }
-  },
-  {
-    id: 'user-events-1',
-    name: 'Priya Sen',
-    email: 'priya.events@gmail.com',
-    role: 'events_manager',
-    isAdmin: true,
-    department: 'Information Technology',
-    batch: '2026',
-    phone: '+91 91234 56789',
-    joinedDate: '9/15/2026',
-    permissions: ['dashboard', 'events', 'online_events'],
-    certificates: []
-  },
-  {
-    id: 'user-finance-1',
-    name: 'Rohan Verma',
-    email: 'rohan.finance@gmail.com',
-    role: 'finance_manager',
-    isAdmin: true,
-    department: 'Electronics & Communication',
-    batch: '2025',
-    phone: '+91 98765 12345',
-    joinedDate: '9/10/2026',
-    permissions: ['dashboard', 'donations'],
-    certificates: []
+    ]
   }
 ];
 
@@ -256,6 +467,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
     return initialAuditLogs;
   });
+
+  const [tasks, setTasks] = useState<ClubTask[]>(() => {
+    if (typeof window === 'undefined') return INITIAL_DEMO_TASKS;
+    const saved = localStorage.getItem('club_tasks');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch {
+        return INITIAL_DEMO_TASKS;
+      }
+    }
+    return INITIAL_DEMO_TASKS;
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('club_tasks', JSON.stringify(tasks));
+    }
+  }, [tasks]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -670,8 +900,104 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     );
   };
 
-  const isSuperAdmin = user?.role === 'super_admin';
-  const isAdminUser = !!user && (user.isAdmin || (user.role !== 'registered_user' && user.role !== 'viewer'));
+  const computedRoleLevel: RoleLevel = React.useMemo(() => {
+    if (!user) return 5;
+    if (user.roleLevel) return user.roleLevel;
+    if (user.role === 'super_admin') return 1;
+    if (user.role === 'admin') return 2;
+    if (user.role === 'domain_lead') return 3;
+    if (user.role === 'club_member' || user.role === 'registered_user') return 4;
+    return 5;
+  }, [user]);
+
+  const isSuperAdmin = computedRoleLevel === 1;
+  const isAdminUser = computedRoleLevel === 1 || computedRoleLevel === 2;
+  const isDomainLead = computedRoleLevel === 3;
+  const isClubMember = computedRoleLevel === 4;
+  const isPublicUser = !user || computedRoleLevel === 5;
+  const isActiveMember = !!user && computedRoleLevel >= 1 && computedRoleLevel <= 4 && user.role !== 'public_user';
+
+  const canManageDomain = useCallback((domain: ClubDomain) => {
+    if (computedRoleLevel === 1 || computedRoleLevel === 2) return true;
+    if (computedRoleLevel === 3 && user?.domain === domain) return true;
+    return false;
+  }, [computedRoleLevel, user?.domain]);
+
+  const canAssignRole = useCallback((targetRole: UserRole) => {
+    // Level 1: Only Super Admin can assign/change/revoke all roles
+    if (computedRoleLevel === 1) return true;
+    // Level 2: Can add members but CANNOT assign Admin (Level 2) or Super Admin (Level 1) or Domain Lead
+    if (computedRoleLevel === 2) {
+      return targetRole === 'club_member' || targetRole === 'registered_user' || targetRole === 'public_user';
+    }
+    return false;
+  }, [computedRoleLevel]);
+
+  const switchDemoRole = useCallback((tier: RoleLevel, domain?: ClubDomain) => {
+    const preset = DEMO_PRESET_USERS[tier];
+    if (preset) {
+      const switchedUser: AppUser = {
+        ...preset,
+        domain: tier === 5 ? undefined : (domain || preset.domain || (tier === 3 || tier === 4 ? 'web_development' : undefined))
+      };
+      setUser(switchedUser);
+      localStorage.setItem('user', JSON.stringify(switchedUser));
+    }
+  }, []);
+
+  const createTask = useCallback((taskData: Omit<ClubTask, 'id' | 'createdAt'>) => {
+    // Level 5 are normal users, not active members, and cannot be assigned club tasks
+    if (taskData.assignedToId === 'user-level-5') {
+      return {
+        success: false,
+        message: 'Validation Error: Level 5 users are normal public users and cannot be assigned club tasks or act as active members.'
+      };
+    }
+
+    if (!canManageDomain(taskData.domain)) {
+      return {
+        success: false,
+        message: 'Permission Denied: Only Domain Leads can assign tasks for their respective department (or Admins for oversight).'
+      };
+    }
+
+    const newTask: ClubTask = {
+      ...taskData,
+      id: `task-${Date.now()}`,
+      createdAt: new Date().toISOString().split('T')[0]
+    };
+
+    setTasks((prev) => [newTask, ...prev]);
+    return { success: true, message: 'Task assigned successfully.', task: newTask };
+  }, [canManageDomain]);
+
+  const updateTaskStatus = useCallback((taskId: string, status: ClubTask['status'], note?: string, link?: string) => {
+    setTasks((prev) =>
+      prev.map((t) => {
+        if (t.id === taskId) {
+          return {
+            ...t,
+            status,
+            ...(note !== undefined ? { submissionNote: note } : {}),
+            ...(link !== undefined ? { submissionLink: link } : {})
+          };
+        }
+        return t;
+      })
+    );
+  }, []);
+
+  const deleteTask = useCallback((taskId: string) => {
+    const taskToDelete = tasks.find((t) => t.id === taskId);
+    if (!taskToDelete) return { success: false, message: 'Task not found' };
+
+    if (!canManageDomain(taskToDelete.domain)) {
+      return { success: false, message: 'Permission Denied: Cannot delete tasks outside your assigned domain.' };
+    }
+
+    setTasks((prev) => prev.filter((t) => t.id !== taskId));
+    return { success: true, message: 'Task removed successfully.' };
+  }, [tasks, canManageDomain]);
 
   return (
     <AuthContext.Provider
@@ -685,6 +1011,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         isAuthenticated: !!user,
         isAdmin: isAdminUser,
         isSuperAdmin,
+        roleLevel: computedRoleLevel,
+        userDomain: user?.domain,
+        isDomainLead,
+        isClubMember,
+        isPublicUser,
+        isActiveMember,
+        canManageDomain,
+        canAssignRole,
+        switchDemoRole,
+        tasks,
+        createTask,
+        updateTaskStatus,
+        deleteTask,
         hasRole,
         hasModulePermission,
         can,

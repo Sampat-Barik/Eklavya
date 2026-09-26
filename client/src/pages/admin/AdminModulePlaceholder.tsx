@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plus, Search, Filter, Layers } from 'lucide-react';
+import { Plus, Search, Filter } from 'lucide-react';
 
 interface AdminModulePlaceholderProps {
   title: string;
@@ -18,14 +18,25 @@ export const AdminModulePlaceholder: React.FC<AdminModulePlaceholderProps> = ({
     <div className="space-y-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-emerald-100/90 pb-5">
-        <div>
-          <div className="flex items-center gap-2.5">
-            <h1 className="text-2xl font-serif font-black text-teal-950">{title}</h1>
-            <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-100 text-teal-900 border border-emerald-200">
-              {badge}
-            </span>
+        <div className="flex items-center gap-3.5">
+          <div className="relative w-12 h-12 rounded-2xl p-[2px] bg-gradient-to-tr from-teal-800 to-emerald-500 shadow-md shadow-teal-900/10 flex items-center justify-center shrink-0">
+            <div className="w-full h-full rounded-xl bg-white flex items-center justify-center p-0.5">
+              <img
+                src="/eklavya_logo.png"
+                alt="Eklavya Module Crest"
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
-          <p className="text-xs text-slate-500 mt-1">{subtitle}</p>
+          <div>
+            <div className="flex items-center gap-2.5">
+              <h1 className="text-2xl font-serif font-black text-teal-950">{title}</h1>
+              <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-100 text-teal-900 border border-emerald-200">
+                {badge}
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 mt-1">{subtitle}</p>
+          </div>
         </div>
 
         <button
@@ -57,8 +68,10 @@ export const AdminModulePlaceholder: React.FC<AdminModulePlaceholderProps> = ({
 
       {/* Content Container */}
       <div className="bg-white border border-emerald-100/90 rounded-2xl p-12 text-center space-y-3 min-h-[340px] flex flex-col items-center justify-center shadow-xs">
-        <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-teal-800 flex items-center justify-center border border-emerald-200/60 shadow-xs">
-          <Layers size={26} />
+        <div className="w-16 h-16 rounded-3xl p-1 bg-gradient-to-tr from-teal-800 to-emerald-500 flex items-center justify-center shadow-md">
+          <div className="w-full h-full rounded-2xl bg-white flex items-center justify-center p-1">
+            <img src="/eklavya_logo.png" alt="Eklavya Logo" className="w-full h-full object-contain" />
+          </div>
         </div>
         <h3 className="font-serif text-lg font-bold text-teal-950">{title} Workspace</h3>
         <p className="text-xs text-slate-500 max-w-sm leading-relaxed font-normal">

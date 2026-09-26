@@ -9,6 +9,7 @@ import { UserPortalLayout } from './layouts/UserPortalLayout';
 // Guards
 import { RoleGuard } from './components/auth/RoleGuard';
 import { PortalGuard } from './components/auth/PortalGuard';
+import { DemoRoleSwitcher } from './components/auth/DemoRoleSwitcher';
 
 // Public & Member Pages (Lazy Loaded for Optimal Bundle Splitting)
 const Home = lazy(() => import('./pages/Home').then((m) => ({ default: m.Home })));
@@ -31,6 +32,7 @@ const PortalAttendance = lazy(() => import('./pages/portal/PortalAttendance').th
 const PortalCertificates = lazy(() => import('./pages/portal/PortalCertificates').then((m) => ({ default: m.PortalCertificates })));
 const PortalAnnouncements = lazy(() => import('./pages/portal/PortalAnnouncements').then((m) => ({ default: m.PortalAnnouncements })));
 const PortalDonations = lazy(() => import('./pages/portal/PortalDonations').then((m) => ({ default: m.PortalDonations })));
+const DomainTaskHub = lazy(() => import('./pages/portal/DomainTaskHub').then((m) => ({ default: m.DomainTaskHub })));
 
 // Admin Pages (Lazy Loaded)
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard').then((m) => ({ default: m.AdminDashboard })));
@@ -112,6 +114,8 @@ function App() {
           <Route path="certificates" element={<PortalCertificates />} />
           <Route path="announcements" element={<PortalAnnouncements />} />
           <Route path="donations" element={<PortalDonations />} />
+          <Route path="domain-hub" element={<DomainTaskHub />} />
+          <Route path="tasks" element={<DomainTaskHub />} />
         </Route>
 
         {/* ========================================================================= */}
@@ -296,6 +300,7 @@ function App() {
           />
         </Route>
       </Routes>
+      <DemoRoleSwitcher />
     </Suspense>
   );
 }

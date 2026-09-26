@@ -98,13 +98,22 @@ export const PortalProfile: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Top Title */}
-      <div className="border-b border-slate-200 pb-5">
-        <h1 className="text-2xl font-serif font-black text-slate-900 tracking-tight">
-          My Member Profile
-        </h1>
-        <p className="text-xs text-slate-500 mt-1">
-          Manage your student member identity, academic department, and contact details.
-        </p>
+      <div className="flex items-center justify-between border-b border-slate-200 pb-5">
+        <div className="flex items-center gap-3.5">
+          <div className="relative w-12 h-12 rounded-2xl p-[2px] bg-gradient-to-tr from-teal-700 to-emerald-500 shadow-sm flex items-center justify-center shrink-0">
+            <div className="w-full h-full rounded-xl bg-white flex items-center justify-center p-0.5">
+              <img src="/eklavya_logo.png" alt="Eklavya Member Seal" className="w-full h-full object-contain" />
+            </div>
+          </div>
+          <div>
+            <h1 className="text-2xl font-serif font-black text-slate-900 tracking-tight">
+              My Member Profile
+            </h1>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Manage your student member identity, academic department, and contact details.
+            </p>
+          </div>
+        </div>
       </div>
 
       {saveSuccess && (

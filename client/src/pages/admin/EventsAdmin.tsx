@@ -239,16 +239,30 @@ export const EventsAdmin: React.FC = () => {
     <div className="space-y-6">
       {/* Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-emerald-100 pb-5">
-        <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-serif font-black text-teal-950">Events Management</h1>
-            <span className="text-xs font-bold text-teal-800 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full">
-              {events.length} Total
-            </span>
+        <div className="flex items-center gap-3.5">
+          <div className="relative w-12 h-12 rounded-2xl p-[2px] bg-gradient-to-tr from-teal-800 to-emerald-500 shadow-md shadow-teal-900/10 flex items-center justify-center shrink-0">
+            <div className="w-full h-full rounded-xl bg-white flex items-center justify-center p-0.5">
+              <img
+                src="/eklavya_logo.png"
+                alt="Eklavya Events Admin"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute -bottom-1 -right-1 p-1 bg-emerald-600 text-white rounded-full shadow-xs">
+              <Calendar size={11} />
+            </div>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            Organize, publish, and update Eklavya social welfare events, surveys, and live field operations.
-          </p>
+          <div>
+            <div className="flex items-center gap-2.5">
+              <h1 className="text-2xl font-serif font-black text-teal-950">Events Management</h1>
+              <span className="text-xs font-bold text-teal-800 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full">
+                {events.length} Total
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 mt-1">
+              Organize, publish, and update Eklavya social welfare events, surveys, and live field operations.
+            </p>
+          </div>
         </div>
 
         <button

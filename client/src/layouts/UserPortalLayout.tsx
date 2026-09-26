@@ -10,11 +10,12 @@ import {
   Award,
   Megaphone,
   Heart,
-  ShieldAlert
+  ShieldAlert,
+  Zap
 } from 'lucide-react';
 
 export const UserPortalLayout: React.FC = () => {
-  const { user, logout, isAuthenticated } = useAuth();
+  const { user, logout, isAuthenticated, roleLevel } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -52,6 +53,15 @@ export const UserPortalLayout: React.FC = () => {
 
   const navLinks = [
     { name: 'Overview', path: '/portal', icon: LayoutDashboard, exact: true },
+    ...(roleLevel <= 4
+      ? [
+          {
+            name: roleLevel === 3 ? 'Domain Hub (Lead)' : roleLevel === 4 ? 'My Domain Tasks' : 'Domain Operations',
+            path: '/portal/domain-hub',
+            icon: Zap
+          }
+        ]
+      : []),
     { name: 'My Profile', path: '/portal/profile', icon: User },
     { name: 'Events & Registrations', path: '/portal/events', icon: Calendar },
     { name: 'Events Attended', path: '/portal/attendance', icon: CalendarCheck },

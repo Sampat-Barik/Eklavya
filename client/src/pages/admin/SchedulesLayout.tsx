@@ -300,23 +300,34 @@ export const SchedulesLayout: React.FC = () => {
     <div className="space-y-6">
       {/* Page Header */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-emerald-100/90 pb-5">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="px-2.5 py-0.5 rounded-full bg-emerald-100/80 text-teal-900 text-[10px] font-mono font-extrabold uppercase tracking-wider border border-emerald-200">
-              Operations & Rosters
-            </span>
-            <span className="text-slate-400">•</span>
-            <span className="text-xs font-semibold text-emerald-800 flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>4 Roster Channels</span>
-            </span>
+        <div className="flex items-start sm:items-center gap-3.5">
+          <div className="relative w-12 h-12 rounded-2xl p-[2px] bg-gradient-to-tr from-teal-800 to-emerald-500 shadow-md shadow-teal-900/10 flex items-center justify-center shrink-0">
+            <div className="w-full h-full rounded-xl bg-white flex items-center justify-center p-0.5">
+              <img
+                src="/eklavya_logo.png"
+                alt="Eklavya Schedules Admin"
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-serif font-black text-teal-950 tracking-tight">
-            Society Schedules & Rosters
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl leading-relaxed">
-            Consolidated master timetable for village evening classes, group discussions, community welfare runs, and media documentation.
-          </p>
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-100/80 text-teal-900 text-[10px] font-mono font-extrabold uppercase tracking-wider border border-emerald-200">
+                Operations & Rosters
+              </span>
+              <span className="text-slate-400">•</span>
+              <span className="text-xs font-semibold text-emerald-800 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>4 Roster Channels</span>
+              </span>
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-serif font-black text-teal-950 tracking-tight">
+              Society Schedules & Rosters
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl leading-relaxed">
+              Consolidated master timetable for village evening classes, group discussions, community welfare runs, and media documentation.
+            </p>
+          </div>
         </div>
 
         {/* Action Button */}
