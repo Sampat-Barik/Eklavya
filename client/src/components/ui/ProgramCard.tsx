@@ -9,8 +9,6 @@ interface ProgramCardProps {
 }
 
 export const ProgramCard: React.FC<ProgramCardProps> = ({ program, className = '' }) => {
-  const percentRaised = Math.min(100, Math.round((program.raisedAmount / program.goalAmount) * 100));
-
   const renderCategoryBadge = (category: string) => {
     const dotColors: Record<string, string> = {
       'Education': 'bg-[#2563EB]',
@@ -74,27 +72,19 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({ program, className = '
           </p>
         </div>
 
-        {/* Funding Progress Meter */}
-        <div className="space-y-2 pt-4 border-t border-slate-200">
-          <div className="flex items-center justify-between text-xs">
-            <span className="font-semibold text-slate-900 font-mono">
-              ₹{program.raisedAmount.toLocaleString()} <span className="font-normal text-slate-500">raised</span>
-            </span>
-            <span className="font-mono text-xs font-bold text-slate-900">{percentRaised}%</span>
+        {/* Initiative Focus Tags */}
+        {program.tags && program.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+            {program.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 text-[11px] font-semibold border border-emerald-200/60"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
-
-          <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
-            <div
-              className="h-full bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 rounded-full transition-all duration-700"
-              style={{ width: `${percentRaised}%` }}
-            />
-          </div>
-
-          <div className="flex justify-between items-center text-[11px] font-mono text-slate-500">
-            <span>Student Field Unit</span>
-            <span>Target: ₹{program.goalAmount.toLocaleString()}</span>
-          </div>
-        </div>
+        )}
 
         {/* Action Button */}
         <div className="pt-1">
