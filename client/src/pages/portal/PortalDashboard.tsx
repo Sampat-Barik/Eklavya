@@ -209,7 +209,7 @@ export const PortalDashboard: React.FC = () => {
       </div>
 
       {/* 2. Metric Cards: Frosted Glass Cards with Mint Icon Wrappers */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
         {/* Metric 1: Event Registrations */}
         <Link
           to="/portal/events"
@@ -244,42 +244,6 @@ export const PortalDashboard: React.FC = () => {
             </div>
             <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
               <div className="bg-teal-700 h-full rounded-full w-2/3" />
-            </div>
-          </div>
-        </Link>
-
-        {/* Metric 2: Hours Logged */}
-        <Link
-          to="/portal/attendance"
-          className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-emerald-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition-all group flex flex-col justify-between"
-        >
-          <div>
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                Hours Logged
-              </span>
-              <div className="w-10 h-10 rounded-full bg-emerald-100 text-teal-700 flex items-center justify-center p-2 group-hover:scale-110 transition-transform">
-                <Clock size={18} />
-              </div>
-            </div>
-            <div className="flex items-baseline gap-2.5">
-              <span className="text-3xl sm:text-4xl font-serif font-black text-teal-950">
-                {stats.totalHours}
-              </span>
-              <span className="text-sm font-bold text-slate-500">hrs</span>
-              <span className="inline-flex items-center text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
-                <Flame size={11} className="mr-0.5 text-emerald-700" /> +3.5 this wk
-              </span>
-            </div>
-          </div>
-
-          <div className="mt-4 pt-3 border-t border-emerald-50">
-            <div className="flex items-center justify-between text-[11px] mb-1.5">
-              <span className="text-teal-800 font-bold">Verified on field</span>
-              <span className="text-slate-400 font-medium">Goal: 15h</span>
-            </div>
-            <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-              <div className="bg-emerald-600 h-full rounded-full w-[63%]" />
             </div>
           </div>
         </Link>
