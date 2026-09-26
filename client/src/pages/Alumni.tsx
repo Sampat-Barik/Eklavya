@@ -55,7 +55,7 @@ export const Alumni: React.FC = () => {
             department: 'Electronics & Comm. Engg.',
             currentRole: 'Systems Engineer',
             company: 'TCS Innovation Labs',
-            quote: 'The animal rescue drives taught me resilience and kindness that I carry everywhere.'
+            quote: 'The animal rescue events and field missions taught me resilience and kindness that I carry everywhere.'
           },
           {
             _id: '4',

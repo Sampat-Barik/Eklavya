@@ -105,7 +105,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, className = '' }) =
             ) : (
               <>
                 <Calendar size={13} />
-                <span>Join Drive</span>
+                <span>Join Event</span>
               </>
             )}
           </button>

@@ -107,7 +107,7 @@ export const Vision: React.FC = () => {
                   Animal Welfare & Medical Rescue
                 </h3>
                 <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
-                  Dedicated emergency response squad covering HIT campus and Haldia municipality: treating injured dogs, funding veterinary surgeries, organizing regular anti-rabies vaccinations, and running daily feeding drives.
+                  Dedicated emergency response squad covering HIT campus and Haldia municipality: treating injured dogs, funding veterinary surgeries, organizing regular anti-rabies vaccinations, and running daily feeding rounds & events.
                 </p>
               </div>
             </div>

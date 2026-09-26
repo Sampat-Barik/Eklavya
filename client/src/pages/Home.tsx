@@ -77,7 +77,7 @@ export const Home: React.FC = () => {
         <AboutImpactSection />
       </div>
 
-      {/* 6. Upcoming Events & Ground Drives */}
+      {/* 6. Upcoming Events & Field Actions */}
       <div className="gsap-reveal-section">
         <EventsSection />
       </div>

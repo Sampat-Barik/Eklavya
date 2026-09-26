@@ -296,7 +296,7 @@ export const PortalProfile: React.FC = () => {
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Appointed as co-lead for upcoming flood relief drives..."
+                    placeholder="e.g. Appointed as co-lead for upcoming flood relief events..."
                     value={requestReason}
                     onChange={(e) => setRequestReason(e.target.value)}
                     className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none"

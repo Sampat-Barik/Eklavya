@@ -36,7 +36,7 @@ export const mockImpactMetrics: ImpactMetric[] = [
     value: 45,
     prefix: '',
     suffix: '+',
-    label: 'Community Drives',
+    label: 'Community Events',
     sublabel: 'Book donations, food relief & rabies camps',
     category: 'community',
     trend: 'Haldia & rural periphery'
@@ -79,7 +79,7 @@ export const mockPrograms: ProgramCause[] = [
     beneficiariesUnit: 'Students Enrolled',
     activeVolunteers: 28,
     isFeatured: true,
-    tags: ['Primary Education', 'Stationery Drive', 'Evening Classes']
+    tags: ['Primary Education', 'Stationery Distribution', 'Evening Classes']
   },
   {
     _id: 'cause-2',
@@ -87,7 +87,7 @@ export const mockPrograms: ProgramCause[] = [
     title: 'Stray Animal Rescue & Campus Feeding',
     subtitle: 'Compassionate medical care and emergency first-aid for voiceless lives',
     description:
-      'Operating emergency rescue response for injured stray animals, conducting regular veterinary wound dressings, anti-rabies vaccination drives, and clean daily feeding stations across campus.',
+      'Operating emergency rescue response for injured stray animals, conducting regular veterinary wound dressings, anti-rabies vaccination camps, and clean daily feeding stations across campus.',
     category: 'Animal Welfare',
     imageUrl: '/eklavya_animal_care.jpg',
     raisedAmount: 68000,
@@ -101,7 +101,7 @@ export const mockPrograms: ProgramCause[] = [
   {
     _id: 'cause-3',
     slug: 'rural-winter-flood-relief',
-    title: 'Rural Relief & Winter Blanket Drives',
+    title: 'Rural Relief & Winter Blanket Relief',
     subtitle: 'Warmth and disaster assistance for underprivileged families',
     description:
       'Distributing warm blankets, clean drinking water kits, dry ration packets, and sanitary hygiene kits to riverside settlements vulnerable to monsoons and winter chill.',
@@ -150,9 +150,9 @@ export const mockEvents: NGOEvent[] = [
   },
   {
     _id: 'event-2',
-    title: 'Mega Book, Notebook & Geometry Kit Drive',
+    title: 'Mega Book, Notebook & Geometry Kit Event',
     description:
-      'Annual academic supplies collection drive to equip 150+ village children for the upcoming academic session with schoolbags, pencils, and books.',
+      'Annual academic supplies collection event to equip 150+ village children for the upcoming academic session with schoolbags, pencils, and books.',
     date: '2026-10-28',
     time: '11:00 AM - 05:00 PM',
     location: 'HIT Student Activity Center, Main Quad',
@@ -180,13 +180,13 @@ export const mockEvents: NGOEvent[] = [
   },
   {
     _id: 'event-4',
-    title: 'Independence Day Cleanliness & Cloth Drive',
+    title: 'Independence Day Cleanliness & Cloth Distribution',
     description:
       'Distributing clean clothes and setting up waste awareness kiosks across rural Haldia school zones.',
     date: '2026-08-15',
     time: '10:00 AM - 02:00 PM',
     location: 'Bhabanipur Village Center',
-    category: 'Campus Drive',
+    category: 'Campus Event',
     isUpcoming: false,
     attendeesCount: 55,
     imageUrl: '/eklavya_human_hero.jpg',

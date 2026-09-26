@@ -37,7 +37,7 @@ export const Events: React.FC = () => {
           },
           {
             _id: '2',
-            title: 'Annual Book, Stationery & Uniform Drive 2026',
+            title: 'Annual Book, Stationery & Uniform Distribution 2026',
             description: 'Mobilizing college donations to distribute complete school supplies, bags, notebooks, and geometry sets to 150+ underprivileged children attending our evening school.',
             date: '2026-07-20',
             location: 'Student Activity Center, HIT Campus',
@@ -47,11 +47,11 @@ export const Events: React.FC = () => {
           {
             _id: '3',
             title: 'Mega Anti-Rabies Vaccination & Animal Health Camp',
-            description: 'Inoculating over 80 stray dogs in and around the Haldia Campus perimeter in partnership with local veterinary surgeons and certified student handlers.',
+            description: 'Inoculating over 80 stray animals in and around the Haldia Campus perimeter in partnership with local veterinary surgeons and certified student handlers.',
             date: '2026-05-15',
             location: 'HIT Campus & Municipal Perimeter',
             isUpcoming: false,
-            category: 'Animal Care'
+            category: 'Animal Welfare'
           }
         ]);
       } finally {
@@ -71,16 +71,16 @@ export const Events: React.FC = () => {
   return (
     <div className="max-w-[1720px] 2xl:max-w-[1800px] w-full mx-auto px-6 sm:px-10 lg:px-16 py-10 sm:py-16 space-y-16 sm:space-y-24">
       {/* 1. Open Architectural Page Header */}
-      <div className="border-b border-slate-200 pb-12 sm:pb-16">
+      <div className="border-b border-emerald-100 pb-12 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
           <div className="lg:col-span-8 space-y-4">
-            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-blue-700 font-bold">
-              <Calendar size={14} className="text-blue-600" />
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-teal-800 font-bold">
+              <Calendar size={14} className="text-emerald-600" />
               <span>Ground Mobilizations & Calendar • Eklavya Society</span>
             </div>
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-teal-950 leading-[1.08]">
               Field Campaigns & <br className="hidden sm:inline" />
-              Community Drives.
+              Community Events.
             </h1>
             <p className="text-slate-700 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
               Explore upcoming outreach initiatives, anti-rabies vaccination rounds, textbook donation campaigns, and flood relief operations led by student volunteers.
@@ -88,14 +88,14 @@ export const Events: React.FC = () => {
           </div>
 
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
-            <div className="bg-white/90 backdrop-blur-md border border-slate-200 rounded-xl p-5 w-full sm:w-auto lg:w-full space-y-2.5 shadow-sm">
+            <div className="bg-white/90 backdrop-blur-md border border-emerald-100 rounded-2xl p-5 w-full sm:w-auto lg:w-full space-y-2.5 shadow-sm">
               <div className="flex items-center justify-between text-xs font-mono text-slate-500">
                 <span>OPERATIONAL BASE</span>
-                <span className="font-bold text-slate-900">HIT SAC</span>
+                <span className="font-bold text-teal-950">HIT SAC</span>
               </div>
               <div className="flex items-center justify-between text-xs font-mono text-slate-500">
                 <span>MOBILIZATION</span>
-                <span className="font-bold text-slate-900">STUDENTS & ALUMNI</span>
+                <span className="font-bold text-teal-950">STUDENTS & ALUMNI</span>
               </div>
               <div className="flex items-center justify-between text-xs font-mono text-slate-500">
                 <span>PARTICIPATION</span>
@@ -108,23 +108,23 @@ export const Events: React.FC = () => {
 
       {/* 2. Filter Tabs */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-1.5 p-1 bg-slate-100 border border-slate-200 rounded-xl">
+        <div className="flex items-center gap-1.5 p-1 bg-white/80 border border-emerald-100 rounded-xl shadow-2xs">
           <button
             onClick={() => setActiveTab('all')}
             className={`font-mono text-xs uppercase tracking-wider font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer ${
               activeTab === 'all'
-                ? 'bg-blue-600 text-white'
-                : 'text-slate-700 hover:text-slate-900'
+                ? 'bg-teal-800 text-white shadow-xs'
+                : 'text-slate-700 hover:text-teal-950 hover:bg-emerald-50/70'
             }`}
           >
-            All Drives
+            All Events
           </button>
           <button
             onClick={() => setActiveTab('upcoming')}
             className={`font-mono text-xs uppercase tracking-wider font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer ${
               activeTab === 'upcoming'
-                ? 'bg-blue-600 text-white'
-                : 'text-slate-700 hover:text-slate-900'
+                ? 'bg-teal-800 text-white shadow-xs'
+                : 'text-slate-700 hover:text-teal-950 hover:bg-emerald-50/70'
             }`}
           >
             Upcoming
@@ -133,8 +133,8 @@ export const Events: React.FC = () => {
             onClick={() => setActiveTab('past')}
             className={`font-mono text-xs uppercase tracking-wider font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer ${
               activeTab === 'past'
-                ? 'bg-emerald-600 text-white'
-                : 'text-slate-700 hover:text-slate-900'
+                ? 'bg-emerald-700 text-white shadow-xs'
+                : 'text-slate-700 hover:text-teal-950 hover:bg-emerald-50/70'
             }`}
           >
             Past Records
@@ -142,7 +142,7 @@ export const Events: React.FC = () => {
         </div>
 
         <span className="font-mono text-xs text-slate-500">
-          SHOWING {filteredEvents.length} DOCUMENTED DRIVES
+          SHOWING {filteredEvents.length} DOCUMENTED EVENTS
         </span>
       </div>
 
@@ -160,17 +160,17 @@ export const Events: React.FC = () => {
             return (
               <div
                 key={event._id}
-                className="bg-white/90 backdrop-blur-md border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6 shadow-md flex flex-col justify-between hover:border-emerald-500/40 transition-colors"
+                className="bg-white/90 backdrop-blur-md border border-emerald-100 rounded-2xl p-6 sm:p-8 space-y-6 shadow-md flex flex-col justify-between hover:border-emerald-300 transition-colors"
               >
                 <div className="space-y-4">
                   {/* Top Header Bar with Date & Badges */}
-                  <div className="flex items-start justify-between gap-4 border-b border-slate-200 pb-4">
+                  <div className="flex items-start justify-between gap-4 border-b border-emerald-50 pb-4">
                     <div className="flex items-center gap-3">
-                      <div className="bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-center min-w-[54px] shadow-xs">
-                        <span className="font-mono text-[10px] uppercase font-bold text-blue-700 block leading-tight">
+                      <div className="bg-emerald-50/70 border border-emerald-100 rounded-xl p-2.5 text-center min-w-[54px] shadow-2xs">
+                        <span className="font-mono text-[10px] uppercase font-bold text-teal-800 block leading-tight">
                           {month}
                         </span>
-                        <span className="font-serif text-2xl font-extrabold text-slate-900 block leading-tight">
+                        <span className="font-serif text-2xl font-extrabold text-teal-950 block leading-tight">
                           {day}
                         </span>
                         <span className="font-mono text-[9px] text-slate-500 block leading-tight">
@@ -179,8 +179,8 @@ export const Events: React.FC = () => {
                       </div>
 
                       <div>
-                        <span className="font-mono text-[10px] uppercase tracking-wider text-blue-700 font-bold block">
-                          {event.category || 'General Drive'}
+                        <span className="font-mono text-[10px] uppercase tracking-wider text-teal-800 font-bold block">
+                          {event.category || 'General Event'}
                         </span>
                         <span className="text-xs text-slate-500 font-medium">
                           HIT Haldia Action Protocol
@@ -191,7 +191,7 @@ export const Events: React.FC = () => {
                     <span
                       className={`font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md font-bold ${
                         event.isUpcoming
-                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                          ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                           : 'bg-slate-100 text-slate-600 border border-slate-200'
                       }`}
                     >
@@ -201,11 +201,11 @@ export const Events: React.FC = () => {
 
                   {/* Title & Location */}
                   <div className="space-y-2">
-                    <h2 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
+                    <h2 className="font-serif text-xl sm:text-2xl font-bold text-teal-950 leading-snug">
                       {event.title}
                     </h2>
                     <div className="flex items-center gap-1.5 text-xs text-slate-600 font-mono">
-                      <MapPin size={13} className="text-blue-600 shrink-0" />
+                      <MapPin size={13} className="text-teal-700 shrink-0" />
                       <span>{event.location}</span>
                     </div>
                   </div>
@@ -215,8 +215,8 @@ export const Events: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-slate-200">
-                  <button className="w-full py-2.5 bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-mono text-xs uppercase tracking-wider font-semibold rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs">
+                <div className="pt-2 border-t border-emerald-50">
+                  <button className="w-full py-2.5 bg-gradient-to-r from-teal-800 to-emerald-600 hover:from-teal-700 hover:to-emerald-500 text-white font-mono text-xs uppercase tracking-wider font-semibold rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs">
                     <span>{event.isUpcoming ? 'REGISTER AS VOLUNTEER' : 'VIEW FIELD DISPATCH'}</span>
                     <ArrowRight size={13} />
                   </button>

@@ -99,7 +99,7 @@ export const Faculty: React.FC = () => {
               "Technical competence without humanitarian empathy produces incomplete engineers. Eklavya represents the conscience of our student community."
             </blockquote>
             <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
-              As the Head of the CSE (AIML) Department, Prof. Chakraborty provides institutional oversight, ensuring student volunteers balance rigorous academic milestones with transformative grassroots social service. His patronship enables Eklavya to access campus laboratories, seminar halls, and logistics for our educational and animal welfare drives.
+              As the Head of the CSE (AIML) Department, Prof. Chakraborty provides institutional oversight, ensuring student volunteers balance rigorous academic milestones with transformative grassroots social service. His patronship enables Eklavya to access campus laboratories, seminar halls, and logistics for our educational and animal welfare events & initiatives.
             </p>
 
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-800 font-medium">
@@ -174,7 +174,7 @@ export const Faculty: React.FC = () => {
               "Witnessing engineering students step outside air-conditioned classrooms to teach village children and treat injured animals is true character formation."
             </blockquote>
             <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
-              Dr. Upasana Adhikary directly coordinates society operations, vetting the daily evening school curriculum, monitoring student attendance metrics, and guiding the student executive committee in event execution, budget governance, and annual community drives across Haldia.
+              Dr. Upasana Adhikary directly coordinates society operations, vetting the daily evening school curriculum, monitoring student attendance metrics, and guiding the student executive committee in event execution, budget governance, and annual community events across Haldia.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">

@@ -31,9 +31,9 @@ export const EventsSection: React.FC = () => {
         <SectionTitle
           badge="CAMPUS & COMMUNITY CALENDAR"
           badgeVariant="green"
-          title="Upcoming Drives & Field Events"
+          title="Upcoming Community & Field Events"
           highlightWord="Field Events"
-          subtitle="Stay updated with our ongoing educational drives, health checkups, food distributions, and vaccination camps across Haldia."
+          subtitle="Stay updated with our ongoing educational events, health checkups, food distributions, and vaccination camps across Haldia."
         />
 
         <div className="flex items-center gap-1 p-1 bg-slate-100 border border-slate-200 rounded-lg shrink-0 self-start md:self-auto text-xs">
@@ -89,13 +89,13 @@ export const EventsSection: React.FC = () => {
               to="/events"
               className="inline-flex items-center gap-2 text-xs font-semibold text-teal-800 hover:text-teal-950 transition-colors"
             >
-              <span>View full historical drives and campus archives</span>
+              <span>View full historical events and campus archives</span>
               <ArrowRight size={13} />
             </Link>
           </div>
         </div>
 
-        {/* Right Column: Next Major Drive Spotlight Card (5 cols) */}
+        {/* Right Column: Next Major Event Spotlight Card (5 cols) */}
         <div className="lg:col-span-5 lg:sticky lg:top-28">
           <div className="rounded-2xl bg-white/90 backdrop-blur-md text-slate-900 p-7 sm:p-8 border border-emerald-100 shadow-xl shadow-teal-950/5 relative overflow-hidden space-y-6">
             <div className="flex items-center justify-between">
@@ -110,7 +110,7 @@ export const EventsSection: React.FC = () => {
 
             <div className="space-y-2">
               <h3 className="font-serif text-2xl font-bold text-teal-950 leading-snug">
-                Weekly Mega Teaching & Vaccination Drive
+                Weekly Mega Teaching & Vaccination Event
               </h3>
               <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
                 Join 40+ student volunteers at HIT Gate 1 as we depart for village tutoring centers and street animal first-aid routes across Haldia.

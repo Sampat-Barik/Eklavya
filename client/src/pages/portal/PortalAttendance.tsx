@@ -59,7 +59,7 @@ export const PortalAttendance: React.FC = () => {
           userId: user?.id || 'demo-user',
           userEmail: user?.email || 'user@gmail.com',
           date: '2026-09-08',
-          driveType: 'Community Ration Drive',
+          driveType: 'Community Ration Distribution',
           location: 'Durgachak Basti',
           hoursLogged: 4,
           mentor: 'Sampat Barik',
@@ -116,7 +116,7 @@ export const PortalAttendance: React.FC = () => {
 
         {attendance.length === 0 ? (
           <div className="editorial-card p-12 text-center text-xs text-slate-500 bg-slate-50/50">
-            No attendance sessions logged yet. Join an upcoming drive to earn service hours!
+            No attendance sessions logged yet. Join an upcoming event to earn service hours!
           </div>
         ) : (
           <div className="editorial-card overflow-hidden bg-white border-slate-200">
@@ -125,7 +125,7 @@ export const PortalAttendance: React.FC = () => {
                 <thead className="bg-slate-50 text-slate-600 border-b border-slate-200 font-bold uppercase text-[10px]">
                   <tr>
                     <th className="py-3.5 px-4">Date</th>
-                    <th className="py-3.5 px-4">Drive Activity</th>
+                    <th className="py-3.5 px-4">Event Activity</th>
                     <th className="py-3.5 px-4">Location</th>
                     <th className="py-3.5 px-4">Hours Logged</th>
                     <th className="py-3.5 px-4">Supervisor / Mentor</th>

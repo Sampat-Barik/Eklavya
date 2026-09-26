@@ -103,7 +103,7 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({ program, className = '
             className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white text-xs font-mono uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-2 group/btn shadow-xs"
           >
             <Heart size={13} className="text-white group-hover:scale-110 fill-current transition-transform" />
-            <span>Support This Drive</span>
+            <span>Support This Program</span>
             <ArrowUpRight size={13} className="opacity-80 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
           </Link>
         </div>

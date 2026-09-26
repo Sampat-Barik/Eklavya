@@ -73,7 +73,7 @@ export const TestimonialsAndFAQSection: React.FC = () => {
       id: 'f1',
       question: 'How can HIT Haldia students join the Eklavya Society?',
       answer:
-        'All enrolled undergraduate and postgraduate students at Haldia Institute of Technology can apply during our semester orientation drives or register directly on our Portal. No prior experience is required—just dedication!',
+        'All enrolled undergraduate and postgraduate students at Haldia Institute of Technology can apply during our semester orientation events or register directly on our Portal. No prior experience is required—just dedication!',
       category: 'Join Us',
     },
     {

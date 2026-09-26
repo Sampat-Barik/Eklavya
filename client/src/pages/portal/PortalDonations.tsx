@@ -57,7 +57,7 @@ export const PortalDonations: React.FC = () => {
             My Donation History & Contributions
           </h1>
           <p className="text-xs text-slate-500 mt-1">
-            Official ledger receipts for aid provided to Eklavya relief drives and animal medical funds.
+            Official ledger receipts for aid provided to Eklavya relief initiatives and animal medical funds.
           </p>
         </div>
 

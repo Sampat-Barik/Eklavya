@@ -115,7 +115,7 @@ export const PortalDashboard: React.FC = () => {
         },
         {
           id: 'ann-2',
-          title: 'Village Evening School: Mid-Semester Stationary Drive',
+          title: 'Village Evening School: Mid-Semester Stationery Event',
           date: 'September 20, 2026',
           author: 'Education Cell',
           category: 'Child Education',
@@ -138,7 +138,7 @@ export const PortalDashboard: React.FC = () => {
         {/* Background Image of Community Volunteers with Darkened Overlay */}
         <img
           src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1600&q=80"
-          alt="Eklavya Volunteer Drive"
+          alt="Eklavya Volunteer Event"
           className="absolute inset-0 w-full h-full object-cover object-center opacity-25 mix-blend-overlay"
         />
 
@@ -355,9 +355,9 @@ export const PortalDashboard: React.FC = () => {
         </Link>
       </div>
 
-      {/* 3. Main Split Section: Drives with Visual Thumbnails vs Bulletin Notice Board */}
+      {/* 3. Main Split Section: Events with Visual Thumbnails vs Bulletin Notice Board */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
-        {/* Left: Upcoming Registered Drives (7 Cols) */}
+        {/* Left: Upcoming Registered Events (7 Cols) */}
         <div className="lg:col-span-7 space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -365,7 +365,7 @@ export const PortalDashboard: React.FC = () => {
                 <Calendar size={18} />
               </div>
               <h2 className="text-lg font-serif font-black text-slate-900">
-                My Upcoming Registered Drives
+                My Upcoming Registered Events
               </h2>
               <span className="px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 text-[10px] font-bold border border-teal-200/60">
                 {upcomingEvents.length} Active
@@ -382,7 +382,7 @@ export const PortalDashboard: React.FC = () => {
 
           {loading ? (
             <div className="bg-white rounded-2xl p-8 text-center text-xs text-slate-500 border border-slate-200/80">
-              Loading registered drives...
+              Loading registered events...
             </div>
           ) : upcomingEvents.length === 0 ? (
             <div className="bg-white rounded-2xl p-8 text-center space-y-3 border border-slate-200/80">
@@ -391,7 +391,7 @@ export const PortalDashboard: React.FC = () => {
                 to="/portal/events"
                 className="inline-block px-4 py-2 rounded-xl bg-teal-700 text-white font-bold text-xs hover:bg-teal-800 transition-colors"
               >
-                Browse & Register Drives
+                Browse & Register Events
               </Link>
             </div>
           ) : (

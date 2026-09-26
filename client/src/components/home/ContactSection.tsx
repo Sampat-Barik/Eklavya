@@ -52,7 +52,7 @@ export const ContactSection: React.FC = () => {
             </span>
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed mt-1">
-            Have a question about our educational drives, want to report an animal distress case in Haldia, or collaborate as an alumni partner? We are here.
+            Have a question about our educational initiatives & events, want to report an animal distress case in Haldia, or collaborate as an alumni partner? We are here.
           </p>
         </div>
       </div>

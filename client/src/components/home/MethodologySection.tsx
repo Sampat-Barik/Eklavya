@@ -96,7 +96,7 @@ export const MethodologySection: React.FC = () => {
       bullets: [
         '100% free daily academic coaching tailored to learning levels',
         'Daily nutritional snacks, boiled eggs, and fresh milk provided',
-        'Routine vaccination & sterilization drives covering campus strays',
+        'Routine vaccination & sterilization camps covering campus strays',
       ],
     },
     {

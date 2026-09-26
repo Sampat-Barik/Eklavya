@@ -71,7 +71,7 @@ export const LiveOperationsMap: React.FC = () => {
       beneficiaries: '35 Families & Strays',
       volunteers: 12,
       leadCoordinator: 'Sourav & Team (HIT CE)',
-      details: 'Warm clothing drive and dry ration distribution alongside stray animal feeding routes.',
+      details: 'Warm clothing distribution and dry ration distribution alongside stray animal feeding routes.',
       coordinates: { x: 80, y: 30 },
       recentUpdate: 'Winter blankets and emergency pet feeding bags distributed successfully.',
     },

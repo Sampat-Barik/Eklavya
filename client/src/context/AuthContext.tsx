@@ -87,7 +87,7 @@ const initialDemoUsers: AppUser[] = [
         id: 'cert-1',
         title: 'Flood Relief Volunteer Commendation 2026',
         issuedAt: 'August 2026',
-        category: 'Relief Drive',
+        category: 'Relief Event',
         verificationCode: 'EKL-2026-REL-098'
       }
     ],
@@ -95,7 +95,7 @@ const initialDemoUsers: AppUser[] = [
       requested: true,
       requestedAt: '2026-09-18T10:00:00Z',
       status: 'pending',
-      reason: 'I am coordinating the upcoming education drive and need access to add and manage event details.',
+      reason: 'I am coordinating the upcoming education event and need access to add and manage event details.',
       requestedRole: 'events_manager'
     }
   },

@@ -54,7 +54,7 @@ export const Members: React.FC = () => {
     { id: 'v1', name: 'Rishav Roy', role: 'Field Volunteer', domain: 'Volunteer', department: 'CSE' },
     { id: 'v2', name: 'Debjyoti Sen', role: 'Event Coordinator', domain: 'Volunteer', department: 'IT' },
     { id: 'v3', name: 'Aakash Verma', role: 'Animal Rescue Volunteer', domain: 'Volunteer', department: 'ECE' },
-    { id: 'v4', name: 'Pooja Das', role: 'Relief Drive Volunteer', domain: 'Volunteer', department: 'CHE' },
+    { id: 'v4', name: 'Pooja Das', role: 'Relief Event Volunteer', domain: 'Volunteer', department: 'CHE' },
     { id: 'v5', name: 'Vikas Kumar', role: 'Campus Volunteer', domain: 'Volunteer', department: 'EE' },
 
     { id: 'w1', name: 'Soham Mukherjee', role: 'Frontend Developer', domain: 'Web Developer', department: 'CSE' },

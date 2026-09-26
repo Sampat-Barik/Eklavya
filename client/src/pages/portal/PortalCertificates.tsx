@@ -30,7 +30,7 @@ export const PortalCertificates: React.FC = () => {
           id: 'cert-1',
           title: 'Flood Relief Volunteer Commendation 2026',
           issuedAt: 'August 2026',
-          category: 'Relief Drive',
+          category: 'Relief Event',
           hours: 24,
           verificationCode: 'EKL-2026-REL-098',
           status: 'Verified'
@@ -69,7 +69,7 @@ export const PortalCertificates: React.FC = () => {
           </div>
           <h3 className="font-bold text-sm text-slate-900">No Certificates Earned Yet</h3>
           <p className="text-xs text-slate-500">
-            Certificates are issued by the society after completing minimum service hours in certified drives.
+            Certificates are issued by the society after completing minimum service hours in certified events.
           </p>
         </div>
       ) : (

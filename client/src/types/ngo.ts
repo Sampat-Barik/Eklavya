@@ -35,7 +35,7 @@ export interface NGOEvent {
   date: string; // ISO format: '2026-08-10'
   time?: string;
   location: string;
-  category: 'Social Relief' | 'Education' | 'Animal Welfare' | 'Campus Drive';
+  category: 'Social Relief' | 'Education' | 'Animal Welfare' | 'Campus Drive' | 'Campus Event' | 'General Event' | 'Awareness Campaign';
   isUpcoming: boolean;
   attendeesCount: number;
   capacity?: number;

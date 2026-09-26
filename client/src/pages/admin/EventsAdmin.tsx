@@ -76,10 +76,10 @@ const INITIAL_EVENTS: EventItem[] = [
   },
   {
     id: '6',
-    title: 'Animal Feeding Drive',
+    title: 'Animal Feeding Event',
     year: '2023',
     category: 'Animal Welfare',
-    description: 'Our recent Animal Feeding Drive nourished over 40 stray animals across Haldia. Volunteers united to distribute healthy porridge and fresh water bowls.',
+    description: 'Our recent Animal Feeding Event nourished over 40 stray animals across Haldia. Volunteers united to distribute healthy porridge and fresh water bowls.',
     img: '/eklavya_animal_care.jpg',
     instagramUrl: 'https://instagram.com/eklavya_hit'
   },
@@ -103,10 +103,10 @@ const INITIAL_EVENTS: EventItem[] = [
   },
   {
     id: '9',
-    title: 'Sterilisation & Rabies Drive',
+    title: 'Sterilisation & Rabies Campaign',
     year: '2024',
     category: 'Animal Welfare',
-    description: 'Comprehensive animal birth control and vaccination drive in collaboration with registered veterinary doctors across Haldia municipal wards.',
+    description: 'Comprehensive animal birth control and vaccination campaign in collaboration with registered veterinary doctors across Haldia municipal wards.',
     img: '/eklavya_animal_care.jpg',
     instagramUrl: 'https://instagram.com/eklavya_hit'
   }
@@ -118,7 +118,7 @@ const CATEGORIES = [
   'Education',
   'Animal Welfare',
   'Cultural & Social',
-  'Awareness Drive'
+  'Awareness Campaign'
 ];
 
 export const EventsAdmin: React.FC = () => {
@@ -247,7 +247,7 @@ export const EventsAdmin: React.FC = () => {
             </span>
           </div>
           <p className="text-xs text-slate-500 mt-1">
-            Organize, publish, and update Eklavya social welfare drives, surveys, and live field operations.
+            Organize, publish, and update Eklavya social welfare events, surveys, and live field operations.
           </p>
         </div>
 
@@ -418,7 +418,7 @@ export const EventsAdmin: React.FC = () => {
                   {editingId ? 'Edit Event' : 'Add New Event'}
                 </h2>
                 <p className="text-xs text-slate-500 mt-0.5">
-                  Enter details to publish or update this community drive.
+                  Enter details to publish or update this community event.
                 </p>
               </div>
               <button
@@ -469,7 +469,7 @@ export const EventsAdmin: React.FC = () => {
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Annual Relief Drive 2026"
+                    placeholder="e.g. Annual Relief Event 2026"
                     value={formTitle}
                     onChange={(e) => setFormTitle(e.target.value)}
                     className="w-full px-3.5 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:border-teal-700 bg-slate-50/50"
@@ -500,7 +500,7 @@ export const EventsAdmin: React.FC = () => {
                   <option value="Education">Education</option>
                   <option value="Animal Welfare">Animal Welfare</option>
                   <option value="Cultural & Social">Cultural & Social</option>
-                  <option value="Awareness Drive">Awareness Drive</option>
+                  <option value="Awareness Campaign">Awareness Campaign</option>
                 </select>
               </div>
 

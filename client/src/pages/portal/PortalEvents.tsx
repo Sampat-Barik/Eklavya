@@ -20,7 +20,7 @@ interface AvailableEvent {
   date: string;
   time: string;
   location: string;
-  type: 'Physical Drive' | 'Online Webinar';
+  type: 'In-Person Event' | 'Online Webinar';
   category: string;
   registrationOpen: boolean;
 }
@@ -67,7 +67,7 @@ export const PortalEvents: React.FC = () => {
           date: 'October 12, 2026',
           time: '09:00 AM - 02:00 PM',
           location: 'Haldia Riverside Ghat',
-          type: 'Physical Drive',
+          type: 'In-Person Event',
           category: 'Community Welfare',
           registrationOpen: true
         },
@@ -78,7 +78,7 @@ export const PortalEvents: React.FC = () => {
           date: 'October 18, 2026',
           time: '04:00 PM - 06:30 PM',
           location: 'Debhog Village Community Hall',
-          type: 'Physical Drive',
+          type: 'In-Person Event',
           category: 'Child Education',
           registrationOpen: true
         },
@@ -95,12 +95,12 @@ export const PortalEvents: React.FC = () => {
         },
         {
           id: 'event-4',
-          title: 'Winter Warmth Clothes Collection Drive',
+          title: 'Winter Warmth Clothes Collection Event',
           description: 'Sorting and quality-checking donated winter clothes and blankets before dispatching to rural elderly homes.',
           date: 'November 05, 2026',
           time: '10:00 AM - 01:00 PM',
           location: 'HIT Campus Student Center',
-          type: 'Physical Drive',
+          type: 'In-Person Event',
           category: 'Community Welfare',
           registrationOpen: true
         }
@@ -207,10 +207,10 @@ export const PortalEvents: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
         <div>
           <h1 className="text-2xl font-serif font-black text-slate-900 tracking-tight">
-            Events & Volunteering Drives
+            Events & Volunteering
           </h1>
           <p className="text-xs text-slate-500 mt-1">
-            Explore active volunteer drives, webinars, and track your confirmed registrations.
+            Explore active volunteer events, webinars, and track your confirmed registrations.
           </p>
         </div>
 
@@ -223,7 +223,7 @@ export const PortalEvents: React.FC = () => {
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Browse Drives ({availableEvents.length})
+            Browse Events ({availableEvents.length})
           </button>
           <button
             onClick={() => setActiveTab('registrations')}
@@ -342,12 +342,12 @@ export const PortalEvents: React.FC = () => {
         <div className="space-y-4">
           {myRegistrations.length === 0 ? (
             <div className="editorial-card p-12 text-center space-y-3 bg-slate-50/50">
-              <p className="text-xs text-slate-500">You have not registered for any drives yet.</p>
+              <p className="text-xs text-slate-500">You have not registered for any events yet.</p>
               <button
                 onClick={() => setActiveTab('browse')}
-                className="px-4 py-2 rounded-xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 rounded-xl bg-teal-800 text-white text-xs font-bold hover:bg-teal-700 transition-colors"
               >
-                Browse Upcoming Drives
+                Browse Upcoming Events
               </button>
             </div>
           ) : (

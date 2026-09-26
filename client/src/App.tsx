@@ -263,7 +263,7 @@ function App() {
               <RoleGuard requiredModule="cw_schedule">
                 <AdminModulePlaceholder
                   title="CW Schedule"
-                  subtitle="Community Welfare drives, food runs, and relief dispatch dates."
+                  subtitle="Community Welfare events, food runs, and relief dispatch dates."
                   actionLabel="Create CW Event"
                 />
               </RoleGuard>

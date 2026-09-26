@@ -36,7 +36,7 @@ export const PortalAnnouncements: React.FC = () => {
         },
         {
           id: 'ann-2',
-          title: 'Village Evening School: Mid-Semester Stationary Drive',
+          title: 'Village Evening School: Mid-Semester Stationery Event',
           date: 'September 20, 2026',
           author: 'Education Cell',
           category: 'Child Education',
