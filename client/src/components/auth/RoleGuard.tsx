@@ -6,12 +6,14 @@ import type { UserRole, AdminModule } from '../../types/auth';
 interface RoleGuardProps {
   allowedRoles?: UserRole[];
   requiredModule?: AdminModule;
+  anyOfModules?: AdminModule[];
   children?: React.ReactNode;
 }
 
 export const RoleGuard: React.FC<RoleGuardProps> = ({
   allowedRoles,
   requiredModule,
+  anyOfModules,
   children
 }) => {
   const { user, isAuthenticated, hasRole, hasModulePermission } = useAuth();
@@ -41,6 +43,11 @@ export const RoleGuard: React.FC<RoleGuardProps> = ({
 
   // Check required module permission
   if (requiredModule && !hasModulePermission(requiredModule)) {
+    return <Navigate to="/access-denied" replace />;
+  }
+
+  // Check anyOfModules permission
+  if (anyOfModules && anyOfModules.length > 0 && !anyOfModules.some((m) => hasModulePermission(m))) {
     return <Navigate to="/access-denied" replace />;
   }
 

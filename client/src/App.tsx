@@ -38,6 +38,7 @@ const DonationsAdmin = lazy(() => import('./pages/admin/DonationsAdmin').then((m
 const EventsAdmin = lazy(() => import('./pages/admin/EventsAdmin').then((m) => ({ default: m.EventsAdmin })));
 const UserApprovals = lazy(() => import('./pages/admin/UserApprovals').then((m) => ({ default: m.UserApprovals })));
 const AccessManagement = lazy(() => import('./pages/admin/AccessManagement').then((m) => ({ default: m.AccessManagement })));
+const SchedulesLayout = lazy(() => import('./pages/admin/SchedulesLayout').then((m) => ({ default: m.SchedulesLayout })));
 const AdminModulePlaceholder = lazy(() => import('./pages/admin/AdminModulePlaceholder').then((m) => ({ default: m.AdminModulePlaceholder })));
 
 // Fast, non-blocking branded fallback loader
@@ -232,55 +233,19 @@ function App() {
             }
           />
 
-          {/* Schedules Modules */}
+          {/* Unified Schedules Module */}
           <Route
-            path="schedules/gd"
+            path="schedules"
             element={
-              <RoleGuard requiredModule="gd_schedule">
-                <AdminModulePlaceholder
-                  title="GD Schedule"
-                  subtitle="Group Discussion and student orientation timetable."
-                  actionLabel="Add GD Session"
-                />
+              <RoleGuard anyOfModules={['gd_schedule', 've_schedule', 'cw_schedule', 'photo_schedule']}>
+                <SchedulesLayout />
               </RoleGuard>
             }
           />
-          <Route
-            path="schedules/ve"
-            element={
-              <RoleGuard requiredModule="ve_schedule">
-                <AdminModulePlaceholder
-                  title="VE Schedule"
-                  subtitle="Village Education evening class roster and teacher duty rotation."
-                  actionLabel="Create VE Shift"
-                />
-              </RoleGuard>
-            }
-          />
-          <Route
-            path="schedules/cw"
-            element={
-              <RoleGuard requiredModule="cw_schedule">
-                <AdminModulePlaceholder
-                  title="CW Schedule"
-                  subtitle="Community Welfare events, food runs, and relief dispatch dates."
-                  actionLabel="Create CW Event"
-                />
-              </RoleGuard>
-            }
-          />
-          <Route
-            path="schedules/photo"
-            element={
-              <RoleGuard requiredModule="photo_schedule">
-                <AdminModulePlaceholder
-                  title="Photo Schedule"
-                  subtitle="Media squad coverage and photography shift assignments."
-                  actionLabel="Add Photo Shift"
-                />
-              </RoleGuard>
-            }
-          />
+          <Route path="schedules/gd" element={<Navigate to="/admin/schedules?tab=gd" replace />} />
+          <Route path="schedules/ve" element={<Navigate to="/admin/schedules?tab=ve" replace />} />
+          <Route path="schedules/cw" element={<Navigate to="/admin/schedules?tab=cw" replace />} />
+          <Route path="schedules/photo" element={<Navigate to="/admin/schedules?tab=photo" replace />} />
 
           {/* Send Email Module */}
           <Route

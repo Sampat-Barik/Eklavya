@@ -11,7 +11,6 @@ import {
   Briefcase,
   Heart,
   CheckSquare,
-  Clock,
   Mail,
   ShieldCheck,
   Award,
@@ -27,7 +26,8 @@ interface SidebarItem {
   name: string;
   path: string;
   icon: React.ComponentType<{ size?: number; className?: string }>;
-  moduleKey: AdminModule;
+  moduleKey?: AdminModule;
+  moduleKeys?: AdminModule[];
   superAdminOnly?: boolean;
 }
 
@@ -59,10 +59,12 @@ export const AdminLayout: React.FC = () => {
       items: [
         { name: 'Events', path: '/admin/events', icon: Calendar, moduleKey: 'events' },
         { name: 'Online Events', path: '/admin/online-events', icon: Monitor, moduleKey: 'online_events' },
-        { name: 'GD Schedule', path: '/admin/schedules/gd', icon: Clock, moduleKey: 'gd_schedule' },
-        { name: 'VE Schedule', path: '/admin/schedules/ve', icon: Clock, moduleKey: 've_schedule' },
-        { name: 'CW Schedule', path: '/admin/schedules/cw', icon: Clock, moduleKey: 'cw_schedule' },
-        { name: 'Photo Schedule', path: '/admin/schedules/photo', icon: Calendar, moduleKey: 'photo_schedule' }
+        {
+          name: 'Schedules',
+          path: '/admin/schedules',
+          icon: Calendar,
+          moduleKeys: ['gd_schedule', 've_schedule', 'cw_schedule', 'photo_schedule']
+        }
       ]
     },
     {
@@ -89,7 +91,13 @@ export const AdminLayout: React.FC = () => {
   const filterItem = (item: SidebarItem) => {
     if (isSuperAdmin) return true;
     if (item.superAdminOnly && !isSuperAdmin) return false;
-    return hasModulePermission(item.moduleKey);
+    if (item.moduleKeys) {
+      return item.moduleKeys.some((k) => hasModulePermission(k));
+    }
+    if (item.moduleKey) {
+      return hasModulePermission(item.moduleKey);
+    }
+    return true;
   };
 
   return (
@@ -170,8 +178,8 @@ export const AdminLayout: React.FC = () => {
                         className={({ isActive }) =>
                           `flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-200 ${
                             isActive
-                              ? 'bg-gradient-to-r from-teal-800 to-emerald-700 text-white font-bold shadow-md shadow-teal-950/20'
-                              : 'text-slate-600 hover:text-teal-950 hover:bg-emerald-50/70 font-semibold'
+                              ? 'bg-teal-800 text-white font-bold shadow-md shadow-teal-950/20'
+                              : 'text-slate-600 hover:bg-emerald-50 hover:text-teal-700 font-semibold'
                           }`
                         }
                       >

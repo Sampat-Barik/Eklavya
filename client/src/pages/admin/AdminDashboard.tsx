@@ -31,7 +31,7 @@ export const AdminDashboard: React.FC = () => {
       trend: '+4 this semester',
       subtext: 'Active student cadre',
       icon: Users,
-      trendColor: 'text-emerald-700 bg-emerald-50 border-emerald-200'
+      trendColor: 'bg-emerald-100 text-emerald-800'
     },
     {
       label: 'Total Alumni',
@@ -39,7 +39,7 @@ export const AdminDashboard: React.FC = () => {
       trend: '100% placed',
       subtext: 'Graduated engineers network',
       icon: GraduationCap,
-      trendColor: 'text-teal-800 bg-teal-50 border-teal-200'
+      trendColor: 'bg-emerald-100 text-emerald-800'
     },
     {
       label: 'Total Events',
@@ -47,7 +47,7 @@ export const AdminDashboard: React.FC = () => {
       trend: '3 active this week',
       subtext: 'Haldia field deployments',
       icon: Calendar,
-      trendColor: 'text-emerald-700 bg-emerald-50 border-emerald-200'
+      trendColor: 'bg-emerald-100 text-emerald-800'
     },
     {
       label: 'Registered Users',
@@ -55,7 +55,7 @@ export const AdminDashboard: React.FC = () => {
       trend: '+18% growth',
       subtext: 'Verified portal accounts',
       icon: UserCheck,
-      trendColor: 'text-teal-800 bg-teal-50 border-teal-200'
+      trendColor: 'bg-emerald-100 text-emerald-800'
     },
     {
       label: 'Active Volunteers',
@@ -63,7 +63,7 @@ export const AdminDashboard: React.FC = () => {
       trend: 'On-duty today',
       subtext: 'Covering 3 centres',
       icon: Heart,
-      trendColor: 'text-rose-700 bg-rose-50 border-rose-200'
+      trendColor: 'bg-emerald-100 text-emerald-800'
     },
     {
       label: 'Event Registrations',
@@ -71,7 +71,7 @@ export const AdminDashboard: React.FC = () => {
       trend: 'Upcoming confirmed',
       subtext: 'Students & community',
       icon: ClipboardList,
-      trendColor: 'text-indigo-700 bg-indigo-50 border-indigo-200'
+      trendColor: 'bg-emerald-100 text-emerald-800'
     },
     {
       label: 'Pending Approvals',
@@ -79,7 +79,7 @@ export const AdminDashboard: React.FC = () => {
       trend: pendingRequests.length > 0 ? 'Requires Action' : 'All clear',
       subtext: 'Role elevation requests',
       icon: Clock,
-      trendColor: pendingRequests.length > 0 ? 'text-amber-800 bg-amber-50 border-amber-200' : 'text-emerald-700 bg-emerald-50 border-emerald-200'
+      trendColor: pendingRequests.length > 0 ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'
     }
   ];
 
@@ -181,7 +181,7 @@ export const AdminDashboard: React.FC = () => {
           return (
             <div
               key={i}
-              className="bg-white/85 backdrop-blur-md border border-emerald-100/90 rounded-2xl p-5 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all flex flex-col justify-between group"
+              className="bg-white/80 backdrop-blur-sm border border-emerald-50 rounded-2xl p-5 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -194,10 +194,10 @@ export const AdminDashboard: React.FC = () => {
                 </div>
 
                 <div className="flex items-baseline gap-2.5">
-                  <div className="text-3xl sm:text-4xl font-serif font-black text-teal-950">
+                  <div className="text-3xl sm:text-4xl font-serif font-black text-teal-900">
                     {stat.value}
                   </div>
-                  <span className={`inline-flex items-center text-[10px] font-bold px-2 py-0.5 rounded-full border ${stat.trendColor}`}>
+                  <span className={`inline-flex items-center text-[10px] font-bold px-2 py-0.5 rounded-full ${stat.trendColor}`}>
                     <TrendingUp size={11} className="mr-0.5" />
                     {stat.trend}
                   </span>
@@ -225,7 +225,7 @@ export const AdminDashboard: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           <Link
             to="/admin/events"
-            className="p-4 rounded-2xl bg-white border border-emerald-200/80 hover:border-teal-600 hover:shadow-md transition-all group flex flex-col justify-between"
+            className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-emerald-50 hover:border-teal-600 hover:shadow-md transition-all group flex flex-col justify-between"
           >
             <div className="flex items-center justify-between mb-2">
               <div className="w-9 h-9 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center border border-teal-100 group-hover:bg-teal-700 group-hover:text-white transition-colors">
@@ -241,7 +241,7 @@ export const AdminDashboard: React.FC = () => {
 
           <Link
             to="/admin/members"
-            className="p-4 rounded-2xl bg-white border border-emerald-200/80 hover:border-teal-600 hover:shadow-md transition-all group flex flex-col justify-between"
+            className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-emerald-50 hover:border-teal-600 hover:shadow-md transition-all group flex flex-col justify-between"
           >
             <div className="flex items-center justify-between mb-2">
               <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100 group-hover:bg-emerald-700 group-hover:text-white transition-colors">
@@ -257,7 +257,7 @@ export const AdminDashboard: React.FC = () => {
 
           <Link
             to="/admin/approvals"
-            className="p-4 rounded-2xl bg-white border border-emerald-200/80 hover:border-teal-600 hover:shadow-md transition-all group flex flex-col justify-between"
+            className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-emerald-50 hover:border-teal-600 hover:shadow-md transition-all group flex flex-col justify-between"
           >
             <div className="flex items-center justify-between mb-2">
               <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-800 flex items-center justify-center border border-amber-200 group-hover:bg-amber-600 group-hover:text-white transition-colors">
@@ -277,7 +277,7 @@ export const AdminDashboard: React.FC = () => {
 
           <Link
             to="/admin/send-email"
-            className="p-4 rounded-2xl bg-white border border-emerald-200/80 hover:border-teal-600 hover:shadow-md transition-all group flex flex-col justify-between"
+            className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-emerald-50 hover:border-teal-600 hover:shadow-md transition-all group flex flex-col justify-between"
           >
             <div className="flex items-center justify-between mb-2">
               <div className="w-9 h-9 rounded-xl bg-cyan-50 text-cyan-700 flex items-center justify-center border border-cyan-100 group-hover:bg-cyan-700 group-hover:text-white transition-colors">
@@ -315,7 +315,7 @@ export const AdminDashboard: React.FC = () => {
             {recentEvents.map((ev) => (
               <div
                 key={ev.id}
-                className="p-3.5 bg-white border border-emerald-100/90 rounded-2xl flex items-center justify-between gap-4 shadow-xs hover:border-teal-300 hover:shadow-sm transition-all group"
+                className="p-3.5 bg-white/80 backdrop-blur-sm border border-emerald-50 rounded-2xl flex items-center justify-between gap-4 shadow-xs hover:border-teal-300 hover:shadow-sm transition-all group"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
                   <div className="w-14 h-14 rounded-xl overflow-hidden bg-slate-100 shrink-0 border border-slate-200">
@@ -361,7 +361,7 @@ export const AdminDashboard: React.FC = () => {
             </Link>
           </div>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-white border border-emerald-100 shadow-xs space-y-3.5">
+          <div className="p-4 sm:p-5 rounded-2xl bg-white/80 backdrop-blur-sm border border-emerald-50 shadow-xs space-y-3.5">
             {centresSummary.map((centre, idx) => (
               <div
                 key={idx}
