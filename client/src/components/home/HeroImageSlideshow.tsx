@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Sparkles, BookOpen, Heart, MapPin, Pause, Play, Image as ImageIcon } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MapPin, Pause, Play, Image as ImageIcon } from 'lucide-react';
 
 export interface HeroSlide {
   id: string;
@@ -148,45 +148,6 @@ export const HeroImageSlideshow: React.FC<HeroImageSlideshowProps> = ({
           </div>
         );
       })}
-
-      {/* Top Floating Badge: Mode Indicator */}
-      <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-slate-950/80 backdrop-blur-md rounded-full border border-emerald-500/30 shadow-lg text-[11px] font-bold text-emerald-300">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>Real Ground Impact • Live Gallery</span>
-          <Sparkles size={12} className="text-amber-300" />
-        </div>
-      </div>
-
-      {/* Floating Telemetry Badge 1: Top-Right (Village Scholars) */}
-      <div className="absolute top-4 right-4 z-20 pointer-events-none hidden sm:block">
-        <div className="bg-slate-950/80 backdrop-blur-xl px-3.5 py-2 rounded-2xl shadow-xl flex items-center gap-2.5 border border-cyan-500/30 text-white">
-          <div className="w-7 h-7 rounded-xl bg-cyan-900/60 text-cyan-300 border border-cyan-400/30 flex items-center justify-center">
-            <BookOpen size={14} strokeWidth={2} />
-          </div>
-          <div>
-            <span className="text-[9px] font-mono uppercase text-cyan-200/70 tracking-wider block leading-tight">
-              Village Classes
-            </span>
-            <span className="text-cyan-300 text-xs font-bold">150+ Rural Scholars</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Floating Telemetry Badge 2: Bottom-Left (Animal Rescue) */}
-      <div className="absolute bottom-24 left-5 z-20 pointer-events-none hidden sm:block">
-        <div className="bg-slate-950/80 backdrop-blur-xl px-3.5 py-2 rounded-2xl shadow-xl flex items-center gap-2.5 border border-emerald-500/30 text-white">
-          <div className="w-7 h-7 rounded-xl bg-emerald-900/60 text-emerald-300 border border-emerald-400/30 flex items-center justify-center">
-            <Heart size={14} className="fill-current text-emerald-400" />
-          </div>
-          <div>
-            <span className="text-[9px] font-mono uppercase text-emerald-200/70 tracking-wider block leading-tight">
-              Veterinary Squad
-            </span>
-            <span className="text-emerald-300 text-xs font-bold">120+ Rescued & Treated</span>
-          </div>
-        </div>
-      </div>
 
       {/* Bottom Content Overlay: Caption, Category & Location */}
       <div className="absolute bottom-0 inset-x-0 z-20 p-5 sm:p-6 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent pt-14">
