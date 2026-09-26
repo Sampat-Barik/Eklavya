@@ -55,7 +55,7 @@ export const UserApprovals: React.FC = () => {
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="flex items-center gap-3.5">
-                      <div className="w-11 h-11 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-sm shrink-0">
+                      <div className="w-11 h-11 rounded-2xl bg-teal-100 text-teal-900 border border-teal-200/80 flex items-center justify-center font-bold text-sm shrink-0 shadow-xs">
                         {reqUser.name.charAt(0)}
                       </div>
                       <div>

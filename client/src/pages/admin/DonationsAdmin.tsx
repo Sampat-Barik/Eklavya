@@ -22,8 +22,8 @@ export const DonationsAdmin: React.FC = () => {
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-5">
         <div>
           <div className="flex items-center gap-2">
-            <Wallet className="text-blue-600" size={22} />
-            <h1 className="text-2xl font-serif font-black text-slate-900">
+            <Wallet className="text-teal-800" size={22} />
+            <h1 className="text-2xl font-serif font-black text-teal-950">
               Donation & Financial Ledger Management
             </h1>
           </div>
@@ -120,7 +120,7 @@ export const DonationsAdmin: React.FC = () => {
                 placeholder="Search Ref ID, Donor Name, Email, UTR..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-teal-600 transition-colors"
               />
             </div>
 
