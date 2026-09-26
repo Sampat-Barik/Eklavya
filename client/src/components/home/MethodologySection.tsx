@@ -121,53 +121,53 @@ export const MethodologySection: React.FC = () => {
   ];
 
   return (
-    <section className="relative bg-[#FAF8F5] border-y border-[#E5E0D8] -mx-4 sm:-mx-8 lg:-mx-12 px-4 sm:px-8 lg:px-12 py-16 sm:py-24 my-10 overflow-hidden">
-      {/* Editorial Watermark Texture */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(#C25E38_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[radial-gradient(#C25E38_1px,transparent_1px)] [background-size:20px_20px] opacity-10 pointer-events-none" />
+    <section className="relative bg-white/90 backdrop-blur-md border-y border-slate-200 -mx-4 sm:-mx-8 lg:-mx-12 px-4 sm:px-8 lg:px-12 py-16 sm:py-24 my-10 overflow-hidden shadow-xl rounded-3xl">
+      {/* Background Watermark Grid Texture */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(rgba(37,99,235,0.08)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[radial-gradient(rgba(16,185,129,0.08)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
 
       <div className="max-w-[1360px] mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
           
           {/* Left Side (40% width): Sticky Editorial Column */}
           <div className="w-full lg:w-[40%] lg:sticky lg:top-28 self-start space-y-6 lg:pr-4">
-            {/* Terracotta Kicker Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#C25E38]/10 border border-[#C25E38]/20 text-[#C25E38] text-xs font-mono font-bold tracking-wider uppercase">
-              <span className="w-2 h-2 rounded-full bg-[#C25E38] animate-pulse" />
+            {/* Cyan/Emerald Kicker Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-mono font-bold tracking-wider uppercase">
+              <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
               <span>OUR METHODOLOGY</span>
             </div>
 
-            {/* Headline in Deep Forest / Charcoal */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#1C2826] tracking-tight leading-[1.12]">
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-slate-900 tracking-tight leading-[1.12]">
               How The System <br className="hidden sm:inline" />
               Protects Every Life & <br className="hidden sm:inline" />
-              <span className="italic font-normal text-[#C25E38]">
+              <span className="italic font-normal bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 bg-clip-text text-transparent">
                 Every Journey.
               </span>
             </h2>
 
-            <p className="text-[#1C2826]/75 text-sm sm:text-base leading-relaxed font-normal">
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
               From the initial distress call to formal school enrollment, our student-powered framework ensures total operational accountability, clinical compassion, and permanent transformation without bureaucratic friction.
             </p>
 
             {/* Micro Execution Stats */}
             <div className="grid grid-cols-2 gap-3 pt-2">
-              <div className="bg-white/80 backdrop-blur-sm border border-[#E5E0D8] rounded-xl p-3.5 space-y-1">
-                <span className="font-mono text-base font-bold text-[#1C2826] block">6 Days/Wk</span>
-                <span className="text-[11px] font-mono text-[#C25E38] uppercase tracking-wider block font-bold">Field Execution</span>
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-1 shadow-xs">
+                <span className="font-mono text-base font-bold text-slate-900 block">6 Days/Wk</span>
+                <span className="text-[11px] font-mono text-blue-700 uppercase tracking-wider block font-bold">Field Execution</span>
               </div>
-              <div className="bg-white/80 backdrop-blur-sm border border-[#E5E0D8] rounded-xl p-3.5 space-y-1">
-                <span className="font-mono text-base font-bold text-[#1C2826] block">100% Direct</span>
-                <span className="text-[11px] font-mono text-[#C25E38] uppercase tracking-wider block font-bold">Zero Bureaucracy</span>
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-1 shadow-xs">
+                <span className="font-mono text-base font-bold text-slate-900 block">100% Direct</span>
+                <span className="text-[11px] font-mono text-emerald-700 uppercase tracking-wider block font-bold">Zero Bureaucracy</span>
               </div>
             </div>
 
             {/* Thesis Quote Box */}
-            <div className="pt-6 border-t border-[#E5E0D8] space-y-2">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#C25E38] font-bold block">
+            <div className="pt-6 border-t border-slate-200 space-y-2">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-700 font-bold block">
                 The Execution Principle
               </span>
-              <blockquote className="font-serif italic text-[#1C2826] text-base sm:text-lg leading-snug">
+              <blockquote className="font-serif italic text-slate-800 text-base sm:text-lg leading-snug">
                 "Action on the ground, led directly by engineers with empathy."
               </blockquote>
             </div>
@@ -192,52 +192,52 @@ export const MethodologySection: React.FC = () => {
                   }}
                 >
                   <TiltCard>
-                    <div className="relative bg-white/85 backdrop-blur-md border border-[#E5E0D8] rounded-3xl p-7 sm:p-10 shadow-[0_4px_24px_-4px_rgba(28,40,38,0.05)] hover:shadow-[0_16px_36px_-6px_rgba(194,94,56,0.12)] hover:border-[#C25E38]/30 transition-all duration-300 overflow-hidden group">
+                    <div className="relative bg-white border border-slate-200 rounded-3xl p-7 sm:p-10 shadow-md hover:shadow-xl hover:border-emerald-500/40 transition-all duration-300 overflow-hidden group">
                       
-                      {/* Oversized Subtle Background Number */}
-                      <span className="absolute -top-2 right-4 font-serif text-7xl sm:text-8xl font-extrabold text-[#1C2826]/[0.06] select-none pointer-events-none group-hover:text-[#C25E38]/[0.10] transition-colors duration-500">
+                      {/* Oversized Background Step Number */}
+                      <span className="absolute -top-2 right-4 font-serif text-7xl sm:text-8xl font-extrabold text-slate-200 select-none pointer-events-none group-hover:text-blue-200/50 transition-colors duration-500">
                         {item.step}
                       </span>
 
                       {/* Top Row: Phase Tag + Micro Impact Badge */}
-                      <div className="flex flex-wrap items-center justify-between gap-3 relative z-10 border-b border-[#E5E0D8]/80 pb-4 mb-5">
-                        <span className="font-mono text-[11px] font-bold text-[#C25E38] tracking-wider uppercase bg-[#C25E38]/10 border border-[#C25E38]/20 px-3 py-1 rounded-full">
+                      <div className="flex flex-wrap items-center justify-between gap-3 relative z-10 border-b border-slate-200 pb-4 mb-5">
+                        <span className="font-mono text-[11px] font-bold text-blue-700 tracking-wider uppercase bg-blue-50 border border-blue-200 px-3 py-1 rounded-full">
                           {item.phaseTag}
                         </span>
 
                         {/* Impact Metric Badge */}
-                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1C2826]/5 border border-[#1C2826]/10 text-[#1C2826]">
-                          <MetricIcon size={13} className="text-[#C25E38]" />
-                          <span className="font-mono text-[11px] font-bold">{item.impactMetric.value}</span>
-                          <span className="text-[10px] text-[#1C2826]/60 hidden sm:inline">• {item.impactMetric.label}</span>
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800">
+                          <MetricIcon size={13} className="text-emerald-600" />
+                          <span className="font-mono text-[11px] font-bold text-emerald-700">{item.impactMetric.value}</span>
+                          <span className="text-[10px] text-slate-600 hidden sm:inline">• {item.impactMetric.label}</span>
                         </div>
                       </div>
 
                       {/* Header with Icon and Title */}
                       <div className="relative z-10 flex items-start gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-2xl bg-[#C25E38]/10 border border-[#C25E38]/20 flex items-center justify-center text-[#C25E38] shrink-0 group-hover:bg-[#C25E38] group-hover:text-white transition-colors duration-300">
+                        <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                           <Icon size={22} strokeWidth={1.75} />
                         </div>
                         <div>
-                          <span className="text-xs font-mono uppercase tracking-wider text-[#C25E38] font-bold block">
+                          <span className="text-xs font-mono uppercase tracking-wider text-emerald-700 font-bold block">
                             {item.subtitle}
                           </span>
-                          <h3 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#1C2826] mt-0.5">
+                          <h3 className="text-2xl sm:text-3xl font-serif font-extrabold text-slate-900 mt-0.5">
                             {item.title}
                           </h3>
                         </div>
                       </div>
 
                       {/* Description */}
-                      <p className="relative z-10 text-[#1C2826]/75 text-sm sm:text-base leading-relaxed font-normal mb-6">
+                      <p className="relative z-10 text-slate-700 text-sm sm:text-base leading-relaxed font-normal mb-6">
                         {item.description}
                       </p>
 
                       {/* Tactical Execution Bullets */}
-                      <div className="relative z-10 pt-4 border-t border-[#E5E0D8]/80 space-y-2.5">
+                      <div className="relative z-10 pt-4 border-t border-slate-200 space-y-2.5">
                         {item.bullets.map((bullet, bIdx) => (
-                          <div key={bIdx} className="flex items-start gap-3 text-xs sm:text-sm text-[#1C2826]/85 font-medium">
-                            <CheckCircle2 size={15} className="text-[#C25E38] shrink-0 mt-0.5" strokeWidth={2} />
+                          <div key={bIdx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-800 font-medium">
+                            <CheckCircle2 size={15} className="text-emerald-600 shrink-0 mt-0.5" strokeWidth={2} />
                             <span className="leading-snug">{bullet}</span>
                           </div>
                         ))}
@@ -253,3 +253,4 @@ export const MethodologySection: React.FC = () => {
     </section>
   );
 };
+

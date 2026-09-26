@@ -28,16 +28,16 @@ export const EventCard: React.FC<EventCardProps> = ({ event, className = '' }) =
 
   return (
     <div
-      className={`rounded-xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 border border-[#E5E0D8] bg-white/85 backdrop-blur-md hover:border-[#C25E38]/40 transition-colors shadow-2xs ${className}`}
+      className={`rounded-xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 border border-slate-200 bg-white/90 backdrop-blur-md hover:border-emerald-500/40 transition-colors shadow-md ${className}`}
     >
       {/* Date Stamp + Details */}
       <div className="flex items-start sm:items-center gap-4 flex-1">
-        {/* Crisp Monospace / Serif Date Stamp */}
-        <div className="w-14 h-16 rounded-lg bg-[#1C2826] text-white flex flex-col items-center justify-center shrink-0">
-          <span className="text-[9px] font-mono font-medium tracking-wider uppercase text-[#FAF8F5]/60">
+        {/* Date Stamp */}
+        <div className="w-14 h-16 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 flex flex-col items-center justify-center shrink-0 shadow-xs">
+          <span className="text-[9px] font-mono font-bold tracking-wider uppercase text-blue-700">
             {monthStr}
           </span>
-          <span className="text-xl font-serif font-normal leading-none mt-0.5">
+          <span className="text-xl font-serif font-extrabold leading-none mt-0.5 text-slate-900">
             {dayStr}
           </span>
         </div>
@@ -45,41 +45,41 @@ export const EventCard: React.FC<EventCardProps> = ({ event, className = '' }) =
         {/* Event Details */}
         <div className="space-y-1 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="editorial-badge-terracotta text-[10px]">
+            <span className="editorial-badge-blue text-[10px]">
               {event.category}
             </span>
             {event.isUpcoming ? (
-              <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/60">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-bold">
                 Upcoming
               </span>
             ) : (
-              <span className="text-[10px] font-mono uppercase tracking-wider text-[#1C2826]/60 bg-[#FAF8F5] px-2 py-0.5 rounded border border-[#E5E0D8]">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
                 Past
               </span>
             )}
           </div>
 
-          <h3 className="font-serif text-lg font-normal text-[#1C2826] leading-snug">
+          <h3 className="font-serif text-lg font-bold text-slate-900 leading-snug">
             {event.title}
           </h3>
 
-          <p className="text-xs text-[#1C2826]/70 line-clamp-2 leading-relaxed font-normal">
+          <p className="text-xs text-slate-700 line-clamp-2 leading-relaxed font-normal">
             {event.description}
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 text-xs text-[#1C2826]/60 pt-1 font-normal">
+          <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600 pt-1 font-normal">
             <div className="flex items-center gap-1.5">
-              <MapPin size={12} className="text-[#C25E38] shrink-0" />
+              <MapPin size={12} className="text-blue-600 shrink-0" />
               <span>{event.location}</span>
             </div>
             {event.time && (
               <div className="flex items-center gap-1.5">
-                <Clock size={12} className="text-[#C25E38] shrink-0" />
+                <Clock size={12} className="text-blue-600 shrink-0" />
                 <span className="font-mono text-[11px]">{event.time}</span>
               </div>
             )}
-            <div className="flex items-center gap-1.5 font-mono text-[11px]">
-              <Users size={12} className="text-[#C25E38] shrink-0" />
+            <div className="flex items-center gap-1.5 font-mono text-[11px] text-emerald-700 font-bold">
+              <Users size={12} className="shrink-0 text-emerald-600" />
               <span>{attendeeCount} Pledged</span>
             </div>
           </div>
@@ -91,10 +91,10 @@ export const EventCard: React.FC<EventCardProps> = ({ event, className = '' }) =
         {event.isUpcoming ? (
           <button
             onClick={handleRsvp}
-            className={`w-full sm:w-auto px-4 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer ${
+            className={`w-full sm:w-auto px-4 py-2.5 rounded-lg text-xs font-bold tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm ${
               hasRsvpd
-                ? 'bg-emerald-700 text-white shadow-2xs'
-                : 'bg-[#1C2826] hover:bg-[#C25E38] text-white shadow-2xs'
+                ? 'bg-emerald-600 text-white font-bold'
+                : 'bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white'
             }`}
           >
             {hasRsvpd ? (
@@ -110,7 +110,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, className = '' }) =
             )}
           </button>
         ) : (
-          <span className="text-[11px] font-mono uppercase tracking-wider text-[#1C2826]/40 block text-center sm:text-right">
+          <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block text-center sm:text-right">
             Concluded
           </span>
         )}

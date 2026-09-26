@@ -2,19 +2,23 @@
 
 @layer base {
   :root {
-    --background: 38 25% 97.3%; /* Warm paper-cream #FAF8F5 */
-    --foreground: 168 18% 13%; /* Deep charcoal/forest #1C2826 */
+    --background: #F8FAFC; /* Clean Light Paper/Slate #F8FAFC */
+    --foreground: #0F172A; /* Deep Slate/Navy #0F172A */
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
-    --color-primary: #C25E38; /* Warm Terracotta */
-    --color-secondary: #D97706; /* Amber */
-    --color-accent: #1C2826; /* Deep Forest/Charcoal */
-    --color-border: #E5E0D8; /* Sharp Hairline Border */
+    --color-primary: #2563EB; /* Vibrant Cobalt Blue */
+    --color-primary-hover: #1D4ED8;
+    --color-accent-cyan: #0EA5E9; /* Electric Cyan */
+    --color-emerald: #059669; /* Rich Emerald Green */
+    --color-mint: #10B981; /* Bright Mint */
+    --color-surface: rgba(255, 255, 255, 0.9);
+    --color-border: #E2E8F0;
+    --color-border-glow: rgba(14, 165, 233, 0.25);
   }
 
   body {
-    background-color: #FAF8F5;
-    color: #1C2826;
+    background-color: #F8FAFC;
+    color: #0F172A;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.011em;
@@ -24,57 +28,97 @@
   h1, h2, h3, .font-serif-display {
     font-family: var(--font-serif);
     letter-spacing: -0.02em;
-    color: #1C2826;
+    color: #0F172A;
   }
 }
 
-/* Production-Grade Architectural Utilities with Warm Paper-Cream Aesthetics */
+/* Background Ambient Orbs and Grid Patterns for Light Background */
+.bg-mesh-pattern {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(37, 99, 235, 0.06) 0px, transparent 50%);
+}
+
+.bg-dot-matrix {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Gradient Text Utilities */
+.text-gradient-cyan-emerald {
+  background: linear-gradient(135deg, #0284C7 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-blue-cyan {
+  background: linear-gradient(135deg, #2563EB 0%, #0EA5E9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-btn-primary {
+  background: linear-gradient(135deg, #2563EB 0%, #0EA5E9 100%);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #ffffff;
+}
+
+.gradient-btn-primary:hover {
+  background: linear-gradient(135deg, #1D4ED8 0%, #0284C7 100%);
+  box-shadow: 0 8px 25px -5px rgba(14, 165, 233, 0.35);
+}
+
+.gradient-btn-emerald {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #ffffff;
+}
+
+.gradient-btn-emerald:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 8px 25px -5px rgba(16, 185, 129, 0.35);
+}
+
+/* Crisp White Glassmorphism Card System */
 .editorial-card {
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #E5E0D8;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #E2E8F0;
   border-radius: 1.5rem;
-  box-shadow: 0 1px 3px 0 rgba(28, 40, 38, 0.02), 0 6px 20px -3px rgba(28, 40, 38, 0.03);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .editorial-card:hover {
-  border-color: rgba(194, 94, 56, 0.25);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px 0 rgba(28, 40, 38, 0.04), 0 16px 32px -4px rgba(194, 94, 56, 0.08);
+  border-color: rgba(14, 165, 233, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -10px rgba(14, 165, 233, 0.15);
 }
 
 .editorial-card-warm {
-  background-color: #ffffff;
-  border: 1px solid #E5E0D8;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
   border-radius: 1.5rem;
-  box-shadow: 0 1px 3px 0 rgba(28, 40, 38, 0.02), 0 6px 20px -3px rgba(28, 40, 38, 0.03);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .editorial-card-warm:hover {
-  border-color: #C25E38;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px 0 rgba(194, 94, 56, 0.06), 0 16px 36px -4px rgba(194, 94, 56, 0.12);
+  border-color: rgba(16, 185, 129, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -10px rgba(16, 185, 129, 0.15);
 }
 
-/* Earthy Editorial Badges */
-.editorial-badge-terracotta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background-color: rgba(194, 94, 56, 0.10);
-  color: #C25E38;
-  border: 1px solid rgba(194, 94, 56, 0.25);
-}
-
+/* Badges for Light Mode */
+.editorial-badge-terracotta,
 .editorial-badge-blue {
   display: inline-flex;
   align-items: center;
@@ -85,39 +129,9 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background-color: rgba(194, 94, 56, 0.10);
-  color: #C25E38;
-  border: 1px solid rgba(194, 94, 56, 0.22);
-}
-
-.editorial-badge-amber {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background-color: rgba(217, 119, 6, 0.10);
-  color: #B45309;
-  border: 1px solid rgba(217, 119, 6, 0.22);
-}
-
-.editorial-badge-rose {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background-color: rgba(225, 29, 72, 0.08);
-  color: #BE123C;
-  border: 1px solid rgba(225, 29, 72, 0.20);
+  background-color: rgba(37, 99, 235, 0.08);
+  color: #2563EB;
+  border: 1px solid rgba(37, 99, 235, 0.22);
 }
 
 .editorial-badge-green {
@@ -130,24 +144,39 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background-color: rgba(5, 150, 105, 0.08);
-  color: #047857;
-  border: 1px solid rgba(5, 150, 105, 0.20);
+  background-color: rgba(16, 185, 129, 0.08);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.22);
 }
 
-/* Translucent Glass Panels */
+.editorial-badge-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background-color: rgba(217, 119, 6, 0.08);
+  color: #B45309;
+  border: 1px solid rgba(217, 119, 6, 0.22);
+}
+
+/* Glass Panels for Light Background */
 .glass-panel-subtle {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid #E5E0D8;
+  border: 1px solid #E2E8F0;
 }
 
 .glass-panel-dark {
-  background: rgba(28, 40, 38, 0.92);
+  background: rgba(15, 23, 42, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(229, 224, 216, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Monospace Micro Stat Styling */
@@ -156,24 +185,54 @@
   font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #C25E38;
+  color: #059669;
 }
 
-/* Custom Scrollbar in Warm Earth Tones */
+/* Custom Scrollbar in Light Slate & Blue/Green Tones */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF8F5;
+  background: #F8FAFC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D8D2C7;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C25E38;
+  background: #0EA5E9;
 }
+
+/* Keyframe Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(10px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+

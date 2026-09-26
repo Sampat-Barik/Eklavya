@@ -20,15 +20,15 @@ export const StoriesSection: React.FC = () => {
   return (
     <section id="stories" className="space-y-10 py-6 sm:py-10">
       {/* Header - Right Aligned Asymmetric */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-[#E5E0D8] pb-6">
-        <div className="text-xs text-[#1C2826]/60 max-w-sm order-2 sm:order-1 font-normal leading-relaxed">
-          <span className="font-semibold text-[#1C2826] block mb-1">Authentic Field Dispatches</span>
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-slate-200 pb-6">
+        <div className="text-xs text-slate-700 max-w-sm order-2 sm:order-1 font-normal leading-relaxed">
+          <span className="font-bold text-blue-700 block mb-1">Authentic Field Dispatches</span>
           Direct dispatches written by HIT student coordinators, village teachers & veterinary first-responders.
         </div>
 
         <SectionTitle
           badge="VOICES FROM THE FIELD"
-          badgeVariant="terracotta"
+          badgeVariant="green"
           title="Stories of Transformed Lives"
           highlightWord="Transformed Lives"
           subtitle="Real accounts of village children excelling in school, stray animals rehabilitated from critical injuries, and the students behind the missions."
@@ -45,7 +45,7 @@ export const StoriesSection: React.FC = () => {
             <PostCard
               story={stories[0]}
               onReadMore={(st) => setSelectedStory(st)}
-              className="h-full border border-[#E5E0D8] shadow-xs"
+              className="h-full border border-slate-700/80 shadow-xl"
             />
           </div>
 

@@ -83,49 +83,49 @@ export const LiveOperationsMap: React.FC = () => {
   return (
     <section className="space-y-8">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#E5E0D8] pb-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200 pb-6">
         <SectionTitle
           badge="GROUND PRESENCE"
-          badgeVariant="terracotta"
+          badgeVariant="green"
           title="Live Ground Operations in Haldia"
           highlightWord="Ground Operations"
           subtitle="Student teams deploy daily across Haldia's rural settlements and streets. Inspect real-time field deployments and direct impact below."
         />
 
         {/* Global Operational Status Pill */}
-        <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#E5E0D8] text-xs font-mono tracking-wide text-[#1C2826] shadow-xs shrink-0 self-start md:self-auto">
-          <span className="w-2 h-2 rounded-full bg-[#C25E38] animate-pulse" />
+        <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 text-xs font-mono tracking-wide text-slate-800 shadow-sm shrink-0 self-start md:self-auto">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>4 Active Squads Deployed Today</span>
         </div>
       </div>
 
-      {/* Main Command Console (Asymmetric 8:4 Grid) */}
-      <div className="rounded-2xl bg-white/85 backdrop-blur-md border border-[#E5E0D8] p-6 sm:p-8 shadow-xs">
+      {/* Main Command Console */}
+      <div className="rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200 p-6 sm:p-8 shadow-xl shadow-slate-200/50">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Left Column: Interactive Radar Grid & Zone Selector (8 cols) */}
           <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-between space-y-5">
             {/* Topological Radar Frame */}
-            <div className="relative w-full h-[300px] sm:h-[350px] rounded-xl bg-[#17201E] border border-[#293834] overflow-hidden group">
+            <div className="relative w-full h-[300px] sm:h-[350px] rounded-xl bg-slate-50 border border-slate-200 overflow-hidden group">
               {/* Abstract Coordinate Grid */}
               <div 
-                className="absolute inset-0 opacity-15"
+                className="absolute inset-0 opacity-30"
                 style={{
-                  backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0)',
+                  backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(37, 99, 235, 0.3) 1px, transparent 0)',
                   backgroundSize: '28px 28px'
                 }}
               />
 
               {/* Connecting Ground Circuits / Vectors */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none stroke-[#C25E38]/40 stroke-[1.2] fill-none">
+              <svg className="absolute inset-0 w-full h-full pointer-events-none stroke-blue-500/30 stroke-[1.2] fill-none">
                 <path d="M 120 100 Q 240 140 380 90 T 520 220" strokeDasharray="3 4" />
                 <path d="M 220 120 Q 320 190 420 170" strokeDasharray="2 3" />
                 <path d="M 380 90 L 420 170" strokeDasharray="2 4" />
               </svg>
 
               {/* Coordinates Stamp */}
-              <div className="absolute top-4 left-4 z-10 flex items-center gap-2 text-[10px] font-mono font-medium text-[#FAF8F5]/70 bg-[#17201E]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#293834]">
-                <MapPin size={12} className="text-[#C25E38]" />
+              <div className="absolute top-4 left-4 z-10 flex items-center gap-2 text-[10px] font-mono font-medium text-slate-700 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
+                <MapPin size={12} className="text-emerald-600" />
                 <span>HALDIA RADAR • 22.06° N, 88.07° E</span>
               </div>
 
@@ -142,13 +142,13 @@ export const LiveOperationsMap: React.FC = () => {
                   >
                     <div className="relative flex items-center justify-center">
                       {isSelected && (
-                        <span className="absolute -inset-2 rounded-full bg-[#C25E38]/30 animate-ping pointer-events-none" />
+                        <span className="absolute -inset-2 rounded-full bg-blue-500/30 animate-ping pointer-events-none" />
                       )}
                       <div
                         className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 shadow-md ${
                           isSelected
-                            ? 'bg-[#C25E38] text-white scale-115 ring-2 ring-[#C25E38]/50'
-                            : 'bg-[#212E2B] text-[#FAF8F5]/80 hover:bg-[#2A3B37] border border-[#293834]'
+                            ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white scale-110 ring-2 ring-blue-400'
+                            : 'bg-white text-blue-600 hover:bg-slate-100 border border-slate-300'
                         }`}
                       >
                         {zone.type === 'education' ? (
@@ -162,8 +162,8 @@ export const LiveOperationsMap: React.FC = () => {
                     <div
                       className={`mt-1.5 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider transition-all shadow-sm ${
                         isSelected
-                          ? 'bg-[#C25E38] text-white font-bold'
-                          : 'bg-[#17201E]/95 text-[#FAF8F5]/80 border border-[#293834]'
+                          ? 'bg-blue-600 text-white font-bold'
+                          : 'bg-white text-slate-700 border border-slate-200'
                       }`}
                     >
                       {zone.name.split(' ')[0]}
@@ -183,28 +183,28 @@ export const LiveOperationsMap: React.FC = () => {
                     onClick={() => setSelectedZoneId(zone.id)}
                     className={`p-3 rounded-xl text-left transition-all border cursor-pointer ${
                       isSelected
-                        ? 'bg-[#1C2826] text-[#FAF8F5] border-[#1C2826] shadow-sm'
-                        : 'bg-white/70 border-[#E5E0D8] hover:bg-white text-[#1C2826]'
+                        ? 'bg-blue-50 text-blue-900 border-blue-300 shadow-sm'
+                        : 'bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-800'
                     }`}
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className={`text-[10px] font-mono uppercase tracking-wider ${isSelected ? 'text-[#FAF8F5]/60' : 'text-[#1C2826]/50'}`}>
+                      <span className={`text-[10px] font-mono uppercase tracking-wider ${isSelected ? 'text-blue-700 font-bold' : 'text-slate-500'}`}>
                         {zone.id.toUpperCase()}
                       </span>
                       <span
                         className={`w-1.5 h-1.5 rounded-full ${
                           zone.statusColor === 'emerald'
-                            ? 'bg-emerald-600'
+                            ? 'bg-emerald-500'
                             : zone.statusColor === 'amber'
-                            ? 'bg-amber-600'
-                            : 'bg-[#C25E38]'
+                            ? 'bg-amber-500'
+                            : 'bg-blue-500'
                         }`}
                       />
                     </div>
                     <div className="font-semibold text-xs truncate">
                       {zone.name}
                     </div>
-                    <div className={`text-[10px] truncate mt-0.5 ${isSelected ? 'text-[#FAF8F5]/80' : 'text-[#1C2826]/60'}`}>
+                    <div className={`text-[10px] truncate mt-0.5 ${isSelected ? 'text-blue-700' : 'text-slate-500'}`}>
                       {zone.beneficiaries}
                     </div>
                   </button>
@@ -214,55 +214,55 @@ export const LiveOperationsMap: React.FC = () => {
           </div>
 
           {/* Right Column: Tactical Telemetry Inspector (4 cols) */}
-          <div className="lg:col-span-5 xl:col-span-4 rounded-xl bg-[#FAF8F5]/90 border border-[#E5E0D8] p-5 sm:p-6 flex flex-col justify-between space-y-5">
+          <div className="lg:col-span-5 xl:col-span-4 rounded-xl bg-slate-50 border border-slate-200 p-5 sm:p-6 flex flex-col justify-between space-y-5 shadow-sm">
             <div className="space-y-4">
               {/* Header with Type & Status */}
-              <div className="flex items-center justify-between gap-2 border-b border-[#E5E0D8] pb-3">
+              <div className="flex items-center justify-between gap-2 border-b border-slate-200 pb-3">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-white border border-[#E5E0D8] flex items-center justify-center text-[#C25E38]">
+                  <div className="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-blue-600 shadow-xs">
                     {currentZone.type === 'education' ? <BookOpen size={14} strokeWidth={1.75} /> : <Heart size={14} strokeWidth={1.75} />}
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#1C2826]/50 block">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block">
                       Sector Focus
                     </span>
-                    <span className="text-xs font-semibold text-[#1C2826] capitalize">
+                    <span className="text-xs font-semibold text-slate-800 capitalize">
                       {currentZone.type === 'education' ? 'Rural Education' : 'Animal Rescue'}
                     </span>
                   </div>
                 </div>
 
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border border-[#E5E0D8] bg-white text-[#1C2826]">
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border border-emerald-200 bg-emerald-50 text-emerald-700 font-bold">
                   {currentZone.status}
                 </span>
               </div>
 
               {/* Zone Title & Location */}
               <div>
-                <h3 className="text-xl font-serif font-normal text-[#1C2826] leading-snug">
+                <h3 className="text-xl font-serif font-bold text-slate-900 leading-snug">
                   {currentZone.name}
                 </h3>
-                <p className="text-xs text-[#1C2826]/60 flex items-center gap-1.5 mt-1">
-                  <MapPin size={12} className="text-[#C25E38] shrink-0" />
+                <p className="text-xs text-slate-600 flex items-center gap-1.5 mt-1">
+                  <MapPin size={12} className="text-blue-600 shrink-0" />
                   <span>{currentZone.location}</span>
                 </p>
               </div>
 
               {/* Impact Breakdown Stats */}
               <div className="grid grid-cols-2 gap-3 pt-1">
-                <div className="p-3 rounded-lg bg-white border border-[#E5E0D8] shadow-2xs">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#1C2826]/50 block">
+                <div className="p-3 rounded-lg bg-white border border-slate-200 shadow-xs">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block">
                     Impact Scope
                   </span>
-                  <span className="text-base font-serif font-normal text-[#1C2826] block mt-0.5">
+                  <span className="text-base font-serif font-bold text-slate-900 block mt-0.5">
                     {currentZone.beneficiaries}
                   </span>
                 </div>
-                <div className="p-3 rounded-lg bg-white border border-[#E5E0D8] shadow-2xs">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#1C2826]/50 block">
+                <div className="p-3 rounded-lg bg-white border border-slate-200 shadow-xs">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block">
                     Student Squad
                   </span>
-                  <span className="text-base font-serif font-normal text-[#1C2826] block mt-0.5">
+                  <span className="text-base font-serif font-bold text-slate-900 block mt-0.5">
                     {currentZone.volunteers} Active On-Duty
                   </span>
                 </div>
@@ -270,28 +270,28 @@ export const LiveOperationsMap: React.FC = () => {
 
               {/* Field Briefing */}
               <div className="space-y-1">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#1C2826]/50">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500">
                   Field Briefing
                 </span>
-                <p className="text-xs text-[#1C2826]/75 leading-relaxed font-normal">
+                <p className="text-xs text-slate-700 leading-relaxed font-normal">
                   {currentZone.details}
                 </p>
               </div>
 
               {/* Real-time Field Update */}
-              <div className="p-3 rounded-lg bg-white border border-[#E5E0D8]">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#1C2826]/50 block">
+              <div className="p-3 rounded-lg bg-white border border-slate-200 shadow-xs">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-700 block font-bold">
                   Latest Field Dispatch
                 </span>
-                <p className="text-xs text-[#1C2826]/80 leading-normal mt-0.5">
+                <p className="text-xs text-slate-700 leading-normal mt-0.5">
                   {currentZone.recentUpdate}
                 </p>
               </div>
             </div>
 
             {/* Coordinator Footer */}
-            <div className="pt-3 border-t border-[#E5E0D8] flex items-center justify-between text-xs text-[#1C2826]/60">
-              <span className="text-[11px]">Lead: <strong className="text-[#1C2826] font-medium">{currentZone.leadCoordinator}</strong></span>
+            <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
+              <span className="text-[11px]">Lead: <strong className="text-slate-800 font-medium">{currentZone.leadCoordinator}</strong></span>
               <span className="text-[10px] font-mono text-emerald-700 flex items-center gap-1 font-semibold">
                 <CheckCircle2 size={12} />
                 <span>Verified</span>
@@ -303,3 +303,4 @@ export const LiveOperationsMap: React.FC = () => {
     </section>
   );
 };
+

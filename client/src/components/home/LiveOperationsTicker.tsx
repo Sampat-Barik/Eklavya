@@ -58,34 +58,34 @@ export const LiveOperationsTicker: React.FC = () => {
   }, [tickerItems.length]);
 
   return (
-    <div className="w-full border-y border-[#E5E0D8] bg-white/80 backdrop-blur-md py-4 sm:py-5">
+    <div className="w-full border-y border-slate-200 bg-white/90 backdrop-blur-md py-4 sm:py-5 shadow-sm">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Live Status Kicker */}
         <div className="flex items-center gap-3 shrink-0 self-start md:self-center pl-2">
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#C25E38]/10 border border-[#C25E38]/20 text-[#C25E38] text-[10px] font-mono font-bold uppercase tracking-wider">
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-mono font-bold uppercase tracking-wider">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C25E38] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C25E38]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             <span>Live Telemetry</span>
           </div>
-          <div className="h-4 w-[1px] bg-[#E5E0D8] hidden md:block" />
+          <div className="h-4 w-[1px] bg-slate-200 hidden md:block" />
         </div>
 
         {/* Desktop Multi-column View with Tabular Alignment */}
-        <div className="hidden lg:grid grid-cols-5 gap-4 divide-x divide-[#E5E0D8] w-full pl-2">
+        <div className="hidden lg:grid grid-cols-5 gap-4 divide-x divide-slate-200 w-full pl-2">
           {tickerItems.map((item) => {
             const Icon = item.icon;
             return (
               <div key={item.id} className="flex items-center gap-3 px-3">
-                <div className="w-7 h-7 rounded-lg bg-[#C25E38]/10 flex items-center justify-center text-[#C25E38] shrink-0">
+                <div className="w-7 h-7 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 shrink-0">
                   <Icon size={14} strokeWidth={1.75} />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="font-serif font-extrabold text-base text-[#1C2826] leading-tight">
+                  <span className="font-serif font-extrabold text-base text-slate-900 leading-tight">
                     {item.value}
                   </span>
-                  <span className="text-[11px] font-mono text-[#C25E38] truncate uppercase tracking-wider font-bold mt-0.5">
+                  <span className="text-[11px] font-mono text-emerald-700 truncate uppercase tracking-wider font-bold mt-0.5">
                     {item.label}
                   </span>
                 </div>
@@ -98,7 +98,7 @@ export const LiveOperationsTicker: React.FC = () => {
         <div className="lg:hidden w-full overflow-hidden">
           <div
             key={currentIndex}
-            className="flex items-center justify-between bg-white/80 border border-[#E5E0D8] rounded-xl px-4 py-3"
+            className="flex items-center justify-between bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-sm"
           >
             <div className="flex items-center gap-3">
               {(() => {
@@ -106,19 +106,19 @@ export const LiveOperationsTicker: React.FC = () => {
                 const Icon = item.icon;
                 return (
                   <>
-                    <div className="w-8 h-8 rounded-lg bg-[#C25E38]/10 flex items-center justify-center text-[#C25E38]">
+                    <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600">
                       <Icon size={15} strokeWidth={1.75} />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-serif font-extrabold text-base text-[#1C2826]">
+                        <span className="font-serif font-extrabold text-base text-slate-900">
                           {item.value}
                         </span>
-                        <span className="text-xs font-bold text-[#1C2826]">
+                        <span className="text-xs font-bold text-slate-700">
                           {item.label}
                         </span>
                       </div>
-                      <span className="text-[11px] text-[#1C2826]/65 block font-normal">
+                      <span className="text-[11px] text-slate-500 block font-normal">
                         {item.detail}
                       </span>
                     </div>
@@ -134,7 +134,7 @@ export const LiveOperationsTicker: React.FC = () => {
                   onClick={() => setCurrentIndex(idx)}
                   aria-label={`Go to metric ${idx + 1}`}
                   className={`h-1 rounded-full transition-all ${
-                    idx === currentIndex ? 'w-4 bg-[#C25E38]' : 'w-1.5 bg-[#E5E0D8]'
+                    idx === currentIndex ? 'w-4 bg-emerald-600' : 'w-1.5 bg-slate-300'
                   }`}
                 />
               ))}
@@ -145,3 +145,4 @@ export const LiveOperationsTicker: React.FC = () => {
     </div>
   );
 };
+

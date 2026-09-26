@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { Navbar } from '../components/Navbar';
 import {
   User,
   LayoutDashboard,
@@ -9,11 +10,6 @@ import {
   Award,
   Megaphone,
   Heart,
-  LogOut,
-  ArrowUpRight,
-  Menu,
-  X,
-  Sparkles,
   ShieldAlert
 } from 'lucide-react';
 
@@ -21,12 +17,16 @@ export const UserPortalLayout: React.FC = () => {
   const { user, logout, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   if (!isAuthenticated || !user) {
     navigate('/login');
     return null;
   }
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
 
   if (user.isSuspended) {
     return (
@@ -40,10 +40,7 @@ export const UserPortalLayout: React.FC = () => {
             Your member account has been temporarily suspended. Please contact the society administration.
           </p>
           <button
-            onClick={() => {
-              logout();
-              navigate('/login');
-            }}
+            onClick={handleLogout}
             className="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition-colors"
           >
             Sign Out
@@ -52,11 +49,6 @@ export const UserPortalLayout: React.FC = () => {
       </div>
     );
   }
-
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
-  };
 
   const navLinks = [
     { name: 'Overview', path: '/portal', icon: LayoutDashboard, exact: true },
@@ -69,156 +61,87 @@ export const UserPortalLayout: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] flex flex-col antialiased">
-      {/* 1. Dedicated Portal Header */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          {/* Brand & Portal Badge */}
-          <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-600 text-white flex items-center justify-center font-extrabold text-base shadow-sm shadow-blue-500/20 group-hover:scale-105 transition-transform">
-                E
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif font-black text-lg text-slate-900 tracking-tight leading-none group-hover:text-blue-600 transition-colors">
-                  Eklavya
-                </span>
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">
-                  Hands That Care
-                </span>
-              </div>
-            </Link>
+    <div className="min-h-screen bg-gradient-to-b from-[#F9FAFB] via-[#ECFDF5] to-[#F0FDF4] flex flex-col antialiased relative overflow-x-hidden">
+      {/* 5-Layer Botanical Background Orchestrator Wrapper */}
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none text-emerald-900/10">
+        {/* Top Left */}
+        <img
+          src="/bg-leaf-1.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute -top-10 -left-10 w-96 opacity-20 -rotate-12"
+          style={{ filter: 'invert(40%) sepia(20%) saturate(150%) hue-rotate(110deg)' }}
+        />
 
-            <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/70 text-blue-700 text-[11px] font-extrabold uppercase tracking-wide">
-              <Sparkles size={12} className="text-blue-600" />
-              <span>User Portal</span>
-            </span>
-          </div>
+        {/* Mid Right */}
+        <img
+          src="/bg-leaf-2.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-[30%] -right-16 w-80 opacity-15 rotate-45"
+          style={{ filter: 'invert(40%) sepia(20%) saturate(150%) hue-rotate(110deg)' }}
+        />
 
-          {/* Right User Bar */}
-          <div className="flex items-center gap-3">
-            {/* Public Site Link */}
-            <Link
-              to="/"
-              className="hidden md:inline-flex items-center gap-1 text-xs font-bold text-slate-600 hover:text-blue-600 px-3 py-1.5 rounded-lg hover:bg-slate-100 transition-colors"
-            >
-              <span>Public Site</span>
-              <ArrowUpRight size={13} />
-            </Link>
+        {/* Center Watermark */}
+        <img
+          src="/bg-leaf-3.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] opacity-5"
+          style={{ filter: 'invert(40%) sepia(20%) saturate(150%) hue-rotate(110deg)' }}
+        />
 
-            {/* Staff / Admin Link if user has administrative rights */}
-            {user.role !== 'registered_user' && (
-              <Link
-                to="/admin"
-                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-50 border border-amber-200 hover:bg-amber-100 px-3 py-1.5 rounded-xl transition-colors"
+        {/* Bottom Left */}
+        <img
+          src="/bg-leaf-4.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute bottom-[15%] -left-20 w-[28rem] opacity-10 rotate-12"
+          style={{ filter: 'invert(40%) sepia(20%) saturate(150%) hue-rotate(110deg)' }}
+        />
+
+        {/* Bottom Right */}
+        <img
+          src="/bg-leaf-5.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute -bottom-10 -right-10 w-96 opacity-20 -rotate-12"
+          style={{ filter: 'invert(40%) sepia(20%) saturate(150%) hue-rotate(110deg)' }}
+        />
+      </div>
+
+      {/* Universal Top Navigation Header (Constant across entire site) */}
+      <Navbar />
+
+      {/* Secondary Horizontal Pill Bar for Portal Sub-navigation */}
+      <div className="flex justify-center mt-4 px-4 z-40 overflow-x-auto">
+        <div className="inline-flex items-center gap-1 bg-white/80 backdrop-blur-md border border-emerald-100/90 rounded-full p-1.5 shadow-sm max-w-full">
+          {navLinks.map((tab) => {
+            const Icon = tab.icon;
+            const active = tab.exact ? location.pathname === tab.path : location.pathname.startsWith(tab.path);
+            return (
+              <NavLink
+                key={tab.path}
+                to={tab.path}
+                end={tab.exact}
+                className={({ isActive }) =>
+                  `flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap ${
+                    isActive
+                      ? 'bg-teal-800 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-teal-950 hover:bg-emerald-50/70'
+                  }`
+                }
               >
-                <span>Admin Panel</span>
-                <ArrowUpRight size={13} />
-              </Link>
-            )}
-
-            {/* User Pill */}
-            <div className="flex items-center gap-2.5 pl-2 border-l border-slate-200">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-100 to-indigo-100 border border-blue-200/60 flex items-center justify-center font-bold text-blue-800 text-xs shadow-xs overflow-hidden">
-                {user.avatar ? (
-                  <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
-                ) : (
-                  user.name.charAt(0).toUpperCase()
-                )}
-              </div>
-              <div className="hidden lg:flex flex-col text-left leading-tight">
-                <span className="text-xs font-bold text-slate-900 max-w-[140px] truncate">{user.name}</span>
-                <span className="text-[10px] font-semibold text-blue-600 capitalize">
-                  {user.role === 'registered_user' ? 'Member' : user.role.replace('_', ' ')}
-                </span>
-              </div>
-            </div>
-
-            {/* Logout Action */}
-            <button
-              onClick={handleLogout}
-              className="p-2 rounded-xl text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition-colors"
-              title="Sign Out"
-            >
-              <LogOut size={16} />
-            </button>
-
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setMobileNavOpen(!mobileNavOpen)}
-              className="lg:hidden p-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100"
-              aria-label="Toggle navigation"
-            >
-              {mobileNavOpen ? <X size={18} /> : <Menu size={18} />}
-            </button>
-          </div>
+                <Icon size={13} className={active ? 'text-white' : 'text-emerald-700'} />
+                <span>{tab.name}</span>
+              </NavLink>
+            );
+          })}
         </div>
-
-        {/* Desktop Secondary Horizontal Navigation Bar */}
-        <div className="hidden lg:block border-t border-slate-100 bg-slate-50/70">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-1 overflow-x-auto py-1">
-            {navLinks.map((tab) => {
-              const Icon = tab.icon;
-              const active = tab.exact ? location.pathname === tab.path : location.pathname.startsWith(tab.path);
-              return (
-                <NavLink
-                  key={tab.path}
-                  to={tab.path}
-                  end={tab.exact}
-                  className={({ isActive }) =>
-                    `flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
-                      isActive
-                        ? 'bg-blue-600 text-white shadow-xs shadow-blue-500/20'
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
-                    }`
-                  }
-                >
-                  <Icon size={14} className={active ? 'text-white' : 'text-slate-500'} />
-                  <span>{tab.name}</span>
-                </NavLink>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Mobile Navigation Drawer */}
-        {mobileNavOpen && (
-          <div className="lg:hidden border-t border-slate-200 bg-white p-4 space-y-1.5 shadow-lg">
-            {navLinks.map((tab) => {
-              const Icon = tab.icon;
-              return (
-                <NavLink
-                  key={tab.path}
-                  to={tab.path}
-                  end={tab.exact}
-                  onClick={() => setMobileNavOpen(false)}
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all ${
-                      isActive
-                        ? 'bg-blue-600 text-white'
-                        : 'text-slate-700 hover:bg-slate-50'
-                    }`
-                  }
-                >
-                  <Icon size={16} />
-                  <span>{tab.name}</span>
-                </NavLink>
-              );
-            })}
-            <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold px-2">
-              <Link to="/" onClick={() => setMobileNavOpen(false)} className="text-slate-600 hover:text-blue-600">
-                Public Website →
-              </Link>
-              <button onClick={handleLogout} className="text-rose-600">
-                Log Out
-              </button>
-            </div>
-          </div>
-        )}
-      </header>
+      </div>
 
       {/* Main Member Content Area */}
-      <main className="flex-1 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-1 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         <Outlet />
       </main>
 

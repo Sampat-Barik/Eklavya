@@ -71,35 +71,35 @@ export const Events: React.FC = () => {
   return (
     <div className="max-w-[1720px] 2xl:max-w-[1800px] w-full mx-auto px-6 sm:px-10 lg:px-16 py-10 sm:py-16 space-y-16 sm:space-y-24">
       {/* 1. Open Architectural Page Header */}
-      <div className="border-b border-[#E5E0D8] pb-12 sm:pb-16">
+      <div className="border-b border-slate-200 pb-12 sm:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
           <div className="lg:col-span-8 space-y-4">
-            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#C25E38] font-bold">
-              <Calendar size={14} className="text-[#C25E38]" />
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-blue-700 font-bold">
+              <Calendar size={14} className="text-blue-600" />
               <span>Ground Mobilizations & Calendar • Eklavya Society</span>
             </div>
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#1C2826] leading-[1.08]">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
               Field Campaigns & <br className="hidden sm:inline" />
               Community Drives.
             </h1>
-            <p className="text-[#1C2826]/70 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+            <p className="text-slate-700 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
               Explore upcoming outreach initiatives, anti-rabies vaccination rounds, textbook donation campaigns, and flood relief operations led by student volunteers.
             </p>
           </div>
 
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
-            <div className="bg-white/85 backdrop-blur-md border border-[#E5E0D8] rounded-xl p-5 w-full sm:w-auto lg:w-full space-y-2.5 shadow-2xs">
-              <div className="flex items-center justify-between text-xs font-mono text-[#1C2826]/60">
+            <div className="bg-white/90 backdrop-blur-md border border-slate-200 rounded-xl p-5 w-full sm:w-auto lg:w-full space-y-2.5 shadow-sm">
+              <div className="flex items-center justify-between text-xs font-mono text-slate-500">
                 <span>OPERATIONAL BASE</span>
-                <span className="font-bold text-[#1C2826]">HIT SAC</span>
+                <span className="font-bold text-slate-900">HIT SAC</span>
               </div>
-              <div className="flex items-center justify-between text-xs font-mono text-[#1C2826]/60">
+              <div className="flex items-center justify-between text-xs font-mono text-slate-500">
                 <span>MOBILIZATION</span>
-                <span className="font-bold text-[#1C2826]">STUDENTS & ALUMNI</span>
+                <span className="font-bold text-slate-900">STUDENTS & ALUMNI</span>
               </div>
-              <div className="flex items-center justify-between text-xs font-mono text-[#1C2826]/60">
+              <div className="flex items-center justify-between text-xs font-mono text-slate-500">
                 <span>PARTICIPATION</span>
-                <span className="font-bold text-[#C25E38]">OPEN TO ALL STUDENTS</span>
+                <span className="font-bold text-emerald-700">OPEN TO ALL STUDENTS</span>
               </div>
             </div>
           </div>
@@ -108,13 +108,13 @@ export const Events: React.FC = () => {
 
       {/* 2. Filter Tabs */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-1.5 p-1 bg-[#E5E0D8]/40 border border-[#E5E0D8] rounded-xl">
+        <div className="flex items-center gap-1.5 p-1 bg-slate-100 border border-slate-200 rounded-xl">
           <button
             onClick={() => setActiveTab('all')}
             className={`font-mono text-xs uppercase tracking-wider font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer ${
               activeTab === 'all'
-                ? 'bg-[#1C2826] text-[#FAF8F5]'
-                : 'text-[#1C2826]/70 hover:text-[#1C2826]'
+                ? 'bg-blue-600 text-white'
+                : 'text-slate-700 hover:text-slate-900'
             }`}
           >
             All Drives
@@ -123,8 +123,8 @@ export const Events: React.FC = () => {
             onClick={() => setActiveTab('upcoming')}
             className={`font-mono text-xs uppercase tracking-wider font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer ${
               activeTab === 'upcoming'
-                ? 'bg-[#1C2826] text-[#FAF8F5]'
-                : 'text-[#1C2826]/70 hover:text-[#1C2826]'
+                ? 'bg-blue-600 text-white'
+                : 'text-slate-700 hover:text-slate-900'
             }`}
           >
             Upcoming
@@ -133,22 +133,22 @@ export const Events: React.FC = () => {
             onClick={() => setActiveTab('past')}
             className={`font-mono text-xs uppercase tracking-wider font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer ${
               activeTab === 'past'
-                ? 'bg-[#1C2826] text-[#FAF8F5]'
-                : 'text-[#1C2826]/70 hover:text-[#1C2826]'
+                ? 'bg-emerald-600 text-white'
+                : 'text-slate-700 hover:text-slate-900'
             }`}
           >
             Past Records
           </button>
         </div>
 
-        <span className="font-mono text-xs text-[#1C2826]/60">
+        <span className="font-mono text-xs text-slate-500">
           SHOWING {filteredEvents.length} DOCUMENTED DRIVES
         </span>
       </div>
 
       {/* 3. Event Cards Grid */}
       {loading ? (
-        <div className="text-center py-16 text-[#1C2826]/60 font-mono text-xs">QUERYING EVENT REGISTRY...</div>
+        <div className="text-center py-16 text-slate-500 font-mono text-xs">QUERYING EVENT REGISTRY...</div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredEvents.map((event) => {
@@ -160,29 +160,29 @@ export const Events: React.FC = () => {
             return (
               <div
                 key={event._id}
-                className="bg-white/85 backdrop-blur-md border border-[#E5E0D8] rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xs flex flex-col justify-between hover:border-[#C25E38]/40 transition-colors"
+                className="bg-white/90 backdrop-blur-md border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6 shadow-md flex flex-col justify-between hover:border-emerald-500/40 transition-colors"
               >
                 <div className="space-y-4">
                   {/* Top Header Bar with Date & Badges */}
-                  <div className="flex items-start justify-between gap-4 border-b border-[#E5E0D8] pb-4">
+                  <div className="flex items-start justify-between gap-4 border-b border-slate-200 pb-4">
                     <div className="flex items-center gap-3">
-                      <div className="bg-[#FAF8F5] border border-[#E5E0D8] rounded-xl p-2.5 text-center min-w-[54px]">
-                        <span className="font-mono text-[10px] uppercase font-bold text-[#1C2826]/50 block leading-tight">
+                      <div className="bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-center min-w-[54px] shadow-xs">
+                        <span className="font-mono text-[10px] uppercase font-bold text-blue-700 block leading-tight">
                           {month}
                         </span>
-                        <span className="font-serif text-2xl font-normal text-[#1C2826] block leading-tight">
+                        <span className="font-serif text-2xl font-extrabold text-slate-900 block leading-tight">
                           {day}
                         </span>
-                        <span className="font-mono text-[9px] text-[#1C2826]/40 block leading-tight">
+                        <span className="font-mono text-[9px] text-slate-500 block leading-tight">
                           {year}
                         </span>
                       </div>
 
                       <div>
-                        <span className="font-mono text-[10px] uppercase tracking-wider text-[#C25E38] font-bold block">
+                        <span className="font-mono text-[10px] uppercase tracking-wider text-blue-700 font-bold block">
                           {event.category || 'General Drive'}
                         </span>
-                        <span className="text-xs text-[#1C2826]/60 font-medium">
+                        <span className="text-xs text-slate-500 font-medium">
                           HIT Haldia Action Protocol
                         </span>
                       </div>
@@ -191,8 +191,8 @@ export const Events: React.FC = () => {
                     <span
                       className={`font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md font-bold ${
                         event.isUpcoming
-                          ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                          : 'bg-[#FAF8F5] text-[#1C2826]/60 border border-[#E5E0D8]'
+                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                          : 'bg-slate-100 text-slate-600 border border-slate-200'
                       }`}
                     >
                       {event.isUpcoming ? 'MOBILIZING' : 'ARCHIVED'}
@@ -201,22 +201,22 @@ export const Events: React.FC = () => {
 
                   {/* Title & Location */}
                   <div className="space-y-2">
-                    <h2 className="font-serif text-xl sm:text-2xl font-normal text-[#1C2826] leading-snug">
+                    <h2 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 leading-snug">
                       {event.title}
                     </h2>
-                    <div className="flex items-center gap-1.5 text-xs text-[#1C2826]/60 font-mono">
-                      <MapPin size={13} className="text-[#C25E38] shrink-0" />
+                    <div className="flex items-center gap-1.5 text-xs text-slate-600 font-mono">
+                      <MapPin size={13} className="text-blue-600 shrink-0" />
                       <span>{event.location}</span>
                     </div>
                   </div>
 
-                  <p className="text-[#1C2826]/70 text-xs sm:text-sm leading-relaxed font-normal">
+                  <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
                     {event.description}
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-[#E5E0D8]">
-                  <button className="w-full py-2.5 bg-[#FAF8F5] hover:bg-[#1C2826] hover:text-white text-[#1C2826] border border-[#E5E0D8] font-mono text-xs uppercase tracking-wider font-semibold rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                <div className="pt-2 border-t border-slate-200">
+                  <button className="w-full py-2.5 bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-mono text-xs uppercase tracking-wider font-semibold rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs">
                     <span>{event.isUpcoming ? 'REGISTER AS VOLUNTEER' : 'VIEW FIELD DISPATCH'}</span>
                     <ArrowRight size={13} />
                   </button>

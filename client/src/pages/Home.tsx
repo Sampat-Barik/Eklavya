@@ -9,7 +9,7 @@ import { MethodologySection } from '../components/home/MethodologySection';
 import { AboutImpactSection } from '../components/home/AboutImpactSection';
 import { EventsSection } from '../components/home/EventsSection';
 import { StoriesSection } from '../components/home/StoriesSection';
-import { ContactSection } from '../components/home/ContactSection';
+import { CommunityLowerSection } from '../components/home/CommunityLowerSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,20 +77,19 @@ export const Home: React.FC = () => {
         <AboutImpactSection />
       </div>
 
-
-      {/* 7. Upcoming Events & Ground Drives (7:5 Split) */}
+      {/* 6. Upcoming Events & Ground Drives */}
       <div className="gsap-reveal-section">
         <EventsSection />
       </div>
 
-      {/* 8. Field Stories & Grassroot Dispatches (5:7 Split) */}
+      {/* 7. Field Stories & Grassroot Dispatches */}
       <div className="gsap-reveal-section">
         <StoriesSection />
       </div>
 
-      {/* 9. Campus Hub & Direct Contact */}
+      {/* 8. Community & Impact Lower Block: Testimonials, FAQ & Campus Contact */}
       <div id="contact" className="gsap-reveal-section scroll-mt-24">
-        <ContactSection />
+        <CommunityLowerSection />
       </div>
     </div>
   );

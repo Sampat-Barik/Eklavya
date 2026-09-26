@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, ArrowRight, BookOpen, Activity, MapPin } from 'lucide-react';
+import { Heart, ArrowRight, BookOpen, Activity, MapPin, TrendingUp, Sparkles } from 'lucide-react';
 import { Scene3D } from '../3d/Scene3D';
 
 export const Hero: React.FC = () => {
@@ -18,75 +18,91 @@ export const Hero: React.FC = () => {
         {/* Left Column: Editorial Branding, Statement & CTAs (7 cols) */}
         <div className="lg:col-span-7 space-y-8 text-left">
           {/* Subtle Institutional Kicker */}
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#C25E38]/10 border border-[#C25E38]/20 text-[#C25E38] text-[11px] font-mono tracking-wider uppercase font-bold">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C25E38] animate-pulse" />
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 text-[11px] font-mono tracking-wider uppercase font-bold shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <Sparkles size={12} className="text-cyan-600" />
             <span>HIT Haldia Socio-Animal Welfare Society</span>
-            <span className="text-[#C25E38]/40">•</span>
-            <span className="font-sans normal-case text-xs font-semibold">Active On-Ground Daily</span>
+            <span className="text-emerald-400">•</span>
+            <span className="font-sans normal-case text-xs font-semibold text-cyan-700">Active On-Ground Daily</span>
           </div>
 
           {/* Monumental Editorial Headline */}
           <div className="space-y-4">
-            <h1 className="text-5xl sm:text-6xl lg:text-[76px] font-serif font-extrabold text-[#1C2826] tracking-[-0.03em] leading-[1.03]">
+            <h1 className="text-5xl sm:text-6xl lg:text-[76px] font-serif font-extrabold text-slate-900 tracking-[-0.03em] leading-[1.03]">
               Nurturing Minds,{' '}
-              <span className="italic font-normal block sm:inline text-[#C25E38]">
+              <span className="italic font-normal block sm:inline bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 bg-clip-text text-transparent drop-shadow-sm">
                 Protecting Lives.
               </span>
             </h1>
-            <p className="font-serif italic text-xl sm:text-2xl text-[#1C2826]/80 font-normal">
+            <p className="font-serif italic text-xl sm:text-2xl text-slate-600 font-normal">
               "Hands That Care" — Student-Led Grassroot Compassion
             </p>
           </div>
 
           {/* Mission Copy with High Legibility */}
-          <p className="text-[#1C2826]/75 text-base sm:text-lg leading-[1.7] font-normal max-w-xl">
-            Student-driven social welfare from Haldia Institute of Technology. Providing daily free evening school to <strong className="text-[#1C2826] font-bold">150+ rural village children</strong> and round-the-clock emergency medical rescue, feeding & sterilization to <strong className="text-[#1C2826] font-bold">120+ street animals</strong> across Haldia.
+          <p className="text-slate-700 text-base sm:text-lg leading-[1.7] font-normal max-w-xl">
+            Student-driven social welfare from Haldia Institute of Technology. Providing daily free evening school to <strong className="text-cyan-700 font-bold">150+ rural village children</strong> and round-the-clock emergency medical rescue, feeding & sterilization to <strong className="text-emerald-700 font-bold">120+ street animals</strong> across Haldia.
           </p>
 
           {/* High-Contrast Crisp Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <button
               onClick={() => scrollToSection('live-operations')}
-              className="bg-[#C25E38] hover:bg-[#a84f2e] active:scale-98 text-white px-7 py-4 rounded-xl text-xs sm:text-sm font-semibold font-mono uppercase tracking-wider shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 flex items-center gap-2.5 group cursor-pointer"
+              className="bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 active:scale-98 text-white px-7 py-4 rounded-xl text-xs sm:text-sm font-semibold font-mono uppercase tracking-wider shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all hover:-translate-y-0.5 flex items-center gap-2.5 group cursor-pointer"
             >
-              <Activity size={16} className="text-white/80" strokeWidth={1.75} />
+              <Activity size={16} className="text-cyan-100" strokeWidth={1.75} />
               <span>Explore Field Operations</span>
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" strokeWidth={1.75} />
             </button>
 
             <Link
               to="/help-us"
-              className="border border-[#E5E0D8] hover:border-[#C25E38] bg-white hover:bg-slate-50 text-[#1C2826] px-6 py-4 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 shadow-2xs group hover:-translate-y-0.5"
+              className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-4 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/20 group hover:-translate-y-0.5"
             >
-              <Heart size={15} className="text-[#C25E38] group-hover:scale-110 transition-transform fill-current" strokeWidth={1.75} />
+              <Heart size={15} className="text-white group-hover:scale-110 transition-transform fill-current" strokeWidth={1.75} />
               <span>Help Us</span>
             </Link>
 
             <button
               onClick={() => scrollToSection('how-we-work')}
-              className="text-xs font-mono uppercase tracking-wider text-[#C25E38] font-bold hover:underline underline-offset-4 px-2 py-3 transition-colors cursor-pointer"
+              className="text-xs font-mono uppercase tracking-wider text-cyan-700 font-bold hover:text-cyan-900 hover:underline underline-offset-4 px-2 py-3 transition-colors cursor-pointer"
             >
               Our Methodology →
             </button>
           </div>
 
-          {/* Unboxed Micro-Metrics Strip with Fine Hairlines */}
-          <div className="grid grid-cols-3 gap-6 pt-8 border-t border-[#E5E0D8] max-w-lg">
+          {/* Micro-Metrics Strip with Fine Hairlines & Sparklines */}
+          <div className="grid grid-cols-3 gap-6 pt-8 border-t border-slate-200 max-w-lg">
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1C2826]">150+</div>
-              <p className="text-[11px] font-mono tracking-wider text-[#C25E38] font-bold uppercase">
+              <div className="flex items-center gap-2">
+                <span className="text-3xl sm:text-4xl font-serif font-extrabold text-slate-900">150+</span>
+                <span className="inline-flex items-center text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 font-semibold">
+                  <TrendingUp size={10} className="mr-0.5 text-emerald-600" /> +14%
+                </span>
+              </div>
+              <p className="text-[11px] font-mono tracking-wider text-cyan-700 font-bold uppercase">
                 Children Taught Daily
               </p>
             </div>
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1C2826]">120+</div>
-              <p className="text-[11px] font-mono tracking-wider text-[#C25E38] font-bold uppercase">
+              <div className="flex items-center gap-2">
+                <span className="text-3xl sm:text-4xl font-serif font-extrabold text-slate-900">120+</span>
+                <span className="inline-flex items-center text-[10px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 font-semibold">
+                  <TrendingUp size={10} className="mr-0.5 text-emerald-600" /> +18%
+                </span>
+              </div>
+              <p className="text-[11px] font-mono tracking-wider text-emerald-700 font-bold uppercase">
                 Animals Rescued
               </p>
             </div>
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1C2826]">60+</div>
-              <p className="text-[11px] font-mono tracking-wider text-[#C25E38] font-bold uppercase">
+              <div className="flex items-center gap-2">
+                <span className="text-3xl sm:text-4xl font-serif font-extrabold text-slate-900">60+</span>
+                <span className="inline-flex items-center text-[10px] font-mono text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200 font-semibold">
+                  Active
+                </span>
+              </div>
+              <p className="text-[11px] font-mono tracking-wider text-blue-700 font-bold uppercase">
                 HIT Volunteers
               </p>
             </div>
@@ -95,48 +111,48 @@ export const Hero: React.FC = () => {
 
         {/* Right Column: Architectural Visual Console (5 cols) */}
         <div className="lg:col-span-5 relative w-full flex items-center justify-center">
-          <div className="w-full h-[480px] sm:h-[540px] rounded-[28px] overflow-hidden bg-[#1C2826] border border-[#E5E0D8] shadow-2xl relative group">
+          <div className="w-full h-[480px] sm:h-[540px] rounded-[28px] overflow-hidden bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-xl shadow-slate-200/50 relative group hover:border-emerald-500/40 transition-colors">
             
             {/* 3D Scene Viewport */}
             <Scene3D />
 
             {/* Subtle Viewport Hairline Grid */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
             {/* Telemetry Badge 1: Top-Right */}
             <div className="absolute top-5 right-5 z-20 pointer-events-none animate-float-slow hidden sm:block">
-              <div className="glass-panel-dark px-3.5 py-2 rounded-xl shadow-xl flex items-center gap-2.5 border border-white/[0.08] backdrop-blur-xl">
-                <div className="w-7 h-7 rounded-lg bg-[#C25E38] text-white flex items-center justify-center">
+              <div className="bg-white/95 backdrop-blur-xl px-3.5 py-2 rounded-xl shadow-md flex items-center gap-2.5 border border-cyan-200">
+                <div className="w-7 h-7 rounded-lg bg-cyan-50 text-cyan-600 border border-cyan-200 flex items-center justify-center">
                   <BookOpen size={14} strokeWidth={1.75} />
                 </div>
                 <div>
-                  <span className="text-[9px] font-mono uppercase text-slate-400 tracking-wider block leading-tight">
+                  <span className="text-[9px] font-mono uppercase text-slate-500 tracking-wider block leading-tight">
                     Village Classes
                   </span>
-                  <span className="text-white text-xs font-semibold">150+ Rural Scholars</span>
+                  <span className="text-cyan-700 text-xs font-semibold">150+ Rural Scholars</span>
                 </div>
               </div>
             </div>
 
             {/* Telemetry Badge 2: Bottom-Left */}
             <div className="absolute bottom-5 left-5 z-20 pointer-events-none animate-float-reverse hidden sm:block">
-              <div className="glass-panel-dark px-3.5 py-2 rounded-xl shadow-xl flex items-center gap-2.5 border border-white/[0.08] backdrop-blur-xl">
-                <div className="w-7 h-7 rounded-lg bg-[#C25E38] text-white flex items-center justify-center">
+              <div className="bg-white/95 backdrop-blur-xl px-3.5 py-2 rounded-xl shadow-md flex items-center gap-2.5 border border-emerald-200">
+                <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center">
                   <Heart size={14} className="fill-current" strokeWidth={1.75} />
                 </div>
                 <div>
-                  <span className="text-[9px] font-mono uppercase text-slate-400 tracking-wider block leading-tight">
+                  <span className="text-[9px] font-mono uppercase text-slate-500 tracking-wider block leading-tight">
                     Veterinary Squad
                   </span>
-                  <span className="text-white text-xs font-semibold">120+ Rescued & Treated</span>
+                  <span className="text-emerald-700 text-xs font-semibold">120+ Rescued & Treated</span>
                 </div>
               </div>
             </div>
 
             {/* Radar Coordinates Tag: Bottom Right */}
             <div className="absolute bottom-5 right-5 z-20 pointer-events-none">
-              <div className="bg-[#1C2826]/90 border border-white/10 px-3 py-1 rounded-lg flex items-center gap-1.5 text-[10px] font-mono text-slate-300 backdrop-blur-md">
-                <MapPin size={11} className="text-[#C25E38]" />
+              <div className="bg-white/95 border border-slate-200 px-3 py-1 rounded-lg flex items-center gap-1.5 text-[10px] font-mono text-slate-700 shadow-sm backdrop-blur-md">
+                <MapPin size={11} className="text-emerald-600" />
                 <span>22.06° N, 88.07° E</span>
               </div>
             </div>
@@ -146,3 +162,4 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+

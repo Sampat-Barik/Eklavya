@@ -26,11 +26,11 @@ export const ProgramsSection: React.FC = () => {
   return (
     <section id="programs" className="space-y-10 py-6 sm:py-10">
       {/* Section Header - Left-Aligned Editorial */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-[#E5E0D8] pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-slate-200 pb-6">
         {/* Left-aligned Title */}
         <SectionTitle
           badge="OUR CAUSES & INITIATIVES"
-          badgeVariant="terracotta"
+          badgeVariant="green"
           title="Direct Actions Making Real Change"
           highlightWord="Real Change"
           subtitle="Explore our active grassroots welfare initiatives in and around Haldia. Each project is powered entirely by dedicated college students."
@@ -38,15 +38,15 @@ export const ProgramsSection: React.FC = () => {
         />
 
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1.5 bg-[#E5E0D8]/40 rounded-xl shrink-0 border border-[#E5E0D8]">
+        <div className="flex flex-wrap items-center gap-1.5 p-1.5 bg-slate-100 rounded-xl shrink-0 border border-slate-200">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-[#1C2826] text-[#FAF8F5] font-bold shadow-2xs'
-                  : 'text-[#1C2826]/70 hover:text-[#1C2826] font-medium'
+                  ? 'bg-blue-600 text-white font-bold shadow-sm'
+                  : 'text-slate-700 hover:text-slate-900 font-medium'
               }`}
             >
               {cat}
